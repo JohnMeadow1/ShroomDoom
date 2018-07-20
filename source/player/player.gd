@@ -3,6 +3,7 @@ extends MeshInstance
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+export var player_id = 0;
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

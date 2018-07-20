@@ -2,7 +2,7 @@
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 
-[sub_resource type="CapsuleMesh" id=3]
+[sub_resource type="CapsuleMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 radius = 1.0
@@ -10,7 +10,7 @@ mid_height = 1.0
 radial_segments = 64
 rings = 8
 
-[node name="player" type="MeshInstance" index="0"]
+[node name="player" type="MeshInstance"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 0 )
 layers = 1
@@ -22,11 +22,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 script = ExtResource( 1 )
 _sections_unfolded = [ "Geometry", "Transform" ]
+player_id = 0
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
