@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -108,11 +107,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="player" parent="." index="1" instance=ExtResource( 2 )]
-
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -0.00610328, 1.00805, -0.000239372 )
-
-[node name="enviroment" type="Node" parent="." index="2"]
+[node name="enviroment" type="Node" parent="." index="1"]
 
 [node name="OmniLight" type="DirectionalLight" parent="enviroment" index="0"]
 
@@ -142,9 +137,9 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
 
-[node name="map" type="Node" parent="." index="3"]
+[node name="map" type="Node" parent="." index="2"]
 
-[node name="tree" type="StaticBody" parent="." index="4"]
+[node name="tree" type="StaticBody" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.870786, -5.75497 )
 input_ray_pickable = true
@@ -184,7 +179,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="mushroom" type="MeshInstance" parent="." index="5"]
+[node name="mushroom" type="MeshInstance" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09264, 0.870786, -5.79006 )
 layers = 1

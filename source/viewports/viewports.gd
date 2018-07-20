@@ -15,8 +15,8 @@ onready var camera4 = $ViewportsContainer/Player4/Viewport4/Camera2D
 func _ready():
 	
 	viewport2.world = viewport1.world
-#	viewport3.world = viewport1.world
-#	viewport4.world = viewport1.world
+	viewport3.world = viewport1.world
+	viewport4.world = viewport1.world
 	
 	pass
 
