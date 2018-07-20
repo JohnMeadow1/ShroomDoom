@@ -12,13 +12,12 @@ var state     = null
 
 var move       = Vector3()
 var walk_cycle = 0
+
 func _ready():
 	
 	self.state = STATE_IDLE
 	
 func _physics_process(delta):
-
-
 
 #	# Fight 
 	if Input.is_action_pressed("alt_p" + str(PLAYER_NUM)):
@@ -66,4 +65,4 @@ func _physics_process(delta):
 	$Spatial.translation.z =  -sin( walk_cycle ) * 0.2
 	move = move_and_slide(move)
 	move *= 0.90
-
+	$Spatial.rotation.z = atan2(move.x,-move.z)
