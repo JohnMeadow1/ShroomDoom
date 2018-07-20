@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -63,15 +63,7 @@ size = Vector2( 200, 200 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="CapsuleMesh" id=3]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-radius = 1.0
-mid_height = 1.0
-radial_segments = 64
-rings = 8
-
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=3]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 2, 2, 2 )
@@ -79,11 +71,11 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 1, 1, 1 )
 
-[sub_resource type="CylinderMesh" id=6]
+[sub_resource type="CylinderMesh" id=5]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 top_radius = 1.0
@@ -92,11 +84,11 @@ height = 2.0
 radial_segments = 64
 rings = 4
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 
 extents = Vector3( 2, 2, 2 )
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -119,7 +111,6 @@ _sections_unfolded = [ "Geometry" ]
 [node name="player" parent="." index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -0.00610328, 1.00805, -0.000239372 )
-mesh = SubResource( 3 )
 
 [node name="enviroment" type="Node" parent="." index="2"]
 
@@ -176,7 +167,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
+mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform" ]
@@ -186,7 +177,7 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="tree" index="1"]
 
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -205,7 +196,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform" ]
@@ -239,7 +230,7 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="mushroom/Area" index="0"]
 
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 disabled = false
 
 
