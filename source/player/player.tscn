@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -62,7 +63,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Roughness" ]
 
-[node name="player" type="KinematicBody"]
+[node name="player" type="KinematicBody" index="0"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 0 )
 input_ray_pickable = true
@@ -80,29 +81,12 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
 PLAYER_NUM = 1
 
-[node name="Camera" type="Camera" parent="." index="0"]
-
-transform = Transform( 1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10 )
-keep_aspect = 1
-cull_mask = 1048575
-environment = null
-h_offset = 0.0
-v_offset = 0.0
-doppler_tracking = 0
-projection = 1
-current = true
-fov = 70.0
-size = 10.0
-near = 0.05
-far = 100.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 
-[node name="Spatial" type="Spatial" parent="." index="2"]
+[node name="Spatial" type="Spatial" parent="." index="1"]
 
 transform = Transform( -1, 8.74228e-008, 0, -8.74228e-008, -1, 8.72665e-008, 7.62908e-015, 8.72665e-008, 1, 0, 0, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -114,7 +98,7 @@ layers = 1
 material_override = SubResource( 2 )
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -123,5 +107,30 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform" ]
+
+[node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 4 )]
+
+transform = Transform( -0.44794, 0.0523008, -0.215905, -0.206571, -0.27683, 0.361516, -0.0817224, 0.413074, 0.269613, 0.193395, -0.308041, 0.199018 )
+
+[node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 4 )]
+
+transform = Transform( -0.359935, -0.0202178, 0.173314, 0.174083, -0.0687146, 0.353516, 0.0119047, 0.393535, 0.070631, -0.25454, -0.308041, 0.199018 )
+
+[node name="Camera" type="Camera" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 60.0
+size = 10.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform" ]
 
 
