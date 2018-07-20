@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="CylinderMesh" id=6]
+[sub_resource type="CylinderMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 top_radius = 1.0
@@ -9,14 +9,13 @@ height = 2.0
 radial_segments = 64
 rings = 4
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=2]
 
 extents = Vector3( 2, 2, 2 )
 
 [node name="mushroom" type="MeshInstance"]
 
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09264, 0.870786, -5.79006 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -26,7 +25,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 6 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform" ]
@@ -60,7 +59,7 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 disabled = false
 
 

@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://viewports/viewports.gd" type="Script" id=1]
 [ext_resource path="res://main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
-
-[sub_resource type="World" id=1]
-
-_sections_unfolded = [ "Resource" ]
 
 [node name="splitscreen" type="Node" index="0"]
 
@@ -46,10 +42,11 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport1" type="Viewport" parent="ViewportsContainer/Player1" index="0"]
 
+editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
-world = SubResource( 1 )
+world = null
 transparent_bg = false
 msaa = 0
 hdr = true
@@ -96,6 +93,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport2" type="Viewport" parent="ViewportsContainer/Player2" index="0"]
 
+editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -123,7 +121,7 @@ _sections_unfolded = [ "Rendering" ]
 
 [node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 3 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 4.53771 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 24.8887 )
 PLAYER_NUM = 2
 
 [node name="Player3" type="ViewportContainer" parent="ViewportsContainer" index="2"]
@@ -147,6 +145,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport3" type="Viewport" parent="ViewportsContainer/Player3" index="0"]
 
+editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -173,7 +172,7 @@ shadow_atlas_quad_3 = 4
 
 [node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 3 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, -6.22092 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 12.4162, 1, -6.22092 )
 PLAYER_NUM = 3
 
 [node name="Player4" type="ViewportContainer" parent="ViewportsContainer" index="3"]
@@ -198,6 +197,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport4" type="Viewport" parent="ViewportsContainer/Player4" index="0"]
 
+editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -224,7 +224,7 @@ shadow_atlas_quad_3 = 4
 
 [node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 3 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 3.32041, 1, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 11.9195, 1, 0 )
 PLAYER_NUM = 4
 
 

@@ -1,16 +1,16 @@
 extends Node
 
-onready var mainScene = $ViewportsContainer/Player1/Viewport1/main
+#onready var mainScene = $ViewportsContainer/Player1/Viewport1/main
 
 onready var viewport1 = $ViewportsContainer/Player1/Viewport1
 onready var viewport2 = $ViewportsContainer/Player2/Viewport2
 onready var viewport3 = $ViewportsContainer/Player3/Viewport3
 onready var viewport4 = $ViewportsContainer/Player4/Viewport4
 
-onready var camera1 = $ViewportsContainer/Player1/Viewport1/Camera2D
-onready var camera2 = $ViewportsContainer/Player2/Viewport2/Camera2D
-onready var camera3 = $ViewportsContainer/Player3/Viewport3/Camera2D
-onready var camera4 = $ViewportsContainer/Player4/Viewport4/Camera2D
+#onready var camera1 = $ViewportsContainer/Player1/Viewport1/Camera2D
+#onready var camera2 = $ViewportsContainer/Player2/Viewport2/Camera2D
+#onready var camera3 = $ViewportsContainer/Player3/Viewport3/Camera2D
+#onready var camera4 = $ViewportsContainer/Player4/Viewport4/Camera2D
 
 func _ready():
 	
