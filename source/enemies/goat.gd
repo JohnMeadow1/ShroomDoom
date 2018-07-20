@@ -3,7 +3,7 @@ extends KinematicBody
 export(int) var RANGE
 
 const MOVE_SPEED_WALK  = 10
-const MOVE_SPEED_CHASE = 30
+const MOVE_SPEED_CHASE = 50 * 2.5
 const MOVE_SPEED_RUN   = 70
 
 enum {STATE_IDLE, STATE_WALK, STATE_CHASE}
@@ -27,8 +27,13 @@ func _process(delta):
 	
 	if (target != null && self.translation.distance_to(target.translation) > 0.5):
 		offset = MOVE_SPEED_CHASE * delta
-		print("Chase: " + target.get_name())
-	
+#		print("Chase: " + target.get_name())
+		
+		var direction = target.translation - self.translation
+		direction = direction.normalized()
+		
+		look_at(target.translation, Vector3(0,1,0))
+		move_and_slide(direction * offset)
 	pass
 
 
