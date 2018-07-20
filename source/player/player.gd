@@ -63,7 +63,7 @@ func _physics_process(delta):
 				walk_cycle = 0
 #		print (walk_cycle)
 
-	$MeshInstance.translation.y = 1 + sin( walk_cycle ) * 0.2
+	$MeshInstance.translation.z =  -sin( walk_cycle ) * 0.2
 	move = move_and_slide(move)
 	move *= 0.90
 
