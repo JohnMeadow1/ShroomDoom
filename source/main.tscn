@@ -92,12 +92,12 @@ _sections_unfolded = [ "Geometry" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.870786, -6.3119 )
 
-[node name="OmniLight" type="OmniLight" parent="." index="3"]
+[node name="OmniLight2" type="OmniLight" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.1384, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.84562, 4.36644 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
-light_energy = 10.0
+light_energy = 1.0
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
@@ -109,10 +109,53 @@ shadow_bias = 0.15
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 25.1138
+omni_range = 19.1613
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni", "Shadow" ]
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="OmniLight2" index="0"]
+
+transform = Transform( 0.256896, -0.593734, 0.762551, 0.189555, 0.804662, 0.562662, -0.947667, 0, 0.319259, 0, 2.45896, 5.17355 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 2
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="BakedLightmap" type="BakedLightmap" parent="." index="4"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.36707, 0 )
+layers = 1
+bake_cell_size = 0.25
+bake_quality = 1
+bake_mode = 0
+bake_propagation = 1.0
+bake_energy = 1.0
+bake_hdr = false
+bake_extents = Vector3( 85.6064, 10, 66.1049 )
+capture_cell_size = 0.5
+image_path = "."
+light_data = null
 
 

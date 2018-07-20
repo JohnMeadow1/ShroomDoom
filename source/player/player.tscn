@@ -63,7 +63,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Roughness" ]
 
-[node name="player" type="KinematicBody" index="0"]
+[node name="player" type="KinematicBody"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 0 )
 input_ray_pickable = true
