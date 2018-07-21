@@ -5,7 +5,7 @@ var blink_value     = 1
 var blink_iterattor = 1
 var size            = 0
 var max_size        = 20
-var growth_rate     = 0.005
+var growth_rate     = 0.01
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

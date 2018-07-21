@@ -34,9 +34,16 @@ func _physics_process(delta):
 			self.state = STATE_IDLE
 #	# Fight 
 	elif Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
+		var pick_up = false
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
 			node.queue_free()
 			globals.add_score(PLAYER_NUM,1)
+			pick_up = true
+		if pick_up:
+			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
+		else:
+			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
+		
 	else:
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
@@ -62,15 +69,19 @@ func _physics_process(delta):
 			walk_cycle += 0.2
 			if walk_cycle >= PI:
 				walk_cycle -= PI
-		else:
-			self.state = STATE_IDLE
+				get_node("steps/Steps_" + str( randi() % 10 + 1 ) ).play()
+		elif self.state != STATE_IDLE:
+
 			if walk_cycle > PI * 0.5:
 				walk_cycle += 0.2
 			else:
 				walk_cycle -= 0.2
 				
 			if walk_cycle < 0 or walk_cycle > PI:
+				if !walk_cycle == 0:
+					get_node("steps/Steps_"+str(randi()%10+1)).play()
 				walk_cycle = 0
+				self.state = STATE_IDLE
 #		print (walk_cycle)
 
 	$Spatial.translation.z =  -sin( walk_cycle ) * 0.2

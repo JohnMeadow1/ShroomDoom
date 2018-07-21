@@ -19,7 +19,7 @@ func _physics_process(delta):
 		grow_shroom()
 		
 	if $Shrooms.get_child_count() < 5:
-		if randi() % 10000 < 1:
+		if randi() % 10000 < 2:
 			growth_speed   = rand_range(8,10)
 			growing_timer  = 1
 			growing_shroom = spawn_shroom(0)

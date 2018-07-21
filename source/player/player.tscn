@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
@@ -13,6 +13,15 @@
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=11]
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=12]
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=17]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=18]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=22]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -116,7 +125,32 @@ material = SubResource( 3 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 1, 1 )
 
-[node name="player" type="KinematicBody" index="0" groups=[
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 18 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 19 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+
+audio_stream = ExtResource( 20 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+
+audio_stream = ExtResource( 21 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=9]
+
+audio_stream = ExtResource( 22 )
+random_pitch = 1.1
+
+[node name="player" type="KinematicBody" groups=[
 "players",
 ]]
 
@@ -226,7 +260,7 @@ editor/display_folded = true
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -235,7 +269,7 @@ bus = "Master"
 [node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
 
 stream = ExtResource( 6 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -244,7 +278,7 @@ bus = "Master"
 [node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
 
 stream = ExtResource( 7 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -253,7 +287,7 @@ bus = "Master"
 [node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
 
 stream = ExtResource( 8 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -262,7 +296,7 @@ bus = "Master"
 [node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
 
 stream = ExtResource( 9 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -271,7 +305,7 @@ bus = "Master"
 [node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -280,7 +314,7 @@ bus = "Master"
 [node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -289,7 +323,7 @@ bus = "Master"
 [node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
 
 stream = ExtResource( 12 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -298,7 +332,7 @@ bus = "Master"
 [node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
 
 stream = ExtResource( 13 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -307,6 +341,93 @@ bus = "Master"
 [node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
 
 stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="pick_up" type="Node" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="Pick_up_1" type="AudioStreamPlayer" parent="pick_up" index="0"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab" type="Node" parent="." index="6"]
+
+[node name="stab_1" type="AudioStreamPlayer" parent="stab" index="0"]
+
+stream = SubResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab_2" type="AudioStreamPlayer" parent="stab" index="1"]
+
+stream = SubResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab_3" type="AudioStreamPlayer" parent="stab" index="2"]
+
+stream = SubResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab_4" type="AudioStreamPlayer" parent="stab" index="3"]
+
+stream = SubResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab_5" type="AudioStreamPlayer" parent="stab" index="4"]
+
+stream = SubResource( 9 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
