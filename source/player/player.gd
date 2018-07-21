@@ -99,3 +99,7 @@ func push(direction):
 	move += direction*50
 	self.state = STATE_STUN
 	$Particles.emitting = true
+	
+func popShrooms(amount):
+	var score = globals.player_score_label[PLAYER_NUM]
+	globals.player_score_label[PLAYER_NUM] = clamp(score-amount,0,10000)
