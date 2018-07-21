@@ -11,7 +11,7 @@
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 
-[node name="viewports" type="Node" index="0"]
+[node name="viewports" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -249,7 +249,5 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
-
-[node name="Dialog" type="Node" parent="." index="3"]
 
 
