@@ -43,7 +43,7 @@ func _physics_process(delta):
 			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
 		else:
 			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
-		
+			$AnimationPlayer.play("swing")
 	else:
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
