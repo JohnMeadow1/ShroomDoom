@@ -4,7 +4,7 @@
 [ext_resource path="res://main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
 
-[node name="splitscreen" type="Node" index="0"]
+[node name="splitscreen" type="Node"]
 
 script = ExtResource( 1 )
 

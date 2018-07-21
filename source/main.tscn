@@ -1,130 +1,34 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://enemies/goat.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/tree.tscn" type="PackedScene" id=3]
-
-[sub_resource type="SpatialMaterial" id=1]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.139648, 0.558594, 0.165833, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
-
-[sub_resource type="PlaneMesh" id=2]
-
-material = SubResource( 1 )
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector2( 200, 200 )
-subdivide_width = 0
-subdivide_depth = 0
+[ext_resource path="res://map/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/tree.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Node"]
 
 script = ExtResource( 1 )
 
-[node name="ground" type="MeshInstance" parent="." index="0"]
+[node name="Goat" parent="." index="0" instance=ExtResource( 2 )]
 
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Geometry" ]
+[node name="map" type="Node" parent="." index="1"]
 
-[node name="Goat" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Map" parent="map" index="0" instance=ExtResource( 3 )]
 
-[node name="map" type="Node" parent="." index="2"]
-
-[node name="tree" parent="map" index="0" instance=ExtResource( 3 )]
+[node name="tree" parent="map" index="1" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.870786, -6.3119 )
 
-[node name="OmniLight2" type="OmniLight" parent="." index="3"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.84562, 4.36644 )
+transform = Transform( 0.508277, -0.659745, 0.553526, 0, 0.642742, 0.766082, -0.861194, -0.389382, 0.326691, 0, 9.50543, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
-light_bake_mode = 2
-light_cull_mask = -1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 19.1613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="DirectionalLight" type="DirectionalLight" parent="OmniLight2" index="0"]
-
-transform = Transform( 0.256896, -0.593734, 0.762551, 0.189555, 0.804662, 0.562662, -0.947667, 0, 0.319259, 0, 2.45896, 5.17355 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 2
+light_bake_mode = 1
 light_cull_mask = -1
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
@@ -141,21 +45,6 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="BakedLightmap" type="BakedLightmap" parent="." index="4"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.36707, 0 )
-layers = 1
-bake_cell_size = 0.25
-bake_quality = 1
-bake_mode = 0
-bake_propagation = 1.0
-bake_energy = 1.0
-bake_hdr = false
-bake_extents = Vector3( 85.6064, 10, 66.1049 )
-capture_cell_size = 0.5
-image_path = "."
-light_data = null
+_sections_unfolded = [ "Light" ]
 
 
