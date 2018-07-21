@@ -86,9 +86,9 @@ _sections_unfolded = [ "Albedo" ]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Map" type="Spatial"]
+[node name="Map" type="Spatial" index="0"]
 
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -872,67 +872,62 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 9.35812, 0, -15.9576 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump9" parent="Cutdown" index="2" instance=ExtResource( 29 )]
+[node name="Stump11" parent="Cutdown" index="2" instance=ExtResource( 29 )]
+
+transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, -3.81972, 0, -12.4609 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Stump9" parent="Cutdown" index="3" instance=ExtResource( 29 )]
 
 transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 2.47534, 0, -10.2883 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump10" parent="Cutdown" index="3" instance=ExtResource( 29 )]
+[node name="Stump10" parent="Cutdown" index="4" instance=ExtResource( 29 )]
 
 transform = Transform( 2.20838, 0, 0.977405, 0, 2.41501, 0, -0.977405, 0, 2.20838, 14.8029, 0, -17.4224 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump11" parent="Cutdown" index="4" instance=ExtResource( 29 )]
-
-transform = Transform( 2.20838, 0, 0.977405, 0, 2.41501, 0, -0.977405, 0, 2.20838, -6.29711, 2.27129, -17.1578 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Stump12" parent="Cutdown" index="5" instance=ExtResource( 29 )]
-
-transform = Transform( 2.20838, 0, 0.977405, 0, 2.41501, 0, -0.977405, 0, 2.20838, -7.42598, 2.27129, -10.2077 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Stump2" parent="Cutdown" index="6" instance=ExtResource( 29 )]
+[node name="Stump2" parent="Cutdown" index="5" instance=ExtResource( 29 )]
 
 transform = Transform( 3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, 8.33523, 0, -12.378 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump3" parent="Cutdown" index="7" instance=ExtResource( 29 )]
+[node name="Stump3" parent="Cutdown" index="6" instance=ExtResource( 29 )]
 
 transform = Transform( 3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, -2.78414, 0, -17.3329 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump13" parent="Cutdown" index="8" instance=ExtResource( 29 )]
+[node name="Stump13" parent="Cutdown" index="7" instance=ExtResource( 29 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump14" parent="Cutdown" index="9" instance=ExtResource( 29 )]
+[node name="Stump14" parent="Cutdown" index="8" instance=ExtResource( 29 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump15" parent="Cutdown" index="10" instance=ExtResource( 29 )]
+[node name="Stump15" parent="Cutdown" index="9" instance=ExtResource( 29 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, 8.04622, 0, -8.11064 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump4" parent="Cutdown" index="11" instance=ExtResource( 29 )]
+[node name="Stump4" parent="Cutdown" index="10" instance=ExtResource( 29 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 11.8096, 0, -17.937 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump5" parent="Cutdown" index="12" instance=ExtResource( 29 )]
+[node name="Stump5" parent="Cutdown" index="11" instance=ExtResource( 29 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 4.67407, 0, -17.1961 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump6" parent="Cutdown" index="13" instance=ExtResource( 29 )]
+[node name="Stump6" parent="Cutdown" index="12" instance=ExtResource( 29 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, -1.0887, 0, -12.8037 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump7" parent="Cutdown" index="14" instance=ExtResource( 29 )]
+[node name="Stump7" parent="Cutdown" index="13" instance=ExtResource( 29 )]
 
 transform = Transform( 3.65861, 0, 1.57042, 0, 3.98141, 0, -1.57042, 0, 3.65861, 17.655, 0, -19.7801 )
 _sections_unfolded = [ "Transform" ]
