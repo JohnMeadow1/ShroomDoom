@@ -27,13 +27,9 @@ func _ready():
 	
 func _physics_process(delta):
 
-	if self.state == STATE_STUN:
-		stunTime += delta
-		if stunTime >= STUN_TIME:
-			stunTime = 0
-			self.state = STATE_IDLE
+	
 #	# Fight 
-	elif Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
+	if Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
 		var pick_up = false
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
 			node.queue_free()
@@ -43,7 +39,16 @@ func _physics_process(delta):
 			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
 		else:
 			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
-		
+			for body in get_tree().get_nodes_in_group("players"):
+				if body != self && body.translation.distance_to(self.translation) < 3:
+					var direction = body.translation - self.translation
+					body.push(direction.normalized() / 2)
+					
+	elif self.state == STATE_STUN:
+		stunTime += delta
+		if stunTime >= STUN_TIME:
+			stunTime = 0
+			self.state = STATE_IDLE
 	else:
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
