@@ -11,7 +11,7 @@
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 
-[node name="viewports" type="Node" index="0"]
+[node name="viewports" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -68,7 +68,7 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 128
+shadow_atlas_size = 1
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
@@ -120,7 +120,7 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 128
+shadow_atlas_size = 1
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
@@ -172,7 +172,7 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 128
+shadow_atlas_size = 1
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
@@ -225,7 +225,7 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 128
+shadow_atlas_size = 1
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3

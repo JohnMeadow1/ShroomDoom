@@ -1,16 +1,25 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
 [ext_resource path="res://star.png" type="Texture" id=4]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=13]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=2]
 
 render_priority = 0
 trail_divisor = 1
@@ -48,7 +57,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Radial Accel", "Spread" ]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=3]
 
 render_priority = 0
 flags_transparent = true
@@ -101,9 +110,9 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Flags", "Metallic", "Roughness" ]
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=4]
 
-material = SubResource( 2 )
+material = SubResource( 3 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 1, 1 )
 
@@ -205,9 +214,103 @@ fract_delta = true
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 2 )
 draw_passes = 1
-draw_pass_1 = SubResource( 3 )
+draw_pass_1 = SubResource( 4 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
+
+[node name="steps" type="Node" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
