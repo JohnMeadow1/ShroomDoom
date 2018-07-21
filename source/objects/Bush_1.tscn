@@ -5,10 +5,6 @@
 [ext_resource path="res://objects/Grass_Stones_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Models/Bush_1_extra_crisp.obj" type="ArrayMesh" id=4]
 
-
-
-
-
 [sub_resource type="SpatialMaterial" id=1]
 
 render_priority = 0
@@ -32,7 +28,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.179688, 0.179688, 0.179688, 1 )
+albedo_color = Color( 1, 1, 1, 1 )
 albedo_texture = ExtResource( 2 )
 metallic = 0.0
 metallic_specular = 0.0
