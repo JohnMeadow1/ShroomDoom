@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/Models/Nuke.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://player/player_model.tscn" type="PackedScene" id=2]
+
+[node name="NPC" type="Spatial"]
+
+[node name="Nuke" type="MeshInstance" parent="." index="0"]
+
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="player" parent="." index="1" instance=ExtResource( 2 )]
+
+transform = Transform( -1, -8.74228e-008, 3.82137e-015, 0, -4.37114e-008, -1, 8.74228e-008, -1, 4.37114e-008, -0.0908484, 2.64148, 0.00756097 )
+
+
