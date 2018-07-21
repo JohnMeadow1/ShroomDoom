@@ -79,7 +79,9 @@ resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Viewport")
 
-[node name="NPC" type="StaticBody" index="0"]
+[node name="NPC" type="StaticBody" groups=[
+"sage",
+]]
 
 input_ray_pickable = true
 input_capture_on_drag = false

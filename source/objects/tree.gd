@@ -10,7 +10,7 @@ func _ready():
 	var shrooms = max(0, randi() % 30 - 25)
 	if shrooms > 0 :
 		for i in range( shrooms ):
-			spawn_shroom(rand_range(1,5))
+			spawn_shroom(rand_range(3,7))
 
 	
 func _physics_process(delta):
@@ -31,7 +31,7 @@ func spawn_shroom(size):
 	new_shroom.translation.x += rand_range(1,5) * (( randi() % 2 ) * 2 - 1)
 	new_shroom.translation.z += rand_range(1,5) * (( randi() % 2 ) * 2 - 1)
 	new_shroom.size           = size
-	new_shroom.get_node("MeshInstance").material_override = SpatialMaterial.new()
+#	new_shroom.get_node("MeshInstance").material_override = SpatialMaterial.new()
 	$Shrooms.add_child( new_shroom )
 	return new_shroom
 

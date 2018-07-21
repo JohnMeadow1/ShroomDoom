@@ -166,7 +166,7 @@ _sections_unfolded = [ "Albedo" ]
 radius = 0.112277
 height = 0.216211
 
-[node name="Stump" type="StaticBody" index="0"]
+[node name="Stump" type="StaticBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false

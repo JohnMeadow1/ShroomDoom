@@ -1,33 +1,108 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
-[ext_resource path="res://star.png" type="Texture" id=4]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=5]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=6]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=9]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=10]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=11]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=12]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=13]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=14]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=15]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=16]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=17]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=18]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=19]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=20]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=21]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=22]
-[ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://player/slash.png" type="Texture" id=5]
+[ext_resource path="res://player/star.png" type="Texture" id=6]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=17]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=18]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=24]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "idle"
+length = 5.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/knife:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3.3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -16.6198, -1.13866, 165.708 ), Vector3( -35.4233, -1.33897, 166.159 ), Vector3( -23.0695, 9.09716, 140.744 ), Vector3( -9.74611, 5.56153, 145.97 ), Vector3( -16.6198, -1.13866, 165.708 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/knife:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3.4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.663174, -0.534722, 0.36286 ), Vector3( 0.663174, -0.533701, 0.40245 ), Vector3( 0.625361, -0.520054, 0.378758 ), Vector3( 0.663174, -0.534722, 0.36286 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "swing"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial/knife/MeshInstance/Sprite3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial/knife:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.663174, -0.561648, -0.284138 ), Vector3( 0.663174, -1.01974, 0.841612 ), Vector3( 0.663174, -1.01974, 0.841612 ), Vector3( 0.663174, -0.534722, 0.36286 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spatial/knife:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32.3279, -1.29126, 164.692 ), Vector3( -74.2951, -4.43029, 169.629 ), Vector3( -74.2951, -4.43029, 169.629 ), Vector3( -16.6198, -1.13866, 165.708 ) ]
+}
 
 [sub_resource type="ParticlesMaterial" id=2]
 
@@ -91,7 +166,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource( 6 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -128,80 +203,28 @@ size = Vector2( 1, 1 )
 
 [sub_resource type="AudioStreamRandomPitch" id=5]
 
-audio_stream = ExtResource( 18 )
+audio_stream = ExtResource( 20 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
-audio_stream = ExtResource( 19 )
+audio_stream = ExtResource( 21 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 20 )
+audio_stream = ExtResource( 22 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
 
-audio_stream = ExtResource( 21 )
+audio_stream = ExtResource( 23 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=9]
 
-audio_stream = ExtResource( 22 )
+audio_stream = ExtResource( 24 )
 random_pitch = 1.1
-
-[sub_resource type="SpatialMaterial" id=10]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.34375, 0.34375, 0.34375, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
 
 [node name="player" type="KinematicBody" index="0" groups=[
 "players",
@@ -231,7 +254,6 @@ disabled = false
 
 [node name="Spatial" type="Spatial" parent="." index="1"]
 
-editor/display_folded = true
 transform = Transform( -1, 1.50996e-007, -1.69407e-021, -1.50996e-007, -1, 8.72665e-008, 1.31769e-014, 8.72665e-008, 1, 0, 0, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -260,7 +282,75 @@ transform = Transform( -0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 
 
 transform = Transform( -0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956 )
 
-[node name="Camera" type="Camera" parent="." index="2"]
+[node name="knife" type="Spatial" parent="Spatial" index="3"]
+
+transform = Transform( -0.967456, -0.252318, -0.0190419, 0.236546, -0.928567, 0.28602, -0.0898497, 0.272207, 0.958034, 0.663174, -0.534722, 0.36286 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/knife" index="0"]
+
+transform = Transform( 6.20962, 2.71149, -1.75739, 3.23119, -5.21087, 3.37731, 4.17232e-007, -3.80718, -5.87413, -0.0852794, 0.190571, -0.351686 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+material/2 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial/knife/MeshInstance" index="0"]
+
+transform = Transform( 0.00221287, -0.0288375, 0.139899, 0.0167077, 0.139007, 0.0283893, -0.14186, 0.0159217, 0.00552594, -0.0106305, 0.0580437, 0.0477413 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = false
+flip_v = false
+modulate = Color( 1, 1, 1, 0 )
+opacity = 1.0
+pixel_size = 0.01
+axis = 2
+transparent = true
+shaded = false
+double_sided = true
+alpha_cut = 0
+texture = ExtResource( 5 )
+vframes = 1
+hframes = 1
+frame = 0
+region_enabled = false
+region_rect = Rect2( 0, 0, 0, 0 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = "idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 10 )
+anims/swing = SubResource( 11 )
+next/swing = "idle"
+blend_times = [  ]
+
+[node name="Camera" type="Camera" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10 )
 keep_aspect = 1
@@ -277,7 +367,7 @@ near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles" type="Particles" parent="." index="3"]
+[node name="Particles" type="Particles" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, -5.72861e-008, -1.31055 )
 layers = 1
@@ -291,7 +381,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 emitting = false
 amount = 6
-lifetime = 1.0
+lifetime = 0.5
 one_shot = true
 preprocess = 0.0
 speed_scale = 1.0
@@ -300,36 +390,18 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
-local_coords = false
+local_coords = true
 draw_order = 0
 process_material = SubResource( 2 )
 draw_passes = 1
 draw_pass_1 = SubResource( 4 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
-[node name="steps" type="Node" parent="." index="4"]
+[node name="steps" type="Node" parent="." index="5"]
 
 editor/display_folded = true
 
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
-
-stream = ExtResource( 5 )
-volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
-
-stream = ExtResource( 6 )
-volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
 
 stream = ExtResource( 7 )
 volume_db = -10.0
@@ -338,7 +410,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
+[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
 
 stream = ExtResource( 8 )
 volume_db = -10.0
@@ -347,7 +419,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
+[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
 
 stream = ExtResource( 9 )
 volume_db = -10.0
@@ -356,7 +428,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
+[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
 
 stream = ExtResource( 10 )
 volume_db = -10.0
@@ -365,7 +437,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
+[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
 
 stream = ExtResource( 11 )
 volume_db = -10.0
@@ -374,7 +446,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
+[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
 
 stream = ExtResource( 12 )
 volume_db = -10.0
@@ -383,7 +455,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
+[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
 
 stream = ExtResource( 13 )
 volume_db = -10.0
@@ -392,38 +464,38 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
+[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 14 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="pick_up" type="Node" parent="." index="5"]
+[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
+
+stream = ExtResource( 15 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
+
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="pick_up" type="Node" parent="." index="6"]
 
 editor/display_folded = true
 
 [node name="Pick_up_1" type="AudioStreamPlayer" parent="pick_up" index="0"]
-
-stream = ExtResource( 14 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
-
-stream = ExtResource( 15 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
 
 stream = ExtResource( 16 )
 volume_db = 0.0
@@ -432,7 +504,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
+[node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
 
 stream = ExtResource( 17 )
 volume_db = 0.0
@@ -441,7 +513,25 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="stab" type="Node" parent="." index="6"]
+[node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
+
+stream = ExtResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab" type="Node" parent="." index="7"]
 
 editor/display_folded = true
 
@@ -490,13 +580,10 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Weapon" type="Spatial" parent="." index="7"]
+[node name="Particles2" type="Particles" parent="." index="8"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Weapon" index="0"]
-
-transform = Transform( 4.00878, 0, 0, 0, -1.75229e-007, 4.00878, 0, -4.00878, -1.75229e-007, -0.702026, 0.43393, 0.526062 )
 layers = 1
-material_override = SubResource( 10 )
+material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = false
@@ -504,11 +591,21 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 23 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-material/2 = null
-_sections_unfolded = [ "Geometry", "Transform" ]
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = null
+draw_passes = 1
+draw_pass_1 = null
 
 

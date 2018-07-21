@@ -14,12 +14,12 @@ var stunTime  = 0
 
 var move       = Vector3()
 var walk_cycle = 0
-
+var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
 
 func _ready():
-	
-	self.state = STATE_IDLE
+	originPosition   = self.translation
+	self.state       = STATE_IDLE
 	base_rotation[0] = $Spatial/eye_node.rotation
 	base_rotation[1] = $Spatial/eye_node2.rotation
 	$Spatial/MeshInstance.material_override = load("res://player/player.material").duplicate()
@@ -27,12 +27,14 @@ func _ready():
 	
 func _physics_process(delta):
 
+	
+#	# Fight 
 	if self.state == STATE_STUN:
 		stunTime += delta
 		if stunTime >= STUN_TIME:
 			stunTime = 0
 			self.state = STATE_IDLE
-#	# Fight 
+			
 	elif Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
 		var pick_up = false
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
@@ -43,7 +45,15 @@ func _physics_process(delta):
 			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
 		else:
 			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
-		
+			$AnimationPlayer.play("swing")
+			for body in get_tree().get_nodes_in_group("players"):
+				if body != self && body.translation.distance_to(self.translation) < 3:
+					var direction = body.translation - self.translation
+					body.push(direction.normalized() / 4)
+					push(-direction.normalized() / 4)
+			for body in get_tree().get_nodes_in_group("sage"):
+				if body.translation.distance_to(self.translation) < 4:
+					body.checkWin(self)
 	else:
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
@@ -86,6 +96,7 @@ func _physics_process(delta):
 
 	$Spatial.translation.z =  -sin( walk_cycle ) * 0.2
 	move = move_and_slide(move)
+	translation.y = originPosition.y
 	move *= 0.90
 	$Spatial.rotation.z = atan2(move.x,-move.z)
 	$Spatial/eye_node.rotation.x = base_rotation[0].x + sin( walk_cycle ) * 0.4 
@@ -101,5 +112,6 @@ func push(direction):
 	$Particles.emitting = true
 	
 func popShrooms(amount):
-	var score = globals.player_score_label[PLAYER_NUM]
-	globals.player_score_label[PLAYER_NUM] = clamp(score-amount,0,10000)
+#	var score = globals.player_score_label[PLAYER_NUM]
+	globals.add_score(PLAYER_NUM, -amount)
+	

@@ -56,17 +56,20 @@ func chase(delta):
 		
 	var direction = target.translation - self.translation
 	direction = direction.normalized()
+	direction.y = 0
 	
 	look_at(target.translation, Vector3(0,1,0))
 	
 	if distance > RUN_DISTANCE:
 		offset = MOVE_SPEED_CHASE * delta
 		move_and_slide(direction * offset)
+		translation.y = originPosition.y
 	else:
 		offset = MOVE_SPEED_RUN * delta
 		var collision = move_and_collide(direction * offset)
 		if collision && collision.get_collider().get_name() == target.get_name():
 			target.push(direction)
+			target.popShrooms(4)
 			state = STATE_IDLE
 			time = 0;
 			if targets.size() > 1:
@@ -81,8 +84,10 @@ func back(delta):
 		direction = direction.normalized()
 		look_at(originPosition, Vector3(0,1,0))
 		offset = MOVE_SPEED_WALK * delta
+		direction.y = 0
 		move_and_slide(direction * offset)
-
+		translation.y = originPosition.y
+		
 func bounce(player_moved):
 	if player_moved:
 		walk_cycle += 0.2
@@ -97,7 +102,7 @@ func bounce(player_moved):
 		if walk_cycle < 0 or walk_cycle > PI:
 				walk_cycle = 0
 	
-	$Spatial.translation.y =  -sin( walk_cycle ) * 0.2
+	$Spatial.translation.y = -sin( walk_cycle ) * 0.2
 
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):
