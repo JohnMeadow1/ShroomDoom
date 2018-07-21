@@ -168,7 +168,7 @@ _sections_unfolded = [ "Albedo" ]
 radius = 0.0440253
 height = 0.661233
 
-[node name="Tree_3" type="StaticBody"]
+[node name="Tree_3" type="StaticBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -201,6 +201,7 @@ _sections_unfolded = [ "material" ]
 
 [node name="Tree_3_crisp" type="MeshInstance" parent="." index="1"]
 
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
