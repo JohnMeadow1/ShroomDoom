@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://objects/Ground_2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Ground_7.tscn" type="PackedScene" id=2]
@@ -10,25 +10,30 @@
 [ext_resource path="res://objects/Ground_8.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/Ground_3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/Ground_4.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/Models/Ground.obj" type="ArrayMesh" id=11]
-[ext_resource path="res://objects/Tree_1_autmun.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/Tree_2_autmun.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/Bush_1_autmun.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/Tree_3_autmun.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/Tree_4_autmun.tscn" type="PackedScene" id=16]
-[ext_resource path="res://objects/Tree_1_winter.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/Tree_2_winter.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/Tree_3_winter.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/Tree_4_winter.tscn" type="PackedScene" id=20]
-[ext_resource path="res://objects/Bush_1_winter.tscn" type="PackedScene" id=21]
-[ext_resource path="res://objects/Pond.tscn" type="PackedScene" id=22]
-[ext_resource path="res://objects/Tree_1.tscn" type="PackedScene" id=23]
-[ext_resource path="res://objects/Tree_2.tscn" type="PackedScene" id=24]
-[ext_resource path="res://objects/Bush_1.tscn" type="PackedScene" id=25]
-[ext_resource path="res://objects/Tree_3.tscn" type="PackedScene" id=26]
-[ext_resource path="res://objects/Tree_4.tscn" type="PackedScene" id=27]
-[ext_resource path="res://objects/Log_cabin_1.tscn" type="PackedScene" id=28]
-[ext_resource path="res://objects/Stump.tscn" type="PackedScene" id=29]
+[ext_resource path="res://objects/Crack_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/Crack_3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/Snow.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/Leaves.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/Models/Ground.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://objects/Textures/grass.png" type="Texture" id=16]
+[ext_resource path="res://objects/Tree_1_autmun.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/Tree_2_autmun.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/Bush_1_autmun.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/Tree_3_autmun.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/Tree_4_autmun.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/Tree_1_winter.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/Tree_2_winter.tscn" type="PackedScene" id=23]
+[ext_resource path="res://objects/Tree_3_winter.tscn" type="PackedScene" id=24]
+[ext_resource path="res://objects/Tree_4_winter.tscn" type="PackedScene" id=25]
+[ext_resource path="res://objects/Bush_1_winter.tscn" type="PackedScene" id=26]
+[ext_resource path="res://objects/Pond.tscn" type="PackedScene" id=27]
+[ext_resource path="res://objects/Tree_1.tscn" type="PackedScene" id=28]
+[ext_resource path="res://objects/Tree_2.tscn" type="PackedScene" id=29]
+[ext_resource path="res://objects/Bush_1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://objects/Tree_3.tscn" type="PackedScene" id=31]
+[ext_resource path="res://objects/Tree_4.tscn" type="PackedScene" id=32]
+[ext_resource path="res://objects/Log_cabin_1.tscn" type="PackedScene" id=33]
+[ext_resource path="res://objects/Stump.tscn" type="PackedScene" id=34]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -54,6 +59,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0, 0.519531, 0.0811768, 1 )
+albedo_texture = ExtResource( 16 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -96,6 +102,7 @@ __meta__ = {
 
 [node name="Decals" type="Spatial" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150488, 0, 5.11094 )
 
 [node name="Spatial7" parent="Decals" index="0" instance=ExtResource( 1 )]
@@ -198,6 +205,154 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -8 )
 
+[node name="Spatial" parent="Decals" index="24" instance=ExtResource( 11 )]
+
+transform = Transform( 0.320447, 0, 0, 0, 1, 0, 0, 0, 0.320447, 0.786621, -8.13802e-005, -17.8616 )
+
+[node name="Spatial2" parent="Decals" index="25" instance=ExtResource( 11 )]
+
+transform = Transform( 0.320447, 0, 0, 0, 1, 0, 0, 0, 0.320447, 2.842, -8.13802e-005, 3.28017 )
+
+[node name="Spatial3" parent="Decals" index="26" instance=ExtResource( 11 )]
+
+transform = Transform( -0.16022, 0, 0.277517, 0, 1, 0, -0.277517, 0, -0.16022, 25.151, -8.13802e-005, -28.7104 )
+
+[node name="Spatial4" parent="Decals" index="27" instance=ExtResource( 11 )]
+
+transform = Transform( -0.16022, 0, 0.277517, 0, 1, 0, -0.277517, 0, -0.16022, -16.5977, 0.00016276, -21.4189 )
+
+[node name="Spatial5" parent="Decals" index="28" instance=ExtResource( 11 )]
+
+transform = Transform( -0.16022, 0, 0.277517, 0, 1, 0, -0.277517, 0, -0.16022, -15.9336, 0.000244141, -6.33226 )
+
+[node name="Spatial6" parent="Decals" index="29" instance=ExtResource( 11 )]
+
+transform = Transform( -0.16022, 0, 0.277517, 0, 1, 0, -0.277517, 0, -0.16022, 12.5052, 0.000244141, -37.6916 )
+
+[node name="Spatial11" parent="Decals" index="30" instance=ExtResource( 12 )]
+
+transform = Transform( 0.26242, 0, -0.0832182, 0, 0.178178, 0, 0.0832182, 0, 0.26242, 14.0709, 0, -14.1177 )
+
+[node name="Spatial12" parent="Decals" index="31" instance=ExtResource( 12 )]
+
+transform = Transform( 0.26242, 0, -0.0832182, 0, 0.178178, 0, 0.0832182, 0, 0.26242, 20.1685, 0, -27.7289 )
+
+[node name="Spatial13" parent="Decals" index="32" instance=ExtResource( 12 )]
+
+transform = Transform( 0.0497864, 0, 0.27076, 0, 0.178178, 0, -0.27076, 0, 0.0497864, 35.3041, 0, -25.133 )
+
+[node name="Spatial17" parent="Decals" index="33" instance=ExtResource( 12 )]
+
+transform = Transform( -0.273337, 0, -0.0328097, 0, 0.178178, 0, 0.0328097, 0, -0.273337, 2.81946, 0, -30.6141 )
+
+[node name="Spatial18" parent="Decals" index="34" instance=ExtResource( 12 )]
+
+transform = Transform( -0.0227455, 0, -0.274358, 0, 0.178178, 0, 0.274358, 0, -0.0227455, -16.5445, 8.13802e-005, -12.6602 )
+
+[node name="Spatial21" parent="Decals" index="35" instance=ExtResource( 13 )]
+
+transform = Transform( 0.294742, 0, -0.157264, 0, 1, 0, 0.157264, 0, 0.294742, 22.3243, 0, -8.7012 )
+
+[node name="Spatial30" parent="Decals" index="36" instance=ExtResource( 13 )]
+
+transform = Transform( 0.119454, 0, 0.311986, 0, 1, 0, -0.311986, 0, 0.119454, 19.1769, 0, -2.79459 )
+
+[node name="Spatial40" parent="Decals" index="37" instance=ExtResource( 13 )]
+
+transform = Transform( 0.119454, 0, 0.311986, 0, 1, 0, -0.311986, 0, 0.119454, 14.5383, 0, -5.88423 )
+
+[node name="Spatial41" parent="Decals" index="38" instance=ExtResource( 13 )]
+
+transform = Transform( -0.333507, 0, -0.0194256, 0, 1, 0, 0.0194256, 0, -0.333507, -12.6987, 0, -0.620842 )
+
+[node name="Spatial42" parent="Decals" index="39" instance=ExtResource( 13 )]
+
+transform = Transform( -0.142948, 0, -0.301944, 0, 1, 0, 0.301944, 0, -0.142948, -18.7379, -1.27157e-006, -6.24656 )
+
+[node name="Spatial46" parent="Decals" index="40" instance=ExtResource( 13 )]
+
+transform = Transform( 0.291478, 0, -0.163234, 0, 1, 0, 0.163234, 0, 0.291478, -17.7999, -1.27157e-006, -11.3795 )
+
+[node name="Spatial48" parent="Decals" index="41" instance=ExtResource( 13 )]
+
+transform = Transform( 0.23341, 0, -0.130715, 0, 0.800782, 0, 0.130715, 0, 0.23341, -13.994, -1.27157e-006, -20.2028 )
+
+[node name="Spatial47" parent="Decals" index="42" instance=ExtResource( 13 )]
+
+transform = Transform( -0.331611, 0, 0.040481, 0, 1, 0, -0.040481, 0, -0.331611, -13.6502, 0.00332085, -11.773 )
+
+[node name="Spatial45" parent="Decals" index="43" instance=ExtResource( 13 )]
+
+transform = Transform( -0.0871518, 0, -0.184087, 0, 1, 0, 0.184087, 0, -0.0871518, -19.8492, -1.27157e-006, -20.1719 )
+
+[node name="Spatial44" parent="Decals" index="44" instance=ExtResource( 13 )]
+
+transform = Transform( -0.214578, 0, -0.0769826, 0, 1, 0, 0.0769826, 0, -0.214578, -18.2162, -1.27157e-006, -11.5668 )
+
+[node name="Spatial38" parent="Decals" index="45" instance=ExtResource( 13 )]
+
+transform = Transform( -0.312633, 0, 0.117751, 0, 1, 0, -0.117751, 0, -0.312633, 23.3156, 0, -4.44978 )
+
+[node name="Spatial39" parent="Decals" index="46" instance=ExtResource( 13 )]
+
+transform = Transform( -0.312633, 0, 0.117751, 0, 1, 0, -0.117751, 0, -0.312633, 14.3565, 0, 0.766082 )
+
+[node name="Spatial31" parent="Decals" index="47" instance=ExtResource( 13 )]
+
+transform = Transform( 0.327599, 0, 0.0654479, 0, 1, 0, -0.0654479, 0, 0.327599, 19.4242, 8.13802e-005, -11.2553 )
+
+[node name="Spatial49" parent="Decals" index="48" instance=ExtResource( 14 )]
+
+transform = Transform( 0.315519, 0, 0, 0, 0.315519, 0, 0, 0, 0.315519, -18.8353, -1.27157e-006, -24.0254 )
+
+[node name="Spatial50" parent="Decals" index="49" instance=ExtResource( 14 )]
+
+transform = Transform( 0.156104, 0, 0.274197, 0, 0.315519, 0, -0.274197, 0, 0.156104, -13.2845, -1.27157e-006, -29.9602 )
+
+[node name="Spatial51" parent="Decals" index="50" instance=ExtResource( 14 )]
+
+transform = Transform( 0.156104, 0, 0.274197, 0, 0.315519, 0, -0.274197, 0, 0.156104, -6.40669, -1.27157e-006, -31.3993 )
+
+[node name="Spatial52" parent="Decals" index="51" instance=ExtResource( 14 )]
+
+transform = Transform( -0.186351, 0, 0.254609, 0, 0.315519, 0, -0.254609, 0, -0.186351, -10.3764, -1.27157e-006, -33.2373 )
+
+[node name="Spatial53" parent="Decals" index="52" instance=ExtResource( 14 )]
+
+transform = Transform( -0.305405, 0, 0.0792491, 0, 0.315519, 0, -0.0792491, 0, -0.305405, -5.08836, -1.27157e-006, -35.9696 )
+
+[node name="Spatial54" parent="Decals" index="53" instance=ExtResource( 14 )]
+
+transform = Transform( -0.305405, 0, 0.0792491, 0, 0.315519, 0, -0.0792491, 0, -0.305405, -18.2149, -1.27157e-006, -26.4066 )
+
+[node name="Spatial55" parent="Decals" index="54" instance=ExtResource( 14 )]
+
+transform = Transform( -0.305405, 0, 0.0792491, 0, 0.315519, 0, -0.0792491, 0, -0.305405, -3.38117, -1.27157e-006, -29.8902 )
+
+[node name="Spatial56" parent="Decals" index="55" instance=ExtResource( 14 )]
+
+transform = Transform( -0.403079, 0, 0.104594, 0, 0.416428, 0, -0.104594, 0, -0.403079, 23.539, -2.54313e-006, -25.3541 )
+
+[node name="Spatial57" parent="Decals" index="56" instance=ExtResource( 14 )]
+
+transform = Transform( 0.214048, 0, 0.357206, 0, 0.416428, 0, -0.357206, 0, 0.214048, 28.9148, -3.8147e-006, -22.4731 )
+
+[node name="Spatial58" parent="Decals" index="57" instance=ExtResource( 14 )]
+
+transform = Transform( 0.26138, 0, 0.436194, 0, 0.508512, 0, -0.436194, 0, 0.26138, 28.9679, -3.8147e-006, -30.4955 )
+
+[node name="Spatial59" parent="Decals" index="58" instance=ExtResource( 14 )]
+
+transform = Transform( 0.26138, 0, 0.436194, 0, 0.508512, 0, -0.436194, 0, 0.26138, 23.6195, -3.8147e-006, -39.2826 )
+
+[node name="Spatial60" parent="Decals" index="59" instance=ExtResource( 14 )]
+
+transform = Transform( 0.26138, 0, 0.436194, 0, 0.508512, 0, -0.436194, 0, 0.26138, 39.1858, -3.8147e-006, -28.6084 )
+
+[node name="Spatial61" parent="Decals" index="60" instance=ExtResource( 14 )]
+
+transform = Transform( -0.351607, 0, 0.367365, 0, 0.508512, 0, -0.367365, 0, -0.351607, 28.8368, -3.8147e-006, -23.7406 )
+
 [node name="Ground" type="MeshInstance" parent="." index="1"]
 
 transform = Transform( 5.84363, 0, 0, 0, 2.86536, 0, 0, 0, 5.84363, 6.89037, -4.88281e-005, -16.0613 )
@@ -210,7 +365,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
+mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = SubResource( 1 )
 _sections_unfolded = [ "material" ]
@@ -291,80 +446,80 @@ editor/display_folded = true
 
 editor/display_folded = true
 
-[node name="Tree_1" parent="Foliage_autmun/Spikes" index="0" instance=ExtResource( 12 )]
+[node name="Tree_1" parent="Foliage_autmun/Spikes" index="0" instance=ExtResource( 17 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4.63955, 0, -30.4514 )
 
-[node name="Tree_7" parent="Foliage_autmun/Spikes" index="1" instance=ExtResource( 12 )]
+[node name="Tree_7" parent="Foliage_autmun/Spikes" index="1" instance=ExtResource( 17 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -17.7864, 0, -26.2498 )
 
-[node name="Tree_2" parent="Foliage_autmun/Spikes" index="2" instance=ExtResource( 12 )]
+[node name="Tree_2" parent="Foliage_autmun/Spikes" index="2" instance=ExtResource( 17 )]
 
 transform = Transform( 2.44659, 0, 0, 0, 2.44659, 0, 0, 0, 2.44659, -13.9858, 0, -24.5476 )
 
-[node name="Tree_5" parent="Foliage_autmun/Spikes" index="3" instance=ExtResource( 12 )]
+[node name="Tree_5" parent="Foliage_autmun/Spikes" index="3" instance=ExtResource( 17 )]
 
 transform = Transform( 2.44659, 0, 0, 0, 2.44659, 0, 0, 0, 2.44659, -6.26062, 0, -25.126 )
 
-[node name="Tree_6" parent="Foliage_autmun/Spikes" index="4" instance=ExtResource( 12 )]
+[node name="Tree_6" parent="Foliage_autmun/Spikes" index="4" instance=ExtResource( 17 )]
 
 transform = Transform( 1.53561, 0, 0.848804, 0, 1.75459, 0, -0.848804, 0, 1.53561, -9.79045, 0, -27.6375 )
 
-[node name="Tree_3" parent="Foliage_autmun/Spikes" index="5" instance=ExtResource( 12 )]
+[node name="Tree_3" parent="Foliage_autmun/Spikes" index="5" instance=ExtResource( 17 )]
 
 transform = Transform( 2.44659, 0, 0, 0, 2.44659, 0, 0, 0, 2.44659, -19.7494, 0, -21.046 )
 
-[node name="Tree_4" parent="Foliage_autmun/Spikes" index="6" instance=ExtResource( 12 )]
+[node name="Tree_4" parent="Foliage_autmun/Spikes" index="6" instance=ExtResource( 17 )]
 
 transform = Transform( 2.2824, 0, 0.881165, 0, 2.44659, 0, -0.881165, 0, 2.2824, -14.6478, 0, -18.2563 )
 
-[node name="Tree_8" parent="Foliage_autmun/Spikes" index="7" instance=ExtResource( 13 )]
+[node name="Tree_8" parent="Foliage_autmun/Spikes" index="7" instance=ExtResource( 18 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -8.95717, 0, -22.7033 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_9" parent="Foliage_autmun/Spikes" index="8" instance=ExtResource( 13 )]
+[node name="Tree_9" parent="Foliage_autmun/Spikes" index="8" instance=ExtResource( 18 )]
 
 transform = Transform( 2.92273, 0, 0.916782, 0, 3.06314, 0, -0.916782, 0, 2.92273, -7.56353, -4.88281e-005, -30.0583 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_10" parent="Foliage_autmun/Spikes" index="9" instance=ExtResource( 13 )]
+[node name="Tree_10" parent="Foliage_autmun/Spikes" index="9" instance=ExtResource( 18 )]
 
 transform = Transform( 2.92273, 0, 0.916782, 0, 3.06314, 0, -0.916782, 0, 2.92273, -12.5911, -4.88281e-005, -27.7995 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_11" parent="Foliage_autmun/Spikes" index="10" instance=ExtResource( 13 )]
+[node name="Tree_11" parent="Foliage_autmun/Spikes" index="10" instance=ExtResource( 18 )]
 
 transform = Transform( 2.92273, 0, 0.916782, 0, 3.06314, 0, -0.916782, 0, 2.92273, -17.7839, -4.88281e-005, -24.0535 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_12" parent="Foliage_autmun/Spikes" index="11" instance=ExtResource( 13 )]
+[node name="Tree_12" parent="Foliage_autmun/Spikes" index="11" instance=ExtResource( 18 )]
 
 transform = Transform( 2.92273, 0, 0.916782, 0, 3.06314, 0, -0.916782, 0, 2.92273, -18.3129, -4.88281e-005, -18.0252 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_1" parent="Foliage_autmun/Spikes" index="12" instance=ExtResource( 14 )]
+[node name="Bush_1" parent="Foliage_autmun/Spikes" index="12" instance=ExtResource( 19 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -10.808, 0, -25.5043 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_2" parent="Foliage_autmun/Spikes" index="13" instance=ExtResource( 14 )]
+[node name="Bush_2" parent="Foliage_autmun/Spikes" index="13" instance=ExtResource( 19 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -8.17784, 0, -24.2666 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_5" parent="Foliage_autmun/Spikes" index="14" instance=ExtResource( 14 )]
+[node name="Bush_5" parent="Foliage_autmun/Spikes" index="14" instance=ExtResource( 19 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2.86203, 0, -29.099 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_3" parent="Foliage_autmun/Spikes" index="15" instance=ExtResource( 14 )]
+[node name="Bush_3" parent="Foliage_autmun/Spikes" index="15" instance=ExtResource( 19 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -16.1611, 0, -23.0598 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_4" parent="Foliage_autmun/Spikes" index="16" instance=ExtResource( 14 )]
+[node name="Bush_4" parent="Foliage_autmun/Spikes" index="16" instance=ExtResource( 19 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6113, 0, -18.4423 )
 _sections_unfolded = [ "Transform" ]
@@ -373,130 +528,128 @@ _sections_unfolded = [ "Transform" ]
 
 editor/display_folded = true
 
-[node name="Tree_3" parent="Foliage_autmun/Leafs" index="0" instance=ExtResource( 15 )]
+[node name="Tree_3" parent="Foliage_autmun/Leafs" index="0" instance=ExtResource( 20 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 26.0727, 0, -28.9081 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_4" parent="Foliage_autmun/Leafs" index="1" instance=ExtResource( 15 )]
+[node name="Tree_4" parent="Foliage_autmun/Leafs" index="1" instance=ExtResource( 20 )]
 
 transform = Transform( 2.99708, 0, 1.62972, 0, 3.41152, 0, -1.62972, 0, 2.99708, 29.064, 0, -17.6845 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_5" parent="Foliage_autmun/Leafs" index="2" instance=ExtResource( 15 )]
+[node name="Tree_5" parent="Foliage_autmun/Leafs" index="2" instance=ExtResource( 20 )]
 
 transform = Transform( 0.0347384, 0, 3.41135, 0, 3.41152, 0, -3.41135, 0, 0.0347384, 20.4941, 0, -23.9553 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_6" parent="Foliage_autmun/Leafs" index="3" instance=ExtResource( 15 )]
+[node name="Tree_6" parent="Foliage_autmun/Leafs" index="3" instance=ExtResource( 20 )]
 
 transform = Transform( 2.65372, 0, 2.14388, 0, 3.41152, 0, -2.14388, 0, 2.65372, 33.8708, 0, -29.0485 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_7" parent="Foliage_autmun/Leafs" index="4" instance=ExtResource( 15 )]
+[node name="Tree_7" parent="Foliage_autmun/Leafs" index="4" instance=ExtResource( 20 )]
 
 transform = Transform( -1.85526, 0, 2.80262, 0, 3.36105, 0, -2.80262, 0, -1.85526, 24.5589, 0, -13.6068 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_8" parent="Foliage_autmun/Leafs" index="5" instance=ExtResource( 15 )]
+[node name="Tree_8" parent="Foliage_autmun/Leafs" index="5" instance=ExtResource( 20 )]
 
 transform = Transform( 2.65372, 0, 2.14388, 0, 3.41152, 0, -2.14388, 0, 2.65372, 39.094, 0, -24.5422 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_9" parent="Foliage_autmun/Leafs" index="6" instance=ExtResource( 16 )]
+[node name="Tree_9" parent="Foliage_autmun/Leafs" index="6" instance=ExtResource( 21 )]
 
 transform = Transform( 2.64421, 0, 1.41709, 0, 3, 0, -1.41709, 0, 2.64421, 23.8059, 0, -20.3837 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_10" parent="Foliage_autmun/Leafs" index="7" instance=ExtResource( 16 )]
+[node name="Tree_10" parent="Foliage_autmun/Leafs" index="7" instance=ExtResource( 21 )]
 
 transform = Transform( 2.33791, 0, 1.25294, 0, 2.65248, 0, -1.25294, 0, 2.33791, 23.6179, 0, -27.4676 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_11" parent="Foliage_autmun/Leafs" index="8" instance=ExtResource( 16 )]
+[node name="Tree_11" parent="Foliage_autmun/Leafs" index="8" instance=ExtResource( 21 )]
 
 transform = Transform( 2.33791, 0, 1.25294, 0, 2.65248, 0, -1.25294, 0, 2.33791, 33.428, 0, -33.489 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_12" parent="Foliage_autmun/Leafs" index="9" instance=ExtResource( 16 )]
+[node name="Tree_12" parent="Foliage_autmun/Leafs" index="9" instance=ExtResource( 21 )]
 
 transform = Transform( 2.22161, 0, -1.44917, 0, 2.65248, 0, 1.44917, 0, 2.22161, 21.2812, 0, -33.4827 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_13" parent="Foliage_autmun/Leafs" index="10" instance=ExtResource( 16 )]
+[node name="Tree_13" parent="Foliage_autmun/Leafs" index="10" instance=ExtResource( 21 )]
 
 transform = Transform( 2.22161, 0, -1.44917, 0, 2.65248, 0, 1.44917, 0, 2.22161, 29.6616, 0, -24.7111 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Foliage_winter" type="Spatial" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="Spikes" type="Spatial" parent="Foliage_winter" index="0"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_1" parent="Foliage_winter/Spikes" index="0" instance=ExtResource( 17 )]
+[node name="Tree_1" parent="Foliage_winter/Spikes" index="0" instance=ExtResource( 22 )]
 
 transform = Transform( 2.67218, 0, 0, 0, 2.67218, 0, 0, 0, 2.67218, 19.0317, 0, -7.12241 )
 
-[node name="Tree_2" parent="Foliage_winter/Spikes" index="1" instance=ExtResource( 17 )]
+[node name="Tree_2" parent="Foliage_winter/Spikes" index="1" instance=ExtResource( 22 )]
 
 transform = Transform( 1.3956, 0, 0.366978, 0, 1.44304, 0, -0.366978, 0, 1.3956, 24.142, 0, -4.60488 )
 
-[node name="Tree_3" parent="Foliage_winter/Spikes" index="2" instance=ExtResource( 17 )]
+[node name="Tree_3" parent="Foliage_winter/Spikes" index="2" instance=ExtResource( 22 )]
 
 transform = Transform( 2.34765, 0, 0.617323, 0, 2.42746, 0, -0.617323, 0, 2.34765, 17.6125, 0, -3.85576 )
 
-[node name="Tree_4" parent="Foliage_winter/Spikes" index="3" instance=ExtResource( 17 )]
+[node name="Tree_4" parent="Foliage_winter/Spikes" index="3" instance=ExtResource( 22 )]
 
 transform = Transform( 3.29798, 0, 0.867216, 0, 3.4101, 0, -0.867216, 0, 3.29798, 22.1418, 0, -1.53872 )
 
-[node name="Tree_5" parent="Foliage_winter/Spikes" index="4" instance=ExtResource( 17 )]
+[node name="Tree_5" parent="Foliage_winter/Spikes" index="4" instance=ExtResource( 22 )]
 
 transform = Transform( 0.215867, 0, 3.40326, 0, 3.4101, 0, -3.40326, 0, 0.215867, 17.964, 0, 1.80698 )
 
-[node name="Tree_11" parent="Foliage_winter/Spikes" index="5" instance=ExtResource( 17 )]
+[node name="Tree_11" parent="Foliage_winter/Spikes" index="5" instance=ExtResource( 22 )]
 
 transform = Transform( 0.215867, 0, 3.40326, 0, 3.4101, 0, -3.40326, 0, 0.215867, 13.5644, -4.88281e-005, -1.33713 )
 
-[node name="Tree_6" parent="Foliage_winter/Spikes" index="6" instance=ExtResource( 18 )]
+[node name="Tree_6" parent="Foliage_winter/Spikes" index="6" instance=ExtResource( 23 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.5169, 0, -1.23677 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_7" parent="Foliage_winter/Spikes" index="7" instance=ExtResource( 18 )]
+[node name="Tree_7" parent="Foliage_winter/Spikes" index="7" instance=ExtResource( 23 )]
 
 transform = Transform( 2.10268, 0, 2.1398, 0, 3, 0, -2.1398, 0, 2.10268, 24.4582, 0, -6.68708 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_8" parent="Foliage_winter/Spikes" index="8" instance=ExtResource( 18 )]
+[node name="Tree_8" parent="Foliage_winter/Spikes" index="8" instance=ExtResource( 23 )]
 
 transform = Transform( 1.75223, 0, 1.78316, 0, 2.5, 0, -1.78316, 0, 1.75223, 23.3235, 0, -10.4121 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_9" parent="Foliage_winter/Spikes" index="9" instance=ExtResource( 18 )]
+[node name="Tree_9" parent="Foliage_winter/Spikes" index="9" instance=ExtResource( 23 )]
 
 transform = Transform( 1.75223, 0, 1.78316, 0, 2.5, 0, -1.78316, 0, 1.75223, 22.0122, 0, -4.53152 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_13" parent="Foliage_winter/Spikes" index="10" instance=ExtResource( 18 )]
+[node name="Tree_13" parent="Foliage_winter/Spikes" index="10" instance=ExtResource( 23 )]
 
 transform = Transform( 1.75223, 0, 1.78316, 0, 2.5, 0, -1.78316, 0, 1.75223, 14.098, -4.88281e-005, 5.52766 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_10" parent="Foliage_winter/Spikes" index="11" instance=ExtResource( 18 )]
+[node name="Tree_10" parent="Foliage_winter/Spikes" index="11" instance=ExtResource( 23 )]
 
 transform = Transform( -1.97432, 0, 4.24927, 0, 4.68554, 0, -4.24927, 0, -1.97432, 23.4492, 0, 2.00082 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_14" parent="Foliage_winter/Spikes" index="12" instance=ExtResource( 18 )]
+[node name="Tree_14" parent="Foliage_winter/Spikes" index="12" instance=ExtResource( 23 )]
 
 transform = Transform( -1.97432, 0, 4.24927, 0, 4.68554, 0, -4.24927, 0, -1.97432, 8.92927, 0, 9.50802 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Tree_12" parent="Foliage_winter/Spikes" index="13" instance=ExtResource( 18 )]
+[node name="Tree_12" parent="Foliage_winter/Spikes" index="13" instance=ExtResource( 23 )]
 
 transform = Transform( -1.97432, 0, 4.24927, 0, 4.68554, 0, -4.24927, 0, -1.97432, 19.2688, 0, 6.36547 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -506,91 +659,89 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_3" parent="Foliage_winter/Leafs" index="0" instance=ExtResource( 19 )]
+[node name="Tree_3" parent="Foliage_winter/Leafs" index="0" instance=ExtResource( 24 )]
 
 transform = Transform( 1.94648, 0, 0.459572, 0, 2, 0, -0.459572, 0, 1.94648, -17.2086, 0, -5.97575 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_4" parent="Foliage_winter/Leafs" index="1" instance=ExtResource( 19 )]
+[node name="Tree_4" parent="Foliage_winter/Leafs" index="1" instance=ExtResource( 24 )]
 
 transform = Transform( 0.684134, 0, 2.7883, 0, 2.871, 0, -2.7883, 0, 0.684134, -12.5159, 0, -1.87323 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_5" parent="Foliage_winter/Leafs" index="2" instance=ExtResource( 19 )]
+[node name="Tree_5" parent="Foliage_winter/Leafs" index="2" instance=ExtResource( 24 )]
 
 transform = Transform( -1.85183, 0, 0.722718, 0, 1.98786, 0, -0.722718, 0, -1.85183, -15.8965, 0, 3.32417 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_6" parent="Foliage_winter/Leafs" index="3" instance=ExtResource( 19 )]
+[node name="Tree_6" parent="Foliage_winter/Leafs" index="3" instance=ExtResource( 24 )]
 
 transform = Transform( -2.52543, 0, -1.73212, 0, 3.06236, 0, 1.73212, 0, -2.52543, -18.5429, 0, -1.2456 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_7" parent="Foliage_winter/Leafs" index="4" instance=ExtResource( 19 )]
+[node name="Tree_7" parent="Foliage_winter/Leafs" index="4" instance=ExtResource( 24 )]
 
 transform = Transform( -2.52543, 0, -1.73212, 0, 3.06236, 0, 1.73212, 0, -2.52543, -13.4304, 4.88281e-005, -15.0335 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_8" parent="Foliage_winter/Leafs" index="5" instance=ExtResource( 19 )]
+[node name="Tree_8" parent="Foliage_winter/Leafs" index="5" instance=ExtResource( 24 )]
 
 transform = Transform( 1.12991, 0, -2.84628, 0, 3.06236, 0, 2.84628, 0, 1.12991, -12.762, 4.88281e-005, 5.11707 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_9" parent="Foliage_winter/Leafs" index="6" instance=ExtResource( 19 )]
+[node name="Tree_9" parent="Foliage_winter/Leafs" index="6" instance=ExtResource( 24 )]
 
 transform = Transform( 1.33739, 0, -3.36894, 0, 3.62469, 0, 3.36894, 0, 1.33739, -19.6623, 0, -9.81604 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_10" parent="Foliage_winter/Leafs" index="7" instance=ExtResource( 20 )]
+[node name="Tree_10" parent="Foliage_winter/Leafs" index="7" instance=ExtResource( 25 )]
 
 transform = Transform( 0.918248, 0, 1.77674, 0, 2, 0, -1.77674, 0, 0.918248, -13.02, 0, 0.447852 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_11" parent="Foliage_winter/Leafs" index="8" instance=ExtResource( 20 )]
+[node name="Tree_11" parent="Foliage_winter/Leafs" index="8" instance=ExtResource( 25 )]
 
 transform = Transform( 0.918248, 0, 1.77674, 0, 2, 0, -1.77674, 0, 0.918248, -20.2187, 0, -7.01249 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_12" parent="Foliage_winter/Leafs" index="9" instance=ExtResource( 20 )]
+[node name="Tree_12" parent="Foliage_winter/Leafs" index="9" instance=ExtResource( 25 )]
 
 transform = Transform( 0.918248, 0, 1.77674, 0, 2, 0, -1.77674, 0, 0.918248, -19.7101, 0, -14.5233 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_13" parent="Foliage_winter/Leafs" index="10" instance=ExtResource( 20 )]
+[node name="Tree_13" parent="Foliage_winter/Leafs" index="10" instance=ExtResource( 25 )]
 
 transform = Transform( -1.59118, 0, 1.21167, 0, 2, 0, -1.21167, 0, -1.59118, -17.3302, 0, -10.9558 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_14" parent="Foliage_winter/Leafs" index="11" instance=ExtResource( 20 )]
+[node name="Tree_14" parent="Foliage_winter/Leafs" index="11" instance=ExtResource( 25 )]
 
 transform = Transform( -1.59118, 0, 1.21167, 0, 2, 0, -1.21167, 0, -1.59118, -16.932, 0, 0.686498 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Bush" type="Spatial" parent="Foliage_winter" index="2"]
 
-editor/display_folded = true
-
-[node name="Bush_1" parent="Foliage_winter/Bush" index="0" instance=ExtResource( 21 )]
+[node name="Bush_1" parent="Foliage_winter/Bush" index="0" instance=ExtResource( 26 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -14.9503, 0, 0.878418 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_2" parent="Foliage_winter/Bush" index="1" instance=ExtResource( 21 )]
+[node name="Bush_2" parent="Foliage_winter/Bush" index="1" instance=ExtResource( 26 )]
 
 transform = Transform( 1.7946, 0, 0.88285, 0, 2, 0, -0.88285, 0, 1.7946, -15.7959, 4.88281e-005, -1.96294 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_3" parent="Foliage_winter/Bush" index="2" instance=ExtResource( 21 )]
+[node name="Bush_3" parent="Foliage_winter/Bush" index="2" instance=ExtResource( 26 )]
 
 transform = Transform( 1.7946, 0, 0.88285, 0, 2, 0, -0.88285, 0, 1.7946, 20.0529, 4.88281e-005, 2.29189 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_4" parent="Foliage_winter/Bush" index="3" instance=ExtResource( 21 )]
+[node name="Bush_4" parent="Foliage_winter/Bush" index="3" instance=ExtResource( 26 )]
 
 transform = Transform( 1.7946, 0, 0.88285, 0, 2, 0, -0.88285, 0, 1.7946, 20.3158, 4.88281e-005, -5.9147 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_5" parent="Foliage_winter/Bush" index="4" instance=ExtResource( 21 )]
+[node name="Bush_5" parent="Foliage_winter/Bush" index="4" instance=ExtResource( 26 )]
 
 transform = Transform( 1.7946, 0, 0.88285, 0, 2, 0, -0.88285, 0, 1.7946, -16.5719, 4.88281e-005, -9.7781 )
 _sections_unfolded = [ "Transform" ]
@@ -608,31 +759,31 @@ editor/display_folded = true
 
 editor/display_folded = true
 
-[node name="Spatial" parent="Foliage_summer/Spikes/Lakes" index="0" instance=ExtResource( 22 )]
+[node name="Spatial" parent="Foliage_summer/Spikes/Lakes" index="0" instance=ExtResource( 27 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69549, 0, -0.880336 )
 
-[node name="Spatial7" parent="Foliage_summer/Spikes/Lakes" index="1" instance=ExtResource( 22 )]
+[node name="Spatial7" parent="Foliage_summer/Spikes/Lakes" index="1" instance=ExtResource( 27 )]
 
 transform = Transform( 0.819669, 0, 0.572838, 0, 1, 0, -0.572838, 0, 0.819669, 5.78792, -4.88281e-005, -12.795 )
 
-[node name="Spatial2" parent="Foliage_summer/Spikes/Lakes" index="2" instance=ExtResource( 22 )]
+[node name="Spatial2" parent="Foliage_summer/Spikes/Lakes" index="2" instance=ExtResource( 27 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92113, 0, -23.6513 )
 
-[node name="Spatial3" parent="Foliage_summer/Spikes/Lakes" index="3" instance=ExtResource( 22 )]
+[node name="Spatial3" parent="Foliage_summer/Spikes/Lakes" index="3" instance=ExtResource( 27 )]
 
 transform = Transform( -0.99041, 0, -0.138159, 0, 1, 0, 0.138159, 0, -0.99041, -14.988, 0, -22.3282 )
 
-[node name="Spatial4" parent="Foliage_summer/Spikes/Lakes" index="4" instance=ExtResource( 22 )]
+[node name="Spatial4" parent="Foliage_summer/Spikes/Lakes" index="4" instance=ExtResource( 27 )]
 
 transform = Transform( -0.99041, 0, -0.138159, 0, 1, 0, 0.138159, 0, -0.99041, 21.3206, 0, -9.37444 )
 
-[node name="Spatial6" parent="Foliage_summer/Spikes/Lakes" index="5" instance=ExtResource( 22 )]
+[node name="Spatial6" parent="Foliage_summer/Spikes/Lakes" index="5" instance=ExtResource( 27 )]
 
 transform = Transform( -0.99041, 0, -0.138159, 0, 1, 0, 0.138159, 0, -0.99041, 39.3961, 3.05176e-006, -28.3885 )
 
-[node name="Spatial5" parent="Foliage_summer/Spikes/Lakes" index="6" instance=ExtResource( 22 )]
+[node name="Spatial5" parent="Foliage_summer/Spikes/Lakes" index="6" instance=ExtResource( 27 )]
 
 transform = Transform( -0.669105, 0, 0.743168, 0, 1, 0, -0.743168, 0, -0.669105, -7.33475, 0, -0.564475 )
 
@@ -640,47 +791,47 @@ transform = Transform( -0.669105, 0, 0.743168, 0, 1, 0, -0.743168, 0, -0.669105,
 
 editor/display_folded = true
 
-[node name="Tree_1" parent="Foliage_summer/Spikes/Tree_1" index="0" instance=ExtResource( 23 )]
+[node name="Tree_1" parent="Foliage_summer/Spikes/Tree_1" index="0" instance=ExtResource( 28 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.56417, 0, -23.6591 )
 
-[node name="Tree_2" parent="Foliage_summer/Spikes/Tree_1" index="1" instance=ExtResource( 23 )]
+[node name="Tree_2" parent="Foliage_summer/Spikes/Tree_1" index="1" instance=ExtResource( 28 )]
 
 transform = Transform( -0.662276, 0, 0.74926, 0, 1, 0, -0.74926, 0, -0.662276, 6.70058, 0, -26.58 )
 
-[node name="Tree_3" parent="Foliage_summer/Spikes/Tree_1" index="2" instance=ExtResource( 23 )]
+[node name="Tree_3" parent="Foliage_summer/Spikes/Tree_1" index="2" instance=ExtResource( 28 )]
 
 transform = Transform( 1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 2.80609, 0, -26.0645 )
 
-[node name="Tree_4" parent="Foliage_summer/Spikes/Tree_1" index="3" instance=ExtResource( 23 )]
+[node name="Tree_4" parent="Foliage_summer/Spikes/Tree_1" index="3" instance=ExtResource( 28 )]
 
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 11.6832, 0, -27.21 )
 
-[node name="Tree_5" parent="Foliage_summer/Spikes/Tree_1" index="4" instance=ExtResource( 23 )]
+[node name="Tree_5" parent="Foliage_summer/Spikes/Tree_1" index="4" instance=ExtResource( 28 )]
 
 transform = Transform( -0.00974084, 0, 0.999952, 0, 1, 0, -0.999952, 0, -0.00974084, 8.24692, 0, -29.5581 )
 
-[node name="Tree_11" parent="Foliage_summer/Spikes/Tree_1" index="5" instance=ExtResource( 23 )]
+[node name="Tree_11" parent="Foliage_summer/Spikes/Tree_1" index="5" instance=ExtResource( 28 )]
 
 transform = Transform( -0.59758, 0, 1.37583, 0, 1.5, 0, -1.37583, 0, -0.59758, 9.5069, 0, -26.7518 )
 
-[node name="Tree_6" parent="Foliage_summer/Spikes/Tree_1" index="6" instance=ExtResource( 23 )]
+[node name="Tree_6" parent="Foliage_summer/Spikes/Tree_1" index="6" instance=ExtResource( 28 )]
 
 transform = Transform( 0.588833, 0, 1.48771, 0, 1.6, 0, -1.48771, 0, 0.588833, 3.66517, 0, -30.7035 )
 
-[node name="Tree_9" parent="Foliage_summer/Spikes/Tree_1" index="7" instance=ExtResource( 23 )]
+[node name="Tree_9" parent="Foliage_summer/Spikes/Tree_1" index="7" instance=ExtResource( 28 )]
 
 transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 4.92515, 0, -27.8972 )
 
-[node name="Tree_7" parent="Foliage_summer/Spikes/Tree_1" index="8" instance=ExtResource( 23 )]
+[node name="Tree_7" parent="Foliage_summer/Spikes/Tree_1" index="8" instance=ExtResource( 28 )]
 
 transform = Transform( 0.0407385, 0, 0.99917, 0, 1, 0, -0.99917, 0, 0.0407385, 10.8652, 0, -31.9035 )
 
-[node name="Tree_10" parent="Foliage_summer/Spikes/Tree_1" index="9" instance=ExtResource( 23 )]
+[node name="Tree_10" parent="Foliage_summer/Spikes/Tree_1" index="9" instance=ExtResource( 28 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1252, 0, -29.0972 )
 
-[node name="Tree_8" parent="Foliage_summer/Spikes/Tree_1" index="10" instance=ExtResource( 23 )]
+[node name="Tree_8" parent="Foliage_summer/Spikes/Tree_1" index="10" instance=ExtResource( 28 )]
 
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.2, 0, -1 )
 
@@ -688,47 +839,47 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.2, 0, -1 )
 
 editor/display_folded = true
 
-[node name="Tree_2" parent="Foliage_summer/Spikes/Tree_2" index="0" instance=ExtResource( 24 )]
+[node name="Tree_2" parent="Foliage_summer/Spikes/Tree_2" index="0" instance=ExtResource( 29 )]
 
 transform = Transform( 1.15451, 0, 1.63313, 0, 2, 0, -1.63313, 0, 1.15451, 10.9843, 0, -25.4115 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_3" parent="Foliage_summer/Spikes/Tree_2" index="1" instance=ExtResource( 24 )]
+[node name="Tree_3" parent="Foliage_summer/Spikes/Tree_2" index="1" instance=ExtResource( 29 )]
 
 transform = Transform( 1.61, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 10.1135, -4.88281e-005, -29.5345 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_4" parent="Foliage_summer/Spikes/Tree_2" index="2" instance=ExtResource( 24 )]
+[node name="Tree_4" parent="Foliage_summer/Spikes/Tree_2" index="2" instance=ExtResource( 29 )]
 
 transform = Transform( 0.112566, 0, 0.993644, 0, 1, 0, -0.993644, 0, 0.112566, 3.46231, -4.88281e-005, -27.1183 )
 
-[node name="Tree_5" parent="Foliage_summer/Spikes/Tree_2" index="3" instance=ExtResource( 24 )]
+[node name="Tree_5" parent="Foliage_summer/Spikes/Tree_2" index="3" instance=ExtResource( 29 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15411, -9.76563e-005, -30.2471 )
 
-[node name="Tree_6" parent="Foliage_summer/Spikes/Tree_2" index="4" instance=ExtResource( 24 )]
+[node name="Tree_6" parent="Foliage_summer/Spikes/Tree_2" index="4" instance=ExtResource( 29 )]
 
 transform = Transform( -0.331625, 0, 0.943411, 0, 1, 0, -0.943411, 0, -0.331625, 6.2417, -9.76563e-005, -31.7593 )
 
-[node name="Tree_7" parent="Foliage_summer/Spikes/Tree_2" index="5" instance=ExtResource( 24 )]
+[node name="Tree_7" parent="Foliage_summer/Spikes/Tree_2" index="5" instance=ExtResource( 29 )]
 
 transform = Transform( -0.0123746, 0, 0.999923, 0, 1, 0, -0.999923, 0, -0.0123746, 8.27725, -9.76563e-005, -31.9747 )
 
-[node name="Tree_8" parent="Foliage_summer/Spikes/Tree_2" index="6" instance=ExtResource( 24 )]
+[node name="Tree_8" parent="Foliage_summer/Spikes/Tree_2" index="6" instance=ExtResource( 29 )]
 
 transform = Transform( 0.376624, 0, 1.45195, 0, 1.5, 0, -1.45195, 0, 0.376624, 6.05663, -0.000146484, -29.4016 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_9" parent="Foliage_summer/Spikes/Tree_2" index="7" instance=ExtResource( 24 )]
+[node name="Tree_9" parent="Foliage_summer/Spikes/Tree_2" index="7" instance=ExtResource( 29 )]
 
 transform = Transform( -0.641183, 0, 1.68193, 0, 1.8, 0, -1.68193, 0, -0.641183, 13.542, -0.000146484, -25.8797 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_10" parent="Foliage_summer/Spikes/Tree_2" index="8" instance=ExtResource( 24 )]
+[node name="Tree_10" parent="Foliage_summer/Spikes/Tree_2" index="8" instance=ExtResource( 29 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8069, -0.000146484, -27.7589 )
 
-[node name="Tree_11" parent="Foliage_summer/Spikes/Tree_2" index="9" instance=ExtResource( 24 )]
+[node name="Tree_11" parent="Foliage_summer/Spikes/Tree_2" index="9" instance=ExtResource( 29 )]
 
 transform = Transform( 0.0864671, 0, 0.996255, 0, 1, 0, -0.996255, 0, 0.0864671, 12.9469, -0.000146484, -30.8552 )
 _sections_unfolded = [ "Transform" ]
@@ -739,12 +890,12 @@ editor/display_folded = true
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_1" parent="Foliage_summer/Spikes/Bush" index="0" instance=ExtResource( 25 )]
+[node name="Bush_1" parent="Foliage_summer/Spikes/Bush" index="0" instance=ExtResource( 30 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 5.77671, 0, -11.9919 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bush_2" parent="Foliage_summer/Spikes/Bush" index="1" instance=ExtResource( 25 )]
+[node name="Bush_2" parent="Foliage_summer/Spikes/Bush" index="1" instance=ExtResource( 30 )]
 
 transform = Transform( 1.35846, 0, 1.46786, 0, 2, 0, -1.46786, 0, 1.35846, 2.0772, 0, -11.1759 )
 _sections_unfolded = [ "Transform" ]
@@ -755,73 +906,73 @@ editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_3" parent="Foliage_summer/Leafs" index="0" instance=ExtResource( 26 )]
+[node name="Tree_3" parent="Foliage_summer/Leafs" index="0" instance=ExtResource( 31 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107292, 0, 1.09162 )
 
-[node name="Tree_17" parent="Foliage_summer/Leafs" index="1" instance=ExtResource( 26 )]
+[node name="Tree_17" parent="Foliage_summer/Leafs" index="1" instance=ExtResource( 31 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60313, 0, 1.85739 )
 
-[node name="Tree_4" parent="Foliage_summer/Leafs" index="2" instance=ExtResource( 26 )]
+[node name="Tree_4" parent="Foliage_summer/Leafs" index="2" instance=ExtResource( 31 )]
 
 transform = Transform( 0.190385, 0, 0.777016, 0, 0.8, 0, -0.777016, 0, 0.190385, 0.811083, 0, -0.0213556 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_12" parent="Foliage_summer/Leafs" index="3" instance=ExtResource( 26 )]
+[node name="Tree_12" parent="Foliage_summer/Leafs" index="3" instance=ExtResource( 31 )]
 
 transform = Transform( -0.56733, 0, -0.564036, 0, 0.8, 0, 0.564036, 0, -0.56733, 1.95589, 0, 0.14453 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_5" parent="Foliage_summer/Leafs" index="4" instance=ExtResource( 26 )]
+[node name="Tree_5" parent="Foliage_summer/Leafs" index="4" instance=ExtResource( 31 )]
 
 transform = Transform( 0.870774, 0, -1.26665, 0, 1.53709, 0, 1.26665, 0, 0.870774, 2.5559, 0, -0.811801 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_16" parent="Foliage_summer/Leafs" index="5" instance=ExtResource( 26 )]
+[node name="Tree_16" parent="Foliage_summer/Leafs" index="5" instance=ExtResource( 31 )]
 
 transform = Transform( 0.870774, 0, -1.26665, 0, 1.53709, 0, 1.26665, 0, 0.870774, -0.609324, 0, 2.75076 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_6" parent="Foliage_summer/Leafs" index="6" instance=ExtResource( 26 )]
+[node name="Tree_6" parent="Foliage_summer/Leafs" index="6" instance=ExtResource( 31 )]
 
 transform = Transform( 0.455635, 0, 1.0012, 0, 1.1, 0, -1.0012, 0, 0.455635, -2.14588, -1.6276e-005, -1.78556 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_7" parent="Foliage_summer/Leafs" index="7" instance=ExtResource( 27 )]
+[node name="Tree_7" parent="Foliage_summer/Leafs" index="7" instance=ExtResource( 32 )]
 
 transform = Transform( 0.675464, 0, -0.737392, 0, 1, 0, 0.737392, 0, 0.675464, -1.03438, 0, -0.173454 )
 
-[node name="Tree_13" parent="Foliage_summer/Leafs" index="8" instance=ExtResource( 27 )]
+[node name="Tree_13" parent="Foliage_summer/Leafs" index="8" instance=ExtResource( 32 )]
 
 transform = Transform( 0.675464, 0, -0.737392, 0, 1, 0, 0.737392, 0, 0.675464, -3.23045, 0, 0.60118 )
 
-[node name="Tree_8" parent="Foliage_summer/Leafs" index="9" instance=ExtResource( 27 )]
+[node name="Tree_8" parent="Foliage_summer/Leafs" index="9" instance=ExtResource( 32 )]
 
 transform = Transform( 1.19682, 0, 0.0873487, 0, 1.2, 0, -0.0873487, 0, 1.19682, -1.16877, 0, -3.03361 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_9" parent="Foliage_summer/Leafs" index="10" instance=ExtResource( 27 )]
+[node name="Tree_9" parent="Foliage_summer/Leafs" index="10" instance=ExtResource( 32 )]
 
 transform = Transform( -0.648381, 0, 0.468618, 0, 0.8, 0, -0.468618, 0, -0.648381, 2.47221, 0, 1.69229 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_14" parent="Foliage_summer/Leafs" index="11" instance=ExtResource( 27 )]
+[node name="Tree_14" parent="Foliage_summer/Leafs" index="11" instance=ExtResource( 32 )]
 
 transform = Transform( -0.648381, 0, 0.468618, 0, 0.8, 0, -0.468618, 0, -0.648381, -2.3866, 0, -0.211133 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_15" parent="Foliage_summer/Leafs" index="12" instance=ExtResource( 27 )]
+[node name="Tree_15" parent="Foliage_summer/Leafs" index="12" instance=ExtResource( 32 )]
 
 transform = Transform( -0.648381, 0, 0.468618, 0, 0.8, 0, -0.468618, 0, -0.648381, -1.60009, 0, 1.30307 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_10" parent="Foliage_summer/Leafs" index="13" instance=ExtResource( 27 )]
+[node name="Tree_10" parent="Foliage_summer/Leafs" index="13" instance=ExtResource( 32 )]
 
 transform = Transform( 0.466791, 0, -0.649697, 0, 0.8, 0, 0.649697, 0, 0.466791, 1.85166, 0, -1.13429 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree_11" parent="Foliage_summer/Leafs" index="14" instance=ExtResource( 27 )]
+[node name="Tree_11" parent="Foliage_summer/Leafs" index="14" instance=ExtResource( 32 )]
 
 transform = Transform( 0.46679, 0, -0.649697, 0, 0.8, 0, 0.649697, 0, 0.46679, 1.60764, 0, 0.00566396 )
 _sections_unfolded = [ "Transform" ]
@@ -830,104 +981,104 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Special" type="Spatial" parent="." index="7"]
 
-[node name="Spatial" parent="Special" index="0" instance=ExtResource( 28 )]
+[node name="Spatial" parent="Special" index="0" instance=ExtResource( 33 )]
 
 transform = Transform( -2.67314, 0, 1.36174, 0, 3, 0, -1.36174, 0, -2.67314, 1.45568, 3.8147e-007, -4.96122 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial2" parent="Special" index="1" instance=ExtResource( 28 )]
+[node name="Spatial2" parent="Special" index="1" instance=ExtResource( 33 )]
 
 transform = Transform( -2.83041, 0, 0.994387, 0, 3, 0, -0.994387, 0, -2.83041, -0.338195, -1.14441e-006, -23.5777 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial3" parent="Special" index="2" instance=ExtResource( 28 )]
+[node name="Spatial3" parent="Special" index="2" instance=ExtResource( 33 )]
 
 transform = Transform( -0.510394, 0, -2.95627, 0, 3, 0, 2.95627, 0, -0.510394, -13.4233, -1.14441e-006, -9.00017 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial4" parent="Special" index="3" instance=ExtResource( 28 )]
+[node name="Spatial4" parent="Special" index="3" instance=ExtResource( 33 )]
 
 transform = Transform( -0.510394, 0, -2.95627, 0, 3, 0, 2.95627, 0, -0.510394, 33.4724, -4.99725e-005, -23.1682 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial5" parent="Special" index="4" instance=ExtResource( 28 )]
+[node name="Spatial5" parent="Special" index="4" instance=ExtResource( 33 )]
 
 transform = Transform( -2.97212, 0, -0.408054, 0, 3, 0, 0.408054, 0, -2.97212, 27.6558, -4.99725e-005, -33.6277 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial6" parent="Special" index="5" instance=ExtResource( 28 )]
+[node name="Spatial6" parent="Special" index="5" instance=ExtResource( 33 )]
 
 transform = Transform( -2.55992, 0, -1.56423, 0, 3, 0, 1.56423, 0, -2.55992, 16.8932, -1.14441e-006, -12.1993 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Cutdown" type="Spatial" parent="." index="8"]
 
-[node name="Stump" parent="Cutdown" index="0" instance=ExtResource( 29 )]
+[node name="Stump" parent="Cutdown" index="0" instance=ExtResource( 34 )]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2.40278, 0, -15.8687 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump8" parent="Cutdown" index="1" instance=ExtResource( 29 )]
+[node name="Stump8" parent="Cutdown" index="1" instance=ExtResource( 34 )]
 
 transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 9.35812, 0, -15.9576 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump11" parent="Cutdown" index="2" instance=ExtResource( 29 )]
+[node name="Stump11" parent="Cutdown" index="2" instance=ExtResource( 34 )]
 
 transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, -3.81972, 0, -12.4609 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump9" parent="Cutdown" index="3" instance=ExtResource( 29 )]
+[node name="Stump9" parent="Cutdown" index="3" instance=ExtResource( 34 )]
 
 transform = Transform( 2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 2.47534, 0, -10.2883 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump10" parent="Cutdown" index="4" instance=ExtResource( 29 )]
+[node name="Stump10" parent="Cutdown" index="4" instance=ExtResource( 34 )]
 
 transform = Transform( 2.20838, 0, 0.977405, 0, 2.41501, 0, -0.977405, 0, 2.20838, 14.8029, 0, -17.4224 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump2" parent="Cutdown" index="5" instance=ExtResource( 29 )]
+[node name="Stump2" parent="Cutdown" index="5" instance=ExtResource( 34 )]
 
 transform = Transform( 3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, 8.33523, 0, -12.378 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump3" parent="Cutdown" index="6" instance=ExtResource( 29 )]
+[node name="Stump3" parent="Cutdown" index="6" instance=ExtResource( 34 )]
 
 transform = Transform( 3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, -2.78414, 0, -17.3329 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump13" parent="Cutdown" index="7" instance=ExtResource( 29 )]
+[node name="Stump13" parent="Cutdown" index="7" instance=ExtResource( 34 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump14" parent="Cutdown" index="8" instance=ExtResource( 29 )]
+[node name="Stump14" parent="Cutdown" index="8" instance=ExtResource( 34 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump15" parent="Cutdown" index="9" instance=ExtResource( 29 )]
+[node name="Stump15" parent="Cutdown" index="9" instance=ExtResource( 34 )]
 
 transform = Transform( 3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, 8.04622, 0, -8.11064 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump4" parent="Cutdown" index="10" instance=ExtResource( 29 )]
+[node name="Stump4" parent="Cutdown" index="10" instance=ExtResource( 34 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 11.8096, 0, -17.937 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump5" parent="Cutdown" index="11" instance=ExtResource( 29 )]
+[node name="Stump5" parent="Cutdown" index="11" instance=ExtResource( 34 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 4.67407, 0, -17.1961 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump6" parent="Cutdown" index="12" instance=ExtResource( 29 )]
+[node name="Stump6" parent="Cutdown" index="12" instance=ExtResource( 34 )]
 
 transform = Transform( 3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, -1.0887, 0, -12.8037 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Stump7" parent="Cutdown" index="13" instance=ExtResource( 29 )]
+[node name="Stump7" parent="Cutdown" index="13" instance=ExtResource( 34 )]
 
 transform = Transform( 3.65861, 0, 1.57042, 0, 3.98141, 0, -1.57042, 0, 3.65861, 17.655, 0, -19.7801 )
 _sections_unfolded = [ "Transform" ]
