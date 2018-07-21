@@ -12,18 +12,18 @@ const RUN_DISTANCE     = 5
 
 enum {STATE_IDLE, STATE_BACK, STATE_CHASE}
 
-const WAIT_TIME = 3
+const WAIT_TIME  = 1.5
 
-var offset = 0
-var state = null
-var time = 0
+var offset       = 0
+var state        = null
+var time         = 0
 var player_moved = false
-var walk_cycle = 0
+var walk_cycle   = 0
 
 #var playerInArea = false
 var originPosition = Vector3()
-var target = null
-var targets = []
+var target         = null
+var targets        = []
 
 func _ready():
 	originPosition = self.translation
@@ -109,6 +109,7 @@ func _on_SenseArea_body_entered(body):
 func _on_SenseArea_body_exited(body):
 	if body.is_in_group("players"):
 		targets.erase(body)
-		target = targets.front()
-		if !target:
-			state = STATE_BACK
+		if targets.size() >0:
+			target = targets.front()
+			if !target:
+				state = STATE_BACK
