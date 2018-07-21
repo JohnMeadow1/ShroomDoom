@@ -14,10 +14,13 @@ var state     = null
 var move       = Vector3()
 var walk_cycle = 0
 
+var base_rotation = [Vector3(),Vector3()]
 
 func _ready():
 	
 	self.state = STATE_IDLE
+	base_rotation[0] = $Spatial/eye_node.rotation
+	base_rotation[1] = $Spatial/eye_node2.rotation
 	
 func _physics_process(delta):
 
@@ -66,6 +69,12 @@ func _physics_process(delta):
 	move = move_and_slide(move)
 	move *= 0.90
 	$Spatial.rotation.z = atan2(move.x,-move.z)
+	$Spatial/eye_node.rotation.x = base_rotation[0].x + sin( walk_cycle ) * 0.4 
+	$Spatial/eye_node.rotation.y = base_rotation[0].y + sin( walk_cycle ) - PI/4
+	$Spatial/eye_node2.rotation.x = base_rotation[1].x + sin( walk_cycle ) * 0.2 
+	$Spatial/eye_node2.rotation.y = base_rotation[1].y + cos( walk_cycle ) * 0.6 - PI/5
+#	$Spatial/eye_node2.rotation = base_rotation[1]
+
 
 func push(direction):
 	move += direction*50
