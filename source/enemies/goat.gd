@@ -20,6 +20,7 @@ var time = 0
 #var playerInArea = false
 var originPosition = Vector3()
 var target = null
+var targets = []
 
 func _ready():
 	originPosition = self.translation
@@ -32,7 +33,9 @@ func _physics_process(delta):
 	var offset = 0
 #	var player_moved = false
 	
-	if target && state == STATE_CHASE:
+	if state == STATE_IDLE:
+		idle(delta)
+	elif state == STATE_CHASE:
 		var distance = self.translation.distance_to(target.translation)
 		
 		var direction = target.translation - self.translation
@@ -50,13 +53,10 @@ func _physics_process(delta):
 				target.push(direction)
 				state = STATE_IDLE
 				time = 0;
-	elif target && state == STATE_IDLE && time < WAIT_TIME:
-		time += delta;
-	elif target && state == STATE_IDLE && time >= WAIT_TIME:
-		state = STATE_CHASE
-		time = 0;
-	elif !target && state == STATE_IDLE:
-		state = STATE_BACK
+				if targets.size() > 1:
+					targets.push_back(target)
+					targets.pop_front()
+					target = targets.front()
 	elif state == STATE_BACK:
 		var direction = originPosition - self.translation
 		if direction.length_squared() >1:
@@ -64,13 +64,24 @@ func _physics_process(delta):
 			look_at(originPosition, Vector3(0,1,0))
 			offset = MOVE_SPEED_WALK * delta
 			move_and_slide(direction * offset)
-		
+
+func idle(delta):
+	if time < WAIT_TIME:
+		time += delta
+	else:
+		state = STATE_CHASE
+		time = 0;
+
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):
-		target = body
+		targets.push_back(body)
+		target = targets.front()
 		state = STATE_CHASE
 
 
 func _on_SenseArea_body_exited(body):
-	target = null
-	state = STATE_BACK
+	if body.is_in_group("players"):
+		targets.erase(body)
+		target = targets.front()
+		if !target:
+			state = STATE_BACK
