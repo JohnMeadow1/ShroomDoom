@@ -12,7 +12,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="outer eye" type="MeshInstance" parent="." index="0"]
 
-transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+transform = Transform( -0.0254, 0, -2.22054e-009, 0, 0.0254, 0, 2.22054e-009, 0, -0.0254, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -29,7 +29,7 @@ _sections_unfolded = [ "Transform", "material" ]
 
 [node name="inner eye" type="MeshInstance" parent="." index="1"]
 
-transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+transform = Transform( -0.0254, 0, -2.22054e-009, 0, 0.0254, 0, 2.22054e-009, 0, -0.0254, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1

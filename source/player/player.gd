@@ -3,6 +3,7 @@ extends KinematicBody
 
 const MOVE_SPEED  = 50
 
+
 export(int) var PLAYER_NUM
 
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT}
@@ -12,6 +13,7 @@ var state     = null
 
 var move       = Vector3()
 var walk_cycle = 0
+
 
 func _ready():
 	
@@ -23,6 +25,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("action_p" + str(PLAYER_NUM)):
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
 			node.queue_free()
+			globals.add_score(PLAYER_NUM,1)
 	else:
 		var offset = MOVE_SPEED * delta
 		var player_moved = false

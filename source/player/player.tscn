@@ -95,7 +95,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial" index="0"]
 
-transform = Transform( 0.05, 0, 0, 0, -2.18557e-009, 0.05, 0, -0.05, -2.18557e-009, 0, 6.43645e-008, 1.47249 )
+transform = Transform( 0.05, 1.0133e-023, 0, 0, -2.18557e-009, 0.05, 0, -0.05, -2.18557e-009, -4.23516e-022, 6.43645e-008, 1.47249 )
 layers = 1
 material_override = SubResource( 2 )
 cast_shadow = 1
@@ -112,11 +112,11 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 4 )]
 
-transform = Transform( -0.44794, 0.0523009, -0.215904, -0.206571, -0.27683, 0.361516, -0.0817224, 0.413074, 0.269614, 0.193395, -0.308041, 0.199018 )
+transform = Transform( -0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 0.409576, -0.0811813, 0.402906, 0.28474, 0.252848, -0.308041, 0.140131 )
 
 [node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 4 )]
 
-transform = Transform( -0.359935, -0.0202179, 0.173314, 0.174083, -0.0687146, 0.353516, 0.0119047, 0.393535, 0.0706309, -0.25454, -0.308041, 0.199018 )
+transform = Transform( -0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956 )
 
 [node name="Camera" type="Camera" parent="." index="2"]
 
@@ -134,5 +134,28 @@ size = 10.0
 near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
+
+[node name="OmniLight" type="OmniLight" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845496, 1.251, -0.405339 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Omni", "Shadow" ]
 
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://viewports/viewports.gd" type="Script" id=1]
-[ext_resource path="res://main.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://viewports/viewports.gd" type="Script" id=2]
+[ext_resource path="res://world.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
 
-[node name="splitscreen" type="Node"]
+[node name="viewports" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -21,6 +23,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 columns = 2
+script = ExtResource( 2 )
 
 [node name="Player1" type="ViewportContainer" parent="ViewportsContainer" index="0"]
 
@@ -60,16 +63,16 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 2048
+shadow_atlas_size = 128
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow Atlas" ]
 
-[node name="main" parent="ViewportsContainer/Player1/Viewport1" index="0" instance=ExtResource( 2 )]
+[node name="world" parent="ViewportsContainer/Player1/Viewport1" index="0" instance=ExtResource( 3 )]
 
-[node name="player" parent="ViewportsContainer/Player1/Viewport1" index="1" instance=ExtResource( 3 )]
+[node name="player" parent="ViewportsContainer/Player1/Viewport1" index="1" instance=ExtResource( 4 )]
 
 [node name="Player2" type="ViewportContainer" parent="ViewportsContainer" index="1"]
 
@@ -110,14 +113,14 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 2048
+shadow_atlas_size = 128
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Rendering", "Shadow Atlas" ]
 
-[node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 3 )]
+[node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 24.8887 )
 PLAYER_NUM = 2
@@ -161,14 +164,14 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 2048
+shadow_atlas_size = 128
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Shadow Atlas" ]
 
-[node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 3 )]
+[node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 12.4162, 1, -6.22092 )
 PLAYER_NUM = 3
@@ -195,7 +198,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport4" type="Viewport" parent="ViewportsContainer/Player4" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -214,15 +216,18 @@ audio_listener_enable_3d = false
 physics_object_picking = false
 gui_disable_input = false
 gui_snap_controls_to_pixels = true
-shadow_atlas_size = 2048
+shadow_atlas_size = 128
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Shadow Atlas" ]
 
-[node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 3 )]
+[node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 11.9195, 1, 0 )
 PLAYER_NUM = 4
+
+[node name="GUI" parent="." index="1" instance=ExtResource( 5 )]
 
 

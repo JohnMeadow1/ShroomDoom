@@ -14,9 +14,9 @@ config/name="ShroomDoom"
 run/main_scene="res://viewports/viewports.tscn"
 config/icon="res://icon.png"
 
-[debug]
+[autoload]
 
-settings/stdout/print_fps=true
+globals="*res://globals.gd"
 
 [input]
 
