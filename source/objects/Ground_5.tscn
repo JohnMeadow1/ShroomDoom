@@ -2,8 +2,6 @@
 
 [ext_resource path="res://objects/Decals/roud5.png" type="Texture" id=1]
 
-
-
 [sub_resource type="PlaneMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -34,7 +32,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.132813, 0.132813, 0.132813, 1 )
+albedo_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 albedo_texture = ExtResource( 1 )
 metallic = 0.0
 metallic_specular = 0.0

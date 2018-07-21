@@ -109,7 +109,8 @@ func _on_SenseArea_body_entered(body):
 func _on_SenseArea_body_exited(body):
 	if body.is_in_group("players"):
 		targets.erase(body)
-		if targets.size() >0:
+		if targets.size() == 0:
+			state = STATE_BACK
+		else:
 			target = targets.front()
-			if !target:
-				state = STATE_BACK
+			

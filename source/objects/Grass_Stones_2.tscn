@@ -3,7 +3,6 @@
 [ext_resource path="res://objects/Models/Grass_2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://objects/Models/Stones_2.obj" type="ArrayMesh" id=2]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 
 render_priority = 0
@@ -107,9 +106,9 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[node name="MeshInstance" type="MeshInstance"]
+[node name="MeshInstance" type="MeshInstance" index="0"]
 
-transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
