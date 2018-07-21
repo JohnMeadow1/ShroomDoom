@@ -165,10 +165,10 @@ _sections_unfolded = [ "Albedo", "Roughness" ]
 
 [sub_resource type="CapsuleShape" id=4]
 
-radius = 0.0401802
+radius = 0.0371367
 height = 0.237696
 
-[node name="Tree_2" type="StaticBody" index="0"]
+[node name="Tree_2" type="StaticBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false

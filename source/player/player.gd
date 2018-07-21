@@ -22,7 +22,7 @@ func _ready():
 func _physics_process(delta):
 
 #	# Fight 
-	if Input.is_action_pressed("action_p" + str(PLAYER_NUM)):
+	if Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
 			node.queue_free()
 			globals.add_score(PLAYER_NUM,1)

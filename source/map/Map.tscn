@@ -268,6 +268,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Zone_1" type="Spatial" parent="." index="3"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Spatial" parent="Zone_1" index="0" instance=ExtResource( 12 )]
 
 transform = Transform( -1.14907, 0, 0.964182, 0, 1.5, 0, -0.964182, 0, -1.14907, -5.91876, 0, -25 )
@@ -275,7 +277,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Spatial2" parent="Zone_1" index="1" instance=ExtResource( 12 )]
 
-transform = Transform( -1.3652, 0, -0.621483, 0, 1.5, 0, 0.621483, 0, -1.3652, 18.9917, 0, -13.9931 )
+transform = Transform( -1.3652, 0, -0.621481, 0, 1.5, 0, 0.621481, 0, -1.3652, 18.9917, 0, -13.9931 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Spatial3" parent="Zone_1" index="2" instance=ExtResource( 12 )]
@@ -429,6 +431,8 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 120.78, 0, -65.3981 )
 transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 11.7834, 0, -58.9172 )
 
 [node name="Tree2" type="Spatial" parent="Foliage_summer" index="1"]
+
+editor/display_folded = true
 
 [node name="Tree_2" parent="Foliage_summer/Tree2" index="0" instance=ExtResource( 14 )]
 
@@ -1335,6 +1339,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Group16" type="Spatial" parent="Foliage_summer" index="19"]
 
+editor/display_folded = true
 transform = Transform( 0.750809, 0, 0.660519, 0, 1, 0, -0.660519, 0, 0.750809, -17.863, 0.000146484, -15.4304 )
 _sections_unfolded = [ "Transform" ]
 
