@@ -43,7 +43,10 @@ func _physics_process(delta):
 				if body != self && body.translation.distance_to(self.translation) < 3:
 					var direction = body.translation - self.translation
 					body.push(direction.normalized() / 2)
-					
+			for body in get_tree().get_nodes_in_group("sage"):
+				if body.translation.distance_to(self.translation) < 4:
+					body.checkWin(self)
+			
 	elif self.state == STATE_STUN:
 		stunTime += delta
 		if stunTime >= STUN_TIME:
