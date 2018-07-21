@@ -1,9 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://objects/Models/Stones_and_grass_opt.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://objects/Textures/Stones_and_grass_opt.png" type="Texture" id=2]
+[ext_resource path="res://objects/Decals/snow.png" type="Texture" id=1]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="PlaneMesh" id=1]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 10, 10 )
+subdivide_width = 0
+subdivide_depth = 0
+
+[sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
 flags_transparent = true
@@ -26,8 +32,8 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+albedo_texture = ExtResource( 1 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -54,12 +60,13 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Roughness" ]
+_sections_unfolded = [ "Albedo" ]
 
 [node name="Spatial" type="Spatial" index="0"]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -69,9 +76,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 1 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
-material/0 = SubResource( 1 )
-_sections_unfolded = [ "material" ]
+material/0 = SubResource( 2 )
+_sections_unfolded = [ "Transform", "material" ]
 
 

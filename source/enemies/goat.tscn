@@ -1,9 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://enemies/goat.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Goat.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://enemies/Goat.material" type="Material" id=3]
 [ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-001.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-002.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-003.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-004.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-005.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-006.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-007.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-008.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-009.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-010.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-011.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/sfx/goat/goat_footsteps-012.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-001.wav" type="AudioStream" id=17]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-002.wav" type="AudioStream" id=18]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-003.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-004.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-005.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-006.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-007.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/sfx/goat/goat_meeeh_-008.wav" type="AudioStream" id=24]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -14,7 +34,7 @@ height = 1.0
 
 radius = 15.0
 
-[node name="Goat" type="KinematicBody"]
+[node name="Goat" type="KinematicBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -58,10 +78,9 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
-[node name="eye_node" type="Spatial" parent="Spatial/MeshInstance" index="0" instance=ExtResource( 4 )]
+[node name="eye_node" parent="Spatial/MeshInstance" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 0.0286267, -0.00473863, 0.00761967, 0.000648986, 0.0265022, 0.0140433, -0.00894946, -0.0132356, 0.0253915, 0.0126185, 0.23042, 0.148468 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="eye_node2" parent="Spatial/MeshInstance" index="1" instance=ExtResource( 4 )]
 
@@ -95,6 +114,190 @@ reverb_bus_uniformity = 0.0
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="steps" type="Node" parent="." index="3"]
+
+[node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
+
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
+
+stream = ExtResource( 6 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
+
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
+
+stream = ExtResource( 8 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
+
+stream = ExtResource( 9 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
+
+stream = ExtResource( 10 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
+
+stream = ExtResource( 11 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
+
+stream = ExtResource( 12 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
+
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
+
+stream = ExtResource( 14 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_11" type="AudioStreamPlayer" parent="steps" index="10"]
+
+stream = ExtResource( 15 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Steps_12" type="AudioStreamPlayer" parent="steps" index="11"]
+
+stream = ExtResource( 16 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="meeeh" type="Node" parent="." index="4"]
+
+[node name="Meeeh_1" type="AudioStreamPlayer" parent="meeeh" index="0"]
+
+stream = ExtResource( 17 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_2" type="AudioStreamPlayer" parent="meeeh" index="1"]
+
+stream = ExtResource( 18 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_3" type="AudioStreamPlayer" parent="meeeh" index="2"]
+
+stream = ExtResource( 19 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_4" type="AudioStreamPlayer" parent="meeeh" index="3"]
+
+stream = ExtResource( 20 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_5" type="AudioStreamPlayer" parent="meeeh" index="4"]
+
+stream = ExtResource( 21 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_6" type="AudioStreamPlayer" parent="meeeh" index="5"]
+
+stream = ExtResource( 22 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_7" type="AudioStreamPlayer" parent="meeeh" index="6"]
+
+stream = ExtResource( 23 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Meeeh_8" type="AudioStreamPlayer" parent="meeeh" index="7"]
+
+stream = ExtResource( 24 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_SenseArea_body_entered"]
 
