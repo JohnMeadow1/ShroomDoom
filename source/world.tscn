@@ -4,7 +4,7 @@
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPC/Nuke_NPC.tscn" type="PackedScene" id=3]
 
-[node name="world" type="Node"]
+[node name="world" type="Node" index="0"]
 
 [node name="Goat" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -44,6 +44,6 @@ _sections_unfolded = [ "Light" ]
 
 [node name="NPC" parent="." index="3" instance=ExtResource( 3 )]
 
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 23.4288, 0, 6.70634 )
+transform = Transform( -0.803875, 0, -7.0277e-008, 0, 0.803875, 0, 7.0277e-008, 0, -0.803875, 15.159, 0, 4.29472 )
 
 
