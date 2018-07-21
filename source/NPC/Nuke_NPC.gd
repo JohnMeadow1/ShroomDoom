@@ -9,7 +9,8 @@ const CLOUD_TIME_ON = 5
 var timer = 0
 var messageIndex = 0
 
-var messages = ["Welcome!\nStay a while\nand listen."
+var messages = ["I need shrooms!\nBring me SHROOMS!"
+,"Welcome!\nStay a while\nand listen."
 ,"Blood for Blood\nShroom for Shroom\nGOD!"]
 
 func _ready():

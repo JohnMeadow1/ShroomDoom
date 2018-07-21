@@ -94,6 +94,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Spatial" type="Spatial" parent="." index="0"]
 
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Nuke" type="MeshInstance" parent="Spatial" index="0"]
@@ -180,7 +181,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_font
 
 [node name="Cloud" type="Sprite3D" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90857, 5.13658, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25578, 5.13658, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1

@@ -250,6 +250,4 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Dialog" type="Node" parent="." index="3"]
-
 
