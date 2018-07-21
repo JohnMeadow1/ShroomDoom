@@ -80,6 +80,7 @@ func _physics_process(delta):
 			if walk_cycle >= PI:
 				walk_cycle -= PI
 				get_node("steps/Steps_" + str( randi() % 10 + 1 ) ).play()
+				$dust.emitting = true
 		elif self.state != STATE_IDLE:
 
 			if walk_cycle > PI * 0.5:

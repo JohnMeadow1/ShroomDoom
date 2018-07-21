@@ -1,29 +1,151 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
-[ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://player/slash.png" type="Texture" id=5]
-[ext_resource path="res://player/star.png" type="Texture" id=6]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=9]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=10]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=11]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=12]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=13]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=14]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=15]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=16]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=17]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=18]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=19]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=20]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=21]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=22]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=23]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=24]
+[ext_resource path="res://player/dust.png" type="Texture" id=2]
+[ext_resource path="res://player/player.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://player/slash.png" type="Texture" id=6]
+[ext_resource path="res://player/star.png" type="Texture" id=7]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=17]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=18]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=24]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=25]
+
+[sub_resource type="Gradient" id=15]
+
+offsets = PoolRealArray( 0, 0.989933 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=16]
+
+flags = 4
+gradient = SubResource( 15 )
+width = 2048
+
+[sub_resource type="Curve" id=17]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.424805 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=18]
+
+flags = 4
+width = 2048
+curve = SubResource( 17 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0.1, 0 )
+initial_velocity = 0.1
+initial_velocity_random = 0.0
+angular_velocity = 1.39267e-010
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 18 )
+color_ramp = SubResource( 16 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="SpatialMaterial" id=13]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Flags", "Parameters", "Vertex Color" ]
+
+[sub_resource type="QuadMesh" id=14]
+
+material = SubResource( 13 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -166,7 +288,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 6 )
+albedo_texture = ExtResource( 7 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -203,27 +325,27 @@ size = Vector2( 1, 1 )
 
 [sub_resource type="AudioStreamRandomPitch" id=5]
 
-audio_stream = ExtResource( 20 )
+audio_stream = ExtResource( 21 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=6]
 
-audio_stream = ExtResource( 21 )
+audio_stream = ExtResource( 22 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 22 )
+audio_stream = ExtResource( 23 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
 
-audio_stream = ExtResource( 23 )
+audio_stream = ExtResource( 24 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=9]
 
-audio_stream = ExtResource( 24 )
+audio_stream = ExtResource( 25 )
 random_pitch = 1.1
 
 [node name="player" type="KinematicBody" index="0" groups=[
@@ -247,12 +369,42 @@ _sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
 PLAYER_NUM = 1
 player_texture = null
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
+[node name="dust" type="Particles" parent="." index="0"]
+
+transform = Transform( -4.37114e-008, -1, -4.37114e-008, 0, -4.37114e-008, 1, -1, 4.37114e-008, 3.55271e-015, 0, -5.28275e-008, -1.20855 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = false
+amount = 1000
+lifetime = 1.0
+one_shot = true
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = false
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 12 )
+draw_passes = 1
+draw_pass_1 = SubResource( 14 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
 shape = SubResource( 1 )
 disabled = false
 
-[node name="Spatial" type="Spatial" parent="." index="1"]
+[node name="Spatial" type="Spatial" parent="." index="2"]
 
 transform = Transform( -1, 1.50996e-007, -1.69407e-021, -1.50996e-007, -1, 8.72665e-008, 1.31769e-014, 8.72665e-008, 1, 0, 0, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -269,16 +421,16 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
-[node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 3 )]
+[node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 4 )]
 
 transform = Transform( -0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 0.409576, -0.0811813, 0.402906, 0.28474, 0.252848, -0.308041, 0.140131 )
 
-[node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 3 )]
+[node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 4 )]
 
 transform = Transform( -0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956 )
 
@@ -299,7 +451,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -330,7 +482,7 @@ transparent = true
 shaded = false
 double_sided = true
 alpha_cut = 0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 vframes = 1
 hframes = 1
 frame = 0
@@ -338,7 +490,7 @@ region_enabled = false
 region_rect = Rect2( 0, 0, 0, 0 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = "idle"
@@ -350,7 +502,7 @@ anims/swing = SubResource( 11 )
 next/swing = "idle"
 blend_times = [  ]
 
-[node name="Camera" type="Camera" parent="." index="3"]
+[node name="Camera" type="Camera" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10 )
 keep_aspect = 1
@@ -367,7 +519,7 @@ near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles" type="Particles" parent="." index="4"]
+[node name="Particles" type="Particles" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, -5.72861e-008, -1.31055 )
 layers = 1
@@ -397,20 +549,11 @@ draw_passes = 1
 draw_pass_1 = SubResource( 4 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
-[node name="steps" type="Node" parent="." index="5"]
+[node name="steps" type="Node" parent="." index="6"]
 
 editor/display_folded = true
 
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
-
-stream = ExtResource( 7 )
-volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
 
 stream = ExtResource( 8 )
 volume_db = -10.0
@@ -419,7 +562,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
+[node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
 
 stream = ExtResource( 9 )
 volume_db = -10.0
@@ -428,7 +571,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
+[node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
 
 stream = ExtResource( 10 )
 volume_db = -10.0
@@ -437,7 +580,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
+[node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
 
 stream = ExtResource( 11 )
 volume_db = -10.0
@@ -446,7 +589,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
+[node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
 
 stream = ExtResource( 12 )
 volume_db = -10.0
@@ -455,7 +598,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
+[node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
 
 stream = ExtResource( 13 )
 volume_db = -10.0
@@ -464,7 +607,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
+[node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
 
 stream = ExtResource( 14 )
 volume_db = -10.0
@@ -473,7 +616,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
+[node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
 
 stream = ExtResource( 15 )
 volume_db = -10.0
@@ -482,29 +625,29 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
+[node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 16 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="pick_up" type="Node" parent="." index="6"]
+[node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
 
-editor/display_folded = true
-
-[node name="Pick_up_1" type="AudioStreamPlayer" parent="pick_up" index="0"]
-
-stream = ExtResource( 16 )
-volume_db = 0.0
+stream = ExtResource( 8 )
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
+[node name="pick_up" type="Node" parent="." index="7"]
+
+editor/display_folded = true
+
+[node name="Pick_up_1" type="AudioStreamPlayer" parent="pick_up" index="0"]
 
 stream = ExtResource( 17 )
 volume_db = 0.0
@@ -513,7 +656,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
+[node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
 
 stream = ExtResource( 18 )
 volume_db = 0.0
@@ -522,7 +665,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
+[node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
 
 stream = ExtResource( 19 )
 volume_db = 0.0
@@ -531,7 +674,16 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="stab" type="Node" parent="." index="7"]
+[node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
+
+stream = ExtResource( 20 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="stab" type="Node" parent="." index="8"]
 
 editor/display_folded = true
 
@@ -579,33 +731,5 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[node name="Particles2" type="Particles" parent="." index="8"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-emitting = true
-amount = 8
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
-local_coords = true
-draw_order = 0
-process_material = null
-draw_passes = 1
-draw_pass_1 = null
 
 

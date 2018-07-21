@@ -4,11 +4,11 @@
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPC/Nuke_NPC.tscn" type="PackedScene" id=3]
 
-[node name="world" type="Node" index="0"]
+[node name="world" type="Node"]
 
 [node name="Goat" parent="." index="0" instance=ExtResource( 1 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8027, 1, -18.5658 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8027, 0.0150573, -18.5658 )
 
 [node name="map" type="Node" parent="." index="1"]
 
@@ -36,11 +36,11 @@ directional_shadow_split_1 = 0.1
 directional_shadow_split_2 = 0.2
 directional_shadow_split_3 = 0.5
 directional_shadow_blend_splits = false
-directional_shadow_normal_bias = 0.8
-directional_shadow_bias_split_scale = 0.25
+directional_shadow_normal_bias = 0.0
+directional_shadow_bias_split_scale = 0.0
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Light" ]
+_sections_unfolded = [ "Directional Shadow" ]
 
 [node name="NPC" parent="." index="3" instance=ExtResource( 3 )]
 
