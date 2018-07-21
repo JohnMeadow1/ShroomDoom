@@ -66,3 +66,6 @@ func _physics_process(delta):
 	move = move_and_slide(move)
 	move *= 0.90
 	$Spatial.rotation.z = atan2(move.x,-move.z)
+
+func push(direction):
+	print("pushed")
