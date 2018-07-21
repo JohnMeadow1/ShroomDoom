@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://objects/Models/Nuke.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://objects/Textures/The_bomb.png" type="Texture" id=2]
-[ext_resource path="res://player/player_model.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NPC/Nuke_NPC.gd" type="Script" id=1]
+[ext_resource path="res://objects/Models/Nuke.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://objects/Textures/The_bomb.png" type="Texture" id=3]
+[ext_resource path="res://player/player_model.tscn" type="PackedScene" id=4]
+[ext_resource path="res://font/digital-7 (mono).ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://NPC/talk.png" type="Texture" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -28,7 +31,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 3 )
 metallic = 0.0
 metallic_specular = 0.51
 metallic_texture_channel = 0
@@ -57,8 +60,36 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
-[node name="NPC" type="Spatial" index="0"]
+[sub_resource type="CapsuleShape" id=2]
 
+radius = 2.01742
+height = 2.27526
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 79
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="ViewportTexture" id=4]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Viewport")
+
+[node name="NPC" type="StaticBody" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Spatial" type="Spatial" parent="." index="0"]
@@ -77,13 +108,137 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 1 )
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = SubResource( 1 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="player" parent="Spatial" index="1" instance=ExtResource( 3 )]
+[node name="player" parent="Spatial" index="1" instance=ExtResource( 4 )]
 
 transform = Transform( -1, -8.74228e-008, 3.82137e-015, 0, -4.37114e-008, -1, 8.74228e-008, -1, 4.37114e-008, -0.0908484, 2.64148, 0.00756097 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -0.5, 1, 0 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Viewport" type="Viewport" parent="." index="2"]
+
+arvr = true
+size = Vector2( 650, 300 )
+own_world = false
+world = null
+transparent_bg = true
+msaa = 0
+hdr = false
+disable_3d = false
+usage = 0
+debug_draw = 0
+render_target_v_flip = true
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Render Target", "Rendering" ]
+
+[node name="Label" type="Label" parent="Viewport" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 650.0
+margin_bottom = 250.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 50
+text = "Welcome!
+Stay a while
+and listen"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Cloud" type="Sprite3D" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90857, 5.13658, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = true
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.01
+axis = 2
+transparent = true
+shaded = false
+double_sided = true
+alpha_cut = 0
+texture = ExtResource( 6 )
+vframes = 1
+hframes = 1
+frame = 0
+region_enabled = false
+region_rect = Rect2( 0, 0, 0, 0 )
+
+[node name="Text" type="Sprite3D" parent="Cloud" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259544, -0.01 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+centered = true
+offset = Vector2( 0, 0 )
+flip_h = true
+flip_v = false
+modulate = Color( 1, 1, 1, 1 )
+opacity = 1.0
+pixel_size = 0.01
+axis = 2
+transparent = true
+shaded = false
+double_sided = true
+alpha_cut = 0
+texture = SubResource( 4 )
+vframes = 1
+hframes = 1
+frame = 0
+region_enabled = true
+region_rect = Rect2( 0, 0, 625, 290 )
+_sections_unfolded = [ "Flags", "Region", "Transform" ]
 
 
