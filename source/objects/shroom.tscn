@@ -62,7 +62,7 @@ _sections_unfolded = [ "Albedo" ]
 radius = 1.553
 height = 0.164379
 
-[node name="shroom" type="Spatial" index="0"]
+[node name="shroom" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

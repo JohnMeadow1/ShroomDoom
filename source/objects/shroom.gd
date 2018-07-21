@@ -1,8 +1,11 @@
 extends Spatial
 
-var pickable = false
-var blink_value = 1
+var pickable        = false
+var blink_value     = 1
 var blink_iterattor = 1
+var size            = 0
+var max_size        = 20
+var growth_rate     = 0.005
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -13,9 +16,14 @@ func _physics_process(delta):
 	if pickable:
 		blink_value -= delta * blink_iterattor
 		if blink_value <= 0.5 || blink_value >= 1:
-			blink_iterattor *=-1
-			blink_value -= delta * blink_iterattor
+			blink_iterattor *= -1
+			blink_value     -= delta * blink_iterattor
 		$MeshInstance.material_override.set("albedo_color", Color(blink_value,blink_value,blink_value))
+	elif size < max_size:
+		size += growth_rate
+		$MeshInstance.scale = Vector3(size,size,size)
+		
+		
 #		set("albedo_color", Color(blink_value,blink_value,blink_value) )
 #		print(Color(blink_value,blink_value,blink_value))
 
