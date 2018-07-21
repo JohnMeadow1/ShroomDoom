@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
-[ext_resource path="res://star.png" type="Texture" id=4]
+[ext_resource path="res://player/star.png" type="Texture" id=4]
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=5]
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=7]
@@ -22,7 +22,7 @@
 [ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=20]
 [ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=21]
 [ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=22]
-[ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=23]
+
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -151,59 +151,7 @@ random_pitch = 1.1
 audio_stream = ExtResource( 22 )
 random_pitch = 1.1
 
-[sub_resource type="SpatialMaterial" id=10]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.34375, 0.34375, 0.34375, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
-
-[node name="player" type="KinematicBody" index="0" groups=[
+[node name="player" type="KinematicBody" groups=[
 "players",
 ]]
 
@@ -231,7 +179,6 @@ disabled = false
 
 [node name="Spatial" type="Spatial" parent="." index="1"]
 
-editor/display_folded = true
 transform = Transform( -1, 1.50996e-007, -1.69407e-021, -1.50996e-007, -1, 8.72665e-008, 1.31769e-014, 8.72665e-008, 1, 0, 0, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -290,7 +237,7 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 emitting = false
-amount = 6
+amount = 12
 lifetime = 1.0
 one_shot = true
 preprocess = 0.0
@@ -489,26 +436,5 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[node name="Weapon" type="Spatial" parent="." index="7"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Weapon" index="0"]
-
-transform = Transform( 4.00878, 0, 0, 0, -1.75229e-007, 4.00878, 0, -4.00878, -1.75229e-007, -0.702026, 0.43393, 0.526062 )
-layers = 1
-material_override = SubResource( 10 )
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 23 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-material/2 = null
-_sections_unfolded = [ "Geometry", "Transform" ]
 
 
