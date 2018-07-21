@@ -3,9 +3,6 @@
 [ext_resource path="res://objects/Models/Stump.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://objects/Textures/Stump_1.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="SpatialMaterial" id=1]
 
 render_priority = 0
@@ -133,7 +130,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.132813, 0.132813, 0.132813, 1 )
+albedo_color = Color( 1, 1, 1, 1 )
 albedo_texture = ExtResource( 2 )
 metallic = 0.0
 metallic_specular = 0.0
@@ -185,6 +182,7 @@ _sections_unfolded = [ "material" ]
 
 [node name="Stump_crisp" type="MeshInstance" parent="." index="1"]
 
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
