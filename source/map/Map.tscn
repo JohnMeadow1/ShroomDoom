@@ -27,9 +27,10 @@
 [ext_resource path="res://objects/Bush_1.tscn" type="PackedScene" id=25]
 [ext_resource path="res://objects/Tree_3.tscn" type="PackedScene" id=26]
 [ext_resource path="res://objects/Tree_4.tscn" type="PackedScene" id=27]
-[ext_resource path="res://objects/Nuke_NPC.tscn" type="PackedScene" id=28]
+[ext_resource path="res://NPC/Nuke_NPC.tscn" type="PackedScene" id=28]
 [ext_resource path="res://objects/Log_cabin_1.tscn" type="PackedScene" id=29]
 [ext_resource path="res://objects/Stump.tscn" type="PackedScene" id=30]
+
 
 [sub_resource type="SpatialMaterial" id=1]
 
