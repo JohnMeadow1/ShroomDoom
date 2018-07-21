@@ -2,9 +2,11 @@ extends KinematicBody
 
 export(int) var RANGE
 
-const MOVE_SPEED_WALK  = 10
-const MOVE_SPEED_CHASE = 50 * 2.5
-const MOVE_SPEED_RUN   = 70
+const MOVE_BALANCE = 2.5
+
+const MOVE_SPEED_WALK  = 10 * MOVE_BALANCE
+const MOVE_SPEED_CHASE = 50 * MOVE_BALANCE
+const MOVE_SPEED_RUN   = 100 * MOVE_BALANCE
 
 enum {STATE_IDLE, STATE_WALK, STATE_CHASE}
 
