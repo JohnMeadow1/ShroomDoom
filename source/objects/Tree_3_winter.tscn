@@ -201,6 +201,7 @@ _sections_unfolded = [ "material" ]
 
 [node name="Tree_3_crisp" type="MeshInstance" parent="." index="1"]
 
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
