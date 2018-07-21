@@ -28,21 +28,21 @@
 
 [sub_resource type="Gradient" id=15]
 
-offsets = PoolRealArray( 0, 0.989933 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.5 )
+colors = PoolColorArray( 1, 1, 1, 0.464078, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=16]
 
 flags = 4
 gradient = SubResource( 15 )
-width = 2048
+width = 2
 
 [sub_resource type="Curve" id=17]
 
-min_value = 0.0
-max_value = 1.0
+min_value = 1.0
+max_value = 4.0
 bake_resolution = 100
-_data = [ Vector2( 0, 0.424805 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1.24316 ), 0.0, 0.450759, 0, 0, Vector2( 1, 4 ), 1.43183, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=18]
 
@@ -54,17 +54,18 @@ curve = SubResource( 17 )
 
 render_priority = 0
 trail_divisor = 1
-emission_shape = 0
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = false
 spread = 180.0
 flatness = 0.0
-gravity = Vector3( 0, 0.1, 0 )
-initial_velocity = 0.1
-initial_velocity_random = 0.0
-angular_velocity = 1.39267e-010
-angular_velocity_random = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.2
+initial_velocity_random = 1.0
+angular_velocity = 0.5
+angular_velocity_random = 1.0
 linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = 0.0
@@ -73,8 +74,8 @@ tangential_accel = 0.0
 tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
+angle = 720.0
+angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
 scale_curve = SubResource( 18 )
@@ -86,24 +87,24 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Gravity", "Scale", "Spread", "Trail" ]
+_sections_unfolded = [ "Angle", "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Trail" ]
 
 [sub_resource type="SpatialMaterial" id=13]
 
 render_priority = 0
 flags_transparent = true
-flags_unshaded = true
+flags_unshaded = false
 flags_vertex_lighting = false
 flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = true
+vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
 params_specular_mode = 0
-params_blend_mode = 0
+params_blend_mode = 1
 params_cull_mode = 0
 params_depth_draw_mode = 0
 params_line_width = 1.0
@@ -139,7 +140,7 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Flags", "Parameters", "Vertex Color" ]
+_sections_unfolded = [ "Albedo", "Flags", "Vertex Color" ]
 
 [sub_resource type="QuadMesh" id=14]
 
@@ -371,7 +372,7 @@ player_texture = null
 
 [node name="dust" type="Particles" parent="." index="0"]
 
-transform = Transform( -4.37114e-008, -1, -4.37114e-008, 0, -4.37114e-008, 1, -1, 4.37114e-008, 3.55271e-015, 0, -5.28275e-008, -1.20855 )
+transform = Transform( -4.37114e-008, -1, -4.37114e-008, 0, -4.37114e-008, 1, -1, 4.37114e-008, 3.55271e-015, 0, 0, 1 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -382,14 +383,14 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 emitting = false
-amount = 1000
+amount = 20
 lifetime = 1.0
 one_shot = true
-preprocess = 1.0
+preprocess = 0.0
 speed_scale = 1.0
-explosiveness = 1.0
-randomness = 0.0
-fixed_fps = 0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 10
 fract_delta = false
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
 local_coords = false
@@ -550,8 +551,6 @@ draw_pass_1 = SubResource( 4 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
 [node name="steps" type="Node" parent="." index="6"]
-
-editor/display_folded = true
 
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
 
