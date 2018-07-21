@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player/player.png" type="Texture" id=1]
+[ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 1 )
+metallic = 0.0
+metallic_specular = 0.0
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Roughness" ]
+
+[node name="player" type="Spatial" index="0" groups=[
+"players",
+]]
+
+_sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="0"]
+
+transform = Transform( -0.05, -3.30012e-016, 7.5498e-009, -7.5498e-009, -2.17776e-009, -0.05, 6.58845e-016, -0.05, 2.17776e-009, 9.71878e-015, 6.41345e-008, 1.47249 )
+layers = 1
+material_override = SubResource( 1 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry", "Transform" ]
+
+[node name="eye_node" parent="." index="1" instance=ExtResource( 3 )]
+
+transform = Transform( 0.493131, 0.0751792, 0.0342167, -0.0152407, 0.286383, -0.409576, -0.0811813, 0.402906, 0.28474, -0.252848, 0.308041, 0.140131 )
+
+[node name="eye_node2" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 0.37005, 0.0675831, -0.135997, -0.151215, 0.130897, -0.34641, -0.0140246, 0.371885, 0.146645, 0.307248, 0.37249, 0.164956 )
+
+
