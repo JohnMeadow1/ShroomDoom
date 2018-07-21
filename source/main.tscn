@@ -11,6 +11,8 @@ script = ExtResource( 1 )
 
 [node name="Goat" parent="." index="0" instance=ExtResource( 2 )]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8027, 1, -18.5658 )
+
 [node name="map" type="Node" parent="." index="1"]
 
 [node name="Map" parent="map" index="0" instance=ExtResource( 3 )]
