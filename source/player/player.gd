@@ -20,13 +20,10 @@ func _ready():
 func _physics_process(delta):
 
 #	# Fight 
-	if Input.is_action_pressed("alt_p" + str(PLAYER_NUM)):
-		if self.drag_item == null:
-			self.state = STATE_FIGHT
-			
-	# Move
+	if Input.is_action_pressed("action_p" + str(PLAYER_NUM)):
+		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
+			node.queue_free()
 	else:
-
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
 		
@@ -68,4 +65,4 @@ func _physics_process(delta):
 	$Spatial.rotation.z = atan2(move.x,-move.z)
 
 func push(direction):
-	print("pushed")
+	move += direction*50

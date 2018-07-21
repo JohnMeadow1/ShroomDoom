@@ -23,9 +23,14 @@ func _physics_process(delta):
 func _on_Area_body_entered(body):
 	if body.is_in_group("players"):
 		pickable = true
+		add_to_group("pickables"+str(body.PLAYER_NUM))
 
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("players"):
-		self.material_override.set("albedo_color", Color(1,1,1) )
-		pickable = false
+		remove_from_group("pickables"+str(body.PLAYER_NUM))
+		if is_in_group("pickables1") || is_in_group("pickables2") || is_in_group("pickables3") || is_in_group("pickables4"):
+			pass
+		else: 
+			self.material_override.set("albedo_color", Color(1,1,1) )
+			pickable = false

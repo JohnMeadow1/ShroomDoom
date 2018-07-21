@@ -27,7 +27,7 @@ func _ready():
 	
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	
 	var offset = 0
 #	var player_moved = false
@@ -59,16 +59,14 @@ func _process(delta):
 		state = STATE_BACK
 	elif state == STATE_BACK:
 		var direction = originPosition - self.translation
-		direction = direction.normalized()
-		look_at(originPosition, Vector3(0,1,0))
-		offset = MOVE_SPEED_WALK * delta
-		move_and_slide(direction * offset)
+		if direction.length_squared() >1:
+			direction = direction.normalized()
+			look_at(originPosition, Vector3(0,1,0))
+			offset = MOVE_SPEED_WALK * delta
+			move_and_slide(direction * offset)
 		
-	pass
-
-
 func _on_SenseArea_body_entered(body):
-	if "player" in body.get_name():
+	if body.is_in_group("players"):
 		target = body
 		state = STATE_CHASE
 

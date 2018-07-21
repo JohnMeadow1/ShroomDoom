@@ -7,7 +7,7 @@ var current_button = 0
 func _ready():
 	self.buttons = [self, $TextureButton2, $TextureButton]
 
-func _process(delta):
+func _physics_process(delta):
 	if Input.is_action_just_pressed("move_up_p1"):
 		self.current_button = (self.current_button - 1) % 3
 		self.buttons[self.current_button].grab_focus()
