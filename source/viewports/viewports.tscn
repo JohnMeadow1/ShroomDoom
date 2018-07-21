@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://viewports/viewports.gd" type="Script" id=2]
 [ext_resource path="res://world.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=6]
+[ext_resource path="res://player/Player_2.png" type="Texture" id=5]
+[ext_resource path="res://player/Player_3.png" type="Texture" id=6]
+[ext_resource path="res://player/Player_4.png" type="Texture" id=7]
+[ext_resource path="res://player/Player_5.png" type="Texture" id=8]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 
-[node name="viewports" type="Node" index="0"]
+[node name="viewports" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -75,6 +79,8 @@ _sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow A
 
 [node name="player" parent="ViewportsContainer/Player1/Viewport1" index="1" instance=ExtResource( 4 )]
 
+player_texture = ExtResource( 5 )
+
 [node name="Player2" type="ViewportContainer" parent="ViewportsContainer" index="1"]
 
 anchor_left = 0.0
@@ -96,7 +102,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport2" type="Viewport" parent="ViewportsContainer/Player2" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -126,6 +131,7 @@ _sections_unfolded = [ "Rendering", "Shadow Atlas" ]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 24.8887 )
 PLAYER_NUM = 2
+player_texture = ExtResource( 6 )
 
 [node name="Player3" type="ViewportContainer" parent="ViewportsContainer" index="2"]
 
@@ -148,7 +154,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport3" type="Viewport" parent="ViewportsContainer/Player3" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -178,6 +183,7 @@ _sections_unfolded = [ "Shadow Atlas" ]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 12.4162, 1, -6.22092 )
 PLAYER_NUM = 3
+player_texture = ExtResource( 7 )
 
 [node name="Player4" type="ViewportContainer" parent="ViewportsContainer" index="3"]
 
@@ -201,7 +207,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport4" type="Viewport" parent="ViewportsContainer/Player4" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -231,17 +236,20 @@ _sections_unfolded = [ "Shadow Atlas" ]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 11.9195, 1, 0 )
 PLAYER_NUM = 4
+player_texture = ExtResource( 8 )
 
-[node name="GUI" parent="." index="1" instance=ExtResource( 5 )]
+[node name="GUI" parent="." index="1" instance=ExtResource( 9 )]
 
 [node name="music" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
+
+[node name="Dialog" type="Node" parent="." index="3"]
 
 

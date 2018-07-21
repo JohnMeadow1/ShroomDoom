@@ -1,20 +1,58 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
-[ext_resource path="res://player/player.png" type="Texture" id=2]
-[ext_resource path="res://player/player.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
+[ext_resource path="res://star.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
 
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 0.1, 0 )
+flag_align_y = true
+flag_rotate_y = false
+flag_disable_z = false
+spread = 15.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Radial Accel", "Spread" ]
+
 [sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
-flags_transparent = false
-flags_unshaded = false
+flags_transparent = true
+flags_unshaded = true
 flags_vertex_lighting = false
 flags_no_depth_test = false
 flags_use_point_size = false
@@ -34,7 +72,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 4 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -61,9 +99,15 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Roughness" ]
+_sections_unfolded = [ "Albedo", "Flags", "Metallic", "Roughness" ]
 
-[node name="player" type="KinematicBody" groups=[
+[sub_resource type="QuadMesh" id=3]
+
+material = SubResource( 2 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[node name="player" type="KinematicBody" index="0" groups=[
 "players",
 ]]
 
@@ -82,6 +126,7 @@ collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
 PLAYER_NUM = 1
+player_texture = null
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
@@ -97,7 +142,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 transform = Transform( 0.05, 1.0133e-023, 0, 0, -2.18557e-009, 0.05, 0, -0.05, -2.18557e-009, -4.23516e-022, 6.43645e-008, 1.47249 )
 layers = 1
-material_override = SubResource( 2 )
+material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = true
@@ -105,16 +150,16 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Geometry", "Transform" ]
+_sections_unfolded = [ "Geometry", "Transform", "material" ]
 
-[node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 4 )]
+[node name="eye_node" parent="Spatial" index="1" instance=ExtResource( 3 )]
 
 transform = Transform( -0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 0.409576, -0.0811813, 0.402906, 0.28474, 0.252848, -0.308041, 0.140131 )
 
-[node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 4 )]
+[node name="eye_node2" parent="Spatial" index="2" instance=ExtResource( 3 )]
 
 transform = Transform( -0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956 )
 
@@ -134,5 +179,35 @@ size = 10.0
 near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
+
+[node name="Particles" type="Particles" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, -5.72861e-008, -1.31055 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = false
+amount = 6
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+draw_passes = 1
+draw_pass_1 = SubResource( 3 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
 

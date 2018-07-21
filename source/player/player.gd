@@ -5,7 +5,7 @@ const MOVE_SPEED  = 50
 const STUN_TIME   = 1
 
 export(int) var PLAYER_NUM
-
+export(Texture) var player_texture
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT, STATE_STUN}
 
 var drag_item = null
@@ -22,6 +22,8 @@ func _ready():
 	self.state = STATE_IDLE
 	base_rotation[0] = $Spatial/eye_node.rotation
 	base_rotation[1] = $Spatial/eye_node2.rotation
+	$Spatial/MeshInstance.material_override = load("res://player/player.material").duplicate()
+	$Spatial/MeshInstance.material_override.set("albedo_texture",player_texture)
 	
 func _physics_process(delta):
 
@@ -85,3 +87,4 @@ func _physics_process(delta):
 func push(direction):
 	move += direction*50
 	self.state = STATE_STUN
+	$Particles.emitting = true
