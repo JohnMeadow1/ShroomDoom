@@ -60,6 +60,9 @@ func chase(delta):
 	
 	look_at(target.translation, Vector3(0,1,0))
 	
+	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
+	
+	
 	if distance > RUN_DISTANCE:
 		offset = MOVE_SPEED_CHASE * delta
 		move_and_slide(direction * offset)
@@ -79,6 +82,8 @@ func chase(delta):
 
 func back(delta):
 	var direction = originPosition - self.translation
+	
+	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
 	
 	if direction.length_squared() >1:
 		direction = direction.normalized()
@@ -109,6 +114,7 @@ func _on_SenseArea_body_entered(body):
 		targets.push_back(body)
 		target = targets.front()
 		state = STATE_CHASE
+		get_node("meeeh/Meeeh_" + str( randi() % 8 + 1 ) ).play()
 
 
 func _on_SenseArea_body_exited(body):
