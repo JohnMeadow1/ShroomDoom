@@ -38,7 +38,7 @@ func _physics_process(delta):
 	pass
 
 func checkWin(player):
-	var score = globals.player_score_label[player.PLAYER_NUM-1]
+	var score = globals.player_score[player.PLAYER_NUM-1]
 	
 	cloud.visible = true
 	
@@ -46,6 +46,6 @@ func checkWin(player):
 		label.text = "Is it supose\nto be like that?"
 		timer = -5000
 	else:
-		label.text = "It's not enough\nI need\n%s more shrooms!" % neededShrooms
+		label.text = "It's not enough\nYou need\n%s more shrooms!" % (neededShrooms - score)
 		timer = 0
 	pass
