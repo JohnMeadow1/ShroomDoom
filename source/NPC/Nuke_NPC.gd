@@ -42,7 +42,7 @@ func checkWin(player):
 	
 	cloud.visible = true
 	
-	if score > neededShrooms:
+	if score >= neededShrooms:
 		label.text = "Is it supose\nto be like that?"
 		timer = -5000
 	else:

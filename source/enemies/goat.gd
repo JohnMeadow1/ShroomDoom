@@ -60,7 +60,7 @@ func chase(delta):
 	
 	look_at(target.translation, Vector3(0,1,0))
 	
-	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
+#	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
 	
 	
 	if distance > RUN_DISTANCE:
@@ -83,7 +83,7 @@ func chase(delta):
 func back(delta):
 	var direction = originPosition - self.translation
 	
-	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
+#	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
 	
 	if direction.length_squared() >1:
 		direction = direction.normalized()
