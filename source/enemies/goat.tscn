@@ -1,20 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/goat.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Goat.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://enemies/Goat.material" type="Material" id=3]
-
+[ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 
-radius = 1.0
+radius = 0.521103
 height = 1.0
 
-[sub_resource type="SphereShape" id=4]
+[sub_resource type="SphereShape" id=2]
 
 radius = 15.0
 
-[node name="Goat" type="KinematicBody" index="0"]
+[node name="Goat" type="KinematicBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -33,7 +33,7 @@ RANGE = null
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12044, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280571, 0.861605, -0.00446987 )
 shape = SubResource( 1 )
 disabled = false
 
@@ -43,7 +43,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial" index="0"]
 
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( -7, 0, -1.05697e-006, 0, 7, 0, 1.05697e-006, 0, -7, 0, 0, -0.422902 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -57,6 +57,15 @@ mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
+
+[node name="eye_node" type="Spatial" parent="Spatial/MeshInstance" index="0" instance=ExtResource( 4 )]
+
+transform = Transform( 0.0286267, -0.00473863, 0.00761967, 0.000648986, 0.0265022, 0.0140433, -0.00894946, -0.0132356, 0.0253915, 0.0126185, 0.23042, 0.148468 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="eye_node2" parent="Spatial/MeshInstance" index="1" instance=ExtResource( 4 )]
+
+transform = Transform( 0.0345523, 0.0019286, -0.00523636, 0.000757151, 0.0309192, 0.0163839, 0.00552863, -0.0162876, 0.030482, -0.00943676, 0.227131, 0.148743 )
 
 [node name="SenseArea" type="Area" parent="." index="2"]
 
@@ -83,7 +92,7 @@ reverb_bus_uniformity = 0.0
 
 [node name="CollisionShape" type="CollisionShape" parent="SenseArea" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
