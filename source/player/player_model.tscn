@@ -88,9 +88,7 @@ tracks/1/keys = {
 "values": [ Vector3( 68.437, 4.03466, 2.17743 ), Vector3( 56.4558, 48.436, 51.3742 ), Vector3( 61.5067, -94.5172, -72.5242 ), Vector3( 70.9137, -29.025, -16.8893 ), Vector3( 72.7531, -159.458, -153.94 ), Vector3( 75.596, 50.0363, 53.4807 ), Vector3( 68.437, 4.03466, 2.17743 ) ]
 }
 
-[node name="player" type="Spatial" index="0" groups=[
-"players",
-]]
+[node name="player" type="Spatial" index="0"]
 
 _sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
 

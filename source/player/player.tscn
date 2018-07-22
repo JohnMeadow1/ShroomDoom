@@ -595,8 +595,6 @@ bus = "Master"
 
 [node name="teksty" type="Node" parent="." index="8"]
 
-editor/display_folded = true
-
 [node name="tekst1" type="AudioStreamPlayer" parent="teksty" index="0"]
 
 stream = ExtResource( 25 )
@@ -604,7 +602,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst2" type="AudioStreamPlayer" parent="teksty" index="1"]
 
@@ -613,7 +611,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst3" type="AudioStreamPlayer" parent="teksty" index="2"]
 
@@ -622,7 +620,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst4" type="AudioStreamPlayer" parent="teksty" index="3"]
 
@@ -631,7 +629,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst5" type="AudioStreamPlayer" parent="teksty" index="4"]
 
@@ -640,7 +638,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst6" type="AudioStreamPlayer" parent="teksty" index="5"]
 
@@ -649,7 +647,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst7" type="AudioStreamPlayer" parent="teksty" index="6"]
 
@@ -658,7 +656,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst8" type="AudioStreamPlayer" parent="teksty" index="7"]
 
@@ -667,7 +665,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst9" type="AudioStreamPlayer" parent="teksty" index="8"]
 
@@ -676,7 +674,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst10" type="AudioStreamPlayer" parent="teksty" index="9"]
 
@@ -685,7 +683,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst11" type="AudioStreamPlayer" parent="teksty" index="10"]
 
@@ -694,7 +692,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst12" type="AudioStreamPlayer" parent="teksty" index="11"]
 
@@ -703,7 +701,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 [node name="tekst13" type="AudioStreamPlayer" parent="teksty" index="12"]
 
@@ -712,6 +710,6 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "New Bus"
 
 

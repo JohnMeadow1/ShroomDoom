@@ -244,7 +244,7 @@ player_texture = ExtResource( 8 )
 [node name="music" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
