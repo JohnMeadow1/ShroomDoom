@@ -12,7 +12,7 @@
 [ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Audio/sfx/ambience_forest.wav" type="AudioStream" id=11]
 
-[node name="viewports" type="Node"]
+[node name="viewports" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -80,6 +80,7 @@ _sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow A
 
 [node name="player" parent="ViewportsContainer/Player1/Viewport1" index="1" instance=ExtResource( 4 )]
 
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -32.8038, 1, -59.902 )
 player_texture = ExtResource( 5 )
 
 [node name="Player2" type="ViewportContainer" parent="ViewportsContainer" index="1"]
@@ -130,7 +131,7 @@ _sections_unfolded = [ "Rendering", "Shadow Atlas" ]
 
 [node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 4 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1, 24.8887 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 49.2538, 1, 11.7328 )
 PLAYER_NUM = 2
 player_texture = ExtResource( 6 )
 
@@ -182,7 +183,7 @@ _sections_unfolded = [ "Shadow Atlas" ]
 
 [node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 4 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 12.4162, 1, -6.22092 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 34.2115, 1.00049, -89.8075 )
 PLAYER_NUM = 3
 player_texture = ExtResource( 7 )
 
@@ -235,7 +236,7 @@ _sections_unfolded = [ "Shadow Atlas" ]
 
 [node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 4 )]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 11.9195, 1, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -43.7339, 0.999756, 7.97363 )
 PLAYER_NUM = 4
 player_texture = ExtResource( 8 )
 
