@@ -19,6 +19,7 @@ var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
 var timer = 3
 
+
 func _ready():
 	originPosition   = self.translation
 	self.state       = STATE_IDLE
@@ -31,6 +32,8 @@ func _physics_process(delta):
 	
 	if timer > 0:
 		timer -= delta
+		if timer < 2:
+			$talk.visible = false
 	else:
 		player_hit = false
 #	# Fight 
@@ -62,6 +65,7 @@ func _physics_process(delta):
 				player_hit = true
 				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
 				timer = 3
+				$talk.visible = true
 			
 			for body in get_tree().get_nodes_in_group("sage"):
 				if body.translation.distance_to(self.translation) < 4:
