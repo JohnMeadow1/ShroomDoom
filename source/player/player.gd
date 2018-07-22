@@ -54,8 +54,8 @@ func _physics_process(delta):
 			for body in get_tree().get_nodes_in_group("players"):
 				if body != self && body.translation.distance_to(self.translation) < 3:
 					var direction = body.translation - self.translation
-					body.push(direction.normalized() / 4)
-					push(-direction.normalized() / 4)
+					body.push(direction.normalized() / 4, self)
+					push(-direction.normalized() / 4, self)
 					player_hit = true
 			
 			if !player_hit:
@@ -118,10 +118,21 @@ func _physics_process(delta):
 #	$Spatial/eye_node2.rotation = base_rotation[1]
 
 
-func push(direction):
-	move += direction*50
-	self.state = STATE_STUN
-	$Particles.emitting = true
+func push(direction, player):
+	if self.state == STATE_STUN:
+		var score = globals.get_score(self.PLAYER_NUM)
+		
+		if player:
+			globals.add_score(player.PLAYER_NUM, score+7)
+		
+		self.popShrooms(score)
+		self.translation = originPosition
+		self.state = STATE_IDLE
+		pass
+	else:
+		move += direction*50
+		self.state = STATE_STUN
+		$Particles.emitting = true
 	
 func popShrooms(amount):
 #	var score = globals.player_score_label[PLAYER_NUM]
