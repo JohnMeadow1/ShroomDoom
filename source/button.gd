@@ -32,4 +32,4 @@ func _on_exit():
 	get_tree().quit()
 
 func _on_Start():
-	get_tree().change_scene("res://main.tscn")
+	get_tree().change_scene("res://viewports/viewports.tscn")

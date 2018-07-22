@@ -19,6 +19,7 @@ var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
 var timer = 3
 
+var drop_shroom_object = load("res://objects/Drop_shroom.tscn")
 
 func _ready():
 	originPosition   = self.translation
@@ -140,5 +141,10 @@ func push(direction, player):
 	
 func popShrooms(amount):
 #	var score = globals.player_score_label[PLAYER_NUM]
+	var spawn = min(globals.get_score(PLAYER_NUM), amount)
 	globals.add_score(PLAYER_NUM, -amount)
+	for i in range(spawn):
+		var new_pop = drop_shroom_object.instance()
+		new_pop.translation = self.translation
+		$"../../../Player1/Viewport1/world/map".add_child(new_pop)
 	
