@@ -9,7 +9,7 @@ const CLOUD_TIME_ON = 5
 var timer = 0
 var messageIndex = 0
 
-var neededShrooms = 20
+var neededShrooms = 1
 
 var messages = ["I live on %s\nYellow\nSub-Shrooms"
 ,"I need shrooms!\nBring me\n%s SHROOMS!"
@@ -45,6 +45,7 @@ func checkWin(player):
 	if score >= neededShrooms:
 		label.text = "Is it supose\nto be like that?"
 		timer = -5000
+		globals.win(player)
 	else:
 		label.text = "It's not enough\nYou need\n%s more shrooms!" % (neededShrooms - score)
 		timer = 0
