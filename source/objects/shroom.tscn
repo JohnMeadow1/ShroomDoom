@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/shroom.gd" type="Script" id=1]
 [ext_resource path="res://objects/Models/Points_shroom.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_grow_up_groan-001.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_grow_up_groan-002.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_grow_up_groan-003.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_grow_up_groan-004.wav" type="AudioStream" id=6]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 
 radius = 1.553
 height = 0.164379
@@ -56,9 +60,47 @@ reverb_bus_uniformity = 0.0
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="Groan" type="Node" parent="." index="2"]
+
+[node name="Groan_1" type="AudioStreamPlayer" parent="Groan" index="0"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Groan_2" type="AudioStreamPlayer" parent="Groan" index="1"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Groan_3" type="AudioStreamPlayer" parent="Groan" index="2"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Groan_4" type="AudioStreamPlayer" parent="Groan" index="3"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 

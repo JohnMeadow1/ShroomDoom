@@ -47,3 +47,5 @@ func _on_Area_body_exited(body):
 		else: 
 #			$MeshInstance.material_override.set("albedo_color", Color(1,1,1) )
 			pickable = false
+func grow():
+	get_node("Groan/Groan_"+str(randi()%4+1)).play()

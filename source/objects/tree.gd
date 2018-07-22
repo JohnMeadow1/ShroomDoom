@@ -7,7 +7,7 @@ var growth_speed   = 10
 
 func _ready():
 	randomize()
-	var shrooms = max(0, randi() % 30 - 25)
+	var shrooms = max(0, int(float(randi() % 30)/10 -10))
 	if shrooms > 0 :
 		for i in range( shrooms ):
 			spawn_shroom(rand_range(3,7))
@@ -18,11 +18,12 @@ func _physics_process(delta):
 		growing_timer-= delta
 		grow_shroom()
 		
-	if $Shrooms.get_child_count() < 5:
+	if $Shrooms.get_child_count() < 3:
 		if randi() % 10000 < 2:
 			growth_speed   = rand_range(8,10)
 			growing_timer  = 1
 			growing_shroom = spawn_shroom(0)
+			growing_shroom.grow()
 		
 	
 func spawn_shroom(size):

@@ -14,8 +14,10 @@ var stunTime  = 0
 
 var move       = Vector3()
 var walk_cycle = 0
+var player_hit = false
 var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
+var timer = 3
 
 func _ready():
 	originPosition   = self.translation
@@ -26,8 +28,11 @@ func _ready():
 	$Spatial/MeshInstance.material_override.set("albedo_texture",player_texture)
 	
 func _physics_process(delta):
-
 	
+	if timer > 0:
+		timer -= delta
+	else:
+		player_hit = false
 #	# Fight 
 	if self.state == STATE_STUN:
 		stunTime += delta
@@ -51,6 +56,13 @@ func _physics_process(delta):
 					var direction = body.translation - self.translation
 					body.push(direction.normalized() / 4)
 					push(-direction.normalized() / 4)
+					player_hit = true
+			
+			if !player_hit:
+				player_hit = true
+				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
+				timer = 3
+			
 			for body in get_tree().get_nodes_in_group("sage"):
 				if body.translation.distance_to(self.translation) < 4:
 					body.checkWin(self)
@@ -80,7 +92,6 @@ func _physics_process(delta):
 			if walk_cycle >= PI:
 				walk_cycle -= PI
 				get_node("steps/Steps_" + str( randi() % 10 + 1 ) ).play()
-				$dust.emitting = true
 		elif self.state != STATE_IDLE:
 
 			if walk_cycle > PI * 0.5:
@@ -91,7 +102,6 @@ func _physics_process(delta):
 			if walk_cycle < 0 or walk_cycle > PI:
 				if !walk_cycle == 0:
 					get_node("steps/Steps_"+str(randi()%10+1)).play()
-					$dust.emitting = true
 				walk_cycle = 0
 				self.state = STATE_IDLE
 #		print (walk_cycle)

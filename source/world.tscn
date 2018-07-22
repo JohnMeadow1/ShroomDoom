@@ -4,97 +4,97 @@
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPC/Nuke_NPC.tscn" type="PackedScene" id=3]
 
-[node name="world" type="Node" index="0"]
+[node name="world" type="Node"]
 
 [node name="Goats" type="Spatial" parent="." index="0"]
 
 [node name="Goat" parent="Goats" index="0" instance=ExtResource( 1 )]
 
-transform = Transform( 0.656235, 0, -0.754556, 0, 1, 0, 0.754556, 0, 0.656235, -54.8027, 1, -18.5658 )
+transform = Transform( 0.656235, 0, -0.754556, 0, 1, 0, 0.754556, 0, 0.656235, -54.8027, -0.0226316, -18.5658 )
 
 [node name="Goat2" parent="Goats" index="1" instance=ExtResource( 1 )]
 
-transform = Transform( 0.613283, 0, -0.789864, 0, 1, 0, 0.789864, 0, 0.613283, -27.1794, 1, -22.3879 )
+transform = Transform( 0.613283, 0, -0.789864, 0, 1, 0, 0.789864, 0, 0.613283, -27.1794, -0.0226316, -22.3879 )
 
 [node name="Goat3" parent="Goats" index="2" instance=ExtResource( 1 )]
 
-transform = Transform( 0.297485, 0, -0.954727, 0, 1, 0, 0.954727, 0, 0.297485, -49.2433, 1, -33.6804 )
+transform = Transform( 0.297485, 0, -0.954727, 0, 1, 0, 0.954727, 0, 0.297485, -49.2433, -0.0226316, -33.6804 )
 
 [node name="Goat4" parent="Goats" index="3" instance=ExtResource( 1 )]
 
-transform = Transform( 0.393787, 0, -0.919202, 0, 1, 0, 0.919202, 0, 0.393787, -11.0224, 1, -11.964 )
+transform = Transform( 0.393787, 0, -0.919202, 0, 1, 0, 0.919202, 0, 0.393787, -11.0224, -0.0226316, -11.964 )
 
 [node name="Goat5" parent="Goats" index="4" instance=ExtResource( 1 )]
 
-transform = Transform( 0.791021, 0, -0.611789, 0, 1, 0, 0.611789, 0, 0.791021, 8.08812, 1, -23.0828 )
+transform = Transform( 0.791021, 0, -0.611789, 0, 1, 0, 0.611789, 0, 0.791021, 8.08812, -0.0226316, -23.0828 )
 
 [node name="Goat6" parent="Goats" index="5" instance=ExtResource( 1 )]
 
-transform = Transform( 0.743891, 0, -0.6683, 0, 1, 0, 0.6683, 0, 0.743891, 26.6774, 1, 2.10825 )
+transform = Transform( 0.743891, 0, -0.6683, 0, 1, 0, 0.6683, 0, 0.743891, 26.6774, -0.0226316, 2.10825 )
 
 [node name="Goat7" parent="Goats" index="6" instance=ExtResource( 1 )]
 
-transform = Transform( 0.271952, 0, -0.962311, 0, 1, 0, 0.962311, 0, 0.271952, 41.8044, 1, -24.8368 )
+transform = Transform( 0.271952, 0, -0.962311, 0, 1, 0, 0.962311, 0, 0.271952, 41.8044, -0.0226316, -24.8368 )
 
 [node name="Goat8" parent="Goats" index="7" instance=ExtResource( 1 )]
 
-transform = Transform( -0.127158, 0, -0.991883, 0, 1, 0, 0.991883, 0, -0.127158, 35.1864, 1, -39.7275 )
+transform = Transform( -0.127158, 0, -0.991883, 0, 1, 0, 0.991883, 0, -0.127158, 35.1864, -0.0226316, -39.7275 )
 
 [node name="Goat9" parent="Goats" index="8" instance=ExtResource( 1 )]
 
-transform = Transform( 0.343915, 0, 0.939001, 0, 1, 0, -0.939001, 0, 0.343915, 60.7132, 1, -46.5819 )
+transform = Transform( 0.343915, 0, 0.939001, 0, 1, 0, -0.939001, 0, 0.343915, 60.7132, -0.0226316, -46.5819 )
 
 [node name="Goat10" parent="Goats" index="9" instance=ExtResource( 1 )]
 
-transform = Transform( -0.0154059, 0, 0.999881, 0, 1, 0, -0.999881, 0, -0.0154059, 64.0534, 1, -20.26 )
+transform = Transform( -0.0154059, 0, 0.999881, 0, 1, 0, -0.999881, 0, -0.0154059, 64.0534, -0.0226316, -20.26 )
 
 [node name="Goat11" parent="Goats" index="10" instance=ExtResource( 1 )]
 
-transform = Transform( 0.76008, 0, -0.649829, 0, 1, 0, 0.649829, 0, 0.76008, 97.0299, 1, -55.6229 )
+transform = Transform( 0.76008, 0, -0.649829, 0, 1, 0, 0.649829, 0, 0.76008, 97.0299, -0.0226316, -55.6229 )
 
 [node name="Goat12" parent="Goats" index="11" instance=ExtResource( 1 )]
 
-transform = Transform( -0.0321822, 0, 0.999482, 0, 1, 0, -0.999482, 0, -0.0321822, 85.479, 1, -67.525 )
+transform = Transform( -0.0321822, 0, 0.999482, 0, 1, 0, -0.999482, 0, -0.0321822, 85.479, -0.0226316, -67.525 )
 
 [node name="Goat13" parent="Goats" index="12" instance=ExtResource( 1 )]
 
-transform = Transform( 0.548946, 0, -0.835858, 0, 1, 0, 0.835858, 0, 0.548946, 97.2562, 1, -83.2375 )
+transform = Transform( 0.548946, 0, -0.835858, 0, 1, 0, 0.835858, 0, 0.548946, 97.2562, -0.0226316, -83.2375 )
 
 [node name="Goat14" parent="Goats" index="13" instance=ExtResource( 1 )]
 
-transform = Transform( 0.764232, 0, -0.644941, 0, 1, 0, 0.644941, 0, 0.764232, 109.736, 1, -75.5846 )
+transform = Transform( 0.764232, 0, -0.644941, 0, 1, 0, 0.644941, 0, 0.764232, 109.736, -0.0226316, -75.5846 )
 
 [node name="Goat15" parent="Goats" index="14" instance=ExtResource( 1 )]
 
-transform = Transform( 0.750689, 0, -0.660656, 0, 1, 0, 0.660656, 0, 0.750689, 85.6607, 1, -89.3999 )
+transform = Transform( 0.750689, 0, -0.660656, 0, 1, 0, 0.660656, 0, 0.750689, 85.6607, -0.0226316, -89.3999 )
 
 [node name="Goat16" parent="Goats" index="15" instance=ExtResource( 1 )]
 
-transform = Transform( 0.747621, 0, 0.664126, 0, 1, 0, -0.664126, 0, 0.747621, 64.6157, 1, -94.9326 )
+transform = Transform( 0.747621, 0, 0.664126, 0, 1, 0, -0.664126, 0, 0.747621, 64.6157, -0.0226316, -94.9326 )
 
 [node name="Goat17" parent="Goats" index="16" instance=ExtResource( 1 )]
 
-transform = Transform( 0.485079, 0, -0.87447, 0, 1, 0, 0.87447, 0, 0.485079, 58.2788, 1, -100.409 )
+transform = Transform( 0.485079, 0, -0.87447, 0, 1, 0, 0.87447, 0, 0.485079, 58.2788, -0.0226316, -100.409 )
 
 [node name="Goat18" parent="Goats" index="17" instance=ExtResource( 1 )]
 
-transform = Transform( 0.435354, 0, 0.900259, 0, 1, 0, -0.900259, 0, 0.435354, 22.447, 0.999756, -67.0132 )
+transform = Transform( 0.435354, 0, 0.900259, 0, 1, 0, -0.900259, 0, 0.435354, 22.447, -0.0228757, -67.0132 )
 
 [node name="Goat19" parent="Goats" index="18" instance=ExtResource( 1 )]
 
-transform = Transform( 0.212387, 0, 0.977186, 0, 1, 0, -0.977186, 0, 0.212387, 4.1973, 1, -60.3937 )
+transform = Transform( 0.212387, 0, 0.977186, 0, 1, 0, -0.977186, 0, 0.212387, 4.1973, -0.0226316, -60.3937 )
 
 [node name="Goat20" parent="Goats" index="19" instance=ExtResource( 1 )]
 
-transform = Transform( 0.277001, 0, -0.96087, 0, 1, 0, 0.96087, 0, 0.277001, -12.9763, 0.999756, -67.4637 )
+transform = Transform( 0.277001, 0, -0.96087, 0, 1, 0, 0.96087, 0, 0.277001, -12.9763, -0.0228757, -67.4637 )
 
 [node name="Goat21" parent="Goats" index="20" instance=ExtResource( 1 )]
 
-transform = Transform( 0.49841, 0, -0.866941, 0, 1, 0, 0.866941, 0, 0.49841, -0.709625, 1, -82.6423 )
+transform = Transform( 0.49841, 0, -0.866941, 0, 1, 0, 0.866941, 0, 0.49841, -0.709625, -0.0226316, -82.6423 )
 
 [node name="Goat22" parent="Goats" index="21" instance=ExtResource( 1 )]
 
-transform = Transform( 0.529352, 0, 0.848402, 0, 1, 0, -0.848402, 0, 0.529352, -14.1799, 0.999756, -78.0716 )
+transform = Transform( 0.529352, 0, 0.848402, 0, 1, 0, -0.848402, 0, 0.529352, -14.1799, -0.0228757, -78.0716 )
 
 [node name="map" type="Node" parent="." index="1"]
 
