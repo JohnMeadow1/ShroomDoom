@@ -5,7 +5,8 @@ var buttons = null
 var current_button = 0
 
 func _ready():
-	self.buttons = [self, $TextureButton2, $TextureButton]
+#	self.buttons = [self, $TextureButton2, $TextureButton]
+	pass
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("move_up_p1"):
