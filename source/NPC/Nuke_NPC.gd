@@ -5,6 +5,7 @@ onready var label = $Viewport/Label
 
 const CLOUD_TIME_BETWEEN = 3
 const CLOUD_TIME_ON = 5
+const MORE_SHEROOMS = 7
 
 var timer = 0
 var messageIndex = 0
@@ -43,9 +44,10 @@ func checkWin(player):
 	cloud.visible = true
 	
 	if score >= neededShrooms:
-		label.text = "Is it supose\nto be like that?"
-		timer = -5000
-		globals.win(player)
+		player.popShrooms(neededShrooms)
+		neededShrooms += MORE_SHEROOMS
+		label.text = "Hmm.\nActualy I need\n%s more shrooms" % neededShrooms
+		timer = 0
 	else:
 		label.text = "It's not enough\nYou need\n%s more shrooms!" % (neededShrooms - score)
 		timer = 0
