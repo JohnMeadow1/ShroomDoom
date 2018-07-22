@@ -72,6 +72,7 @@ func chase(delta):
 		var collision = move_and_collide(direction * offset)
 		if collision && collision.get_collider().get_name() == target.get_name():
 			target.push(direction)
+			$bump/Bump_1.play()
 			target.popShrooms(4)
 			state = STATE_IDLE
 			time = 0;
