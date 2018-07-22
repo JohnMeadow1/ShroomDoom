@@ -22,7 +22,7 @@ func add_score(player_id, value):
 	player_id-=1 # because array is from 0-3, and players are from 1-4
 	player_score[player_id] += value
 	player_score[player_id] = clamp(player_score[player_id], 0, 2563)
-	player_score_label[player_id].text = "shrooms: "+str(player_score[player_id])
+	player_score_label[player_id].text = str(player_score[player_id])
 
 func get_score(player_id):
 	player_id-=1 # because array is from 0-3, and players are from 1-4
