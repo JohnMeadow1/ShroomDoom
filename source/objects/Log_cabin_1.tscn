@@ -58,7 +58,7 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
+_sections_unfolded = [ "Albedo", "Ambient Occlusion", "Anisotropy", "Clearcoat", "Depth", "Detail", "Distance Fade", "Emission", "Flags", "Metallic", "NormalMap", "Parameters", "Proximity Fade", "Refraction", "Rim", "Roughness", "Subsurf Scatter", "Transmission", "UV1", "UV2" ]
 
 [sub_resource type="SpatialMaterial" id=2]
 
@@ -111,6 +111,7 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
+_sections_unfolded = [ "Emission", "Roughness" ]
 
 [sub_resource type="SpatialMaterial" id=3]
 
@@ -222,7 +223,7 @@ _sections_unfolded = [ "Albedo" ]
 
 extents = Vector3( 1, 1, 0.5 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
