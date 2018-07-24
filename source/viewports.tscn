@@ -12,7 +12,7 @@
 [ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Audio/sfx/ambience_forest.wav" type="AudioStream" id=11]
 
-[node name="viewports" type="Node"]
+[node name="viewports" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -37,8 +37,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 510.0
-margin_bottom = 298.0
+margin_right = 1020.0
+margin_bottom = 596.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -47,11 +47,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 stretch_shrink = 1
+_sections_unfolded = [ "Size Flags" ]
 
 [node name="Viewport1" type="Viewport" parent="ViewportsContainer/Player1" index="0"]
 
 arvr = false
-size = Vector2( 510, 298 )
+size = Vector2( 1020, 596 )
 own_world = false
 world = null
 transparent_bg = false
@@ -73,7 +74,7 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Rendering", "Shadow Atlas" ]
 
 [node name="world" parent="ViewportsContainer/Player1/Viewport1" index="0" instance=ExtResource( 3 )]
 
@@ -81,16 +82,18 @@ _sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow A
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -31.5596, 1, -61.4669 )
 player_texture = ExtResource( 5 )
+player_enabled = true
 
 [node name="Player2" type="ViewportContainer" parent="ViewportsContainer" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 298.0
+margin_bottom = 596.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -100,11 +103,10 @@ size_flags_vertical = 3
 stretch = true
 stretch_shrink = 1
 
-[node name="Viewport2" type="Viewport" parent="ViewportsContainer/Player2" index="0"]
+[node name="Viewport" type="Viewport" parent="ViewportsContainer/Player2" index="0"]
 
-editor/display_folded = true
 arvr = false
-size = Vector2( 510, 298 )
+size = Vector2( 510, 596 )
 own_world = false
 world = null
 transparent_bg = false
@@ -115,7 +117,7 @@ usage = 3
 debug_draw = 0
 render_target_v_flip = false
 render_target_clear_mode = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
@@ -128,14 +130,16 @@ shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Audio Listener", "GUI", "Physics", "Render Target", "Rendering", "Shadow Atlas" ]
 
-[node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 4 )]
+[node name="player" parent="ViewportsContainer/Player2/Viewport" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 49.2538, 1, 11.7328 )
+visible = false
 PLAYER_NUM = 2
 player_texture = ExtResource( 6 )
 
 [node name="Player3" type="ViewportContainer" parent="ViewportsContainer" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -151,10 +155,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 stretch_shrink = 1
+_sections_unfolded = [ "Focus", "Grow Direction", "Rect", "Size Flags" ]
 
-[node name="Viewport3" type="Viewport" parent="ViewportsContainer/Player3" index="0"]
+[node name="Viewport" type="Viewport" parent="ViewportsContainer/Player3" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -167,7 +171,7 @@ usage = 3
 debug_draw = 0
 render_target_v_flip = false
 render_target_clear_mode = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
@@ -178,16 +182,18 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Physics", "Render Target", "Rendering", "Shadow Atlas" ]
 
-[node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 4 )]
+[node name="player" parent="ViewportsContainer/Player3/Viewport" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 34.2115, 1.00049, -89.8075 )
+visible = false
 PLAYER_NUM = 3
 player_texture = ExtResource( 7 )
 
 [node name="Player4" type="ViewportContainer" parent="ViewportsContainer" index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -204,10 +210,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 stretch_shrink = 1
+_sections_unfolded = [ "Hint", "Rect", "Size Flags" ]
 
-[node name="Viewport4" type="Viewport" parent="ViewportsContainer/Player4" index="0"]
+[node name="Viewport" type="Viewport" parent="ViewportsContainer/Player4" index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 510, 298 )
 own_world = false
@@ -220,7 +226,7 @@ usage = 3
 debug_draw = 0
 render_target_v_flip = false
 render_target_clear_mode = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
@@ -231,11 +237,12 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Rendering", "Shadow Atlas" ]
 
-[node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 4 )]
+[node name="player" parent="ViewportsContainer/Player4/Viewport" index="0" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -43.7339, 0.999756, 7.97363 )
+visible = false
 PLAYER_NUM = 4
 player_texture = ExtResource( 8 )
 

@@ -5,7 +5,9 @@ const MOVE_SPEED  = 50
 const STUN_TIME   = 1
 
 export(int) var PLAYER_NUM
+var PLAYER_CONTROLS
 export(Texture) var player_texture
+export var player_enabled = false
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT, STATE_STUN}
 
 var drag_item = null
@@ -22,6 +24,7 @@ var timer = 5
 var drop_shroom_object = load("res://objects/Drop_shroom.tscn")
 
 func _ready():
+	PLAYER_CONTROLS  = PLAYER_NUM
 	originPosition   = self.translation
 	self.state       = STATE_IDLE
 	base_rotation[0] = $Spatial/eye_node.rotation
@@ -43,8 +46,8 @@ func _physics_process(delta):
 		if stunTime >= STUN_TIME:
 			stunTime = 0
 			self.state = STATE_IDLE
-			
-	elif Input.is_action_just_pressed("action_p" + str(PLAYER_NUM)):
+	elif player_enabled && Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
+
 		var pick_up = false
 		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
 			node.queue_free()
@@ -71,23 +74,24 @@ func _physics_process(delta):
 			for body in get_tree().get_nodes_in_group("sage"):
 				if body.translation.distance_to(self.translation) < 4:
 					body.checkWin(self)
-	else:
+
+	elif player_enabled :
 		var offset = MOVE_SPEED * delta
 		var player_moved = false
 		
-		if Input.is_action_pressed("move_up_p" + str(PLAYER_NUM)):
+		if Input.is_action_pressed("move_up_p" + str(PLAYER_CONTROLS)):
 			move.z      -= offset
 			player_moved = true
 	
-		if Input.is_action_pressed("move_down_p" + str(PLAYER_NUM)):
+		if Input.is_action_pressed("move_down_p" + str(PLAYER_CONTROLS)):
 			move.z      += offset
 			player_moved = true
 		
-		if Input.is_action_pressed("move_left_p" + str(PLAYER_NUM)):
+		if Input.is_action_pressed("move_left_p" + str(PLAYER_CONTROLS)):
 			move.x      -= offset
 			player_moved = true
 	
-		if Input.is_action_pressed("move_right_p" + str(PLAYER_NUM)):
+		if Input.is_action_pressed("move_right_p" + str(PLAYER_CONTROLS)):
 			move.x      += offset
 			player_moved = true
 	
@@ -112,17 +116,24 @@ func _physics_process(delta):
 #		print (walk_cycle)
 
 	$Spatial.translation.z =  -sin( walk_cycle ) * 0.2
-	move = move_and_slide(move)
-	translation.y = originPosition.y
-	move *= 0.90
-	$Spatial.rotation.z = atan2(move.x,-move.z)
+	move                   = move_and_slide(move)
+	translation.y          = originPosition.y
+	move                  *= 0.90
+	$Spatial.rotation.z    = atan2(move.x,-move.z)
+	
 	$Spatial/eye_node.rotation.x = base_rotation[0].x + sin( walk_cycle ) * 0.4 
 	$Spatial/eye_node.rotation.y = base_rotation[0].y + sin( walk_cycle ) - PI/4
 	$Spatial/eye_node2.rotation.x = base_rotation[1].x + sin( walk_cycle ) * 0.2 
 	$Spatial/eye_node2.rotation.y = base_rotation[1].y + cos( walk_cycle ) * 0.6 - PI/5
 #	$Spatial/eye_node2.rotation = base_rotation[1]
 
-
+func enable_player(player_id):
+	PLAYER_CONTROLS = player_id
+	player_enabled = true
+#	PLAYER_NUM = player_id
+#	get_node("../../../Player"+str(player_id)).visible = true
+	globals.add_score(self.PLAYER_NUM,0)
+	
 func push(direction, player):
 	if self.state == STATE_STUN:
 		var score = globals.get_score(self.PLAYER_NUM)

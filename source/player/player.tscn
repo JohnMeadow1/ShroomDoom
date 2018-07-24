@@ -241,7 +241,7 @@ random_pitch = 1.1
 audio_stream = ExtResource( 25 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody" index="0" groups=[
+[node name="player" type="KinematicBody" groups=[
 "players",
 ]]
 
@@ -261,6 +261,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Axis Lock", "Geometry", "Transform" ]
 PLAYER_NUM = 1
 player_texture = null
+player_enabled = false
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
@@ -375,7 +376,7 @@ h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
 projection = 0
-current = false
+current = true
 fov = 60.0
 size = 10.0
 near = 0.05
