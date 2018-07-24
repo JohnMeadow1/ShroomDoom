@@ -35,9 +35,6 @@
 [ext_resource path="res://objects/Log_cabin_1.tscn" type="PackedScene" id=33]
 [ext_resource path="res://objects/Trees/Stump.tscn" type="PackedScene" id=34]
 
-
-
-
 [sub_resource type="SpatialMaterial" id=1]
 
 render_priority = 0
@@ -95,7 +92,7 @@ _sections_unfolded = [ "Albedo" ]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Map" type="Spatial"]
+[node name="Map" type="Spatial" index="0"]
 
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
@@ -421,7 +418,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape8" type="CollisionShape" parent="StaticBody" index="5"]
 
-transform = Transform( -0.0240683, 0, 107.994, 0, 78.5864, 0, -0.0567829, 0, -45.775, 138.087, 0, -52.8628 )
+transform = Transform( -0.0240683, 0, 107.994, 0, 78.5864, 0, -0.0567829, 0, -45.775, 138.076, 0, -53.1351 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
@@ -449,11 +446,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Foliage_autmun" type="Spatial" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Spikes" type="Spatial" parent="Foliage_autmun" index="0"]
-
-editor/display_folded = true
 
 [node name="Tree_1" parent="Foliage_autmun/Spikes" index="0" instance=ExtResource( 17 )]
 
