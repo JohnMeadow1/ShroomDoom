@@ -1,10 +1,10 @@
 [gd_resource type="AudioBusLayout" load_steps=2 format=2]
 
-[sub_resource type="AudioEffectBandPassFilter" id=1]
+[sub_resource type="AudioEffectFilter" id=1]
 
-resource_name = "BandPassFilter"
-cutoff_hz = 2000.0
-resonance = 1.0
+resource_name = "Filter"
+cutoff_hz = 2500.0
+resonance = 0.5
 gain = 1.0
 db = 0
 
@@ -16,7 +16,7 @@ bus/0/mute = false
 bus/0/bypass_fx = false
 bus/0/volume_db = 0.0
 bus/0/send = ""
-bus/1/name = "New Bus"
+bus/1/name = "Taunt"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false

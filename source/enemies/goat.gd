@@ -28,8 +28,8 @@ var targets        = []
 func _ready():
 	originPosition = self.translation
 	state = STATE_BACK
-	
-	pass
+	walk_cycle = rand_range(0,PI)
+
 
 func _physics_process(delta):
 	if state == STATE_IDLE:
@@ -99,6 +99,7 @@ func bounce(player_moved):
 		walk_cycle += 0.2
 		if walk_cycle >= PI:
 			walk_cycle -= PI
+			get_node("steps/Step_"+str(randi()%12+1)).play()
 	else:
 		if walk_cycle > PI * 0.5:
 			walk_cycle += 0.2

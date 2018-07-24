@@ -10,7 +10,7 @@ const MORE_SHEROOMS = 7
 var timer = 0
 var messageIndex = 0
 
-var neededShrooms = 1
+var neededShrooms = 20
 
 var messages = ["I live on %s\nYellow\nSub-Shrooms"
 ,"I need shrooms!\nBring me\n%s SHROOMS!"
@@ -35,6 +35,7 @@ func _physics_process(delta):
 		label.text = messages[messageIndex] % neededShrooms
 		cloud.visible = true
 		timer = 0
+		get_node("mumble_"+str(randi()%2+1)).play()
 	
 	pass
 
@@ -44,10 +45,9 @@ func checkWin(player):
 	cloud.visible = true
 	
 	if score >= neededShrooms:
-		player.popShrooms(neededShrooms)
-		neededShrooms += MORE_SHEROOMS
 		label.text = "Hmm.\nActualy I need\n%s more shrooms" % neededShrooms
-		timer = 0
+		globals.win(player)
+		timer = -5000
 	else:
 		label.text = "It's not enough\nYou need\n%s more shrooms!" % (neededShrooms - score)
 		timer = 0

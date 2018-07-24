@@ -2,13 +2,13 @@ extends Spatial
 
 var velocity = Vector3()
 var rotation_velocity = Vector3()
-var gravity  = Vector3(0,-0.04, 0)
+var gravity  = Vector3(0,-0.03, 0)
 
 func _ready():
 	randomize()
-	velocity.x = rand_range(-0.5,0.5)
-	velocity.y = rand_range(0.5,0.7)
-	velocity.z = rand_range(-0.5,0.5)
+	velocity.x = rand_range(-0.3,0.3)
+	velocity.y = rand_range(0.4,0.6)
+	velocity.z = rand_range(-0.3,0.3)
 	rotation_velocity.x = rand_range(-0.1,0.1)
 	rotation_velocity.y = rand_range(-0.1,0.1)
 	rotation_velocity.z = rand_range(-0.1,0.1)

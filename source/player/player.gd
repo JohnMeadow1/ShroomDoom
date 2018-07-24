@@ -17,7 +17,7 @@ var walk_cycle = 0
 var player_hit = false
 var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
-var timer = 3
+var timer = 5
 
 var drop_shroom_object = load("res://objects/Drop_shroom.tscn")
 
@@ -33,7 +33,7 @@ func _physics_process(delta):
 	
 	if timer > 0:
 		timer -= delta
-		if timer < 2:
+		if timer < 9:
 			$talk.visible = false
 	else:
 		player_hit = false
@@ -65,7 +65,7 @@ func _physics_process(delta):
 			if !player_hit:
 				player_hit = true
 				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
-				timer = 3
+				timer = 10
 				$talk.visible = true
 			
 			for body in get_tree().get_nodes_in_group("sage"):

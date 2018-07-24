@@ -1,39 +1,42 @@
 [gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://objects/Ground_2.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/Ground_7.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/Ground_6.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/Ground_0.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/Ground_1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/Ground_5.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/Ground_9.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/Ground_8.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/Ground_3.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/Ground_4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/Ground/Ground_2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/Ground/Ground_7.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Ground/Ground_6.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Ground/Ground_0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Ground/Ground_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Ground/Ground_5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/Ground/Ground_9.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/Ground/Ground_8.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/Ground/Ground_3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/Ground/Ground_4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/Crack_1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/Crack_3.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/Snow.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/Leaves.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/Ground/Snow.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/Ground/Leaves.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/Models/Ground.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://objects/Textures/grass.png" type="Texture" id=16]
-[ext_resource path="res://objects/Tree_1_autmun.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/Tree_2_autmun.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/Trees/Tree_1_autmun.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/Trees/Tree_2_autmun.tscn" type="PackedScene" id=18]
 [ext_resource path="res://objects/Bush_1_autmun.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/Tree_3_autmun.tscn" type="PackedScene" id=20]
-[ext_resource path="res://objects/Tree_4_autmun.tscn" type="PackedScene" id=21]
-[ext_resource path="res://objects/Tree_1_winter.tscn" type="PackedScene" id=22]
-[ext_resource path="res://objects/Tree_2_winter.tscn" type="PackedScene" id=23]
-[ext_resource path="res://objects/Tree_3_winter.tscn" type="PackedScene" id=24]
-[ext_resource path="res://objects/Tree_4_winter.tscn" type="PackedScene" id=25]
+[ext_resource path="res://objects/Trees/Tree_3_autmun.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/Trees/Tree_4_autmun.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/Trees/Tree_1_winter.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/Trees/Tree_2_winter.tscn" type="PackedScene" id=23]
+[ext_resource path="res://objects/Trees/Tree_3_winter.tscn" type="PackedScene" id=24]
+[ext_resource path="res://objects/Trees/Tree_4_winter.tscn" type="PackedScene" id=25]
 [ext_resource path="res://objects/Bush_1_winter.tscn" type="PackedScene" id=26]
-[ext_resource path="res://objects/Pond.tscn" type="PackedScene" id=27]
-[ext_resource path="res://objects/Tree_1.tscn" type="PackedScene" id=28]
-[ext_resource path="res://objects/Tree_2.tscn" type="PackedScene" id=29]
+[ext_resource path="res://objects/Ground/Pond.tscn" type="PackedScene" id=27]
+[ext_resource path="res://objects/Trees/Tree_1.tscn" type="PackedScene" id=28]
+[ext_resource path="res://objects/Trees/Tree_2.tscn" type="PackedScene" id=29]
 [ext_resource path="res://objects/Bush_1.tscn" type="PackedScene" id=30]
-[ext_resource path="res://objects/Tree_3.tscn" type="PackedScene" id=31]
-[ext_resource path="res://objects/Tree_4.tscn" type="PackedScene" id=32]
+[ext_resource path="res://objects/Trees/Tree_3.tscn" type="PackedScene" id=31]
+[ext_resource path="res://objects/Trees/Tree_4.tscn" type="PackedScene" id=32]
 [ext_resource path="res://objects/Log_cabin_1.tscn" type="PackedScene" id=33]
-[ext_resource path="res://objects/Stump.tscn" type="PackedScene" id=34]
+[ext_resource path="res://objects/Trees/Stump.tscn" type="PackedScene" id=34]
+
+
+
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -92,7 +95,7 @@ _sections_unfolded = [ "Albedo" ]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Map" type="Spatial" index="0"]
+[node name="Map" type="Spatial"]
 
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
@@ -372,7 +375,6 @@ _sections_unfolded = [ "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="." index="2"]
 
-editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -405,33 +407,40 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape5" type="CollisionShape" parent="StaticBody" index="3"]
 
-transform = Transform( -0.0131802, 0, 114.585, 0, 78.5864, 0, -0.0602483, 0, -25.0671, 17.5201, 0, 11.6162 )
+transform = Transform( 0.0120883, 0, 115.02, 0, 78.5864, 0, -0.0604768, 0, 22.9906, 3.12533, 0, 12.0013 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape8" type="CollisionShape" parent="StaticBody" index="4"]
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody" index="4"]
 
-transform = Transform( -0.0240683, 0, 107.994, 0, 78.5864, 0, -0.0567829, 0, -45.775, 133.62, 0, -53.6397 )
+transform = Transform( -0.0169367, 0, 112.785, 0, 78.5864, 0, -0.059302, 0, -32.2115, 19.6824, 0, 11.0022 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape6" type="CollisionShape" parent="StaticBody" index="5"]
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody" index="5"]
+
+transform = Transform( -0.0240683, 0, 107.994, 0, 78.5864, 0, -0.0567829, 0, -45.775, 138.087, 0, -52.8628 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody" index="6"]
 
 transform = Transform( -0.060269, 0, 24.8863, 0, 78.5864, 0, -0.0130851, 0, -114.625, 5.25063, 0, 107.229 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape7" type="CollisionShape" parent="StaticBody" index="6"]
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody" index="7"]
 
 transform = Transform( 0.039501, 0, 90.0784, 0, 78.5864, 0, -0.0473629, 0, 75.1261, -18.1774, 0, 4.14768 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="7"]
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="8"]
 
 transform = Transform( -0.0265949, 0, 105.829, 0, 78.5864, 0, -0.0556443, 0, -50.5803, -10.9096, 0, -30.2015 )
 shape = SubResource( 2 )
