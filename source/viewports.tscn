@@ -119,14 +119,14 @@ render_target_update_mode = 3
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
-gui_disable_input = false
+gui_disable_input = true
 gui_snap_controls_to_pixels = true
 shadow_atlas_size = 2
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "Render Target", "Rendering", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Physics", "Render Target", "Rendering", "Shadow Atlas" ]
 
 [node name="player2" parent="ViewportsContainer/Player2/Viewport2" index="0" instance=ExtResource( 4 )]
 
@@ -171,14 +171,14 @@ render_target_update_mode = 3
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
-gui_disable_input = false
+gui_disable_input = true
 gui_snap_controls_to_pixels = true
 shadow_atlas_size = 2
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "Render Target", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Shadow Atlas" ]
 
 [node name="player3" parent="ViewportsContainer/Player3/Viewport3" index="0" instance=ExtResource( 4 )]
 
@@ -224,14 +224,14 @@ render_target_update_mode = 3
 audio_listener_enable_2d = false
 audio_listener_enable_3d = true
 physics_object_picking = false
-gui_disable_input = false
+gui_disable_input = true
 gui_snap_controls_to_pixels = true
 shadow_atlas_size = 2
 shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Audio Listener", "Render Target", "Shadow Atlas" ]
+_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Shadow Atlas" ]
 
 [node name="player4" parent="ViewportsContainer/Player4/Viewport4" index="0" instance=ExtResource( 4 )]
 

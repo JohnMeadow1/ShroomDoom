@@ -5,13 +5,15 @@ const BLINDER_TIME = 3
 var player_score = [0,0,0,0]
 var player_score_label = [null,null,null,null]
 var player_label = ["Red", "Green", "Violet", "Blue"]
+var victory_label = "no"
 var blinder = null
 var winnerLabel = null
 var won = false
 var timer = 3
-
+var screen = Vector2()
 func _ready():
 	timer = 3
+	screen = get_viewport().size
 	pass
 
 #func _physics_process(delta):
@@ -32,7 +34,9 @@ func get_score(player_id):
 	return player_score[player_id] 
 	
 func win(player):
-	blinder.color.a = 1
-	timer = BLINDER_TIME
-	winnerLabel.text = "%s player wins" % globals.player_label[player.PLAYER_NUM-1]
-	won = true
+	victory_label = player_label[player.PLAYER_NUM-1]
+#	blinder.color.a = 1
+#	timer = BLINDER_TIME
+#	winnerLabel.text = "%s player wins" % globals.player_label[player.PLAYER_NUM-1]
+#	won = true
+	get_tree().change_scene("res://final.tscn")

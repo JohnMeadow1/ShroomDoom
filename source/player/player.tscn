@@ -379,7 +379,7 @@ current = false
 fov = 60.0
 size = 10.0
 near = 0.05
-far = 100.0
+far = 1000.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Particles" type="Particles" parent="." index="4"]
@@ -413,6 +413,8 @@ draw_pass_1 = SubResource( 6 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
 [node name="steps" type="Node" parent="." index="5"]
+
+editor/display_folded = true
 
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
 

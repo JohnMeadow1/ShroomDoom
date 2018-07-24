@@ -92,7 +92,7 @@ _sections_unfolded = [ "Albedo" ]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Map" type="Spatial" index="0"]
+[node name="Map" type="Spatial"]
 
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
@@ -372,6 +372,7 @@ _sections_unfolded = [ "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="." index="2"]
 
+editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -445,6 +446,8 @@ disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Foliage_autmun" type="Spatial" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Spikes" type="Spatial" parent="Foliage_autmun" index="0"]
 
@@ -586,6 +589,8 @@ transform = Transform( 2.22161, 0, -1.44917, 0, 2.65248, 0, 1.44917, 0, 2.22161,
 _sections_unfolded = [ "Transform" ]
 
 [node name="Foliage_winter" type="Spatial" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Spikes" type="Spatial" parent="Foliage_winter" index="0"]
 
@@ -983,6 +988,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Special" type="Spatial" parent="." index="7"]
 
+editor/display_folded = true
+
 [node name="Spatial" parent="Special" index="0" instance=ExtResource( 33 )]
 
 transform = Transform( -2.67314, 0, 1.36174, 0, 3, 0, -1.36174, 0, -2.67314, 1.45568, 3.8147e-007, -4.96122 )
@@ -1014,6 +1021,8 @@ transform = Transform( -2.55992, 0, -1.56423, 0, 3, 0, 1.56423, 0, -2.55992, 16.
 _sections_unfolded = [ "Transform" ]
 
 [node name="Cutdown" type="Spatial" parent="." index="8"]
+
+editor/display_folded = true
 
 [node name="Stump" parent="Cutdown" index="0" instance=ExtResource( 34 )]
 

@@ -42,7 +42,7 @@ func _physics_process(delta):
 		back(delta)
 		player_moved = true
 		
-	bounce(player_moved)
+	bounce()
 
 func idle(delta):
 	if time < WAIT_TIME:
@@ -94,7 +94,7 @@ func back(delta):
 		move_and_slide(direction * offset)
 		translation.y = originPosition.y
 		
-func bounce(player_moved):
+func bounce():
 	if player_moved:
 		walk_cycle += 0.2
 		if walk_cycle >= PI:

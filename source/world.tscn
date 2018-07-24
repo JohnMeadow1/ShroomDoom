@@ -4,7 +4,7 @@
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPC/nuke_npc.tscn" type="PackedScene" id=3]
 
-[node name="world" type="Spatial"]
+[node name="world" type="Spatial" index="0"]
 
 [node name="Goats" type="Spatial" parent="." index="0"]
 
@@ -18,11 +18,11 @@ transform = Transform( 0.297485, 0, -0.954727, 0, 1, 0, 0.954727, 0, 0.297485, -
 
 [node name="Goat4" parent="Goats" index="2" instance=ExtResource( 1 )]
 
-transform = Transform( 0.393787, 0, -0.919202, 0, 1, 0, 0.919202, 0, 0.393787, -14.0224, -0.0226316, -12.964 )
+transform = Transform( 0.393787, 0, -0.919202, 0, 1, 0, 0.919202, 0, 0.393787, -9.14544, -0.0226316, -9.75165 )
 
 [node name="Goat5" parent="Goats" index="3" instance=ExtResource( 1 )]
 
-transform = Transform( 0.791021, 0, -0.611789, 0, 1, 0, 0.611789, 0, 0.791021, 8.08812, -0.0226316, -23.0828 )
+transform = Transform( 0.791021, 0, -0.611789, 0, 1, 0, 0.611789, 0, 0.791021, 9.13474, -0.0226316, -24.2722 )
 
 [node name="Goat6" parent="Goats" index="4" instance=ExtResource( 1 )]
 
@@ -72,6 +72,10 @@ transform = Transform( 0.277001, 0, -0.96087, 0, 1, 0, 0.96087, 0, 0.277001, -12
 
 transform = Transform( 0.49841, 0, -0.866941, 0, 1, 0, 0.866941, 0, 0.49841, -0.709625, -0.0226316, -82.6423 )
 
+[node name="Goat22" parent="Goats" index="16" instance=ExtResource( 1 )]
+
+transform = Transform( 0.49841, 0, -0.866941, 0, 1, 0, 0.866941, 0, 0.49841, -15.4829, -0.0226316, 25.097 )
+
 [node name="map" type="Node" parent="." index="1"]
 
 [node name="Map" parent="map" index="0" instance=ExtResource( 2 )]
@@ -85,7 +89,7 @@ light_energy = 1.0
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
-light_bake_mode = 1
+light_bake_mode = 2
 light_cull_mask = -1
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
@@ -102,7 +106,7 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-_sections_unfolded = [ "Light" ]
+_sections_unfolded = [ "Editor", "Light", "Shadow", "Transform", "Visibility" ]
 
 [node name="NPC" parent="." index="3" instance=ExtResource( 3 )]
 
