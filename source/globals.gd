@@ -16,7 +16,7 @@ var screen             = Vector2()
 
 func _ready():
 	timer = 3
-	screen = get_viewport().size
+	screen = Vector2(1024,600)
 	pass
 
 #func _physics_process(delta):
