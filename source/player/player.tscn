@@ -1,44 +1,45 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://player/eye/eye.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Models/Potne_cie_czaisz.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://player/slash.png" type="Texture" id=5]
-[ext_resource path="res://player/star.png" type="Texture" id=6]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-001.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=9]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=10]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=11]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=12]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=13]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=14]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=15]
-[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=16]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=17]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=18]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=19]
-[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=20]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=21]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=22]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=23]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=24]
-[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=25]
-[ext_resource path="res://Audio/teksty/teksty-001.wav" type="AudioStream" id=26]
-[ext_resource path="res://Audio/teksty/teksty-002.wav" type="AudioStream" id=27]
-[ext_resource path="res://Audio/teksty/teksty-003.wav" type="AudioStream" id=28]
-[ext_resource path="res://Audio/teksty/teksty-004.wav" type="AudioStream" id=29]
-[ext_resource path="res://Audio/teksty/teksty-005.wav" type="AudioStream" id=30]
-[ext_resource path="res://Audio/teksty/teksty-006.wav" type="AudioStream" id=31]
-[ext_resource path="res://Audio/teksty/teksty-007.wav" type="AudioStream" id=32]
-[ext_resource path="res://Audio/teksty/teksty-008.wav" type="AudioStream" id=33]
-[ext_resource path="res://Audio/teksty/teksty-009.wav" type="AudioStream" id=34]
-[ext_resource path="res://Audio/teksty/teksty-010.wav" type="AudioStream" id=35]
-[ext_resource path="res://Audio/teksty/teksty-011.wav" type="AudioStream" id=36]
-[ext_resource path="res://Audio/teksty/teksty-012.wav" type="AudioStream" id=37]
-[ext_resource path="res://Audio/teksty/teksty-013.wav" type="AudioStream" id=38]
-[ext_resource path="res://player/talk.png" type="Texture" id=39]
+[ext_resource path="res://default_env.tres" type="Environment" id=6]
+[ext_resource path="res://player/star.png" type="Texture" id=7]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-001.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-002.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-003.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-004.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-005.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-006.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-007.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-008.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-009.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/sfx/mushroom/foosteps_grzyb-010.wav" type="AudioStream" id=17]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-001.wav" type="AudioStream" id=18]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-002.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-003.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/sfx/mushroom/grzyb_pick_up-004.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab1.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab2.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab3.wav" type="AudioStream" id=24]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab4.wav" type="AudioStream" id=25]
+[ext_resource path="res://Audio/sfx/mushroom/knife_stab5.wav" type="AudioStream" id=26]
+[ext_resource path="res://Audio/teksty/teksty-001.wav" type="AudioStream" id=27]
+[ext_resource path="res://Audio/teksty/teksty-002.wav" type="AudioStream" id=28]
+[ext_resource path="res://Audio/teksty/teksty-003.wav" type="AudioStream" id=29]
+[ext_resource path="res://Audio/teksty/teksty-004.wav" type="AudioStream" id=30]
+[ext_resource path="res://Audio/teksty/teksty-005.wav" type="AudioStream" id=31]
+[ext_resource path="res://Audio/teksty/teksty-006.wav" type="AudioStream" id=32]
+[ext_resource path="res://Audio/teksty/teksty-007.wav" type="AudioStream" id=33]
+[ext_resource path="res://Audio/teksty/teksty-008.wav" type="AudioStream" id=34]
+[ext_resource path="res://Audio/teksty/teksty-009.wav" type="AudioStream" id=35]
+[ext_resource path="res://Audio/teksty/teksty-010.wav" type="AudioStream" id=36]
+[ext_resource path="res://Audio/teksty/teksty-011.wav" type="AudioStream" id=37]
+[ext_resource path="res://Audio/teksty/teksty-012.wav" type="AudioStream" id=38]
+[ext_resource path="res://Audio/teksty/teksty-013.wav" type="AudioStream" id=39]
+[ext_resource path="res://player/talk.png" type="Texture" id=40]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -181,7 +182,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 6 )
+albedo_texture = ExtResource( 7 )
 metallic = 0.0
 metallic_specular = 0.0
 metallic_texture_channel = 0
@@ -218,30 +219,30 @@ size = Vector2( 1, 1 )
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 
-audio_stream = ExtResource( 21 )
+audio_stream = ExtResource( 22 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
 
-audio_stream = ExtResource( 22 )
+audio_stream = ExtResource( 23 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=9]
 
-audio_stream = ExtResource( 23 )
+audio_stream = ExtResource( 24 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=10]
 
-audio_stream = ExtResource( 24 )
+audio_stream = ExtResource( 25 )
 random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=11]
 
-audio_stream = ExtResource( 25 )
+audio_stream = ExtResource( 26 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody" groups=[
+[node name="player" type="KinematicBody" index="0" groups=[
 "players",
 ]]
 
@@ -371,7 +372,7 @@ blend_times = [  ]
 transform = Transform( 1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10 )
 keep_aspect = 1
 cull_mask = 1048575
-environment = null
+environment = ExtResource( 6 )
 h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
@@ -419,7 +420,7 @@ editor/display_folded = true
 
 [node name="Steps_1" type="AudioStreamPlayer" parent="steps" index="0"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -428,7 +429,7 @@ bus = "Master"
 
 [node name="Steps_2" type="AudioStreamPlayer" parent="steps" index="1"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -437,7 +438,7 @@ bus = "Master"
 
 [node name="Steps_3" type="AudioStreamPlayer" parent="steps" index="2"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -446,7 +447,7 @@ bus = "Master"
 
 [node name="Steps_4" type="AudioStreamPlayer" parent="steps" index="3"]
 
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -455,7 +456,7 @@ bus = "Master"
 
 [node name="Steps_5" type="AudioStreamPlayer" parent="steps" index="4"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -464,7 +465,7 @@ bus = "Master"
 
 [node name="Steps_6" type="AudioStreamPlayer" parent="steps" index="5"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -473,7 +474,7 @@ bus = "Master"
 
 [node name="Steps_7" type="AudioStreamPlayer" parent="steps" index="6"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -482,7 +483,7 @@ bus = "Master"
 
 [node name="Steps_8" type="AudioStreamPlayer" parent="steps" index="7"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -491,7 +492,7 @@ bus = "Master"
 
 [node name="Steps_9" type="AudioStreamPlayer" parent="steps" index="8"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -500,7 +501,7 @@ bus = "Master"
 
 [node name="Steps_10" type="AudioStreamPlayer" parent="steps" index="9"]
 
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = -25.0
 pitch_scale = 1.0
 autoplay = false
@@ -513,7 +514,7 @@ editor/display_folded = true
 
 [node name="Pick_up_1" type="AudioStreamPlayer" parent="pick_up" index="0"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -522,7 +523,7 @@ bus = "Master"
 
 [node name="Pick_up_2" type="AudioStreamPlayer" parent="pick_up" index="1"]
 
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -531,7 +532,7 @@ bus = "Master"
 
 [node name="Pick_up_3" type="AudioStreamPlayer" parent="pick_up" index="2"]
 
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -540,7 +541,7 @@ bus = "Master"
 
 [node name="Pick_up_4" type="AudioStreamPlayer" parent="pick_up" index="3"]
 
-stream = ExtResource( 20 )
+stream = ExtResource( 21 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -602,7 +603,7 @@ editor/display_folded = true
 
 [node name="tekst1" type="AudioStreamPlayer" parent="teksty" index="0"]
 
-stream = ExtResource( 26 )
+stream = ExtResource( 27 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -611,7 +612,7 @@ bus = "Taunt"
 
 [node name="tekst2" type="AudioStreamPlayer" parent="teksty" index="1"]
 
-stream = ExtResource( 27 )
+stream = ExtResource( 28 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -620,7 +621,7 @@ bus = "Taunt"
 
 [node name="tekst3" type="AudioStreamPlayer" parent="teksty" index="2"]
 
-stream = ExtResource( 28 )
+stream = ExtResource( 29 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -629,7 +630,7 @@ bus = "Taunt"
 
 [node name="tekst4" type="AudioStreamPlayer" parent="teksty" index="3"]
 
-stream = ExtResource( 29 )
+stream = ExtResource( 30 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -638,7 +639,7 @@ bus = "Taunt"
 
 [node name="tekst5" type="AudioStreamPlayer" parent="teksty" index="4"]
 
-stream = ExtResource( 30 )
+stream = ExtResource( 31 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -647,7 +648,7 @@ bus = "Taunt"
 
 [node name="tekst6" type="AudioStreamPlayer" parent="teksty" index="5"]
 
-stream = ExtResource( 31 )
+stream = ExtResource( 32 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -656,7 +657,7 @@ bus = "Taunt"
 
 [node name="tekst7" type="AudioStreamPlayer" parent="teksty" index="6"]
 
-stream = ExtResource( 32 )
+stream = ExtResource( 33 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -665,7 +666,7 @@ bus = "Taunt"
 
 [node name="tekst8" type="AudioStreamPlayer" parent="teksty" index="7"]
 
-stream = ExtResource( 33 )
+stream = ExtResource( 34 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -674,7 +675,7 @@ bus = "Taunt"
 
 [node name="tekst9" type="AudioStreamPlayer" parent="teksty" index="8"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -683,7 +684,7 @@ bus = "Taunt"
 
 [node name="tekst10" type="AudioStreamPlayer" parent="teksty" index="9"]
 
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -692,7 +693,7 @@ bus = "Taunt"
 
 [node name="tekst11" type="AudioStreamPlayer" parent="teksty" index="10"]
 
-stream = ExtResource( 36 )
+stream = ExtResource( 37 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -701,7 +702,7 @@ bus = "Taunt"
 
 [node name="tekst12" type="AudioStreamPlayer" parent="teksty" index="11"]
 
-stream = ExtResource( 37 )
+stream = ExtResource( 38 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -710,7 +711,7 @@ bus = "Taunt"
 
 [node name="tekst13" type="AudioStreamPlayer" parent="teksty" index="12"]
 
-stream = ExtResource( 38 )
+stream = ExtResource( 39 )
 volume_db = 0.0
 pitch_scale = 1.1
 autoplay = false
@@ -742,7 +743,7 @@ transparent = true
 shaded = false
 double_sided = true
 alpha_cut = 0
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 vframes = 1
 hframes = 1
 frame = 0

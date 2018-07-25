@@ -16,14 +16,14 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 48
+size = 42
 use_mipmaps = false
 use_filter = true
 extra_spacing_bottom = 10
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="GUI" type="CanvasLayer" index="0"]
+[node name="GUI" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -31,7 +31,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+[node name="Margin" type="MarginContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -48,7 +48,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+[node name="VBox" type="HBoxContainer" parent="Margin" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -66,14 +66,15 @@ size_flags_vertical = 3
 alignment = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="0"]
+[node name="HBox" type="VBoxContainer" parent="Margin/VBox" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 984.0
-margin_bottom = 74.0
+margin_right = 373.0
+margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -83,14 +84,31 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="keyboard" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 373.0
+margin_bottom = 524.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="keyboard" type="TextureRect" parent="Margin/VBox/HBox/HBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 78.0
-margin_bottom = 74.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -100,7 +118,7 @@ size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
 
-[node name="grzybek2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="grzybek2" type="TextureRect" parent="Margin/VBox/HBox/HBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -108,7 +126,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 82.0
 margin_right = 116.0
-margin_bottom = 74.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -119,15 +137,15 @@ texture = ExtResource( 2 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Transform" ]
 
-[node name="Player_score1" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="2"]
+[node name="Player_score1" type="Label" parent="Margin/VBox/HBox/HBox" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 120.0
-margin_right = 498.0
-margin_bottom = 74.0
+margin_right = 373.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -144,15 +162,71 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Player_score2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" index="3"]
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 528.0
+margin_right = 373.0
+margin_bottom = 568.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="controller" type="TextureRect" parent="Margin/VBox/HBox/HBox2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 502.0
-margin_right = 880.0
-margin_bottom = 74.0
+margin_right = 61.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="grzybek3" type="TextureRect" parent="Margin/VBox/HBox/HBox2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 65.0
+margin_right = 99.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Transform" ]
+
+[node name="Player_score2" type="Label" parent="Margin/VBox/HBox/HBox2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 103.0
+margin_right = 373.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -170,52 +244,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="grzybek3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" index="4"]
+[node name="Control" type="Control" parent="Margin/VBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 884.0
-margin_right = 918.0
-margin_bottom = 74.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 2 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect", "Transform" ]
-
-[node name="controller" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 922.0
-margin_right = 983.0
-margin_bottom = 74.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-stretch_mode = 0
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 78.0
-margin_right = 984.0
-margin_bottom = 523.0
+margin_left = 377.0
+margin_right = 607.0
+margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -225,18 +262,19 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 _sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Control" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Margin/VBox/Control" index="0"]
 
 modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -282.0
-margin_top = -100.0
-margin_right = 282.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 564, 200 )
+margin_left = -250.0
+margin_top = -75.0
+margin_right = 250.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 500, 150 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -248,22 +286,22 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Size Flags", "Visibility" ]
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control" index="1"]
+[node name="Score" type="Label" parent="Margin/VBox/Control" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -539.0
-margin_top = -58.5
+margin_top = -59.0
 margin_right = 539.0
-margin_bottom = 58.5
+margin_bottom = 58.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
@@ -271,20 +309,21 @@ text = "This game is
 designed and balanced 
 for 4 players."
 align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Material", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="2"]
+[node name="HBox2" type="VBoxContainer" parent="Margin/VBox" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 527.0
+margin_left = 611.0
 margin_right = 984.0
-margin_bottom = 567.0
+margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -295,51 +334,32 @@ size_flags_stretch_ratio = 0.0
 alignment = 2
 _sections_unfolded = [ "Anchor", "Focus", "Size Flags" ]
 
-[node name="controller2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox2" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 61.0
-margin_bottom = 40.0
+margin_right = 373.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-stretch_mode = 0
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
 
-[node name="grzybek4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 65.0
-margin_right = 99.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 2 )
-stretch_mode = 3
-_sections_unfolded = [ "Margin", "Rect", "Transform" ]
-
-[node name="Player_score3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="2"]
+[node name="Player_score3" type="Label" parent="Margin/VBox/HBox2/HBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 103.0
-margin_right = 490.0
-margin_bottom = 40.0
+margin_right = 270.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -356,14 +376,68 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="Player_score4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="3"]
+[node name="grzybek4" type="TextureRect" parent="Margin/VBox/HBox2/HBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 494.0
-margin_right = 881.0
+margin_left = 274.0
+margin_right = 308.0
+margin_bottom = 524.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 3
+_sections_unfolded = [ "Margin", "Rect", "Transform" ]
+
+[node name="controller2" type="TextureRect" parent="Margin/VBox/HBox2/HBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_right = 373.0
+margin_bottom = 524.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox2" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 528.0
+margin_right = 373.0
+margin_bottom = 568.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Player_score4" type="Label" parent="Margin/VBox/HBox2/HBox2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 270.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -382,14 +456,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="grzybek5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="4"]
+[node name="grzybek5" type="TextureRect" parent="Margin/VBox/HBox2/HBox2" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 885.0
-margin_right = 919.0
+margin_left = 274.0
+margin_right = 308.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -401,14 +475,14 @@ texture = ExtResource( 2 )
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Transform" ]
 
-[node name="controller3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="5"]
+[node name="controller3" type="TextureRect" parent="Margin/VBox/HBox2/HBox2" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 923.0
-margin_right = 984.0
+margin_left = 312.0
+margin_right = 373.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -418,51 +492,5 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
-
-[node name="Blinder" type="ColorRect" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -29.0
-margin_top = -50.0
-margin_right = 1051.0
-margin_bottom = 670.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 0 )
-_sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="winner" type="Label" parent="Blinder" index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Size Flags", "custom_colors", "custom_constants", "custom_fonts" ]
 
 

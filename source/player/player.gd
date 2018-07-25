@@ -157,5 +157,5 @@ func popShrooms(amount):
 	for i in range(spawn):
 		var new_pop = drop_shroom_object.instance()
 		new_pop.translation = self.translation
-		$"../../../Player1/Viewport1/world/map".add_child(new_pop)
+		$"../../../Player1/Viewport/world/map".add_child(new_pop)
 	

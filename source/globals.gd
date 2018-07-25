@@ -36,6 +36,18 @@ func get_score(player_id):
 	player_id-=1 # because array is from 0-3, and players are from 1-4
 	return player_score[player_id] 
 	
+func get_lead():
+	var lead = -1
+	if player_score[0] > player_score[1]:
+		lead = 0
+	if player_score[0] < player_score[1]:
+		lead = 1
+	if player_score[lead] < player_score[2]:
+		lead = 2
+	if player_score[lead] < player_score[3]:
+		lead = 3
+	return lead
+	
 func win(player):
 	victory_label = player_label[player.PLAYER_NUM-1]
 #	blinder.color.a = 1
