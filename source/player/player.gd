@@ -20,12 +20,15 @@ var player_hit = false
 var originPosition = Vector3()
 var base_rotation = [Vector3(),Vector3()]
 var timer = 5
-
+var is_dying = false
+var death_rotation = Vector3()
+var origin_rotation = Vector3()
 var drop_shroom_object = load("res://objects/Drop_shroom.tscn")
 
 func _ready():
 	PLAYER_CONTROLS  = PLAYER_NUM
 	originPosition   = self.translation
+	origin_rotation  = self.rotation
 	self.state       = STATE_IDLE
 	base_rotation[0] = $Spatial/eye_node.rotation
 	base_rotation[1] = $Spatial/eye_node2.rotation
@@ -33,7 +36,18 @@ func _ready():
 	$Spatial/MeshInstance.material_override.set("albedo_texture",player_texture)
 	
 func _physics_process(delta):
-	
+		
+	if is_dying:
+		timer -= delta
+		move += Vector3(0,-0.5,0)
+		rotation += death_rotation/20
+		if timer < 0:
+			self.player_enabled = true
+			self.translation    = originPosition
+			self.is_dying       = false
+			self.state          = STATE_IDLE
+			self.rotation       = origin_rotation
+			
 	if timer > 0:
 		timer -= delta
 		if timer < 9:
@@ -117,8 +131,9 @@ func _physics_process(delta):
 
 	$Spatial.translation.z =  -sin( walk_cycle ) * 0.2
 	move                   = move_and_slide(move)
-	translation.y          = originPosition.y
-	move                  *= 0.90
+	if !is_dying:
+		translation.y      = originPosition.y
+		move               *= 0.90
 	$Spatial.rotation.z    = atan2(move.x,-move.z)
 	
 	$Spatial/eye_node.rotation.x = base_rotation[0].x + sin( walk_cycle ) * 0.4 
@@ -142,9 +157,12 @@ func push(direction, player):
 			globals.add_score(player.PLAYER_NUM, score+7)
 		
 		self.popShrooms(score)
-		self.translation = originPosition
-		self.state = STATE_IDLE
-		pass
+		is_dying       = true
+		player_enabled = false
+		timer          = 2
+		move          += Vector3(0,15,0) + direction * 20
+		death_rotation = Vector3(rand_range(-1,1),rand_range(-1,1),rand_range(-1,1))
+		$Particles.emitting = true
 	else:
 		move += direction*50
 		self.state = STATE_STUN

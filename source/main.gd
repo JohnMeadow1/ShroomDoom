@@ -1,6 +1,6 @@
 extends Node
 
-var timer = 4
+var timer = 3
 var previos_leed = -1
 
 func _ready():
@@ -42,16 +42,13 @@ func _physics_process(delta):
 			$GUI/Margin/VBox/Control/Score.text = globals.player_label[lead] + " is in the lead"
 			if lead == 0:
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(1,0,0))
-			timer = 1.1
 			if lead == 1:
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(0,1,0))
-			timer = 1.1
 			if lead == 2:
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(1,0,1))
-			timer = 1.1
 			if lead == 3:
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(0,0,1))
-			timer = 1.1
+			timer = 1.5
 	elif globals.player_score[lead]>=15 && timer<0.2:
 			timer = 1
 			
