@@ -1,6 +1,6 @@
 # ShroomDoom
 
-Game made in ![Godot Engine](https://github.com/godotengine/godot) during 48 hour ![Slavic Game Jam 2018](https://itch.io/jam/sgj18)
+Game made in ![Godot Engine 3](https://github.com/godotengine/godot) during 48 hour ![Slavic Game Jam 2018](https://itch.io/jam/sgj18)
 Theme: "Competition"
 Due to radiation from nearby nuclear weapon, some shrooms in the forest have mutated. You and your shroom friends must bring shrooms to the shroom sage so he can summon the biggest shroom – Nuclear Shroom!
 
