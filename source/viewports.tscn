@@ -12,7 +12,7 @@
 [ext_resource path="res://Audio/mushroom_game.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Audio/sfx/ambience_forest.wav" type="AudioStream" id=11]
 
-[node name="viewports" type="Node" index="0"]
+[node name="viewports" type="Node"]
 
 script = ExtResource( 1 )
 

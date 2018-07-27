@@ -242,7 +242,7 @@ random_pitch = 1.1
 audio_stream = ExtResource( 26 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody" index="0" groups=[
+[node name="player" type="KinematicBody" groups=[
 "players",
 ]]
 
@@ -598,8 +598,6 @@ mix_target = 0
 bus = "Master"
 
 [node name="teksty" type="Node" parent="." index="8"]
-
-editor/display_folded = true
 
 [node name="tekst1" type="AudioStreamPlayer" parent="teksty" index="0"]
 
