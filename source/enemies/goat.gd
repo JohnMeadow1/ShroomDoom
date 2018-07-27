@@ -8,7 +8,8 @@ const MOVE_SPEED_WALK  = 10 * MOVE_BALANCE
 const MOVE_SPEED_CHASE = 50 * MOVE_BALANCE
 const MOVE_SPEED_RUN   = 10 * MOVE_BALANCE
 
-const RUN_DISTANCE     = 5
+const RUN_DISTANCE     = 5.0
+const RUN_DISTANCE_2   = RUN_DISTANCE * 0.5
 
 enum {STATE_IDLE, STATE_BACK, STATE_CHASE}
 
@@ -67,7 +68,9 @@ func chase(delta):
 		offset = MOVE_SPEED_CHASE * delta
 		move_and_slide(direction * offset)
 		translation.y = originPosition.y
+		$warnig.material_override.set("albedo_color", Color(1,1,1,  (RUN_DISTANCE - clamp(distance- (RUN_DISTANCE_2), 0, RUN_DISTANCE)) / RUN_DISTANCE ) )
 	else:
+		$warnig.material_override.set("albedo_color", Color(1,1,1,0))
 		offset = MOVE_SPEED_RUN * delta
 		var collision = move_and_collide(direction * offset)
 		if collision && collision.get_collider().get_name() == target.get_name():
