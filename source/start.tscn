@@ -142,7 +142,7 @@ tracks/1/keys = {
 "values": [ 1, 0, 1, 0, 1, 0 ]
 }
 
-[node name="start" type="Control"]
+[node name="start" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
