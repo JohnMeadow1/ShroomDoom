@@ -1,12 +1,12 @@
 extends Node
 
-var timer = 3
+var timer        = 3
 var previos_leed = -1
 
 func _ready():
 	globals.player_score_label[0] = $GUI/Margin/VBox/HBox/HBox/Player_score1
-	globals.player_score_label[2] = $GUI/Margin/VBox/HBox/HBox2/Player_score2
-	globals.player_score_label[1] = $GUI/Margin/VBox/HBox2/HBox/Player_score3
+	globals.player_score_label[1] = $GUI/Margin/VBox/HBox/HBox2/Player_score2
+	globals.player_score_label[2] = $GUI/Margin/VBox/HBox2/HBox/Player_score3
 	globals.player_score_label[3] = $GUI/Margin/VBox/HBox2/HBox2/Player_score4
 	globals.player_score          = [0,0,0,0]
 	globals.players_enabled       = [true,false,false,false]
@@ -30,15 +30,14 @@ func _physics_process(delta):
 	if timer > 0:
 		timer -= delta
 		$GUI/Margin/VBox/Control.modulate.a = min(timer / 1, 1)
-		if timer < 0:
+		if timer < 0 && previos_leed == -1:
 			$GUI/Margin/VBox/Control/TextureRect.visible = false
 			$GUI/Margin/VBox/Control/Score.text = ""
 			
 	var lead = globals.get_lead()
 	if lead != previos_leed:
-		$GUI/Margin/VBox/Control/Score.text = ""
+		previos_leed = lead
 		if lead > -1:
-			previos_leed = lead
 			$GUI/Margin/VBox/Control/Score.text = globals.player_label[lead] + " is in the lead"
 			if lead == 0:
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(1,0,0))
@@ -50,5 +49,5 @@ func _physics_process(delta):
 				$GUI/Margin/VBox/Control/Score.set("custom_colors/font_color",Color(0,0,1))
 			timer = 1.5
 	elif globals.player_score[lead]>=15 && timer<0.2:
-			timer = 1
+		timer = 1
 			

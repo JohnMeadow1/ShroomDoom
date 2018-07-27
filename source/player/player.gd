@@ -28,7 +28,7 @@ var drop_shroom_object = load("res://objects/Drop_shroom.tscn")
 func _ready():
 	PLAYER_CONTROLS  = PLAYER_NUM
 	originPosition   = self.translation
-	origin_rotation  = self.rotation
+	origin_rotation  = $Spatial.rotation
 	self.state       = STATE_IDLE
 	base_rotation[0] = $Spatial/eye_node.rotation
 	base_rotation[1] = $Spatial/eye_node2.rotation
@@ -40,13 +40,13 @@ func _physics_process(delta):
 	if is_dying:
 		timer -= delta
 		move += Vector3(0,-0.5,0)
-		rotation += death_rotation/20
-		if timer < 0:
+		$Spatial.rotation += death_rotation/20
+		if timer < 0 || Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
 			self.player_enabled = true
 			self.translation    = originPosition
 			self.is_dying       = false
 			self.state          = STATE_IDLE
-			self.rotation       = origin_rotation
+			$Spatial.rotation    = origin_rotation
 			
 	if timer > 0:
 		timer -= delta
@@ -159,8 +159,8 @@ func push(direction, player):
 		self.popShrooms(score)
 		is_dying       = true
 		player_enabled = false
-		timer          = 2
-		move          += Vector3(0,15,0) + direction * 20
+		timer          = 3
+		move          += Vector3(0,20,0) + direction * 40
 		death_rotation = Vector3(rand_range(-1,1),rand_range(-1,1),rand_range(-1,1))
 		$Particles.emitting = true
 	else:

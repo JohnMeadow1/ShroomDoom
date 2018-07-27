@@ -68,12 +68,11 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags
 
 [node name="HBox" type="VBoxContainer" parent="Margin/VBox" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -86,11 +85,12 @@ _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
 [node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -144,7 +144,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 120.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -164,13 +164,12 @@ _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_colors", "custo
 
 [node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 528.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -178,7 +177,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 2
+alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="controller" type="TextureRect" parent="Margin/VBox/HBox/HBox2" index="0"]
@@ -225,7 +224,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 103.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -237,8 +236,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "press A to join"
-align = 2
+text = "A to join"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -250,8 +248,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 377.0
-margin_right = 607.0
+margin_left = 269.0
+margin_right = 715.0
 margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -260,9 +258,39 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
-_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "Visibility" ]
 
-[node name="TextureRect" type="TextureRect" parent="Margin/VBox/Control" index="0"]
+[node name="Score" type="Label" parent="Margin/VBox/Control" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -539.0
+margin_top = -58.5
+margin_right = 539.0
+margin_bottom = 58.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "This game is 
+designed and balanced 
+for 4 players"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Material", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBox/Control" index="1"]
 
 modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
@@ -279,41 +307,11 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
-stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Size Flags", "Visibility" ]
-
-[node name="Score" type="Label" parent="Margin/VBox/Control" index="1"]
-
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -539.0
-margin_top = -59.0
-margin_right = 539.0
-margin_bottom = 58.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "This game is 
-designed and balanced 
-for 4 players."
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Material", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="HBox2" type="VBoxContainer" parent="Margin/VBox" index="2"]
 
@@ -321,7 +319,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 611.0
+margin_left = 719.0
 margin_right = 984.0
 margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -330,18 +328,16 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
 alignment = 2
 _sections_unfolded = [ "Anchor", "Focus", "Size Flags" ]
 
 [node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox2" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -349,7 +345,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 3
-alignment = 0
+alignment = 2
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="Player_score3" type="Label" parent="Margin/VBox/HBox2/HBox" index="0"]
@@ -358,7 +354,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 270.0
+margin_right = 162.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -370,7 +366,8 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "press A to join"
+text = "A to join"
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -382,8 +379,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 274.0
-margin_right = 308.0
+margin_left = 166.0
+margin_right = 200.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -401,8 +398,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_right = 373.0
+margin_left = 204.0
+margin_right = 265.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -415,13 +412,12 @@ stretch_mode = 0
 
 [node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox2" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 528.0
-margin_right = 373.0
+margin_right = 265.0
 margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -429,7 +425,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+alignment = 2
 
 [node name="Player_score4" type="Label" parent="Margin/VBox/HBox2/HBox2" index="0"]
 
@@ -437,7 +433,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 270.0
+margin_right = 162.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -449,7 +445,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "Press A to join"
+text = "A to join"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
@@ -462,8 +458,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 274.0
-margin_right = 308.0
+margin_left = 166.0
+margin_right = 200.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -481,8 +477,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_right = 373.0
+margin_left = 204.0
+margin_right = 265.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
