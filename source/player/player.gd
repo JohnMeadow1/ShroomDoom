@@ -82,7 +82,7 @@ func _physics_process(delta):
 			if !player_hit:
 				player_hit = true
 				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
-				timer = 10
+				timer = 20
 				$talk.visible = true
 			
 			for body in get_tree().get_nodes_in_group("sage"):
