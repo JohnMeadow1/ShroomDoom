@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://21ub4wkap2yc"
+path="res://.godot/imported/goat.obj-e63a4d25217f9422e859e48902d136b7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/goat.obj-e63a4d25217f9422e859e48902d136b7.mesh"]
+
+source_file="res://nodes/goat/model/goat.obj"
+dest_files=["res://.godot/imported/goat.obj-e63a4d25217f9422e859e48902d136b7.mesh", "res://.godot/imported/goat.obj-e63a4d25217f9422e859e48902d136b7.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

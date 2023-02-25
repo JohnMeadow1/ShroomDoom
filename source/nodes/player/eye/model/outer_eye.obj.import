@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3dkp5wq7l0pj"
+path="res://.godot/imported/outer_eye.obj-59e52d66e15058846d1bdfd8f0010295.mesh"
+
+[deps]
+
+files=["res://.godot/imported/outer_eye.obj-59e52d66e15058846d1bdfd8f0010295.mesh"]
+
+source_file="res://nodes/player/eye/model/outer_eye.obj"
+dest_files=["res://.godot/imported/outer_eye.obj-59e52d66e15058846d1bdfd8f0010295.mesh", "res://.godot/imported/outer_eye.obj-59e52d66e15058846d1bdfd8f0010295.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

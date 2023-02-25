@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxlfwq5r6pxi1"
+path="res://.godot/imported/inner_eye.obj-08e25d40b8f4244f32825dc00b965e68.mesh"
+
+[deps]
+
+files=["res://.godot/imported/inner_eye.obj-08e25d40b8f4244f32825dc00b965e68.mesh"]
+
+source_file="res://nodes/player/eye/model/inner_eye.obj"
+dest_files=["res://.godot/imported/inner_eye.obj-08e25d40b8f4244f32825dc00b965e68.mesh", "res://.godot/imported/inner_eye.obj-08e25d40b8f4244f32825dc00b965e68.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

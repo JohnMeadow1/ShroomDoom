@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dudbqkmqtaey"
+path="res://.godot/imported/stones_and_grass_opt.obj-a38e0755c0e35a7fce14669455ff26dc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stones_and_grass_opt.obj-a38e0755c0e35a7fce14669455ff26dc.mesh"]
+
+source_file="res://nodes/map/stones_grass/stones_and_grass_opt.obj"
+dest_files=["res://.godot/imported/stones_and_grass_opt.obj-a38e0755c0e35a7fce14669455ff26dc.mesh", "res://.godot/imported/stones_and_grass_opt.obj-a38e0755c0e35a7fce14669455ff26dc.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

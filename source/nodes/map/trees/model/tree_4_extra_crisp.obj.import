@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vowd8e1qi23k"
+path="res://.godot/imported/tree_4_extra_crisp.obj-bd33a74aca89cd5e8050d0fe83fa1b06.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_4_extra_crisp.obj-bd33a74aca89cd5e8050d0fe83fa1b06.mesh"]
+
+source_file="res://nodes/map/trees/model/tree_4_extra_crisp.obj"
+dest_files=["res://.godot/imported/tree_4_extra_crisp.obj-bd33a74aca89cd5e8050d0fe83fa1b06.mesh", "res://.godot/imported/tree_4_extra_crisp.obj-bd33a74aca89cd5e8050d0fe83fa1b06.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

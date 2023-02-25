@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bicc3nvmtqojt"
+path="res://.godot/imported/points_shroom_fixed.obj-9b14a5958e1443fcf413966659a93dda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/points_shroom_fixed.obj-9b14a5958e1443fcf413966659a93dda.mesh"]
+
+source_file="res://nodes/pickable/model/points_shroom_fixed.obj"
+dest_files=["res://.godot/imported/points_shroom_fixed.obj-9b14a5958e1443fcf413966659a93dda.mesh", "res://.godot/imported/points_shroom_fixed.obj-9b14a5958e1443fcf413966659a93dda.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

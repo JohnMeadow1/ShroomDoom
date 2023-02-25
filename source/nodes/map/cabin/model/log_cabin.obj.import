@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2hnl6rqr71gy"
+path="res://.godot/imported/log_cabin.obj-83d5b11b9298db2c7656bc7f7cf37f0f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/log_cabin.obj-83d5b11b9298db2c7656bc7f7cf37f0f.mesh"]
+
+source_file="res://nodes/map/cabin/model/log_cabin.obj"
+dest_files=["res://.godot/imported/log_cabin.obj-83d5b11b9298db2c7656bc7f7cf37f0f.mesh", "res://.godot/imported/log_cabin.obj-83d5b11b9298db2c7656bc7f7cf37f0f.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
