@@ -30,8 +30,8 @@ func _ready():
 	originPosition = self.position
 	state = STATE_BACK
 	walk_cycle = randf_range(0,PI)
-	if not is_visible_in_tree():
-		queue_free()
+#	if not is_visible_in_tree():
+#		queue_free()
 
 func _physics_process(delta):
 	if state == STATE_IDLE:
