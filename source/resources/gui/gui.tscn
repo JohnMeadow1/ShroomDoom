@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3bt4rg67wn8q"]
+
+[ext_resource type="Texture2D" uid="uid://dopcg7kjo4fc3" path="res://resources/gui/sprites/keyboard.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bxv3ene1uwgsb" path="res://resources/gui/sprites/grzybek2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bv6vtkp1gjopo" path="res://resources/gui/sprites/controller.png" id="4"]
+[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="4_fjov1"]
+[ext_resource type="Texture2D" uid="uid://c4onpjsl60uwc" path="res://resources/gui/sprites/white.png" id="5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ads86"]
+font = ExtResource("4_fjov1")
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_ltopi"]
+font = ExtResource("4_fjov1")
+font_size = 42
+outline_size = 2
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -20.0
+offset_bottom = -20.0
+mouse_filter = 0
+
+[node name="VBox" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBox" type="VBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="keyboard" type="TextureRect" parent="Margin/VBox/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 4
+
+[node name="grzybek2" type="TextureRect" parent="Margin/VBox/HBox/HBox"]
+layout_mode = 2
+texture = ExtResource("2")
+stretch_mode = 4
+
+[node name="Player_score1" type="Label" parent="Margin/VBox/HBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "0/20"
+label_settings = SubResource("LabelSettings_ads86")
+vertical_alignment = 1
+
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox"]
+layout_mode = 2
+
+[node name="controller" type="TextureRect" parent="Margin/VBox/HBox/HBox2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4")
+stretch_mode = 4
+
+[node name="grzybek3" type="TextureRect" parent="Margin/VBox/HBox/HBox2"]
+layout_mode = 2
+texture = ExtResource("2")
+stretch_mode = 3
+
+[node name="Player_score2" type="Label" parent="Margin/VBox/HBox/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "A to join"
+label_settings = SubResource("LabelSettings_ads86")
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Score" type="Label" parent="Margin/VBox/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -72.0
+offset_right = 250.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "This game is 
+designed and balanced 
+for 4 players"
+label_settings = SubResource("LabelSettings_ltopi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBox/Control"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -75.0
+offset_right = 250.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5")
+expand_mode = 1
+
+[node name="HBox2" type="VBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox/HBox2"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Player_score3" type="Label" parent="Margin/VBox/HBox2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "A to join"
+label_settings = SubResource("LabelSettings_ads86")
+horizontal_alignment = 2
+
+[node name="grzybek4" type="TextureRect" parent="Margin/VBox/HBox2/HBox"]
+layout_mode = 2
+texture = ExtResource("2")
+stretch_mode = 4
+
+[node name="controller2" type="TextureRect" parent="Margin/VBox/HBox2/HBox"]
+layout_mode = 2
+texture = ExtResource("4")
+stretch_mode = 4
+
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox/HBox2"]
+layout_mode = 2
+alignment = 2
+
+[node name="Player_score4" type="Label" parent="Margin/VBox/HBox2/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "A to join"
+label_settings = SubResource("LabelSettings_ads86")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="grzybek5" type="TextureRect" parent="Margin/VBox/HBox2/HBox2"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("2")
+stretch_mode = 3
+
+[node name="controller3" type="TextureRect" parent="Margin/VBox/HBox2/HBox2"]
+layout_mode = 2
+texture = ExtResource("4")
+stretch_mode = 4

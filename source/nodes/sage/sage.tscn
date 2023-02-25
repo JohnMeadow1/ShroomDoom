@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://cny0ucvl3ywkb"]
+
+[ext_resource type="Script" path="res://nodes/sage/sage.gd" id="1_xksnm"]
+[ext_resource type="ArrayMesh" uid="uid://kd6eaqub5evf" path="res://nodes/sage/model/nuke.obj" id="2_rpp1k"]
+[ext_resource type="Texture2D" uid="uid://cj0svvxqdmvci" path="res://nodes/sage/sprite/talk.png" id="3_2rcbq"]
+[ext_resource type="Texture2D" uid="uid://bcurunqiyqk3i" path="res://nodes/sage/model/the_bomb.png" id="3_jrel0"]
+[ext_resource type="PackedScene" uid="uid://ysjxsxvv8782" path="res://nodes/sage/sage_character.tscn" id="4"]
+[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="5_06jji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w21ew"]
+albedo_texture = ExtResource("3_jrel0")
+
+[sub_resource type="CapsuleShape3D" id="2"]
+radius = 1.13763
+height = 2.27526
+
+[sub_resource type="LabelSettings" id="LabelSettings_5tw7x"]
+font = ExtResource("5_06jji")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="4"]
+viewport_path = NodePath("SubViewport")
+
+[node name="NPC" type="StaticBody3D" groups=["sage"]]
+script = ExtResource("1_xksnm")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="Nuke" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = ExtResource("2_rpp1k")
+surface_material_override/0 = SubResource("StandardMaterial3D_w21ew")
+
+[node name="sage_character" parent="Node3D" instance=ExtResource("4")]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.0908484, 2.64148, 0.00756097)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, 1, 0)
+shape = SubResource("2")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(650, 300)
+render_target_update_mode = 3
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 650.0
+offset_bottom = 250.0
+text = "Welcome!
+Stay a while
+and listen"
+label_settings = SubResource("LabelSettings_5tw7x")
+
+[node name="Cloud" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25578, 5.13658, 0)
+flip_h = true
+texture = ExtResource("3_2rcbq")
+
+[node name="Text" type="Sprite3D" parent="Cloud"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259544, -0.01)
+flip_h = true
+texture = SubResource("4")
+region_enabled = true
+region_rect = Rect2(0, 0, 625, 290)
+
+[node name="mumble_1" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+volume_db = 80.0
+unit_size = 1.0
+max_distance = 25.0
+
+[node name="mumble_2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+volume_db = 80.0
+unit_size = 1.0
+max_distance = 25.0

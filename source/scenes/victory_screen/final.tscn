@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0682vqqyu02k"]
+
+[ext_resource type="Script" path="res://scenes/victory_screen/final.gd" id="1_tyb44"]
+
+[node name="final" type="Node2D"]
+script = ExtResource("1_tyb44")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(527, 428)
+
+[node name="shroom" type="Sprite2D" parent="."]
+position = Vector2(533, 565)
+
+[node name="back_cloud" type="Sprite2D" parent="."]
+position = Vector2(516, 602)
+
+[node name="front_cloud" type="Sprite2D" parent="."]
+position = Vector2(521, 618)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 70.0
+text = "I guess "

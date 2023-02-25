@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://df3w7yk38pqm"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3dkp5wq7l0pj" path="res://nodes/player/eye/model/outer_eye.obj" id="1"]
+[ext_resource type="ArrayMesh" uid="uid://cxlfwq5r6pxi1" path="res://nodes/player/eye/model/inner_eye.obj" id="3"]
+[ext_resource type="Texture2D" uid="uid://bslvvrngwxsho" path="res://nodes/player/eye/model/eye_texture.jpg" id="3_57dmo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvtwa"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.694118, 0.733333, 0.764706, 0.294118)
+metallic = 0.71
+metallic_specular = 1.0
+metallic_texture_channel = 3
+roughness = 0.0
+rim_enabled = true
+rim_tint = 1.0
+clearcoat_enabled = true
+clearcoat = 0.43
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1owr"]
+albedo_texture = ExtResource("3_57dmo")
+metallic_specular = 0.0
+roughness = 0.0
+ao_enabled = true
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.21
+
+[node name="eye_node" type="Node3D"]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0, 0, 0)
+
+[node name="outer eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0254, 0, -2.22054e-09, 0, 0.0254, 0, 2.22054e-09, 0, -0.0254, 0, 0, 0)
+mesh = ExtResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_jvtwa")
+
+[node name="inner eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0254, 0, -2.22054e-09, 0, 0.0254, 0, 2.22054e-09, 0, -0.0254, 0, 0, 0)
+mesh = ExtResource("3")
+surface_material_override/0 = SubResource("StandardMaterial3D_i1owr")

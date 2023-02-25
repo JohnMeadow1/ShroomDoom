@@ -1,0 +1,298 @@
+[gd_scene load_steps=20 format=3 uid="uid://cju2kbc8fck2l"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ft78g"]
+[ext_resource type="Texture2D" uid="uid://c1hejijfg27ln" path="res://scenes/main_menu/sprites/main_menu.png" id="2_lnov2"]
+[ext_resource type="Texture2D" uid="uid://yu18v8krnjra" path="res://scenes/main_menu/sprites/start_clicked.png" id="3_1jgh7"]
+[ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="3_3v8u6"]
+[ext_resource type="Texture2D" uid="uid://dsbbjciv8cwuy" path="res://scenes/main_menu/sprites/start_marked.png" id="4_ccc52"]
+[ext_resource type="Texture2D" uid="uid://dcmn41faej46d" path="res://scenes/main_menu/sprites/start_base.png" id="4_exent"]
+[ext_resource type="Script" path="res://resources/button.gd" id="7_281sf"]
+[ext_resource type="Texture2D" uid="uid://caj1abvrt3mll" path="res://scenes/main_menu/sprites/hiryu.png" id="7_wd4d6"]
+[ext_resource type="Texture2D" uid="uid://b76pq86uqvr48" path="res://scenes/main_menu/sprites/leszek.png" id="8_0e4br"]
+[ext_resource type="Texture2D" uid="uid://bnrvdctkacwj3" path="res://scenes/main_menu/sprites/neina.png" id="9_hhsqp"]
+[ext_resource type="Texture2D" uid="uid://bqu88yghs8iq4" path="res://scenes/main_menu/sprites/tomek.png" id="10_h5kab"]
+
+[sub_resource type="Animation" id="2"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wdjj"]
+_data = {
+"idle": SubResource("2")
+}
+
+[sub_resource type="Animation" id="3"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdlea"]
+_data = {
+"idle": SubResource("3")
+}
+
+[sub_resource type="Animation" id="4"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3g7dy"]
+_data = {
+"idle": SubResource("4")
+}
+
+[sub_resource type="Animation" id="5"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fn0jo"]
+_data = {
+"idle": SubResource("5")
+}
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ft78g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lnov2")
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3v8u6")
+autoplay = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 56.0
+offset_right = -23.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Credits" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Music by:
+ElieAbraham64
+"
+
+[node name="Credits2" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "SFX by:
+Tymek \"Rabarbarowyrobal\"
+"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Start" type="TextureButton" parent="HBoxContainer/Control"]
+custom_minimum_size = Vector2(157, 42)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -53.0
+offset_right = -69.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(157, 42)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_exent")
+texture_pressed = ExtResource("3_1jgh7")
+texture_hover = ExtResource("4_ccc52")
+script = ExtResource("7_281sf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="hiryu" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(861, 410)
+scale = Vector2(2, 2)
+texture = ExtResource("7_wd4d6")
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/hiryu"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_5wdjj")
+}
+
+[node name="leszek" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(671, 471)
+scale = Vector2(2, 2)
+texture = ExtResource("8_0e4br")
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Node2D/leszek"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_vdlea")
+}
+
+[node name="neina" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(77, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("9_hhsqp")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="Node2D/neina"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_3g7dy")
+}
+
+[node name="tomek" type="Sprite2D" parent="Node2D"]
+z_index = 1
+position = Vector2(266, 474)
+scale = Vector2(2, 2)
+texture = ExtResource("10_h5kab")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Node2D/tomek"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_fn0jo")
+}
+
+[connection signal="resized" from="TextureRect" to="." method="_on_TextureRect_resized"]
+[connection signal="mouse_entered" from="HBoxContainer/Control/Start" to="HBoxContainer/Control/Start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Control/Start" to="HBoxContainer/Control/Start" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Control/Start" to="HBoxContainer/Control/Start" method="_on_Start"]

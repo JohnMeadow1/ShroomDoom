@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kb42nrb8jde"]
+
+[ext_resource type="ArrayMesh" uid="uid://dudbqkmqtaey" path="res://nodes/map/stones_grass/stones_and_grass_opt.obj" id="1_nsxmq"]
+[ext_resource type="Texture2D" uid="uid://de0cbkhffbrxs" path="res://nodes/map/stones_grass/stones_and_grass_opt.png" id="2_51qmf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w22lt"]
+transparency = 1
+albedo_texture = ExtResource("2_51qmf")
+
+[node name="stones_grass" type="MeshInstance3D"]
+mesh = ExtResource("1_nsxmq")
+surface_material_override/0 = SubResource("StandardMaterial3D_w22lt")

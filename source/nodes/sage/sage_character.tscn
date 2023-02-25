@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://ysjxsxvv8782"]
+
+[ext_resource type="Texture2D" uid="uid://b82q4d7ggbic3" path="res://nodes/player/model/player.png" id="1_y0emh"]
+[ext_resource type="ArrayMesh" uid="uid://c4hasaidhd8c6" path="res://nodes/player/model/player.obj" id="2_c47dj"]
+[ext_resource type="PackedScene" path="res://nodes/player/eye/eye.tscn" id="3_jkadb"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+albedo_texture = ExtResource("1_y0emh")
+metallic_specular = 0.0
+
+[sub_resource type="Animation" id="2"]
+resource_name = "idle"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eye_node:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.8, 5.2, 8.6, 11.2, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(55, 6.85228, -3.04628), Vector3(36.2561, 45.0722, 48.0714), Vector3(74.5474, -13.3416, 17.5428), Vector3(62.9346, 23.5383, 38.0125), Vector3(76.7272, 140.015, 148.034), Vector3(84.0597, -18.6534, -20.5058), Vector3(55, 6.85228, -3.04628)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eye_node2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.3, 4.6, 7.8, 11.5, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(68.437, 4.03466, 2.17743), Vector3(56.4558, 48.436, 51.3742), Vector3(61.5067, -94.5172, -72.5242), Vector3(70.9137, -29.025, -16.8893), Vector3(72.7531, -159.458, -153.94), Vector3(75.596, 50.0363, 53.4807), Vector3(68.437, 4.03466, 2.17743)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jq5ld"]
+_data = {
+"idle": SubResource("2")
+}
+
+[node name="sage_character" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.05, 4.37114e-09, -1.91069e-16, 0, -2.18557e-09, -0.05, -4.37114e-09, -0.05, 2.18557e-09, 9.71878e-15, 6.41345e-08, 1.47249)
+material_override = SubResource("1")
+mesh = ExtResource("2_c47dj")
+
+[node name="eye_node" parent="." instance=ExtResource("3_jkadb")]
+transform = Transform3D(0.49732, 0.0465202, -0.0225875, -0.0350987, 0.143248, -0.477754, -0.0379791, 0.476777, 0.145746, -0.164009, 0.308041, 0.140131)
+
+[node name="eye_node2" parent="." instance=ExtResource("3_jkadb")]
+transform = Transform3D(0.393864, -0.0202401, 0.0667926, 0.0696648, 0.0909179, -0.38325, 0.00421092, 0.389004, 0.0930483, 0.228875, 0.37249, 0.127989)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_jq5ld")
+}

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4kr51mrc8qip"]
+
+[ext_resource type="Texture2D" uid="uid://du14oxnksry47" path="res://nodes/map/floor_decals/leaves/leaves.png" id="1_xxn4s"]
+[ext_resource type="Script" path="res://nodes/map/floor_decals/decal.gd" id="2_c0bau"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v03xj"]
+transparency = 1
+albedo_texture = ExtResource("1_xxn4s")
+
+[node name="Decal" type="Decal"]
+size = Vector3(10, 2, 10)
+texture_albedo = ExtResource("1_xxn4s")
+cull_mask = 1048574
+script = ExtResource("2_c0bau")
+
+[node name="leaves" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_v03xj")

@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://lfjs8v3ytpxg"]
+
+[ext_resource type="Script" path="res://nodes/pickable/points_shroom.gd" id="1_ngtis"]
+[ext_resource type="ArrayMesh" uid="uid://bicc3nvmtqojt" path="res://nodes/pickable/model/points_shroom_fixed.obj" id="2_qkqa3"]
+[ext_resource type="Material" uid="uid://bpotob0htojv6" path="res://nodes/pickable/model/points_shroom_3.material" id="3_vcx5n"]
+[ext_resource type="AudioStream" uid="uid://ddou3bkyenmvf" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-01.wav" id="4_p0cbe"]
+[ext_resource type="AudioStream" uid="uid://cylmg2otgy3et" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-02.wav" id="5_yqyjk"]
+[ext_resource type="AudioStream" uid="uid://bm4yjxi36orma" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-03.wav" id="6_72exl"]
+[ext_resource type="AudioStream" uid="uid://bik63oibg1hn3" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-04.wav" id="7_bx2me"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+radius = 1.553
+height = 5.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gjr3q"]
+streams_count = 4
+stream_0/stream = ExtResource("4_p0cbe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_yqyjk")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_72exl")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_bx2me")
+stream_3/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_ijdja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ostuq"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(0.5, -2, 2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(7, 7, 7), Vector3(5, 5, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_physics_process"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5g4ci"]
+_data = {
+"RESET": SubResource("Animation_ijdja"),
+"grow": SubResource("Animation_ostuq")
+}
+
+[node name="shroom" type="Node3D"]
+script = ExtResource("1_ngtis")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = ExtResource("2_qkqa3")
+surface_material_override/0 = ExtResource("3_vcx5n")
+
+[node name="Area3D" type="Area3D" parent="."]
+input_ray_pickable = false
+angular_damp = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("1")
+
+[node name="groans" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_gjr3q")
+unit_size = 2.0
+max_distance = 25.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "grow"
+libraries = {
+"": SubResource("AnimationLibrary_5g4ci")
+}
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_Area_body_exited"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://div805b5j4acr"]
+
+[ext_resource type="Texture2D" uid="uid://ccayq4nnxgb55" path="res://nodes/map/floor_decals/road/road_1.png" id="1_bxy3l"]
+[ext_resource type="Script" path="res://nodes/map/floor_decals/decal.gd" id="2_byirl"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq41h"]
+transparency = 1
+albedo_texture = ExtResource("1_bxy3l")
+texture_repeat = false
+
+[node name="Decal" type="Decal"]
+size = Vector3(10, 2, 10)
+texture_albedo = ExtResource("1_bxy3l")
+cull_mask = 1048574
+script = ExtResource("2_byirl")
+
+[node name="road_1" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_cq41h")

@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://dy3iy4nr3mwv4"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2hnl6rqr71gy" path="res://nodes/map/cabin/model/log_cabin.obj" id="1_65kti"]
+[ext_resource type="Texture2D" uid="uid://biv58dj0b1bby" path="res://nodes/map/cabin/model/log_cabin_2.png" id="2_n46ec"]
+[ext_resource type="Texture2D" uid="uid://cj20vxil6eacf" path="res://nodes/map/cabin/model/log_cabin_4.png" id="2_sy0p5"]
+[ext_resource type="Texture2D" uid="uid://c8do6iwicer6e" path="res://nodes/map/cabin/model/log_cabin_3.png" id="3_vfhef"]
+[ext_resource type="PackedScene" uid="uid://dtet5e8yypl6b" path="res://nodes/map/cabin/window.tscn" id="4_gqwjp"]
+[ext_resource type="Texture2D" uid="uid://dulwdec0fhfdf" path="res://nodes/map/cabin/model/log_cabin_1.png" id="4_jk65i"]
+
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fm07"]
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jehnr"]
+albedo_texture = ExtResource("2_n46ec")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjkl8"]
+albedo_texture = ExtResource("2_sy0p5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8egeg"]
+albedo_texture = ExtResource("2_n46ec")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0juj"]
+albedo_texture = ExtResource("4_jk65i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by85p"]
+albedo_texture = ExtResource("4_jk65i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cm1n"]
+albedo_texture = ExtResource("3_vfhef")
+
+[node name="cabin" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428274, 0.105422)
+shape = SubResource("5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428274, -0.467082)
+shape = SubResource("BoxShape3D_6fm07")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_65kti")
+surface_material_override/0 = SubResource("StandardMaterial3D_jehnr")
+surface_material_override/1 = SubResource("StandardMaterial3D_wjkl8")
+surface_material_override/2 = SubResource("StandardMaterial3D_8egeg")
+surface_material_override/3 = SubResource("StandardMaterial3D_a0juj")
+surface_material_override/4 = SubResource("StandardMaterial3D_by85p")
+surface_material_override/5 = SubResource("StandardMaterial3D_0cm1n")
+
+[node name="window" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540107, -0.253298)
+
+[node name="window3" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.761703, 0.161704, -0.284426)
+
+[node name="window11" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.761703, 0.161704, 0.546236)
+
+[node name="window10" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503466, 0.161704, -0.284426)
+
+[node name="window9" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.503466, 0.161704, 0.546236)
+
+[node name="window8" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.972328, 0.238044, 0.189151)
+
+[node name="window7" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493263, 0.161704, -0.284426)
+
+[node name="window6" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.493263, 0.161704, 0.546236)
+
+[node name="window5" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.771906, 0.161704, -0.284426)
+
+[node name="window4" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.771906, 0.161704, 0.546236)
+
+[node name="window2" parent="MeshInstance3D" instance=ExtResource("4_gqwjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548706, 0.540107, -0.253298)

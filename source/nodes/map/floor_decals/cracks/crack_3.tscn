@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://chhas3tsfehi6"]
+
+[ext_resource type="Texture2D" uid="uid://dwe5lv66e1vke" path="res://nodes/map/floor_decals/cracks/land_hole_3.png" id="1_7x5x2"]
+[ext_resource type="Script" path="res://nodes/map/floor_decals/decal.gd" id="2_q3yda"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8wap"]
+transparency = 1
+albedo_texture = ExtResource("1_7x5x2")
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(10, 10)
+
+[node name="Decal" type="Decal"]
+sorting_offset = 10.0
+size = Vector3(10, 2, 10)
+texture_albedo = ExtResource("1_7x5x2")
+cull_mask = 1048574
+script = ExtResource("2_q3yda")
+
+[node name="cracks_3" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_m8wap")
+mesh = SubResource("1")

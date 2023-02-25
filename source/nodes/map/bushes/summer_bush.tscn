@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://54s3bnaabs52"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdqn4e33yfdkl" path="res://nodes/map/bushes/model/bush_1.obj" id="1_kdp4e"]
+[ext_resource type="Texture2D" uid="uid://c2l0h1mg2767" path="res://nodes/map/bushes/model/summer_bush.png" id="2_ddjxk"]
+[ext_resource type="PackedScene" uid="uid://7kb42nrb8jde" path="res://nodes/map/stones_grass/stones_grass.tscn" id="3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83sk0"]
+albedo_texture = ExtResource("2_ddjxk")
+
+[node name="summer_bush" type="MeshInstance3D"]
+mesh = ExtResource("1_kdp4e")
+surface_material_override/0 = SubResource("StandardMaterial3D_83sk0")
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("3")]

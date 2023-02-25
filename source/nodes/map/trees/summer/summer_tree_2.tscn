@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://nodes/map/trees/tree.gd" id="1"]
+[ext_resource type="ArrayMesh" uid="uid://5o2vh6rqlx4o" path="res://nodes/map/trees/model/tree_2.obj" id="2"]
+[ext_resource type="Texture2D" uid="uid://dnkr3i72uky71" path="res://nodes/map/trees/model/texture/summer_tree_2.png" id="3"]
+[ext_resource type="PackedScene" path="res://nodes/map/stones_grass/stones_grass.tscn" id="4"]
+[ext_resource type="ArrayMesh" uid="uid://civ1b5vuo72qd" path="res://nodes/map/trees/model/tree_2_extra_crisp.obj" id="5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuj4a"]
+albedo_texture = ExtResource("3")
+
+[sub_resource type="CapsuleShape3D" id="4"]
+radius = 0.0371367
+height = 0.237696
+
+[node name="Tree_2" type="StaticBody3D"]
+script = ExtResource("1")
+
+[node name="Tree_2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2")
+surface_material_override/0 = SubResource("StandardMaterial3D_xuj4a")
+
+[node name="Grass&stones" parent="Tree_2" instance=ExtResource("4")]
+
+[node name="Tree_2_crisp" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0922857, 0)
+shape = SubResource("4")
+
+[node name="Shrooms" type="Node" parent="."]

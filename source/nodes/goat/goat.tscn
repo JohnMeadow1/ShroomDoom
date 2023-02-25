@@ -1,0 +1,144 @@
+[gd_scene load_steps=33 format=3 uid="uid://8mfot3x7653c"]
+
+[ext_resource type="Script" path="res://nodes/goat/goat.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://du0h1opy5evns" path="res://nodes/goat/sprites/exclamation.png" id="2"]
+[ext_resource type="ArrayMesh" uid="uid://21ub4wkap2yc" path="res://nodes/goat/model/goat.obj" id="3_wls6x"]
+[ext_resource type="Texture2D" uid="uid://cke8o21i64rjg" path="res://nodes/goat/model/goat.png" id="4_f5fkt"]
+[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="5"]
+[ext_resource type="AudioStream" uid="uid://cccebweevsagt" path="res://nodes/goat/sfx/goat_meeeh_-001.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://bblux0hoxhwlf" path="res://nodes/goat/sfx/goat_meeeh_-002.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://cfydblfmpvxhy" path="res://nodes/goat/sfx/goat_meeeh_-003.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://bobbjv2ossir5" path="res://nodes/goat/sfx/goat_meeeh_-004.wav" id="9"]
+[ext_resource type="AudioStream" uid="uid://cbaq2qdgospv6" path="res://nodes/goat/sfx/goat_meeeh_-005.wav" id="10"]
+[ext_resource type="AudioStream" uid="uid://tpjy2yuo2507" path="res://nodes/goat/sfx/goat_meeeh_-006.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://dl7ek4l7qgtx0" path="res://nodes/goat/sfx/goat_meeeh_-007.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://h1mrw10w6okj" path="res://nodes/goat/sfx/goat_meeeh_-008.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://clx82y0agrbwt" path="res://nodes/goat/sfx/koza_hit.wav" id="14_o21ll"]
+[ext_resource type="AudioStream" uid="uid://b0b8adod7cnid" path="res://nodes/goat/sfx/goat_footsteps-001.wav" id="15"]
+[ext_resource type="AudioStream" uid="uid://cb6qfldjcp7u7" path="res://nodes/goat/sfx/goat_footsteps-002.wav" id="16"]
+[ext_resource type="AudioStream" uid="uid://cvdvmu5qnxldj" path="res://nodes/goat/sfx/goat_footsteps-003.wav" id="17"]
+[ext_resource type="AudioStream" uid="uid://hm2qosih1vmo" path="res://nodes/goat/sfx/goat_footsteps-004.wav" id="18"]
+[ext_resource type="AudioStream" uid="uid://sghulc8slwrv" path="res://nodes/goat/sfx/goat_footsteps-005.wav" id="19"]
+[ext_resource type="AudioStream" uid="uid://curxgvaqypv0e" path="res://nodes/goat/sfx/goat_footsteps-006.wav" id="20"]
+[ext_resource type="AudioStream" uid="uid://dxgtn0k7a68ax" path="res://nodes/goat/sfx/goat_footsteps-007.wav" id="21"]
+[ext_resource type="AudioStream" uid="uid://dt2e71tpo53t6" path="res://nodes/goat/sfx/goat_footsteps-008.wav" id="22"]
+[ext_resource type="AudioStream" uid="uid://bserr138rguva" path="res://nodes/goat/sfx/goat_footsteps-009.wav" id="23"]
+[ext_resource type="AudioStream" uid="uid://b5qpm2xaqsyu0" path="res://nodes/goat/sfx/goat_footsteps-010.wav" id="24"]
+[ext_resource type="AudioStream" uid="uid://d1f5hwvq3abh2" path="res://nodes/goat/sfx/goat_footsteps-011.wav" id="25"]
+[ext_resource type="AudioStream" uid="uid://dgiwhe31clynq" path="res://nodes/goat/sfx/goat_footsteps-012.wav" id="26"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ytruc"]
+radius = 0.521
+height = 2.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht7k2"]
+albedo_texture = ExtResource("4_f5fkt")
+
+[sub_resource type="SphereShape3D" id="3"]
+radius = 15.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h4c3e"]
+streams_count = 8
+random_pitch = 2.0
+stream_0/stream = ExtResource("6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("11")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("12")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("13")
+stream_7/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fnhoe"]
+streams_count = 1
+random_pitch = 2.0
+stream_0/stream = ExtResource("14_o21ll")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j8p7t"]
+streams_count = 12
+stream_0/stream = ExtResource("15")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("16")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("17")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("18")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("19")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("20")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("21")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("22")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("23")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("24")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("25")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("26")
+stream_11/weight = 1.0
+
+[node name="goat" type="CharacterBody3D"]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.862, 0)
+shape = SubResource("CapsuleShape3D_ytruc")
+
+[node name="exclamation_mark" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55997, -1.45334)
+modulate = Color(1, 1, 1, 0)
+billboard = 1
+texture = ExtResource("2")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-7, 0, -1.05697e-06, 0, 7, 0, 1.05697e-06, 0, -7, 0, 0, -0.422902)
+mesh = ExtResource("3_wls6x")
+surface_material_override/0 = SubResource("StandardMaterial3D_ht7k2")
+
+[node name="eye_node" parent="Node3D/MeshInstance3D" instance=ExtResource("5")]
+transform = Transform3D(0.0286267, -0.00473863, 0.00761967, 0.000648986, 0.0265022, 0.0140433, -0.00894946, -0.0132356, 0.0253915, 0.0126185, 0.23042, 0.148468)
+
+[node name="eye_node2" parent="Node3D/MeshInstance3D" instance=ExtResource("5")]
+transform = Transform3D(0.0345523, 0.0019286, -0.00523636, 0.000757151, 0.0309192, 0.0163839, 0.00552863, -0.0162876, 0.030482, -0.00943676, 0.227131, 0.148743)
+
+[node name="SenseArea" type="Area3D" parent="."]
+input_ray_pickable = false
+angular_damp = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SenseArea"]
+shape = SubResource("3")
+
+[node name="meeh" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_h4c3e")
+volume_db = -20.0
+
+[node name="bump" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_fnhoe")
+volume_db = -10.0
+
+[node name="step" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_j8p7t")
+volume_db = 70.0
+max_distance = 20.0
+
+[connection signal="body_entered" from="SenseArea" to="." method="_on_SenseArea_body_entered"]
+[connection signal="body_exited" from="SenseArea" to="." method="_on_SenseArea_body_exited"]

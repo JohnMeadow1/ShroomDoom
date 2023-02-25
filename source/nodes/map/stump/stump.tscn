@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://xif88ucjdnbi"]
+
+[ext_resource type="Script" path="res://nodes/map/trees/tree.gd" id="1"]
+[ext_resource type="ArrayMesh" uid="uid://dygnqj4hp4yxw" path="res://nodes/map/stump/stump.obj" id="2"]
+[ext_resource type="Texture2D" uid="uid://b85cy1psqv7ia" path="res://nodes/map/stump/stump_1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c0357k0jmm8gi" path="res://nodes/map/stump/grass.png" id="3_0tsxe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62lp2"]
+albedo_color = Color(0.13, 0.13, 0.13, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vutq"]
+albedo_texture = ExtResource("3_0tsxe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lfr3"]
+albedo_texture = ExtResource("3")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_76q31"]
+height = 0.5
+radius = 0.1
+
+[node name="Stump" type="StaticBody3D"]
+script = ExtResource("1")
+
+[node name="Stump" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028648, 0, 0.00772879)
+mesh = ExtResource("2")
+surface_material_override/0 = SubResource("StandardMaterial3D_62lp2")
+surface_material_override/1 = SubResource("StandardMaterial3D_7vutq")
+surface_material_override/2 = SubResource("StandardMaterial3D_3lfr3")
+
+[node name="Shrooms" type="Node" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0965798, 0)
+shape = SubResource("CylinderShape3D_76q31")

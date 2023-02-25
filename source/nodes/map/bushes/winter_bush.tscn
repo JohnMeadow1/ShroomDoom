@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://dacy24o360ykk"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdqn4e33yfdkl" path="res://nodes/map/bushes/model/bush_1.obj" id="1"]
+[ext_resource type="Texture2D" uid="uid://dp7ecst3k253n" path="res://nodes/map/bushes/model/winter_bush.jpg" id="2"]
+[ext_resource type="PackedScene" uid="uid://7kb42nrb8jde" path="res://nodes/map/stones_grass/stones_grass.tscn" id="3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_717xp"]
+albedo_texture = ExtResource("2")
+
+[node name="winter_bush" type="MeshInstance3D"]
+mesh = ExtResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_717xp")
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("3")]

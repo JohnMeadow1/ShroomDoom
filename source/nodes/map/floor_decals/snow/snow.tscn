@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfjg0dqxi1x13"]
+
+[ext_resource type="Texture2D" uid="uid://bbn5kbjr0su71" path="res://nodes/map/floor_decals/snow/snow.png" id="1_naqbg"]
+[ext_resource type="Script" path="res://nodes/map/floor_decals/decal.gd" id="2_nt3ws"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q73f4"]
+transparency = 1
+albedo_texture = ExtResource("1_naqbg")
+texture_repeat = false
+
+[node name="Decal" type="Decal"]
+size = Vector3(10, 2, 10)
+texture_albedo = ExtResource("1_naqbg")
+cull_mask = 1048574
+script = ExtResource("2_nt3ws")
+
+[node name="snow" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q73f4")

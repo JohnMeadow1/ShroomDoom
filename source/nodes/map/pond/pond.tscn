@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b30361wr0m7xu"]
+
+[ext_resource type="Texture2D" uid="uid://bdri4nkl0ddhy" path="res://nodes/map/pond/pond.png" id="1_pua0a"]
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(3.2, 2, 1.2)
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(6, 6)
+
+[sub_resource type="StandardMaterial3D" id="3"]
+transparency = 1
+albedo_texture = ExtResource("1_pua0a")
+uv1_scale = Vector3(-1, -1, -1)
+
+[node name="pond" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.975163, 0, -0.221488, 0, 1, 0, 0.221488, 0, 0.975163, -0.393, 0.168, -0.811)
+shape = SubResource("4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("2")
+surface_material_override/0 = SubResource("3")
