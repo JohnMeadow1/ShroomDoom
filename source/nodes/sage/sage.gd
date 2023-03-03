@@ -1,7 +1,8 @@
 extends StaticBody3D
 
 @onready var cloud = $Cloud
-@onready var label = $SubViewport/Label
+@onready var label_bak = $SubViewport/Label
+@onready var label = $Cloud/Label3D
 
 const CLOUD_TIME_BETWEEN = 3
 const CLOUD_TIME_ON = 5

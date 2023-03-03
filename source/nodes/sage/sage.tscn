@@ -15,8 +15,9 @@ radius = 1.13763
 height = 2.27526
 
 [sub_resource type="LabelSettings" id="LabelSettings_5tw7x"]
+line_spacing = 12.0
 font = ExtResource("5_06jji")
-font_size = 48
+font_size = 82
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
@@ -50,11 +51,14 @@ render_target_update_mode = 3
 
 [node name="Label" type="Label" parent="SubViewport"]
 offset_right = 650.0
-offset_bottom = 250.0
+offset_bottom = 300.0
+size_flags_vertical = 1
 text = "Welcome!
 Stay a while
 and listen"
 label_settings = SubResource("LabelSettings_5tw7x")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cloud" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25578, 5.13658, 0)
@@ -63,10 +67,23 @@ texture = ExtResource("3_2rcbq")
 
 [node name="Text" type="Sprite3D" parent="Cloud"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259544, -0.01)
+visible = false
 flip_h = true
 texture = SubResource("4")
 region_enabled = true
 region_rect = Rect2(0, 0, 625, 290)
+
+[node name="Label3D" type="Label3D" parent="Cloud"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.259544, -0.01)
+outline_render_priority = 0
+modulate = Color(0, 0, 0, 1)
+text = "Welcome!
+Stay a while
+and listen"
+font = ExtResource("5_06jji")
+font_size = 148
+outline_size = 18
+line_spacing = 48.0
 
 [node name="mumble_1" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
