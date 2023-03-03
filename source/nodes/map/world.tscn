@@ -7,7 +7,6 @@
 [node name="world" type="Node3D"]
 
 [node name="Goats" type="Node3D" parent="."]
-visible = false
 
 [node name="Goat2" parent="Goats" instance=ExtResource("1")]
 process_mode = 1
