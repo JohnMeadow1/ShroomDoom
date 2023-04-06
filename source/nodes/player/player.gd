@@ -37,6 +37,7 @@ func _ready():
 	base_rotation[1] = eye_2.rotation
 	$Node3D/MeshInstance3D.material_override = load("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
+	globals.cameras.append($Camera3D)
 	
 func _physics_process(delta):
 	if is_dying:
