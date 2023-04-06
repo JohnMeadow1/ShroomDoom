@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://8mfot3x7653c"]
+[gd_scene load_steps=34 format=3 uid="uid://8mfot3x7653c"]
 
 [ext_resource type="Script" path="res://nodes/goat/goat.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://du0h1opy5evns" path="res://nodes/goat/sprites/exclamation.png" id="2"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://b5qpm2xaqsyu0" path="res://nodes/goat/sfx/goat_footsteps-010.wav" id="24"]
 [ext_resource type="AudioStream" uid="uid://d1f5hwvq3abh2" path="res://nodes/goat/sfx/goat_footsteps-011.wav" id="25"]
 [ext_resource type="AudioStream" uid="uid://dgiwhe31clynq" path="res://nodes/goat/sfx/goat_footsteps-012.wav" id="26"]
+[ext_resource type="Script" path="res://nodes/goat/CanvasLayer.gd" id="27_orlio"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ytruc"]
 radius = 0.521
@@ -140,5 +141,12 @@ stream = SubResource("AudioStreamRandomizer_j8p7t")
 volume_db = 70.0
 max_distance = 20.0
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("27_orlio")
+
 [connection signal="body_entered" from="SenseArea" to="." method="_on_SenseArea_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_SenseArea_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -26,6 +26,8 @@ var originPosition := Vector3()
 var target   :Node3D= null
 var targets        := []
 
+var is_on_screen   := false
+
 func _ready():
 	originPosition = self.position
 	state = STATE_BACK
@@ -45,6 +47,13 @@ func _physics_process(delta):
 		player_moved = true
 		
 	bounce()
+	
+	if is_on_screen:
+		for i in globals.cameras.size():
+			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
+			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
+				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
+					prints(name, "jest na ekranie: player ", i+1, " w pozycji:",  on_screen_postion)
 
 func idle(delta):
 	if time < WAIT_TIME:
@@ -134,3 +143,13 @@ func _on_SenseArea_body_exited(body):
 		else:
 			target = targets.front()
 			
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered():
+	is_on_screen = true
+#	prints(name, "na ekranie")
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited():
+	is_on_screen = false
+#	prints(name, "na poza ekranem")
