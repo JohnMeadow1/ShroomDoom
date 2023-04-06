@@ -15,16 +15,16 @@ enum {STATE_IDLE, STATE_BACK, STATE_CHASE}
 
 const WAIT_TIME  = 1.5
 
-var offset       = 0
-var state        = null
-var time         = 0
-var player_moved = false
-var walk_cycle   = 0
+var offset       := 0.0
+var state        := 0
+var time         := 0.0
+var player_moved := false
+var walk_cycle   := 0.0
 
 #var playerInArea = false
-var originPosition = Vector3()
-var target         = null
-var targets        = []
+var originPosition := Vector3()
+var target   :Node3D= null
+var targets        := []
 
 func _ready():
 	originPosition = self.position
