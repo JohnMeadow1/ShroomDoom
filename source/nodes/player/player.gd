@@ -25,6 +25,7 @@ var death_rotation = Vector3()
 var origin_rotation = Vector3()
 var drop_shroom_object = preload("res://nodes/drops/drop_shroom.tscn")
 
+
 @onready var eye_1 = $Node3D/eye_node
 @onready var eye_2 = $Node3D/eye_node2
 
@@ -75,7 +76,7 @@ func _physics_process(delta):
 			%pickup.play()
 		else:
 #			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
-			%stabs.play()
+#			%stabs.play()
 			$AnimationPlayer.play("swing")
 			for body in get_tree().get_nodes_in_group("players"):
 				if body != self && body.position.distance_to(self.position) < 3:

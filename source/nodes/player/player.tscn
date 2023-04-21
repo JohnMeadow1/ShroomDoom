@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://drelxuvmh5664"]
+[gd_scene load_steps=55 format=3 uid="uid://drelxuvmh5664"]
 
 [ext_resource type="Script" path="res://nodes/player/player.gd" id="1_e4vhq"]
 [ext_resource type="ArrayMesh" uid="uid://c4hasaidhd8c6" path="res://nodes/player/model/player.obj" id="2_jhc6e"]
@@ -80,7 +80,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="3"]
 resource_name = "swing"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,7 +88,7 @@ tracks/0/path = NodePath("Node3D/knife/MeshInstance3D/Sprite3D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.12, 0.18),
 "transitions": PackedFloat32Array(0.5, 2, -0.5),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -100,7 +100,7 @@ tracks/1/path = NodePath("Node3D/knife:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.12, 0.18, 0.3),
 "transitions": PackedFloat32Array(0.5, 2, -0.5, -0.5),
 "update": 0,
 "values": [Vector3(0.663174, -0.561648, -0.284138), Vector3(0.663174, -1.01974, 0.841612), Vector3(0.663174, -1.01974, 0.841612), Vector3(0.663174, -0.534722, 0.36286)]
@@ -112,14 +112,42 @@ tracks/2/path = NodePath("Node3D/knife:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.12, 0.18, 0.3),
 "transitions": PackedFloat32Array(0.5, 2, -0.5, -0.5),
 "update": 0,
 "values": [Vector3(32.3279, -1.29126, 164.692), Vector3(-74.2951, -4.43029, 169.629), Vector3(-74.2951, -4.43029, 169.629), Vector3(-16.6198, -1.13866, 165.708)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stabs:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pcfd4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stabs:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irb88"]
 _data = {
+"RESET": SubResource("Animation_pcfd4"),
 "idle": SubResource("2"),
 "swing": SubResource("3")
 }
@@ -251,7 +279,7 @@ transform = Transform3D(-0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383,
 transform = Transform3D(-0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956)
 
 [node name="knife" type="Node3D" parent="Node3D"]
-transform = Transform3D(-0.967455, -0.252323, -0.0190419, 0.236551, -0.928566, 0.286019, -0.0898509, 0.272207, 0.958034, 0.663174, -0.534722, 0.36286)
+transform = Transform3D(-0.967457, -0.252317, -0.019042, 0.223087, -0.815021, -0.534764, 0.119411, -0.521609, 0.844786, 0.663174, -0.561648, -0.284138)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/knife"]
 transform = Transform3D(6.20962, 2.71149, -1.75739, 3.23119, -5.21087, 3.37731, 4.17232e-07, -3.80718, -5.87413, -0.0852794, 0.190571, -0.351686)
