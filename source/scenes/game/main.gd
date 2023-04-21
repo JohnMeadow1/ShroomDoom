@@ -53,13 +53,14 @@ func _physics_process(delta):
 		previos_leed = lead
 		if lead > -1:
 			score.text = globals.player_label[lead] + " is in the lead"
-			if lead == 0:
+			match lead:
+				0:
 				score.label_settings.font_color = Color(1,0,0)
-			if lead == 1:
+				1:
 				score.label_settings.font_color = Color(0,1,0)
-			if lead == 2:
+				2:
 				score.label_settings.font_color = Color(1,0,1)
-			if lead == 3:
+				3:
 				score.label_settings.font_color = Color(0,0,1)
 			timer = 1.5
 	elif globals.player_score[lead]>=15 && timer<0.2:
