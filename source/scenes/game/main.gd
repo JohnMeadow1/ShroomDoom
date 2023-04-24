@@ -5,6 +5,8 @@ var previos_leed = -1
 @onready var score = $GUI/Margin/VBox/Control/Score
 @onready var viewports_container = $ViewportsContainer
 
+var colors: PackedColorArray = PackedColorArray( [Color(1,0,0), Color(0,1,0), Color(1,0,1), Color(0,0,1)] )
+
 func _ready():
 	globals.player_score_label[0] = $GUI/Margin/VBox/HBox/HBox/Player_score1
 	globals.player_score_label[1] = $GUI/Margin/VBox/HBox/HBox2/Player_score2
@@ -13,6 +15,7 @@ func _ready():
 	globals.player_score          = [0,0,0,0]
 	globals.players_enabled       = [true,false,false,false]
 	globals.player_count          = 2
+	
 	logging.start_log()
 
 func _physics_process(delta):
@@ -55,15 +58,16 @@ func _physics_process(delta):
 		previos_leed = lead
 		if lead > -1:
 			score.text = globals.player_label[lead] + " is in the lead"
-			match lead:
-				0:
-				score.label_settings.font_color = Color(1,0,0)
-				1:
-				score.label_settings.font_color = Color(0,1,0)
-				2:
-				score.label_settings.font_color = Color(1,0,1)
-				3:
-				score.label_settings.font_color = Color(0,0,1)
+#			match lead:
+#				0:
+#					score.label_settings.font_color = Color(1,0,0)
+#				1:
+#					score.label_settings.font_color = Color(0,1,0)
+#				2:
+#					score.label_settings.font_color = Color(1,0,1)
+#				3:
+#					score.label_settings.font_color = Color(0,0,1)
+			score.label_settings.font_color = colors[lead]
 			timer = 1.5
 	elif globals.player_score[lead]>=15 && timer<0.2:
 		timer = 1
