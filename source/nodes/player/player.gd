@@ -10,24 +10,23 @@ var PLAYER_CONTROLS
 @export var player_enabled = false
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT, STATE_STUN}
 
-var drag_item = null
-var state     = null
-var stunTime  = 0
+var drag_item :Node3D = null
+var state     := 0
+var stun_time := 0.0
 
-var move       = Vector3()
-var walk_cycle = 0
-var player_hit = false
-var originPosition = Vector3()
-var base_rotation = [Vector3(),Vector3()]
-var timer = 5
-var is_dying = false
-var death_rotation = Vector3()
-var origin_rotation = Vector3()
-var drop_shroom_object = preload("res://nodes/drops/drop_shroom.tscn")
+var move       := Vector3()
+var walk_cycle := 0.0
+var player_hit := false
+var originPosition := Vector3()
+var base_rotation  := [Vector3(),Vector3()]
+var timer := 5.0
+var is_dying := false
+var death_rotation  := Vector3()
+var origin_rotation := Vector3()
+var drop_shroom_object := preload("res://nodes/drops/drop_shroom.tscn")
 
-
-@onready var eye_1 = $Node3D/eye_node
-@onready var eye_2 = $Node3D/eye_node2
+@onready var eye_1 := $Node3D/eye_node
+@onready var eye_2 := $Node3D/eye_node2
 
 func _ready():
 	PLAYER_CONTROLS  = PLAYER_NUM
@@ -39,7 +38,7 @@ func _ready():
 	$Node3D/MeshInstance3D.material_override = load("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
 	globals.cameras.append($Camera3D)
-	
+
 func _physics_process(delta):
 	if is_dying:
 		timer -= delta
@@ -60,9 +59,9 @@ func _physics_process(delta):
 		player_hit = false
 #	# Fight 
 	if self.state == STATE_STUN:
-		stunTime += delta
-		if stunTime >= STUN_TIME:
-			stunTime = 0
+		stun_time += delta
+		if stun_time >= STUN_TIME:
+			stun_time = 0
 			self.state = STATE_IDLE
 	elif player_enabled && Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
 
@@ -158,7 +157,7 @@ func enable_player(player_id):
 	player_enabled = true
 #	PLAYER_NUM = player_id
 #	get_node("../../../Player"+str(player_id)).visible = true
-	globals.add_score(self.PLAYER_NUM,0)
+	globals.add_score(self.PLAYER_NUM, 0)
 	
 func push(direction, player):
 	if self.state == STATE_STUN:
@@ -167,7 +166,7 @@ func push(direction, player):
 		if player:
 			globals.add_score(player.PLAYER_NUM, score+7)
 		
-		self.popShrooms(score)
+		pop_shrooms(score)
 		is_dying       = true
 		player_enabled = false
 		timer          = 3
@@ -179,10 +178,10 @@ func push(direction, player):
 		self.state = STATE_STUN
 		$GPUParticles3D.emitting = true
 	
-func popShrooms(amount):
+func pop_shrooms(amount):
 #	var score = globals.player_score_label[PLAYER_NUM]
 	var spawn = min(globals.get_score(PLAYER_NUM), amount)
-	globals.add_score(PLAYER_NUM, - amount)
+	globals.add_score(PLAYER_NUM, - spawn)
 	for i in range(spawn):
 		var new_pop = drop_shroom_object.instantiate()
 		new_pop.position = self.position
