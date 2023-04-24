@@ -2,7 +2,7 @@ extends Node
 
 const BLINDER_TIME = 3
 
-var player_score       := [00,0,0,0]
+var player_score       := [0,0,0,0]
 var player_score_label := [null,null,null,null]
 var player_label       := ["Red", "Green", "Violet", "Blue"]
 var player_count       := 2
@@ -18,7 +18,6 @@ var cameras            := []
 func _ready():
 	timer = 3
 	screen = Vector2i(1024,600)
-	pass
 
 #func _physics_process(delta):
 ##	if won && timer > 0:
