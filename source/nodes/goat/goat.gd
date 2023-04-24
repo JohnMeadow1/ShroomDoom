@@ -21,39 +21,47 @@ var time         := 0.0
 var player_moved := false
 var walk_cycle   := 0.0
 
-#var playerInArea = false
 var originPosition := Vector3()
 var target   :Node3D= null
 var targets        := []
 
 var is_on_screen   := false
 
+var b_box_points: PackedVector3Array = PackedVector3Array()
+
 func _ready():
 	originPosition = self.position
 	state = STATE_BACK
 	walk_cycle = randf_range(0,PI)
+	
+	var bounding_box: AABB = %MeshInstance3D.get_aabb()
+	for i in 8:
+		b_box_points.append( bounding_box.get_endpoint(i)  )
+		
 #	if not is_visible_in_tree():
 #		queue_free()
 
 func _physics_process(delta):
-	if state == STATE_IDLE:
-		idle(delta)
-		player_moved = false
-	elif state == STATE_CHASE:
-		chase(delta)
-		player_moved = true
-	elif state == STATE_BACK:
-		back(delta)
-		player_moved = true
+	match state:
+		STATE_IDLE:
+			idle(delta)
+			player_moved = false
+		STATE_CHASE:
+			chase(delta)
+			player_moved = true
+		STATE_BACK:
+			back(delta)
+			player_moved = true
 		
 	bounce()
 	
 	if is_on_screen:
 		for i in globals.cameras.size():
-			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
-			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
-				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
-					prints(name, "jest na ekranie: player ", i+1, " w pozycji:",  on_screen_postion)
+			update_on_screen_rect()
+#			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
+#			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
+#				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
+#					prints(name, "jest na ekranie: player ", i+1, " w pozycji:",  on_screen_postion)
 
 func idle(delta):
 	if time < WAIT_TIME:
@@ -86,7 +94,7 @@ func chase(delta):
 		if collision && collision.get_collider().get_name() == target.get_name():
 			target.push(direction, null)
 			%bump.play()
-			target.popShrooms(4)
+			target.pop_shrooms(4)
 			state = STATE_IDLE
 			time = 0;
 			if targets.size() > 1:
@@ -124,7 +132,25 @@ func bounce():
 		if walk_cycle < 0 or walk_cycle > PI:
 				walk_cycle = 0
 	
-	$Node3D.position.y = -sin( walk_cycle ) * 0.2
+	%MeshInstance3D.position.y = -sin( walk_cycle ) * 0.2
+
+#func update_on_screen_rect_1():
+#	var bounding_rect:Rect2 = Rect2()
+#	for camera_id in globals.cameras.size():
+#		bounding_rect = Rect2() 
+#		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position)
+#		for vertex_id in range(mesh_tool.get_vertex_count()):
+#			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(mesh_tool.get_vertex(vertex_id))))
+#		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
+
+func update_on_screen_rect():
+	var bounding_rect:Rect2 = Rect2()
+	for camera_id in globals.cameras.size():
+		bounding_rect = Rect2() 
+		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position)
+		for i in b_box_points.size():
+			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
+		%on_screen_debug._update_rect_for_camera(bounding_rect)
 
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):
