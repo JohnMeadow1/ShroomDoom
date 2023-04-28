@@ -40,6 +40,7 @@ func _ready():
 	globals.cameras.append($Camera3D)
 
 func _physics_process(delta):
+	logging.add_player(self)
 	if is_dying:
 		timer -= delta
 		move += Vector3(0,-0.5,0)

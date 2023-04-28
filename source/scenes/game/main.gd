@@ -19,7 +19,6 @@ func _ready():
 	logging.start_log()
 
 func _physics_process(delta):
-	logging.add_frame()
 	if globals.player_count <= 4:
 		for i in range(2, 5):
 #			print(i, globals.player_count,globals.players_enabled)
@@ -71,4 +70,6 @@ func _physics_process(delta):
 			timer = 1.5
 	elif globals.player_score[lead]>=15 && timer<0.2:
 		timer = 1
-			
+		
+	if globals.player_count >=0:
+		logging.add_frame()

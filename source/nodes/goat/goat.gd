@@ -42,6 +42,7 @@ func _ready():
 #		queue_free()
 
 func _physics_process(delta):
+	logging.add_goat(self)
 	match state:
 		STATE_IDLE:
 			idle(delta)
