@@ -236,6 +236,7 @@ script = ExtResource("7_281sf")
 
 [node name="hiryu" type="Sprite2D" parent="Node2D"]
 z_index = 1
+texture_filter = 1
 position = Vector2(861, 410)
 scale = Vector2(2, 2)
 texture = ExtResource("7_wd4d6")
@@ -250,6 +251,7 @@ libraries = {
 
 [node name="leszek" type="Sprite2D" parent="Node2D"]
 z_index = 1
+texture_filter = 1
 position = Vector2(671, 471)
 scale = Vector2(2, 2)
 texture = ExtResource("8_0e4br")
@@ -264,6 +266,7 @@ libraries = {
 
 [node name="neina" type="Sprite2D" parent="Node2D"]
 z_index = 1
+texture_filter = 1
 position = Vector2(77, 288)
 scale = Vector2(2, 2)
 texture = ExtResource("9_hhsqp")
@@ -279,6 +282,7 @@ libraries = {
 
 [node name="tomek" type="Sprite2D" parent="Node2D"]
 z_index = 1
+texture_filter = 1
 position = Vector2(266, 474)
 scale = Vector2(2, 2)
 texture = ExtResource("10_h5kab")

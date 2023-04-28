@@ -57,8 +57,9 @@ func _physics_process(delta):
 	bounce()
 	
 	if is_on_screen:
-		for i in globals.cameras.size():
-			update_on_screen_rect()
+		update_on_screen_rect()
+#		for i in globals.cameras.size():
+
 #			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
 #			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
 #				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
@@ -148,10 +149,14 @@ func update_on_screen_rect():
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
 		bounding_rect = Rect2() 
-		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position)
+		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
+#		bounding_rect.position +=
+		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
 		%on_screen_debug._update_rect_for_camera(bounding_rect)
+		
+		globals.add_bbox(bounding_rect, camera_id)
 
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):

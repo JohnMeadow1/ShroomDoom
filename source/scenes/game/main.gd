@@ -15,8 +15,6 @@ func _ready():
 	globals.player_score          = [0,0,0,0]
 	globals.players_enabled       = [true,false,false,false]
 	globals.player_count          = 2
-	
-	logging.start_log()
 
 func _physics_process(delta):
 	if globals.player_count <= 4:
@@ -73,3 +71,7 @@ func _physics_process(delta):
 		
 	if globals.player_count >=0:
 		logging.add_frame()
+
+func _draw():
+	
+	pass
