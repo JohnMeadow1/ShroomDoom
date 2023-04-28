@@ -156,7 +156,7 @@ func update_on_screen_rect():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
 		%on_screen_debug._update_rect_for_camera(bounding_rect)
 		
-		globals.add_bbox(bounding_rect, camera_id)
+#		globals.add_bbox(bounding_rect, camera_id)
 
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):
