@@ -19,7 +19,11 @@ var bbox_count: = 0
 #   1: {"time_stamp": 0.0, "shrooms": ["shroom1"]}, 
 #   2: {"time_stamp": 0.0, "shrooms": []}
 # }
-
+# TODO -------------------------
+# key logging
+# -------------------------
+#28.04.2023	11:43:05.364	09:43:05.364
+	
 func start_log():
 	if !is_initialized:
 		is_initialized = true
@@ -33,6 +37,8 @@ func start_log():
 	frame_shroom_log.clear()
 
 func add_frame():
+#	print(Time.get_unix_time_from_system())
+#	prints(Time.get_unix_time_from_system(), Time.get_unix )
 	shroom_position_log[frame] = {"t": Time.get_unix_time_from_system(), "p" : frame_player_log.duplicate(), "g" : frame_goat_log.duplicate(), "s" : frame_shroom_log.duplicate()}
 	frame_shroom_log.clear()
 	frame_player_log.clear()
