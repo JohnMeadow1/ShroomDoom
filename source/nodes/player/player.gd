@@ -40,17 +40,20 @@ func _ready():
 	globals.cameras.append($Camera3D)
 
 func _physics_process(delta):
-	logging.add_player(self)
+	logging.add_player_position_velocity(PLAYER_NUM, Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
 	if is_dying:
 		timer -= delta
 		move += Vector3(0,-0.5,0)
 		$Node3D.rotation += death_rotation/20
 		if timer < 0 || Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
+			logging.add_player_input(PLAYER_NUM, "respawn")
 			self.player_enabled = true
 			self.position    = originPosition
 			self.is_dying       = false
 			self.state          = STATE_IDLE
 			$Node3D.rotation    = origin_rotation
+		else:
+			logging.add_player_input(PLAYER_NUM, "flying")
 			
 	if timer > 0:
 		timer -= delta
@@ -60,20 +63,22 @@ func _physics_process(delta):
 		player_hit = false
 #	# Fight 
 	if self.state == STATE_STUN:
+		logging.add_player_input(PLAYER_NUM, "stunned")
 		stun_time += delta
 		if stun_time >= STUN_TIME:
 			stun_time = 0
 			self.state = STATE_IDLE
 	elif player_enabled && Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
-
+		logging.add_player_input(PLAYER_NUM, "swing")
 		var pick_up = false
-		for node in get_tree().get_nodes_in_group( "pickables"+str(PLAYER_NUM) ):
+		for node in get_tree().get_nodes_in_group("pickables"+str(PLAYER_NUM)):
 			node.queue_free()
 			globals.add_score(PLAYER_NUM,1)
 			pick_up = true
 		if pick_up:
 #			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
 			%pickup.play()
+			logging.add_player_input(PLAYER_NUM, "score")
 		else:
 #			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
 #			%stabs.play()
@@ -86,6 +91,7 @@ func _physics_process(delta):
 					player_hit = true
 			
 			if !player_hit:
+				logging.add_player_input(PLAYER_NUM, "hits_player")
 				player_hit = true
 #				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
 				%taunts.play()
@@ -94,6 +100,7 @@ func _physics_process(delta):
 			
 			for body in get_tree().get_nodes_in_group("sage"):
 				if body.position.distance_to(self.position) < 4:
+					logging.add_player_input(PLAYER_NUM, "check_victory")
 					body.checkWin(self)
 
 	elif player_enabled :
@@ -101,18 +108,22 @@ func _physics_process(delta):
 		var player_moved = false
 		
 		if Input.is_action_pressed("move_up_p" + str(PLAYER_CONTROLS)):
+			logging.add_player_input(PLAYER_NUM, "up")
 			move.z      -= offset
 			player_moved = true
 	
 		if Input.is_action_pressed("move_down_p" + str(PLAYER_CONTROLS)):
+			logging.add_player_input(PLAYER_NUM, "down")
 			move.z      += offset
 			player_moved = true
 		
 		if Input.is_action_pressed("move_left_p" + str(PLAYER_CONTROLS)):
+			logging.add_player_input(PLAYER_NUM, "left")
 			move.x      -= offset
 			player_moved = true
 	
 		if Input.is_action_pressed("move_right_p" + str(PLAYER_CONTROLS)):
+			logging.add_player_input(PLAYER_NUM, "right")
 			move.x      += offset
 			player_moved = true
 	
@@ -169,12 +180,14 @@ func push(direction, player):
 		
 		pop_shrooms(score)
 		is_dying       = true
+		logging.add_player_input(PLAYER_NUM, "died")
 		player_enabled = false
 		timer          = 3
 		move          += Vector3(0,20,0) + direction * 40
 		death_rotation = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1))
 		$GPUParticles3D.emitting = true
 	else:
+		logging.add_player_input(PLAYER_NUM, "gets_stunned")
 		move += direction * 50
 		self.state = STATE_STUN
 		$GPUParticles3D.emitting = true
@@ -182,7 +195,9 @@ func push(direction, player):
 func pop_shrooms(amount):
 #	var score = globals.player_score_label[PLAYER_NUM]
 	var spawn = min(globals.get_score(PLAYER_NUM), amount)
+	logging.add_player_input(PLAYER_NUM, "")
 	globals.add_score(PLAYER_NUM, - spawn)
+	
 	for i in range(spawn):
 		var new_pop = drop_shroom_object.instantiate()
 		new_pop.position = self.position

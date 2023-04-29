@@ -13,7 +13,7 @@ func _ready():
 	set_physics_process(false)
 	
 func _physics_process(delta):
-	logging.add_shroom(self)
+	logging.add_shroom_position( Vector2(global_position.x,global_position.z) )
 	if size < max_size:
 		size += growth_rate * delta
 		$MeshInstance3D.scale = Vector3(size,size,size)

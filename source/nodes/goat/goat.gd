@@ -42,7 +42,7 @@ func _ready():
 #		queue_free()
 
 func _physics_process(delta):
-	logging.add_goat(self)
+	logging.add_goat_position_velocity(Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
 	match state:
 		STATE_IDLE:
 			idle(delta)
@@ -150,7 +150,8 @@ func update_on_screen_rect():
 	for camera_id in globals.cameras.size():
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
-#		bounding_rect.position +=
+#		var camera_offset = Vector2i(camera_id%2, )
+#		bounding_rect.position +=       
 		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
@@ -165,7 +166,6 @@ func _on_SenseArea_body_entered(body):
 		state = STATE_CHASE
 		%meeh.play()
 #		get_node("meeeh/Meeeh_" + str( randi() % 8 + 1 ) ).play()
-
 
 func _on_SenseArea_body_exited(body):
 	if body.is_in_group("players"):
