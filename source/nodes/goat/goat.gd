@@ -150,8 +150,8 @@ func update_on_screen_rect():
 	for camera_id in globals.cameras.size():
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
-#		var camera_offset = Vector2i(camera_id%2, )
-#		bounding_rect.position +=       
+		var camera_offset = Vector2i(camera_id%2, )
+		bounding_rect.position +=       
 		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
