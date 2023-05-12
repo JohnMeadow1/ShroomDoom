@@ -7,7 +7,6 @@ func _ready():
 	$Node2D.scale = $TextureRect.size/original_size
 	$HBoxContainer/Control/Start.scale = $TextureRect.size/original_size
 	_on_TextureRect_resized()
-	logging.start_log()
 
 func _on_TextureRect_resized():
 	$Node2D.scale = $TextureRect.size/original_size

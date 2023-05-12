@@ -27,6 +27,7 @@ var drop_shroom_object := preload("res://nodes/drops/drop_shroom.tscn")
 
 @onready var eye_1 := $Node3D/eye_node
 @onready var eye_2 := $Node3D/eye_node2
+var player_actions = [ "up", "down", "left", "right", "swing", "score", "check_victory", "hits_player", "gets_stunned", "stunned", "flying", "died", "flying", "respawn"]
 
 func _ready():
 	PLAYER_CONTROLS  = PLAYER_NUM

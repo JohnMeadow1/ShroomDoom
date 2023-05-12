@@ -32,14 +32,14 @@ var bbox_count: = 0
 func start_log():
 	if !is_initialized:
 		is_initialized = true
-		for i in 1000:
-			bbox_to_draw.append( Rect2() )
+#		for i in 1000:
+#			bbox_to_draw.append( Rect2() )
 	frame = 0
 	time_stamp = 0.0
 	frame_shroom_idx = 0
 	time_stamp_start = Time.get_ticks_msec()
-	shroom_log.clear()
-	frame_shroom_log.clear()
+#	shroom_log.clear()
+#	frame_shroom_log.clear()
 
 
 func add_frame():
