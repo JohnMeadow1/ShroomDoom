@@ -76,19 +76,16 @@ func add_bbox(new_rect:Rect2, camera_id:int):
 	bbox_count += 1
 
 func save_logs():
-	print ("save_logs called")
 #	var store_data_callable = Callable(self, "_store_data")
 	thread = Thread.new()
 	thread.start(_store_data)
 	_store_data()
-	print ("save_logs ended")
 	
 func _store_data():
-	print ("_store_data called")
 	var save_log = FileAccess.open("user://shroom_log_%s_%s.json" % [Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
 	save_log.store_string(JSON.stringify(shroom_log))
 	save_log.close()
-	print ("_store_data ended")
 
 func _exit_tree():
-	thread.wait_to_finish()
+	if thread:
+		thread.wait_to_finish()
