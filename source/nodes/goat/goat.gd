@@ -146,15 +146,18 @@ func bounce():
 #		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
 
 func update_on_screen_rect():
+#	prints(name, "update_on_screen_rect")
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
-		var camera_offset = Vector2i(camera_id%2, )
-		bounding_rect.position +=       
 		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
+			
+		var camera_offset = Vector2i(camera_id%2, (floori(camera_id/2))%2)
+		bounding_rect.position += camera_offset * get_viewport().size * 0.5
+#		print(camera_id)sa
 		%on_screen_debug._update_rect_for_camera(bounding_rect)
 		
 #		globals.add_bbox(bounding_rect, camera_id)
@@ -174,13 +177,10 @@ func _on_SenseArea_body_exited(body):
 			state = STATE_BACK
 		else:
 			target = targets.front()
-			
-
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	is_on_screen = true
 #	prints(name, "na ekranie")
-
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	is_on_screen = false

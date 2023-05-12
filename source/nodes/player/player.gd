@@ -38,6 +38,7 @@ func _ready():
 	$Node3D/MeshInstance3D.material_override = load("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
 	globals.cameras.append($Camera3D)
+	prints("camera added:", PLAYER_NUM)
 
 func _physics_process(delta):
 	logging.add_player_position_velocity(PLAYER_NUM, Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
