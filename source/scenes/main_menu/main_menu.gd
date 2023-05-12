@@ -14,5 +14,5 @@ func _on_TextureRect_resized():
 	$HBoxContainer/Control/Start.scale = $TextureRect.size/original_size
 
 func _physics_process(_delta):
-	if Input.is_action_just_released("Enter"):
+	if Input.is_action_just_released("ui_select"):
 		get_tree().change_scene_to_file("res://scenes/game/main.tscn")
