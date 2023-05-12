@@ -168,6 +168,7 @@ texture = ExtResource("2_lnov2")
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3v8u6")
 autoplay = true
+bus = &"Music"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
