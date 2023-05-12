@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7o053tqqd5m2"]
+[gd_scene load_steps=9 format=3 uid="uid://c7o053tqqd5m2"]
 
 [ext_resource type="Script" path="res://scenes/game/main.gd" id="1_opyfo"]
 [ext_resource type="PackedScene" uid="uid://brsx201tf1fsy" path="res://nodes/map/world.tscn" id="2_5wro5"]
@@ -8,8 +8,20 @@
 [ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="9_g2be0"]
 [ext_resource type="AudioStream" uid="uid://c5bda5dqfxbty" path="res://sfx/ambience_forest.wav" id="10_nyo1f"]
 
+[sub_resource type="GDScript" id="GDScript_74j5c"]
+script/source = "extends Node
+
+func _process(delta):
+	if Input.is_action_just_released(\"Enter\"):
+		get_tree().paused = false
+"
+
 [node name="viewports" type="Node"]
 script = ExtResource("1_opyfo")
+
+[node name="Pauser" type="Node" parent="."]
+process_mode = 2
+script = SubResource("GDScript_74j5c")
 
 [node name="world" parent="." instance=ExtResource("2_5wro5")]
 

@@ -89,6 +89,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 
 [node name="Score" type="Label" parent="Margin/VBox/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,7 +111,28 @@ label_settings = SubResource("LabelSettings_ltopi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Press Enter to start" type="Label" parent="Margin/VBox/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -72.0
+offset_right = 250.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "Press Enter to start"
+label_settings = SubResource("LabelSettings_ltopi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="Margin/VBox/Control"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
 custom_minimum_size = Vector2(500, 150)
@@ -123,6 +145,27 @@ offset_left = -250.0
 offset_top = -75.0
 offset_right = 250.0
 offset_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Margin/VBox/Control"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -41.0
+offset_right = 211.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("5")
