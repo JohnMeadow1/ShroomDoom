@@ -331,3 +331,8 @@ volume_db = -25.0
 [node name="pickup" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_3pa52")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.642362, -9.97935, 0, 9.97935, 0.642362, 0, -1.31852e-07, -3.01643)
+text = "0
+"
