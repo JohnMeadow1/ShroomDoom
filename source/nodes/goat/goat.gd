@@ -58,8 +58,8 @@ func _physics_process(delta):
 	
 	if is_on_screen:
 		update_on_screen_rect()
+		
 #		for i in globals.cameras.size():
-
 #			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
 #			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
 #				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
@@ -154,10 +154,15 @@ func update_on_screen_rect():
 		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
-			
-		var camera_offset = Vector2i(camera_id%2, (floori(camera_id/2))%2)
-		bounding_rect.position += camera_offset * get_viewport().size * 0.5
-#		print(camera_id)sa
+		var vieport_size = get_viewport().size * 0.5
+		var vieport_offset = Vector2( (floori(camera_id/2))%2, camera_id%2)
+		
+		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
+
+#		bounding_rect.position -= vieport_offset * vieport_size
+		bounding_rect = bounding_rect.intersection(vieport_rect)
+		
+#		print(bounding_rect)
 		%on_screen_debug._update_rect_for_camera(bounding_rect)
 		
 #		globals.add_bbox(bounding_rect, camera_id)
