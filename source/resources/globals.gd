@@ -54,4 +54,4 @@ func win(player):
 #	timer = BLINDER_TIME
 #	winnerLabel.text = "%s player wins" % globals.player_label[player.PLAYER_NUM-1]
 #	won = true
-	get_tree().change_scene_to_file("res://scenes/victory_screen/final.tscn")
+	

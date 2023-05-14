@@ -32,9 +32,6 @@ func _physics_process(delta):
 #					viewports_container.columns = 2
 #				globals.player_count += 1
 		
-	if Input.is_action_pressed("Escape"):
-		get_tree().change_scene_to_file("res://scenes/victory_screen/final.tscn")
-		
 	if timer > 0:
 		timer -= delta
 		$GUI/Margin/VBox/Control.modulate.a = min(timer / 1, 1)
@@ -53,6 +50,9 @@ func _physics_process(delta):
 		timer = 1
 		
 	logging.add_frame()
+	
+	if Input.is_action_pressed("Escape"):
+		get_tree().change_scene_to_file("res://scenes/victory_screen/final.tscn")
 
 func enable_player(id:int) -> void:
 		globals.players_enabled[id-1] = true

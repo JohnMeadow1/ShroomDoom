@@ -4,8 +4,8 @@
 [ext_resource type="ArrayMesh" uid="uid://c4hasaidhd8c6" path="res://nodes/player/model/player.obj" id="2_jhc6e"]
 [ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="3_qtopr"]
 [ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_dgvbn"]
-[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/potne_cie_czaisz.obj" id="4_v66a1"]
 [ext_resource type="Texture2D" uid="uid://utrb7jpm8b1f" path="res://nodes/player/sprites/slash.png" id="5_ugx7d"]
+[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/knife.obj" id="6_cnty6"]
 [ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="6_n8uhg"]
 [ext_resource type="Texture2D" uid="uid://q2m6mbnlb77m" path="res://nodes/player/sprites/star.png" id="7_4qsmf"]
 [ext_resource type="AudioStream" uid="uid://bpwf1x4rm4gvs" path="res://nodes/player/sfx/step/foosteps_grzyb-001.wav" id="9_purac"]
@@ -246,7 +246,6 @@ stream_3/weight = 1.0
 [node name="player" type="CharacterBody3D" groups=["players"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
 script = ExtResource("1_e4vhq")
-PLAYER_NUM = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -269,8 +268,8 @@ transform = Transform3D(-1, 1.50996e-07, 7.62329e-21, -1.50996e-07, -1, 8.72665e
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.05, 1.0133e-23, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, -4.23516e-22, 6.43645e-08, 1.47249)
+material_override = SubResource("StandardMaterial3D_a4fg5")
 mesh = ExtResource("2_jhc6e")
-surface_material_override/0 = SubResource("StandardMaterial3D_a4fg5")
 
 [node name="eye_node" parent="Node3D" instance=ExtResource("3_qtopr")]
 transform = Transform3D(-0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 0.409576, -0.0811813, 0.402906, 0.28474, 0.252848, -0.308041, 0.140131)
@@ -279,11 +278,11 @@ transform = Transform3D(-0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383,
 transform = Transform3D(-0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956)
 
 [node name="knife" type="Node3D" parent="Node3D"]
-transform = Transform3D(-0.967457, -0.252317, -0.019042, 0.223087, -0.815021, -0.534764, 0.119411, -0.521609, 0.844786, 0.663174, -0.561648, -0.284138)
+transform = Transform3D(-0.967457, -0.252317, -0.019042, 0.223087, -0.815021, -0.534763, 0.119411, -0.521609, 0.844786, 0.663174, -0.561648, -0.284138)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/knife"]
 transform = Transform3D(6.20962, 2.71149, -1.75739, 3.23119, -5.21087, 3.37731, 4.17232e-07, -3.80718, -5.87413, -0.0852794, 0.190571, -0.351686)
-mesh = ExtResource("4_v66a1")
+mesh = ExtResource("6_cnty6")
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/knife/MeshInstance3D"]
 transform = Transform3D(0.00221287, -0.0288375, 0.139899, 0.0167077, 0.139007, 0.0283893, -0.14186, 0.0159217, 0.00552594, -0.0106305, 0.0580437, 0.0477413)
@@ -333,6 +332,5 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_3pa52")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 0.642362, -9.97935, 0, 9.97935, 0.642362, 0, -1.31852e-07, -3.01643)
-text = "0
-"
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, -1.16188e-07, -2.65806)
+text = "0"

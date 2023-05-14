@@ -11,7 +11,7 @@
 [sub_resource type="GDScript" id="GDScript_74j5c"]
 script/source = "extends Node
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released(\"Enter\"):
 		get_tree().paused = false
 "
@@ -19,16 +19,14 @@ func _process(delta):
 [sub_resource type="GDScript" id="GDScript_5gs57"]
 script/source = "extends Node2D
 
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 
 func _draw():
-	var bounding_rect = Rect2() 
 	for camera_id in globals.cameras.size():
 		var vieport_size = get_viewport().size * 0.5
-		var vieport_offset = Vector2(camera_id%2, (floori(camera_id/2))%2)
+		var vieport_offset = Vector2((floori(camera_id/2.0))%2, camera_id%2 )
 		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
-		prints(camera_id, vieport_rect)
 		draw_rect(vieport_rect, Color.GREEN, false)
 
 

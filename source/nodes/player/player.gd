@@ -35,7 +35,7 @@ func _ready():
 	self.state       = STATE_IDLE
 	base_rotation[0] = eye_1.rotation
 	base_rotation[1] = eye_2.rotation
-	$Node3D/MeshInstance3D.material_override = load("res://nodes/player/model/player.material").duplicate()
+	$Node3D/MeshInstance3D.material_override = preload("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
 	globals.cameras[PLAYER_NUM-1] = $Camera3D
 	prints("camera added:", PLAYER_NUM)
@@ -170,7 +170,7 @@ func enable_player(player_id):
 #	PLAYER_CONTROLS = player_id
 	player_enabled = true
 	globals.add_score(self.PLAYER_NUM, 0)
-	$Label3D.text = str(player_id)
+	$Label3D.text = str(player_id-1)
 	
 func push(direction, player):
 	if self.state == STATE_STUN:

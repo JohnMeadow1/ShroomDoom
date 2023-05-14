@@ -30,10 +30,10 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0, 0, 
 
 [node name="outer eye" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0254, 0, -2.22054e-09, 0, 0.0254, 0, 2.22054e-09, 0, -0.0254, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jvtwa")
 mesh = ExtResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_jvtwa")
 
 [node name="inner eye" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0254, 0, -2.22054e-09, 0, 0.0254, 0, 2.22054e-09, 0, -0.0254, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_i1owr")
 mesh = ExtResource("3")
-surface_material_override/0 = SubResource("StandardMaterial3D_i1owr")

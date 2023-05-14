@@ -8,7 +8,8 @@ var shroom_material = [preload("res://nodes/pickable/model/points_shroom_3.mater
 
 func _ready():
 	$MeshInstance3D.rotation.y        = randf_range(0,360)
-	$MeshInstance3D.set_surface_override_material(0, shroom_material[randi()%2])
+#	$MeshInstance3D.set_surface_override_material(0, shroom_material[randi()%2])
+	$MeshInstance3D.material_override = shroom_material[randi()%2]
 	%groans.play()
 	set_physics_process(false)
 	

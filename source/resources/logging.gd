@@ -80,7 +80,7 @@ func add_shroom_position(position: Vector2):
 	frame_shroom_idx += 1
 
 
-func add_bbox(new_rect:Rect2, camera_id:int):
+func add_bbox(new_rect:Rect2):
 	bbox_to_draw[bbox_count] = new_rect
 	bbox_count += 1
 
