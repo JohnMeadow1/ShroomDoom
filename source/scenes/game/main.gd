@@ -52,8 +52,7 @@ func _physics_process(delta):
 	elif globals.player_score[lead]>=15 && timer<0.2:
 		timer = 1
 		
-	if globals.player_count >=0:
-		logging.add_frame()
+	logging.add_frame()
 
 func enable_player(id:int) -> void:
 		globals.players_enabled[id-1] = true
