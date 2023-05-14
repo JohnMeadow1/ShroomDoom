@@ -4,8 +4,8 @@ extends CharacterBody3D
 const MOVE_SPEED  = 50
 const STUN_TIME   = 1
 
-@export var PLAYER_NUM: int
-var PLAYER_CONTROLS
+@export var PLAYER_NUM :int = 1
+var PLAYER_CONTROLS :int = 1
 @export var player_texture: Texture2D
 @export var player_enabled = false
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT, STATE_STUN}
@@ -30,7 +30,6 @@ var drop_shroom_object := preload("res://nodes/drops/drop_shroom.tscn")
 var player_actions = [ "up", "down", "left", "right", "swing", "score", "check_victory", "hits_player", "gets_stunned", "stunned", "flying", "died", "flying", "respawn"]
 
 func _ready():
-	PLAYER_CONTROLS  = PLAYER_NUM
 	originPosition   = self.position
 	origin_rotation  = $Node3D.rotation
 	self.state       = STATE_IDLE
@@ -167,10 +166,9 @@ func _physics_process(delta):
 #	$Node3D/eye_node2.rotation = base_rotation[1]
 
 func enable_player(player_id):
-	PLAYER_CONTROLS = player_id
+	PLAYER_CONTROLS = 1
+#	PLAYER_CONTROLS = player_id
 	player_enabled = true
-#	PLAYER_NUM = player_id
-#	get_node("../../../Player"+str(player_id)).visible = true
 	globals.add_score(self.PLAYER_NUM, 0)
 	
 func push(direction, player):
