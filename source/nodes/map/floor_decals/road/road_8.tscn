@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://d3wtttx2igi4v" path="res://nodes/map/floor_decals/road/road_8.png" id="1_a20l2"]
 [ext_resource type="Script" path="res://nodes/map/floor_decals/decal.gd" id="2_vkghx"]
 
-[sub_resource type="PlaneMesh" id="1"]
-size = Vector2(10, 10)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsaww"]
 transparency = 1
 albedo_texture = ExtResource("1_a20l2")
 texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(10, 10)
 
 [node name="Decal" type="Decal"]
 size = Vector3(10, 2, 10)
@@ -20,5 +20,5 @@ script = ExtResource("2_vkghx")
 [node name="road_8" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 visible = false
+material_override = SubResource("StandardMaterial3D_nsaww")
 mesh = SubResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_nsaww")

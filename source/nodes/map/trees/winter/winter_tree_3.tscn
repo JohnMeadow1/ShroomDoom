@@ -17,8 +17,8 @@ height = 0.661233
 script = ExtResource("1")
 
 [node name="tree_3" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_vklib")
 mesh = ExtResource("2")
-surface_material_override/0 = SubResource("StandardMaterial3D_vklib")
 
 [node name="MeshInstance3D" parent="tree_3" instance=ExtResource("3_tvi0g")]
 

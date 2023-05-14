@@ -38,6 +38,7 @@ func _ready():
 	for i in 8:
 		b_box_points.append( bounding_box.get_endpoint(i)  )
 		
+	$Label3D.text = name
 #	if not is_visible_in_tree():
 #		queue_free()
 

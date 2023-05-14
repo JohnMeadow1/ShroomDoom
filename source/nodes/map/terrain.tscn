@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dp620v4fye8b0" path="res://nodes/map/floor_decals/road/road_3.tscn" id="11_bw5g4"]
 [ext_resource type="PackedScene" uid="uid://dovboyn0ncyjw" path="res://nodes/map/floor_decals/road/road_4.tscn" id="12_sq8xh"]
 [ext_resource type="PackedScene" uid="uid://pmh77s718ax4" path="res://nodes/map/floor_decals/cracks/crack_1.tscn" id="13_hm5ke"]
-[ext_resource type="PackedScene" uid="uid://chhas3tsfehi6" path="res://nodes/map/floor_decals/cracks/crack_3.tscn" id="14_tdw0t"]
+[ext_resource type="PackedScene" uid="uid://8mhdyejlybd0" path="res://nodes/map/floor_decals/cracks/crack_3.tscn" id="14_tdw0t"]
 [ext_resource type="ArrayMesh" uid="uid://b6air5b726nxk" path="res://nodes/map/terrain/terrain.obj" id="15"]
 [ext_resource type="PackedScene" uid="uid://cfjg0dqxi1x13" path="res://nodes/map/floor_decals/snow/snow.tscn" id="15_hqia2"]
 [ext_resource type="PackedScene" uid="uid://c4kr51mrc8qip" path="res://nodes/map/floor_decals/leaves/leaves.tscn" id="16_of514"]
@@ -27,11 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://6plcr53cvfh1" path="res://nodes/map/trees/winter/winter_tree_4.tscn" id="25"]
 [ext_resource type="PackedScene" uid="uid://dacy24o360ykk" path="res://nodes/map/bushes/winter_bush.tscn" id="26_hn36f"]
 [ext_resource type="PackedScene" uid="uid://b30361wr0m7xu" path="res://nodes/map/pond/pond.tscn" id="27_lfa0v"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_1.tscn" id="28"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_2.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://b0fps0yc2vo5l" path="res://nodes/map/trees/summer/summer_tree_1.tscn" id="28"]
+[ext_resource type="PackedScene" uid="uid://cramq4868yx8a" path="res://nodes/map/trees/summer/summer_tree_2.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://54s3bnaabs52" path="res://nodes/map/bushes/summer_bush.tscn" id="30_wjpca"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_3.tscn" id="31"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_4.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://4cktwta5a88a" path="res://nodes/map/trees/summer/summer_tree_3.tscn" id="31"]
+[ext_resource type="PackedScene" uid="uid://4kh5y7i8mrqj" path="res://nodes/map/trees/summer/summer_tree_4.tscn" id="32"]
 [ext_resource type="PackedScene" uid="uid://dy3iy4nr3mwv4" path="res://nodes/map/cabin/cabin.tscn" id="33_ppoqe"]
 [ext_resource type="PackedScene" uid="uid://xif88ucjdnbi" path="res://nodes/map/stump/stump.tscn" id="34_7s85i"]
 
@@ -113,8 +113,8 @@ shape = SubResource("BoxShape3D_i6b8y")
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.84363, 0, 0, 0, 2.86536, 0, 0, 0, 5.84363, 6.89037, -4.88281e-05, -16.0613)
 layers = 2
+material_override = SubResource("StandardMaterial3D_57gco")
 mesh = ExtResource("15")
-surface_material_override/0 = SubResource("StandardMaterial3D_57gco")
 metadata/_edit_lock_ = true
 
 [node name="Decals" type="Node3D" parent="."]

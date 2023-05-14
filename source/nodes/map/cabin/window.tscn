@@ -7,5 +7,5 @@
 albedo_texture = ExtResource("2_2nirv")
 
 [node name="window" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_38nue")
 mesh = ExtResource("1_pyg2t")
-surface_material_override/0 = SubResource("StandardMaterial3D_38nue")

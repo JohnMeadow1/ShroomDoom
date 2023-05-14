@@ -8,5 +8,5 @@ transparency = 1
 albedo_texture = ExtResource("2_51qmf")
 
 [node name="stones_grass" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_w22lt")
 mesh = ExtResource("1_nsxmq")
-surface_material_override/0 = SubResource("StandardMaterial3D_w22lt")

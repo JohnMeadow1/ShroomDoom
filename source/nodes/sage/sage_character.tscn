@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b82q4d7ggbic3" path="res://nodes/player/model/player.png" id="1_y0emh"]
 [ext_resource type="ArrayMesh" uid="uid://c4hasaidhd8c6" path="res://nodes/player/model/player.obj" id="2_c47dj"]
-[ext_resource type="PackedScene" path="res://nodes/player/eye/eye.tscn" id="3_jkadb"]
+[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="3_jkadb"]
 
 [sub_resource type="StandardMaterial3D" id="1"]
 albedo_texture = ExtResource("1_y0emh")

@@ -108,9 +108,8 @@ texture = ExtResource("2")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-7, 0, -1.05697e-06, 0, 7, 0, 1.05697e-06, 0, -7, 0, 0, -0.422902)
+material_override = SubResource("StandardMaterial3D_ht7k2")
 mesh = ExtResource("3_wls6x")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_ht7k2")
 
 [node name="eye_node" parent="MeshInstance3D" instance=ExtResource("5")]
 transform = Transform3D(0.0286267, -0.00473863, 0.00761967, 0.000648986, 0.0265022, 0.0140433, -0.00894946, -0.0132356, 0.0253915, 0.0126185, 0.23042, 0.148468)
@@ -150,6 +149,11 @@ max_distance = 20.0
 [node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 script = ExtResource("27_8gwll")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.63, 0)
+billboard = 1
+text = "0"
 
 [connection signal="screen_entered" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

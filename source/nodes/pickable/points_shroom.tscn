@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://lfjs8v3ytpxg"]
+[gd_scene load_steps=12 format=3 uid="uid://lfjs8v3ytpxg"]
 
 [ext_resource type="Script" path="res://nodes/pickable/points_shroom.gd" id="1_ngtis"]
 [ext_resource type="ArrayMesh" uid="uid://bicc3nvmtqojt" path="res://nodes/pickable/model/points_shroom_fixed.obj" id="2_qkqa3"]
-[ext_resource type="Material" uid="uid://bpotob0htojv6" path="res://nodes/pickable/model/points_shroom_3.material" id="3_vcx5n"]
 [ext_resource type="AudioStream" uid="uid://ddou3bkyenmvf" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-01.wav" id="4_p0cbe"]
 [ext_resource type="AudioStream" uid="uid://cylmg2otgy3et" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-02.wav" id="5_yqyjk"]
 [ext_resource type="AudioStream" uid="uid://bm4yjxi36orma" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-03.wav" id="6_72exl"]
@@ -79,7 +78,6 @@ script = ExtResource("1_ngtis")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 mesh = ExtResource("2_qkqa3")
-surface_material_override/0 = ExtResource("3_vcx5n")
 
 [node name="Area3D" type="Area3D" parent="."]
 input_ray_pickable = false

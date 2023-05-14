@@ -8,7 +8,7 @@
 albedo_texture = ExtResource("2_ddjxk")
 
 [node name="summer_bush" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_83sk0")
 mesh = ExtResource("1_kdp4e")
-surface_material_override/0 = SubResource("StandardMaterial3D_83sk0")
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("3")]

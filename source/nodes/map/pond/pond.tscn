@@ -5,13 +5,13 @@
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(3.2, 2, 1.2)
 
-[sub_resource type="PlaneMesh" id="2"]
-size = Vector2(6, 6)
-
 [sub_resource type="StandardMaterial3D" id="3"]
 transparency = 1
 albedo_texture = ExtResource("1_pua0a")
 uv1_scale = Vector3(-1, -1, -1)
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(6, 6)
 
 [node name="pond" type="StaticBody3D"]
 
@@ -21,5 +21,5 @@ shape = SubResource("4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+material_override = SubResource("3")
 mesh = SubResource("2")
-surface_material_override/0 = SubResource("3")

@@ -1,21 +1,21 @@
-[gd_scene load_steps=45 format=3]
+[gd_scene load_steps=45 format=3 uid="uid://d00ajgwb372fg"]
 
 [ext_resource type="ArrayMesh" uid="uid://b6air5b726nxk" path="res://nodes/map/terrain/terrain.obj" id="1_rgdyx"]
 [ext_resource type="Texture2D" uid="uid://c0357k0jmm8gi" path="res://nodes/map/stump/grass.png" id="2_b3esc"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_2.tscn" id="3_il1dx"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_7.tscn" id="4_ys5c2"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_6.tscn" id="5_goa64"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_up.tscn" id="6_vuvpl"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_1.tscn" id="7_0isf6"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_5.tscn" id="8_1dskk"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_side.tscn" id="9_k0ays"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_8.tscn" id="10_pmq6s"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_3.tscn" id="11_wnnqf"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/road/road_4.tscn" id="12_yx0be"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/cracks/crack_1.tscn" id="13_105dh"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/cracks/crack_3.tscn" id="14_fj5oc"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/snow/snow.tscn" id="15_vxirm"]
-[ext_resource type="PackedScene" path="res://nodes/map/floor_decals/leaves/leaves.tscn" id="16_w5iyk"]
+[ext_resource type="PackedScene" uid="uid://csj7be7ytcn8" path="res://nodes/map/floor_decals/road/road_2.tscn" id="3_il1dx"]
+[ext_resource type="PackedScene" uid="uid://575anxf5cboy" path="res://nodes/map/floor_decals/road/road_7.tscn" id="4_ys5c2"]
+[ext_resource type="PackedScene" uid="uid://cyarkk2vkjd6r" path="res://nodes/map/floor_decals/road/road_6.tscn" id="5_goa64"]
+[ext_resource type="PackedScene" uid="uid://d0pkfvolyy8lg" path="res://nodes/map/floor_decals/road/road_up.tscn" id="6_vuvpl"]
+[ext_resource type="PackedScene" uid="uid://div805b5j4acr" path="res://nodes/map/floor_decals/road/road_1.tscn" id="7_0isf6"]
+[ext_resource type="PackedScene" uid="uid://djd1fpw74maet" path="res://nodes/map/floor_decals/road/road_5.tscn" id="8_1dskk"]
+[ext_resource type="PackedScene" uid="uid://d0amefr0bwogx" path="res://nodes/map/floor_decals/road/road_side.tscn" id="9_k0ays"]
+[ext_resource type="PackedScene" uid="uid://p5om6lbys5u0" path="res://nodes/map/floor_decals/road/road_8.tscn" id="10_pmq6s"]
+[ext_resource type="PackedScene" uid="uid://dp620v4fye8b0" path="res://nodes/map/floor_decals/road/road_3.tscn" id="11_wnnqf"]
+[ext_resource type="PackedScene" uid="uid://dovboyn0ncyjw" path="res://nodes/map/floor_decals/road/road_4.tscn" id="12_yx0be"]
+[ext_resource type="PackedScene" uid="uid://pmh77s718ax4" path="res://nodes/map/floor_decals/cracks/crack_1.tscn" id="13_105dh"]
+[ext_resource type="PackedScene" uid="uid://8mhdyejlybd0" path="res://nodes/map/floor_decals/cracks/crack_3.tscn" id="14_fj5oc"]
+[ext_resource type="PackedScene" uid="uid://cfjg0dqxi1x13" path="res://nodes/map/floor_decals/snow/snow.tscn" id="15_vxirm"]
+[ext_resource type="PackedScene" uid="uid://c4kr51mrc8qip" path="res://nodes/map/floor_decals/leaves/leaves.tscn" id="16_w5iyk"]
 [ext_resource type="PackedScene" uid="uid://h3prnrhym2pr" path="res://nodes/map/trees/autumn/autumn_tree_1.tscn" id="17_infjw"]
 [ext_resource type="PackedScene" uid="uid://covyvdelt71k5" path="res://nodes/map/trees/autumn/autumn_tree_2.tscn" id="18_86e2n"]
 [ext_resource type="PackedScene" uid="uid://dha2xgseoncyb" path="res://nodes/map/bushes/autmun_bush.tscn" id="19_wk85d"]
@@ -27,11 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://6plcr53cvfh1" path="res://nodes/map/trees/winter/winter_tree_4.tscn" id="25_dp7r4"]
 [ext_resource type="PackedScene" uid="uid://dacy24o360ykk" path="res://nodes/map/bushes/winter_bush.tscn" id="26_qic0d"]
 [ext_resource type="PackedScene" uid="uid://b30361wr0m7xu" path="res://nodes/map/pond/pond.tscn" id="27_g17c6"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_1.tscn" id="28_61ofc"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_2.tscn" id="29_6bilv"]
+[ext_resource type="PackedScene" uid="uid://b0fps0yc2vo5l" path="res://nodes/map/trees/summer/summer_tree_1.tscn" id="28_61ofc"]
+[ext_resource type="PackedScene" uid="uid://cramq4868yx8a" path="res://nodes/map/trees/summer/summer_tree_2.tscn" id="29_6bilv"]
 [ext_resource type="PackedScene" uid="uid://54s3bnaabs52" path="res://nodes/map/bushes/summer_bush.tscn" id="30_a3i8a"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_3.tscn" id="31_f2xok"]
-[ext_resource type="PackedScene" path="res://nodes/map/trees/summer/summer_tree_4.tscn" id="32_1dpix"]
+[ext_resource type="PackedScene" uid="uid://4cktwta5a88a" path="res://nodes/map/trees/summer/summer_tree_3.tscn" id="31_f2xok"]
+[ext_resource type="PackedScene" uid="uid://4kh5y7i8mrqj" path="res://nodes/map/trees/summer/summer_tree_4.tscn" id="32_1dpix"]
 [ext_resource type="PackedScene" uid="uid://dy3iy4nr3mwv4" path="res://nodes/map/cabin/cabin.tscn" id="33_ls51e"]
 [ext_resource type="PackedScene" uid="uid://xif88ucjdnbi" path="res://nodes/map/stump/stump.tscn" id="34_oag6g"]
 
@@ -112,8 +112,8 @@ shape = SubResource("BoxShape3D_i6b8y")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.84363, 0, 0, 0, 2.86536, 0, 0, 0, 5.84363, 6.89037, -4.88281e-05, -16.0613)
+material_override = SubResource("StandardMaterial3D_57gco")
 mesh = ExtResource("1_rgdyx")
-surface_material_override/0 = SubResource("StandardMaterial3D_57gco")
 metadata/_edit_lock_ = true
 
 [node name="Decals" type="Node3D" parent="."]
@@ -128,7 +128,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -37)
 
 [node name="Node3D2" parent="Decals" instance=ExtResource("5_goa64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -37)
-skeleton = NodePath("../Spatial8")
 
 [node name="MeshInstance3D" parent="Decals" instance=ExtResource("6_vuvpl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -27)

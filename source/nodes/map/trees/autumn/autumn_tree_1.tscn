@@ -17,8 +17,8 @@ height = 0.497425
 script = ExtResource("1")
 
 [node name="Tree_1" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kot7e")
 mesh = ExtResource("2")
-surface_material_override/0 = SubResource("StandardMaterial3D_kot7e")
 
 [node name="MeshInstance3D" parent="Tree_1" instance=ExtResource("4_5i70x")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

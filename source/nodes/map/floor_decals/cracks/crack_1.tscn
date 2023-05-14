@@ -18,6 +18,5 @@ cull_mask = 1048574
 script = ExtResource("2_yclut")
 
 [node name="cracks_1" type="MeshInstance3D" parent="."]
-visible = false
 material_override = SubResource("StandardMaterial3D_077k3")
 mesh = SubResource("1")
