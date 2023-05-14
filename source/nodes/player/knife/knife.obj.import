@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2indusn4ohfx"
+path="res://.godot/imported/knife.obj-9dac03c3d58d780f3ec5612f638c6c53.mesh"
+
+[deps]
+
+files=["res://.godot/imported/knife.obj-9dac03c3d58d780f3ec5612f638c6c53.mesh"]
+
+source_file="res://nodes/player/knife/knife.obj"
+dest_files=["res://.godot/imported/knife.obj-9dac03c3d58d780f3ec5612f638c6c53.mesh", "res://.godot/imported/knife.obj-9dac03c3d58d780f3ec5612f638c6c53.mesh"]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
