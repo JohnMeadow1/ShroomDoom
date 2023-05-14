@@ -161,8 +161,7 @@ func update_on_screen_rect():
 
 #		bounding_rect.position -= vieport_offset * vieport_size
 		bounding_rect = bounding_rect.intersection(vieport_rect)
-		
-#		print(bounding_rect)
+		prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
 		%on_screen_debug._update_rect_for_camera(bounding_rect)
 		
 #		globals.add_bbox(bounding_rect, camera_id)
