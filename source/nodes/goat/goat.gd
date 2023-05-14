@@ -37,7 +37,7 @@ func _ready():
 	var bounding_box: AABB = %MeshInstance3D.get_aabb()
 	for i in 8:
 		b_box_points.append( bounding_box.get_endpoint(i)  )
-		
+	
 	$Label3D.text = name
 #	if not is_visible_in_tree():
 #		queue_free()
@@ -54,17 +54,41 @@ func _physics_process(delta):
 		STATE_BACK:
 			back(delta)
 			player_moved = true
-		
 	bounce()
 	
 	if is_on_screen:
 		update_on_screen_rect()
+
+func update_on_screen_rect():
+	var bounding_rect:Rect2 = Rect2()
+	for camera_id in globals.cameras.size():
+
+		bounding_rect = Rect2() 
+		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
+		# BBOX na Viewport coords
+		for i in b_box_points.size():
+			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
+		var vieport_size = get_viewport().size * 0.5
+		var vieport_rect = Rect2(Vector2.ZERO, vieport_size)
+		bounding_rect = bounding_rect.intersection(vieport_rect)
+		var vieport_offset = Vector2( (floori(camera_id/2.0))%2, camera_id%2)
+
+		bounding_rect.position += vieport_offset * vieport_size
+#		bounding_rect = bounding_rect.intersection(vieport_rect)
+		if bounding_rect.size.length():
+#			prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
+			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
 		
-#		for i in globals.cameras.size():
-#			var on_screen_postion = globals.cameras[i].unproject_position(global_position).round()
-#			if on_screen_postion.x > 0 and on_screen_postion.x < get_viewport().size.x:
-#				if on_screen_postion.y > 0 and on_screen_postion.y < get_viewport().size.y:
-#					prints(name, "jest na ekranie: player ", i+1, " w pozycji:",  on_screen_postion)
+#		globals.add_bbox(bounding_rect, camera_id)
+
+#func update_on_screen_rect_1():
+#	var bounding_rect:Rect2 = Rect2()
+#	for camera_id in globals.cameras.size():
+#		bounding_rect = Rect2() 
+#		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position)
+#		for vertex_id in range(mesh_tool.get_vertex_count()):
+#			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(mesh_tool.get_vertex(vertex_id))))
+#		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
 
 func idle(delta):
 	if time < WAIT_TIME:
@@ -136,36 +160,6 @@ func bounce():
 				walk_cycle = 0
 	
 	%MeshInstance3D.position.y = -sin( walk_cycle ) * 0.2
-
-#func update_on_screen_rect_1():
-#	var bounding_rect:Rect2 = Rect2()
-#	for camera_id in globals.cameras.size():
-#		bounding_rect = Rect2() 
-#		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position)
-#		for vertex_id in range(mesh_tool.get_vertex_count()):
-#			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(mesh_tool.get_vertex(vertex_id))))
-#		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
-
-func update_on_screen_rect():
-#	prints(name, "update_on_screen_rect")
-	var bounding_rect:Rect2 = Rect2()
-	for camera_id in globals.cameras.size():
-		bounding_rect = Rect2() 
-		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
-		# BBOX na Viewport coords
-		for i in b_box_points.size():
-			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
-		var vieport_size = get_viewport().size * 0.5
-		var vieport_offset = Vector2( (floori(camera_id/2))%2, camera_id%2)
-		
-		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
-
-#		bounding_rect.position -= vieport_offset * vieport_size
-		bounding_rect = bounding_rect.intersection(vieport_rect)
-		prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
-		%on_screen_debug._update_rect_for_camera(bounding_rect)
-		
-#		globals.add_bbox(bounding_rect, camera_id)
 
 func _on_SenseArea_body_entered(body):
 	if body.is_in_group("players"):
