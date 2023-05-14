@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7o053tqqd5m2"]
+[gd_scene load_steps=10 format=3 uid="uid://c7o053tqqd5m2"]
 
 [ext_resource type="Script" path="res://scenes/game/main.gd" id="1_opyfo"]
 [ext_resource type="PackedScene" uid="uid://brsx201tf1fsy" path="res://nodes/map/world.tscn" id="2_5wro5"]
@@ -14,6 +14,37 @@ script/source = "extends Node
 func _process(delta):
 	if Input.is_action_just_released(\"Enter\"):
 		get_tree().paused = false
+"
+
+[sub_resource type="GDScript" id="GDScript_5gs57"]
+script/source = "extends Node2D
+
+func _process(delta):
+	queue_redraw()
+
+func _draw():
+	var bounding_rect = Rect2() 
+	for camera_id in globals.cameras.size():
+		var vieport_size = get_viewport().size * 0.5
+		var vieport_offset = Vector2(camera_id%2, (floori(camera_id/2))%2)
+		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
+		prints(camera_id, vieport_rect)
+		draw_rect(vieport_rect, Color.GREEN, false)
+
+
+#	for camera_id in globals.cameras.size():
+#		bounding_rect = Rect2() 
+#		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
+#		# BBOX na Viewport coords
+#		for i in b_box_points.size():
+#			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
+#		var vieport_size = get_viewport().size * 0.5
+#		var vieport_offset = Vector2(camera_id%2, (floori(camera_id/2))%2)
+#
+#		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
+#
+#		bounding_rect.position += vieport_offset * vieport_size
+#		bounding_rect = bounding_rect.intersection(vieport_rect)
 "
 
 [node name="viewports" type="Node"]
@@ -116,3 +147,9 @@ autoplay = true
 bus = &"Ambient"
 
 [node name="Dialog" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+script = SubResource("GDScript_5gs57")
