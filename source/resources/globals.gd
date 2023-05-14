@@ -13,7 +13,7 @@ var victory_label      := "no"
 var won                := false
 var timer              := 3.0
 var screen             := Vector2i()
-var cameras            := []
+var cameras            := [null,null,null,null]
 
 func _ready():
 	timer = 3
