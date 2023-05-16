@@ -111,7 +111,7 @@ label_settings = SubResource("LabelSettings_ltopi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Press Enter to start" type="Label" parent="Margin/VBox/Control"]
+[node name="Enter_to_start" type="Label" parent="Margin/VBox/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

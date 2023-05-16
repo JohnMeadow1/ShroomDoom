@@ -34,9 +34,13 @@ func _physics_process(delta):
 		
 	if timer > 0:
 		timer -= delta
-		$GUI/Margin/VBox/Control.modulate.a = min(timer / 1, 1)
+#		score.modulate.a = min(timer, 1)
+		$GUI/Margin/VBox/Control.modulate.a = min(timer, 1)
 		if timer < 0 && previos_leed == -1:
 			$GUI/Margin/VBox/Control/TextureRect.visible = false
+			$GUI/Margin/VBox/Control/TextureRect2.visible = false
+			$GUI/Margin/VBox/Control/Enter_to_start.visible = false
+			score.visible = true
 			score.text = ""
 			
 	var lead = globals.get_lead()
