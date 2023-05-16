@@ -79,7 +79,7 @@ func update_on_screen_rect():
 #			prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
 			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
 		
-#		globals.add_bbox(bounding_rect, camera_id)
+		logging.add_bbox(bounding_rect, Color.RED)
 
 #func update_on_screen_rect_1():
 #	var bounding_rect:Rect2 = Rect2()

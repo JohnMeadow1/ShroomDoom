@@ -7,6 +7,7 @@ var frame: int = 0
 var time_stamp: float = 0.0
 var time_stamp_start: float = 0.0
 var shroom_log: = {}
+var frame_time := 0.0 
 
 var frame_player_log: = {
 	"1": {
@@ -35,8 +36,68 @@ var frame_goat_log: = {
 	}}
 var frame_goat_idx: = 0
 
-var bbox_to_draw: = []
-var bbox_count: = 0
+var bbox_log: = {}
+var frame_bbox_log: = { 
+	"Aois": [
+		{
+			"Blue": 255,
+			"Green": 255,
+			"Red": 255,
+			"Tags": [],
+			"Name": "KOZA1",
+			"KeyFrames": [
+				{
+					"IsActive": false,
+					"Seconds": 0.0,
+					"Vertices": [
+						{
+							"X": 0,
+							"Y": 0
+						},{
+							"X": 1,
+							"Y": 0
+						},{
+							"X": 1,
+							"Y": 1
+						},{
+							"X": 0,
+							"Y": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"Blue": 255,
+			"Green": 255,
+			"Red": 255,
+			"Tags": [],
+			"Name": "KOZA1",
+			"KeyFrames": [
+				{
+					"IsActive": true,
+					"Seconds": 1.0,
+					"Vertices": [
+						{
+							"X": 0,
+							"Y": 0
+						},{
+							"X": 1,
+							"Y": 0
+						},{
+							"X": 1,
+							"Y": 1
+						},{
+							"X": 0,
+							"Y": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}
+var frame_bbox_count: = 0
 
 func start_log():
 	if !is_initialized:
@@ -47,6 +108,7 @@ func start_log():
 	time_stamp = 0.0
 	frame_shroom_idx = 0
 	time_stamp_start = Time.get_ticks_msec()
+	frame_time = Time.get_ticks_msec()
 
 func add_frame():
 	shroom_log[Time.get_unix_time_from_system()] = {"player" : frame_player_log.duplicate(), "goat" : frame_goat_log.duplicate(), "shroom" : frame_shroom_log.duplicate()}
@@ -56,7 +118,12 @@ func add_frame():
 	frame_goat_idx = 0
 	frame_shroom_idx = 0
 	frame += 1
-	bbox_count = 0
+
+func add_frame_for_bbox():
+	bbox_log["Aois"].append(frame_bbox_log)
+	frame_bbox_log.clear()
+	frame_bbox_count = 0
+	frame_time = Time.get_ticks_msec()
 
 func add_player_position_velocity(player: int, position:Vector2, velocity:Vector2 ):
 #	if not frame_player_log.has(player):
@@ -80,9 +147,9 @@ func add_shroom_position(position: Vector2):
 	frame_shroom_idx += 1
 
 
-func add_bbox(new_rect:Rect2):
-	bbox_to_draw[bbox_count] = new_rect
-	bbox_count += 1
+func add_bbox(new_rect:Rect2, color:Color):
+	frame_bbox_log[frame_bbox_count] = new_rect
+	frame_bbox_count += 1
 
 func save_logs():
 #	var store_data_callable = Callable(self, "_store_data")

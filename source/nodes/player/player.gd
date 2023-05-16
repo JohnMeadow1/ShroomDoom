@@ -166,8 +166,8 @@ func _physics_process(delta):
 #	$Node3D/eye_node2.rotation = base_rotation[1]
 
 func enable_player(player_id):
-	PLAYER_CONTROLS = 1
-#	PLAYER_CONTROLS = player_id
+#	PLAYER_CONTROLS = 1
+	PLAYER_CONTROLS = player_id
 	player_enabled = true
 	globals.add_score(self.PLAYER_NUM, 0)
 	$Label3D.text = str(player_id-1)

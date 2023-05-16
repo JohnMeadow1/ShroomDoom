@@ -145,6 +145,7 @@ volume_db = 70.0
 max_distance = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -152,6 +153,7 @@ script = ExtResource("27_8gwll")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.63, 0)
+visible = false
 billboard = 1
 text = "0"
 
