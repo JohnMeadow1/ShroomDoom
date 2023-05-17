@@ -5,7 +5,9 @@ var thread
 var is_initialized: bool = false
 var frame: int = 0
 var time_stamp: float = 0.0
-var time_stamp_start: float = 0.0
+var time_stamp_start_msec: float = 0.0
+var time_stamp_start_usec: float = 0.0
+var time_elapsed_sec: float = 0.0
 var shroom_log: = {}
 var frame_time_sec := 0.0 
 var frame_time_last_tic := 0.0 
@@ -37,7 +39,18 @@ var frame_goat_log: = {
 	}}
 var frame_goat_idx: = 0
 
-var aoi_log: = {"Aois": []}
+var aoi_log: = {
+	"Aois": [],
+	"Tags": [],
+	"Media": {
+		"MediaType": 1,
+		"Height": 1080.0,
+		"Width": 1920.0,
+		"MediaCount": 1,
+		"DurationMicroseconds": 0.0
+	},
+	"Version": 2
+}
 #		{
 #			"Blue": 255,
 #			"Green": 255,
@@ -97,6 +110,8 @@ var aoi_log: = {"Aois": []}
 #	]
 #}
 
+var input_log := {}
+
 func start_log():
 	if !is_initialized:
 		is_initialized = true
@@ -105,14 +120,17 @@ func start_log():
 	frame = 0
 	time_stamp = 0.0
 	frame_shroom_idx = 0
-	time_stamp_start = Time.get_ticks_msec()
+	time_stamp_start_msec = Time.get_ticks_msec()
+	time_stamp_start_usec = Time.get_ticks_usec()
 	frame_time_last_tic = Time.get_ticks_msec()
 	frame_time_sec = 0.0
+	time_elapsed_sec = 0.0
+	print("logging_started ", time_stamp_start_msec)
 
 func add_frame():
 	frame_time_sec = (Time.get_ticks_msec() - frame_time_last_tic) / 1000.0
 	frame_time_last_tic = Time.get_ticks_msec()
-	
+	time_elapsed_sec = (Time.get_ticks_msec() - time_stamp_start_msec) / 1000.0
 	shroom_log[Time.get_unix_time_from_system()] = {"player" : frame_player_log.duplicate(), "goat" : frame_goat_log.duplicate(), "shroom" : frame_shroom_log.duplicate()}
 	frame_shroom_log.clear()
 	frame_player_log.clear()
@@ -149,8 +167,16 @@ func add_shroom_position(position: Vector2):
 func add_aoi(new_aoi:Dictionary):
 	aoi_log["Aois"].append(new_aoi)
 
+func add_input(input:String):
+	var key = str(Time.get_unix_time_from_system())
+	if not input_log.has(key):
+		input_log[key] = []
+	input_log[key].append( input )
+
 func save_logs():
 #	var store_data_callable = Callable(self, "_store_data")
+	aoi_log.Media.DurationMicroseconds = Time.get_ticks_usec() - time_stamp_start_usec
+
 	thread = Thread.new()
 	thread.start(_store_data)
 	print("save_logs start")
@@ -170,14 +196,20 @@ func get_test_name() -> String:
 func _store_data():
 	print("save_logs thread started")
 	var test_name = get_test_name()
-	var save_log = FileAccess.open("user://%s_%s_%s.json" % [test_name, Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
+	var date := Time.get_date_string_from_system()
+	var time := (Time.get_time_string_from_system()).replace(":","-")
+	var save_log = FileAccess.open("user://%s_%s_%s.json" % [test_name, date, time], FileAccess.WRITE)
 	save_log.store_string(JSON.stringify(shroom_log))
 	save_log.close()
 	
-	save_log = FileAccess.open("user://%s_aois_%s_%s.json" % [test_name, Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
+	save_log = FileAccess.open("user://%s_aois_%s_%s.json" % [test_name, date, time], FileAccess.WRITE)
 	save_log.store_string(JSON.stringify(aoi_log))
 	save_log.close()
-	
+
+	save_log = FileAccess.open("user://%s_inputs_%s_%s.json" % [test_name, date, time], FileAccess.WRITE)
+	save_log.store_string(JSON.stringify(input_log))
+	save_log.close()
+
 	shroom_log.clear()
 	frame_shroom_log.clear()
 	print("save_logs done")
