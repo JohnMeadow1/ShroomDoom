@@ -29,6 +29,29 @@ var is_on_screen   := false
 
 var b_box_points: PackedVector3Array = PackedVector3Array()
 
+var aoi_count := 0
+var aoi := {
+	"Blue": 0,
+	"Green": 0,
+	"Red": 255,
+#	"Tags": [],
+	"Name": "",
+	"KeyFrames": [
+#		{
+#			"IsActive": false,
+#			"Seconds": 0.0,
+#			"Vertices": [
+#				{"X": 0.0, "Y": 0.0},
+#				{"X": 1.0, "Y": 0.0},
+#				{"X": 1.0, "Y": 1.0},
+#				{"X": 0.0, "Y": 1.0}
+#			]
+#		}
+	]
+}
+
+
+
 func _ready():
 	originPosition = self.position
 	state = STATE_BACK
@@ -37,6 +60,8 @@ func _ready():
 	var bounding_box: AABB = %MeshInstance3D.get_aabb()
 	for i in 8:
 		b_box_points.append( bounding_box.get_endpoint(i)  )
+	
+	aoi.Name = name
 	
 	$Label3D.text = name
 #	if not is_visible_in_tree():
@@ -77,9 +102,9 @@ func update_on_screen_rect():
 #		bounding_rect = bounding_rect.intersection(vieport_rect)
 		if bounding_rect.size.length():
 #			prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
-			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
-		
-		logging.add_bbox(bounding_rect, Color.RED)
+#			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
+			add_aoi(bounding_rect)
+#		logging.add_bbox(bounding_rect, Color.RED)
 
 #func update_on_screen_rect_1():
 #	var bounding_rect:Rect2 = Rect2()
@@ -90,6 +115,22 @@ func update_on_screen_rect():
 #			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(mesh_tool.get_vertex(vertex_id))))
 #		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
 
+func add_aoi(bbox:Rect2) -> void :
+	bbox.position = bbox.position.round()
+	bbox.size = bbox.size.round()
+	var new_aoi = {
+			"IsActive": true,
+			"Seconds": logging.frame_time_sec,
+			"Vertices": [
+				{"X": bbox.position.x, "Y": bbox.position.y},
+				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y},
+				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y + bbox.size.y},
+				{"X": bbox.position.x, "Y": bbox.position.y + bbox.size.y}
+			]
+		}
+	aoi.KeyFrames.append(new_aoi)
+	aoi_count += 1
+	
 func idle(delta):
 	if time < WAIT_TIME:
 		time += delta
@@ -184,3 +225,7 @@ func _on_visible_on_screen_notifier_3d_screen_entered():
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	is_on_screen = false
 #	prints(name, "na poza ekranem")
+
+func _exit_tree():
+	if aoi_count > 0:
+		logging.add_aoi(aoi)
