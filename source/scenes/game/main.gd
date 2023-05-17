@@ -76,3 +76,6 @@ func enable_player(id:int) -> void:
 			viewports_container.columns = 2
 		globals.player_count += 1
 
+func _input(event):
+	if not (event is InputEventMouseMotion):
+		logging.add_input(event.as_text())
