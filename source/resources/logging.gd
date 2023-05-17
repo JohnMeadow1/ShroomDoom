@@ -7,7 +7,8 @@ var frame: int = 0
 var time_stamp: float = 0.0
 var time_stamp_start: float = 0.0
 var shroom_log: = {}
-var frame_time := 0.0 
+var frame_time_sec := 0.0 
+var frame_time_last_tic := 0.0 
 
 var frame_player_log: = {
 	"1": {
@@ -36,68 +37,65 @@ var frame_goat_log: = {
 	}}
 var frame_goat_idx: = 0
 
-var bbox_log: = {}
-var frame_bbox_log: = { 
-	"Aois": [
-		{
-			"Blue": 255,
-			"Green": 255,
-			"Red": 255,
-			"Tags": [],
-			"Name": "KOZA1",
-			"KeyFrames": [
-				{
-					"IsActive": false,
-					"Seconds": 0.0,
-					"Vertices": [
-						{
-							"X": 0,
-							"Y": 0
-						},{
-							"X": 1,
-							"Y": 0
-						},{
-							"X": 1,
-							"Y": 1
-						},{
-							"X": 0,
-							"Y": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Blue": 255,
-			"Green": 255,
-			"Red": 255,
-			"Tags": [],
-			"Name": "KOZA1",
-			"KeyFrames": [
-				{
-					"IsActive": true,
-					"Seconds": 1.0,
-					"Vertices": [
-						{
-							"X": 0,
-							"Y": 0
-						},{
-							"X": 1,
-							"Y": 0
-						},{
-							"X": 1,
-							"Y": 1
-						},{
-							"X": 0,
-							"Y": 1
-						}
-					]
-				}
-			]
-		}
-	]
-}
-var frame_bbox_count: = 0
+var aoi_log: = {"Aois": []}
+#		{
+#			"Blue": 255,
+#			"Green": 255,
+#			"Red": 255,
+#			"Tags": [],
+#			"Name": "KOZA1",
+#			"KeyFrames": [
+#				{
+#					"IsActive": false,
+#					"Seconds": 0.0,
+#					"Vertices": [
+#						{
+#							"X": 0,
+#							"Y": 0
+#						},{
+#							"X": 1,
+#							"Y": 0
+#						},{
+#							"X": 1,
+#							"Y": 1
+#						},{
+#							"X": 0,
+#							"Y": 1
+#						}
+#					]
+#				}
+#			]
+#		},
+#		{
+#			"Blue": 255,
+#			"Green": 255,
+#			"Red": 255,
+#			"Tags": [],
+#			"Name": "Player1",
+#			"KeyFrames": [
+#				{
+#					"IsActive": true,
+#					"Seconds": 1.0,
+#					"Vertices": [
+#						{
+#							"X": 0,
+#							"Y": 0
+#						},{
+#							"X": 1,
+#							"Y": 0
+#						},{
+#							"X": 1,
+#							"Y": 1
+#						},{
+#							"X": 0,
+#							"Y": 1
+#						}
+#					]
+#				}
+#			]
+#		}
+#	]
+#}
 
 func start_log():
 	if !is_initialized:
@@ -108,9 +106,13 @@ func start_log():
 	time_stamp = 0.0
 	frame_shroom_idx = 0
 	time_stamp_start = Time.get_ticks_msec()
-	frame_time = Time.get_ticks_msec()
+	frame_time_last_tic = Time.get_ticks_msec()
+	frame_time_sec = 0.0
 
 func add_frame():
+	frame_time_sec = (Time.get_ticks_msec() - frame_time_last_tic) / 1000.0
+	frame_time_last_tic = Time.get_ticks_msec()
+	
 	shroom_log[Time.get_unix_time_from_system()] = {"player" : frame_player_log.duplicate(), "goat" : frame_goat_log.duplicate(), "shroom" : frame_shroom_log.duplicate()}
 	frame_shroom_log.clear()
 	frame_player_log.clear()
@@ -118,12 +120,6 @@ func add_frame():
 	frame_goat_idx = 0
 	frame_shroom_idx = 0
 	frame += 1
-
-func add_frame_for_bbox():
-	bbox_log["Aois"].append(frame_bbox_log)
-	frame_bbox_log.clear()
-	frame_bbox_count = 0
-	frame_time = Time.get_ticks_msec()
 
 func add_player_position_velocity(player: int, position:Vector2, velocity:Vector2 ):
 #	if not frame_player_log.has(player):
@@ -147,26 +143,44 @@ func add_shroom_position(position: Vector2):
 	frame_shroom_idx += 1
 
 
-func add_bbox(new_rect:Rect2, color:Color):
-	frame_bbox_log[frame_bbox_count] = new_rect
-	frame_bbox_count += 1
+#func add_bbox(new_rect:Rect2, color:Color):
+#	frame_bbox_log[frame_bbox_count] = new_rect
+#	frame_bbox_count += 1
+func add_aoi(new_aoi:Dictionary):
+	aoi_log["Aois"].append(new_aoi)
 
 func save_logs():
 #	var store_data_callable = Callable(self, "_store_data")
 	thread = Thread.new()
 	thread.start(_store_data)
-	print("save_logs")
+	print("save_logs start")
 #	_store_data()
 	
+func get_test_name() -> String:
+	var test_name = "missing_id_file"
+	var id_file = FileAccess.open("user://id.txt", FileAccess.READ)
+	var error = FileAccess.get_open_error()
+	if error != OK:
+		printerr("open file error: ", error)
+	else:
+		test_name = id_file.get_line()
+		id_file.close()
+	return test_name
+	
 func _store_data():
-	print("save_logs_thread")
-	var save_log = FileAccess.open("user://shroom_log_%s_%s.json" % [Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
+	print("save_logs thread started")
+	var test_name = get_test_name()
+	var save_log = FileAccess.open("user://%s_%s_%s.json" % [test_name, Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
 	save_log.store_string(JSON.stringify(shroom_log))
+	save_log.close()
+	
+	save_log = FileAccess.open("user://%s_aois_%s_%s.json" % [test_name, Time.get_date_string_from_system(), (Time.get_time_string_from_system()).replace(":","-")], FileAccess.WRITE)
+	save_log.store_string(JSON.stringify(aoi_log))
 	save_log.close()
 	
 	shroom_log.clear()
 	frame_shroom_log.clear()
-	print("save_logs_done")
+	print("save_logs done")
 
 func _exit_tree():
 	if thread:
