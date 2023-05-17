@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lfjs8v3ytpxg"]
+[gd_scene load_steps=13 format=3 uid="uid://lfjs8v3ytpxg"]
 
 [ext_resource type="Script" path="res://nodes/pickable/points_shroom.gd" id="1_ngtis"]
 [ext_resource type="ArrayMesh" uid="uid://bicc3nvmtqojt" path="res://nodes/pickable/model/points_shroom_fixed.obj" id="2_qkqa3"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cylmg2otgy3et" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-02.wav" id="5_yqyjk"]
 [ext_resource type="AudioStream" uid="uid://bm4yjxi36orma" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-03.wav" id="6_72exl"]
 [ext_resource type="AudioStream" uid="uid://bik63oibg1hn3" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-04.wav" id="7_bx2me"]
+[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="7_irhkh"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 1.553
@@ -51,20 +52,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(7, 7, 7), Vector3(5, 5, 5)]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [true],
-"method": &"set_physics_process"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5g4ci"]
 _data = {
@@ -98,5 +85,18 @@ libraries = {
 "": SubResource("AnimationLibrary_5g4ci")
 }
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+script = ExtResource("7_irhkh")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(-0.142857, 0, 2.15708e-08, 0, 0.142857, 0, -2.15708e-08, 0, -0.142857, 4.26891e-09, 0.142857, -0.0282717)
+aabb = AABB(-5, 0, -5, 10, 10, 10)
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_Area_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
