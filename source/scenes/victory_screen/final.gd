@@ -13,9 +13,9 @@ func _ready():
 	logging.save_logs()
 
 func _physics_process(delta):
-	
 	if timer<=0:
-		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+		if not logging.is_saving:
+			get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 	else:
 		timer -= delta
 	$background.position -= tempBG

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0682vqqyu02k"]
+[gd_scene load_steps=13 format=3 uid="uid://d0682vqqyu02k"]
 
 [ext_resource type="Script" path="res://scenes/victory_screen/final.gd" id="1_tyb44"]
 [ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_4gtkr"]
@@ -11,6 +11,47 @@
 [sub_resource type="LabelSettings" id="LabelSettings_crlvd"]
 font = ExtResource("7_vshej")
 font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_8f5yx"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_1kyov"]
+resource_name = "saving"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Saving.", "Saving..", "Saving..."]
+}
+
+[sub_resource type="Animation" id="Animation_3jgll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Saving."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttpxd"]
+_data = {
+"RESET": SubResource("Animation_3jgll"),
+"saving": SubResource("Animation_1kyov")
+}
 
 [node name="final" type="Control"]
 layout_mode = 3
@@ -81,3 +122,25 @@ offset_right = 70.0
 offset_bottom = 70.0
 text = "I guess "
 label_settings = SubResource("LabelSettings_crlvd")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -88.0
+offset_right = -80.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Saving."
+label_settings = SubResource("LabelSettings_8f5yx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "saving"
+libraries = {
+"": SubResource("AnimationLibrary_ttpxd")
+}
