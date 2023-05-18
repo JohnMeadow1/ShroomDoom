@@ -33,24 +33,20 @@ func _ready():
 	mesh.rotation.y        = randf_range(0,360)
 	mesh.material_override = shroom_material[randi()%2]
 	%groans.play()
-#	set_physics_process(false)
 	
 func _physics_process(delta):
 	logging.add_shroom_position( Vector2(global_position.x,global_position.z) )
 	if mesh.scale.x < max_size:
 		mesh.scale += Vector3.ONE * growth_rate * delta
-#	else:
-#		set_physics_process(false)
+		
 	if is_on_screen:
-		update_on_screen_rect()
+		update_on_screen_rect(true)
 
-func update_on_screen_rect():
+func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
-
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(global_position) 
-		# BBOX na Viewport coords
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(to_global(b_box_points[i])))
 		var vieport_size = get_viewport().size * 0.5
@@ -61,14 +57,14 @@ func update_on_screen_rect():
 		bounding_rect.position += vieport_offset * vieport_size
 		if bounding_rect.size.length():
 			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
-			add_aoi(bounding_rect)
+			add_aoi(bounding_rect, active)
 
-func add_aoi(bbox:Rect2) ->void :
+func add_aoi(bbox:Rect2, active:bool) ->void :
 	bbox.position = bbox.position.round()
 	bbox.size = bbox.size.round()
 	var new_aoi = {
-			"IsActive": true,
-			"Seconds": logging.frame_time_sec,
+			"IsActive": active,
+			"Seconds": logging.time_elapsed_sec,
 			"Vertices": [
 				{"X": bbox.position.x, "Y": bbox.position.y},
 				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y},
@@ -97,6 +93,7 @@ func _on_visible_on_screen_notifier_3d_screen_entered():
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	is_on_screen = false
+	update_on_screen_rect(false)
 
 func _exit_tree():
 	if aoi_count > 0:

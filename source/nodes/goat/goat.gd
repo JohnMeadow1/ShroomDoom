@@ -51,7 +51,6 @@ var aoi := {
 }
 
 
-
 func _ready():
 	originPosition = self.position
 	state = STATE_BACK
@@ -82,15 +81,14 @@ func _physics_process(delta):
 	bounce()
 	
 	if is_on_screen:
-		update_on_screen_rect()
+		update_on_screen_rect(true)
 
-func update_on_screen_rect():
+func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
-
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
-		# BBOX na Viewport coords
+		
 		for i in b_box_points.size():
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
 		var vieport_size = get_viewport().size * 0.5
@@ -99,12 +97,9 @@ func update_on_screen_rect():
 		var vieport_offset = Vector2( (floori(camera_id/2.0))%2, camera_id%2)
 
 		bounding_rect.position += vieport_offset * vieport_size
-#		bounding_rect = bounding_rect.intersection(vieport_rect)
 		if bounding_rect.size.length():
-#			prints(name, "cam_id:", camera_id,"bbox", bounding_rect)
-#			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
-			add_aoi(bounding_rect)
-#		logging.add_bbox(bounding_rect, Color.RED)
+			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
+			add_aoi(bounding_rect, active)
 
 #func update_on_screen_rect_1():
 #	var bounding_rect:Rect2 = Rect2()
@@ -115,12 +110,12 @@ func update_on_screen_rect():
 #			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(mesh_tool.get_vertex(vertex_id))))
 #		on_screen_debug.update_rect_for_camera(bounding_rect, camera_id, Color.YELLOW)
 
-func add_aoi(bbox:Rect2) -> void :
+func add_aoi(bbox:Rect2, active:bool) -> void :
 	bbox.position = bbox.position.round()
 	bbox.size = bbox.size.round()
 	var new_aoi = {
-			"IsActive": true,
-			"Seconds": logging.frame_time_sec,
+			"IsActive": active,
+			"Seconds": logging.time_elapsed_sec,
 			"Vertices": [
 				{"X": bbox.position.x, "Y": bbox.position.y},
 				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y},
@@ -146,8 +141,6 @@ func chase(delta):
 	direction.y = 0
 	
 	look_at(target.position, Vector3(0,1,0))
-	
-#	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
 	
 	if distance > RUN_DISTANCE:
 		offset = MOVE_SPEED_CHASE * delta
@@ -220,11 +213,10 @@ func _on_SenseArea_body_exited(body):
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	is_on_screen = true
-#	prints(name, "na ekranie")
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	is_on_screen = false
-#	prints(name, "na poza ekranem")
+	update_on_screen_rect(false)
 
 func _exit_tree():
 	if aoi_count > 0:
