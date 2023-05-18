@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="3_qtopr"]
 [ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_dgvbn"]
 [ext_resource type="Texture2D" uid="uid://utrb7jpm8b1f" path="res://nodes/player/sprites/slash.png" id="5_ugx7d"]
+[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/knife.obj" id="6_cnty6"]
 [ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="6_n8uhg"]
-[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/knife.obj" id="6_us0q8"]
 [ext_resource type="Texture2D" uid="uid://q2m6mbnlb77m" path="res://nodes/player/sprites/star.png" id="7_4qsmf"]
 [ext_resource type="AudioStream" uid="uid://bpwf1x4rm4gvs" path="res://nodes/player/sfx/step/foosteps_grzyb-001.wav" id="9_purac"]
 [ext_resource type="AudioStream" uid="uid://cdijxu7cge7eh" path="res://nodes/player/sfx/step/foosteps_grzyb-002.wav" id="10_qsuhs"]
@@ -282,7 +282,7 @@ transform = Transform3D(-0.967457, -0.252317, -0.019042, 0.223087, -0.815021, -0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/knife"]
 transform = Transform3D(6.20962, 2.71149, -1.75739, 3.23119, -5.21087, 3.37731, 4.17232e-07, -3.80718, -5.87413, -0.0852794, 0.190571, -0.351686)
-mesh = ExtResource("6_us0q8")
+mesh = ExtResource("6_cnty6")
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/knife/MeshInstance3D"]
 transform = Transform3D(0.00221287, -0.0288375, 0.139899, 0.0167077, 0.139007, 0.0283893, -0.14186, 0.0159217, 0.00552594, -0.0106305, 0.0580437, 0.0477413)
