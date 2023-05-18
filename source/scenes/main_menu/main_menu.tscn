@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cju2kbc8fck2l"]
+[gd_scene load_steps=21 format=3 uid="uid://cju2kbc8fck2l"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ft78g"]
 [ext_resource type="Texture2D" uid="uid://c1hejijfg27ln" path="res://scenes/main_menu/sprites/main_menu.png" id="2_lnov2"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b76pq86uqvr48" path="res://scenes/main_menu/sprites/leszek.png" id="8_0e4br"]
 [ext_resource type="Texture2D" uid="uid://bnrvdctkacwj3" path="res://scenes/main_menu/sprites/neina.png" id="9_hhsqp"]
 [ext_resource type="Texture2D" uid="uid://bqu88yghs8iq4" path="res://scenes/main_menu/sprites/tomek.png" id="10_h5kab"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7l0c"]
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="2"]
 length = 3.0
@@ -196,6 +201,7 @@ size_flags_vertical = 0
 text = "Music by:
 ElieAbraham64
 "
+label_settings = SubResource("LabelSettings_x7l0c")
 
 [node name="Credits2" type="Label" parent="HBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -204,6 +210,7 @@ size_flags_vertical = 0
 text = "SFX by:
 Tymek \"Rabarbarowyrobal\"
 "
+label_settings = SubResource("LabelSettings_x7l0c")
 horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="HBoxContainer"]
@@ -250,6 +257,22 @@ libraries = {
 "": SubResource("AnimationLibrary_5wdjj")
 }
 
+[node name="Credits" type="Label" parent="Node2D/hiryu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -43.5
+offset_right = 208.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+text = "Piotrek \"Hiryu\" Podgórski"
+label_settings = SubResource("LabelSettings_x7l0c")
+
 [node name="leszek" type="Sprite2D" parent="Node2D"]
 z_index = 1
 texture_filter = 1
@@ -264,6 +287,22 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_vdlea")
 }
+
+[node name="Credits" type="Label" parent="Node2D/leszek"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -48.5
+offset_right = 233.5
+offset_bottom = -11.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+text = "Leszek \"Johny\" Nowak"
+label_settings = SubResource("LabelSettings_x7l0c")
 
 [node name="neina" type="Sprite2D" parent="Node2D"]
 z_index = 1
@@ -281,6 +320,22 @@ libraries = {
 "": SubResource("AnimationLibrary_3g7dy")
 }
 
+[node name="Credits" type="Label" parent="Node2D/neina"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -41.5
+offset_right = 248.0
+offset_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+text = "Paulina \"Neina\" Mordalska"
+label_settings = SubResource("LabelSettings_x7l0c")
+
 [node name="tomek" type="Sprite2D" parent="Node2D"]
 z_index = 1
 texture_filter = 1
@@ -296,6 +351,22 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_fn0jo")
 }
+
+[node name="Credits" type="Label" parent="Node2D/tomek"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -39.5
+offset_right = 251.0
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+text = "Tomek \"Drach\" Szymański"
+label_settings = SubResource("LabelSettings_x7l0c")
 
 [connection signal="resized" from="TextureRect" to="." method="_on_TextureRect_resized"]
 [connection signal="mouse_entered" from="HBoxContainer/Control/Start" to="HBoxContainer/Control/Start" method="_on_mouse_entered"]
