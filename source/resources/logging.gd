@@ -11,6 +11,7 @@ var time_elapsed_sec: float = 0.0
 var shroom_log: = {}
 var frame_time_sec := 0.0 
 var frame_time_last_tic := 0.0 
+var is_saving := false
 
 var frame_player_log: = {
 	"1": {
@@ -174,6 +175,7 @@ func add_input(input:String):
 	input_log[key].append( input )
 
 func save_logs():
+	is_saving = true
 #	var store_data_callable = Callable(self, "_store_data")
 	aoi_log.Media.DurationMicroseconds = Time.get_ticks_usec() - time_stamp_start_usec
 
@@ -213,6 +215,7 @@ func _store_data():
 	shroom_log.clear()
 	frame_shroom_log.clear()
 	print("save_logs done")
+	is_saving = false
 
 func _exit_tree():
 	if thread:
