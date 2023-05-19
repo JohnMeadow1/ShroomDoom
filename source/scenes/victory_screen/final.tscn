@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0682vqqyu02k"]
+[gd_scene load_steps=17 format=3 uid="uid://d0682vqqyu02k"]
 
 [ext_resource type="Script" path="res://scenes/victory_screen/final.gd" id="1_tyb44"]
 [ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_4gtkr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0lxfrsovfvpj" path="res://scenes/victory_screen/sprites/nuke2.png" id="4_ww5w7"]
 [ext_resource type="Texture2D" uid="uid://bvymtng5m1doh" path="res://scenes/victory_screen/sprites/nuke1.png" id="5_hh2wf"]
 [ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="7_vshej"]
+[ext_resource type="Texture2D" uid="uid://ck6cp624cu8a1" path="res://scenes/victory_screen/sprites/Vignette_(SuperTux).png" id="8_cd1dq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_crlvd"]
 font = ExtResource("7_vshej")
@@ -14,6 +15,21 @@ font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_8f5yx"]
 font_size = 32
+
+[sub_resource type="Animation" id="Animation_3jgll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Saving."]
+}
 
 [sub_resource type="Animation" id="Animation_1kyov"]
 resource_name = "saving"
@@ -32,25 +48,254 @@ tracks/0/keys = {
 "values": ["Saving.", "Saving..", "Saving..."]
 }
 
-[sub_resource type="Animation" id="Animation_3jgll"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttpxd"]
+_data = {
+"RESET": SubResource("Animation_3jgll"),
+"saving": SubResource("Animation_1kyov")
+}
+
+[sub_resource type="Animation" id="Animation_2ruwm"]
+resource_name = "Explode"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shroom:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 8),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.6, 1.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shroom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1007, 1245), Vector2(1007, 1055)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_r67y5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(0.217638, 0.217638, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("back_cloud:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(958.6, 945), Vector2(959.995, 917)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("front_cloud:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(958.6, 1016.2), Vector2(960, 964.267)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("back_cloud:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.66, 1.66), Vector2(1.7, 1.7)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("front_cloud:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.66, 1.66), Vector2(1.8, 1.8)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("background:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.01, 1.01), Vector2(1.08, 1.08)]
+}
+
+[sub_resource type="Animation" id="Animation_80sck"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label2:text")
+tracks/0/path = NodePath("shroom:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Saving."]
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shroom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(752, 478)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("back_cloud:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 912)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("front_cloud:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 923)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("back_cloud:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 1.3)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("front_cloud:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("background:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.08, 1.08)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttpxd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmaha"]
 _data = {
-"RESET": SubResource("Animation_3jgll"),
-"saving": SubResource("Animation_1kyov")
+"Explode": SubResource("Animation_2ruwm"),
+"RESET": SubResource("Animation_80sck")
 }
 
 [node name="final" type="Control"]
@@ -63,56 +308,45 @@ grow_vertical = 2
 script = ExtResource("1_tyb44")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_r67y5")
-autoplay = true
 
 [node name="background" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.08, 1.08)
+pivot_offset = Vector2(960, 1060)
 texture = ExtResource("2_4gtkr")
 
-[node name="shroom" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 356.0
-offset_top = -42.0
-offset_right = -331.0
-offset_bottom = 557.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_bgana")
-
-[node name="back_cloud" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -46.0
-offset_bottom = 98.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="back_cloud" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 912)
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("4_ww5w7")
 
-[node name="front_cloud" type="TextureRect" parent="."]
+[node name="shroom" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(752, 478)
+texture = ExtResource("3_bgana")
+offset = Vector2(0, -290)
+
+[node name="front_cloud" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 923)
+texture = ExtResource("5_hh2wf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = 101.0
 grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("5_hh2wf")
+grow_vertical = 2
+texture = ExtResource("8_cd1dq")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -139,8 +373,22 @@ grow_vertical = 0
 text = "Saving."
 label_settings = SubResource("LabelSettings_8f5yx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer_save" type="AnimationPlayer" parent="."]
 autoplay = "saving"
 libraries = {
 "": SubResource("AnimationLibrary_ttpxd")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Explode"
+libraries = {
+"": SubResource("AnimationLibrary_fmaha")
 }

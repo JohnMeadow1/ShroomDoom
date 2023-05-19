@@ -18,18 +18,18 @@ func _physics_process(delta):
 			get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 	else:
 		timer -= delta
-	$background.position -= tempBG
+	%background.position -= tempBG
 	tempBG = Vector2(randf_range(-timer/8,timer/8)*randf_range(-timer/8,timer/8),randf_range(-timer/8,timer/8)*randf_range(-timer/8,timer/8))
-	$background.position += Vector2(0,-0.11*timer) + tempBG
-	
-	$shroom.position -= tempShroom
-	tempShroom = Vector2(randf_range(-timer/6,timer/6)*randf_range(-timer/6,timer/6),randf_range(-timer/6,timer/6)*randf_range(-timer/6,timer/6))
-	$shroom.position += Vector2(0,-0.14*timer) + tempShroom
+	%background.position +=  tempBG
 
-	$back_cloud.position -= tempBack
+	%shroom.offset -= tempShroom
+	tempShroom = Vector2(randf_range(-timer/6,timer/6)*randf_range(-timer/6,timer/6),randf_range(-timer/6,timer/6)*randf_range(-timer/6,timer/6))*2
+	%shroom.offset +=  tempShroom
+
+	%back_cloud.offset -= tempBack
 	tempBack = Vector2(randf_range(-timer/5,timer/5)*randf_range(-timer/5,timer/5),randf_range(-timer/5,timer/5)*randf_range(-timer/5,timer/5))
-	$back_cloud.position += Vector2(0,-0.05*timer) + tempBack
+	%back_cloud.offset +=  tempBack
 
-	$front_cloud.position -= tempFront
+	%front_cloud.offset -= tempFront
 	tempFront = Vector2(randf_range(-timer/4,timer/4)*randf_range(-timer/4,timer/4),randf_range(-timer/4,timer/4)*randf_range(-timer/4,timer/4))
-	$front_cloud.position += Vector2(0,-0.035*timer) + tempFront
+	%front_cloud.offset +=  tempFront
