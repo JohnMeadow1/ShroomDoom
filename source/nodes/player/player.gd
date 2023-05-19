@@ -25,10 +25,31 @@ var death_rotation  := Vector3()
 var origin_rotation := Vector3()
 var drop_shroom_object := preload("res://nodes/drops/drop_shroom.tscn")
 
-@onready var eye_1 := $Node3D/eye_node
-@onready var eye_2 := $Node3D/eye_node2
+@onready var eye_1 := $Node3D/MeshInstance3D/eye_node
+@onready var eye_2 := $Node3D/MeshInstance3D/eye_node2
 var player_actions = [ "up", "down", "left", "right", "swing", "score", "check_victory", "hits_player", "gets_stunned", "stunned", "flying", "died", "flying", "respawn"]
+var b_box_points  := PackedVector3Array([Vector3(1.5,0,1), Vector3(-1.5,0,1), Vector3(1.5,3,0), Vector3(-1.5,3,0)])
 
+var aoi_count := 0
+var aoi := {
+	"Blue": 255,
+	"Green": 0,
+	"Red": 0,
+#	"Tags": [],
+	"Name": "Player",
+	"KeyFrames": [
+#		{
+#			"IsActive": false,
+#			"Seconds": 0.0,
+#			"Vertices": [
+#				{"X": 0.0, "Y": 0.0},
+#				{"X": 1.0, "Y": 0.0},
+#				{"X": 1.0, "Y": 1.0},
+#				{"X": 0.0, "Y": 1.0}
+#			]
+#		}
+	]
+}
 func _ready():
 	originPosition   = self.position
 	origin_rotation  = $Node3D.rotation
@@ -37,10 +58,17 @@ func _ready():
 	base_rotation[1] = eye_2.rotation
 	$Node3D/MeshInstance3D.material_override = preload("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
-	globals.cameras[PLAYER_NUM-1] = $Camera3D
+	globals.cameras[PLAYER_NUM-1] = %Camera3D
+	globals.players[PLAYER_NUM-1] = self
+	aoi.Name = name
+	
 	prints("camera added:", PLAYER_NUM)
+	$Label3D.text = str("player:",PLAYER_NUM-1," camera:",PLAYER_NUM)
 
 func _physics_process(delta):
+	update_on_screen_rect(true)
+	$Label3D.visible = globals.debug
+	$CanvasLayer.visible = globals.debug
 	logging.add_player_position_velocity(PLAYER_NUM, Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
 	if is_dying:
 		timer -= delta
@@ -49,7 +77,7 @@ func _physics_process(delta):
 		if timer < 0 || Input.is_action_just_pressed("action_p" + str(PLAYER_CONTROLS)):
 			logging.add_player_input(PLAYER_NUM, "respawn")
 			self.player_enabled = true
-			self.position    = originPosition
+			self.position       = originPosition
 			self.is_dying       = false
 			self.state          = STATE_IDLE
 			$Node3D.rotation    = origin_rotation
@@ -58,8 +86,6 @@ func _physics_process(delta):
 			
 	if timer > 0:
 		timer -= delta
-		if timer < 9:
-			$talk.visible = false
 	else:
 		player_hit = false
 #	# Fight 
@@ -77,12 +103,9 @@ func _physics_process(delta):
 			globals.add_score(PLAYER_NUM,1)
 			pick_up = true
 		if pick_up:
-#			get_node("pick_up/Pick_up_" + str( randi() % 4 + 1) ).play()
 			%pickup.play()
 			logging.add_player_input(PLAYER_NUM, "score")
 		else:
-#			get_node("stab/stab_" + str( randi() % 4 + 1) ).play()
-#			%stabs.play()
 			$AnimationPlayer.play("swing")
 			for body in get_tree().get_nodes_in_group("players"):
 				if body != self && body.position.distance_to(self.position) < 3:
@@ -94,9 +117,8 @@ func _physics_process(delta):
 			if !player_hit:
 				logging.add_player_input(PLAYER_NUM, "hits_player")
 				player_hit = true
-#				get_node("teksty/tekst" + str( randi() % 13 + 1) ).play()
-				%taunts.play()
 				timer = 20
+				%taunts.play()
 				$talk.visible = true
 			
 			for body in get_tree().get_nodes_in_group("sage"):
@@ -133,7 +155,6 @@ func _physics_process(delta):
 			walk_cycle += 0.2
 			if walk_cycle >= PI:
 				walk_cycle -= PI
-#				get_node("steps/Steps_" + str( randi() % 10 + 1 ) ).play()
 				%steps.play()
 		elif self.state != STATE_IDLE:
 
@@ -145,24 +166,22 @@ func _physics_process(delta):
 			if walk_cycle < 0 or walk_cycle > PI:
 				if !walk_cycle == 0:
 					%steps.play()
-#					get_node("steps/Steps_"+str(randi()%10+1)).play()
 				walk_cycle = 0
 				self.state = STATE_IDLE
-#		print (walk_cycle)
 
-	$Node3D.position.z =  -sin( walk_cycle ) * 0.2
+	$Node3D.position.y =  -sin( walk_cycle ) * 0.2
 	set_velocity(move)
 	move_and_slide()
 	move                   = velocity
 	if !is_dying:
 		position.y      = originPosition.y
 		move               *= 0.90
-	$Node3D.rotation.z    = atan2(move.x,-move.z)
+	$Node3D.rotation.y    = atan2(move.x,move.z)
 	
 	eye_1.rotation.x = base_rotation[0].x + sin( walk_cycle ) * 0.4 
-	eye_1.rotation.y = base_rotation[0].y + sin( walk_cycle ) - PI/4
+	eye_1.rotation.z = base_rotation[0].z + sin( walk_cycle ) - PI/4
 	eye_2.rotation.x = base_rotation[1].x + sin( walk_cycle ) * 0.2 
-	eye_2.rotation.y = base_rotation[1].y + cos( walk_cycle ) * 0.6 - PI/5
+	eye_2.rotation.z = base_rotation[1].z + cos( walk_cycle ) * 0.6 - PI/5
 #	$Node3D/eye_node2.rotation = base_rotation[1]
 
 func enable_player(player_id):
@@ -170,7 +189,7 @@ func enable_player(player_id):
 	PLAYER_CONTROLS = player_id
 	player_enabled = true
 	globals.add_score(self.PLAYER_NUM, 0)
-	$Label3D.text = str(player_id-1)
+
 	
 func push(direction, player):
 	if self.state == STATE_STUN:
@@ -204,3 +223,62 @@ func pop_shrooms(amount):
 		new_pop.position = self.position
 		$"../../../../world".add_child(new_pop)
 	
+func update_on_screen_rect(active:bool):
+	var bounding_rect:Rect2 = Rect2()
+
+	for player_id in globals.players.size():
+		if globals.players[player_id] == self:
+			continue
+		var tested_global_position = globals.players[player_id].global_position
+		if not %Camera3D.is_position_behind(tested_global_position):
+			continue
+			
+		bounding_rect = Rect2() 
+		bounding_rect.position = %Camera3D.unproject_position( tested_global_position ) 
+		var bounding_rect_1 = bounding_rect
+		var bounding_rects = []
+		bounding_rects.resize(b_box_points.size())
+		for i in b_box_points.size():
+			tested_global_position = globals.players[player_id].b_box_points[i]
+			bounding_rect = bounding_rect.expand(%Camera3D.unproject_position(globals.players[player_id].to_global(tested_global_position)))
+			bounding_rects[i] = bounding_rect
+		var vieport_size = get_viewport().size
+		var vieport_rect = Rect2(Vector2.ZERO,vieport_size)
+		bounding_rect = bounding_rect.intersection(vieport_rect)
+
+		var vieport_offset = Vector2i( (floori((PLAYER_NUM-1)/2.0))%2, (PLAYER_NUM-1)%2)
+#
+#		bounding_rect.position += Vector2(vieport_offset * vieport_size) 
+		if bounding_rect.size.length()>4:
+#			if bounding_rect.get_area() > (vieport_size.x * vieport_size.y)*0.6:
+#				prints( %Camera3D.global_position.z, tested_global_position_center)
+#				print (bounding_rect)    
+  
+			%on_screen_debug._update_rect_for_camera(bounding_rect, player_id, Color.BLUE)
+			bounding_rect.position += Vector2(vieport_offset * vieport_size) 
+#			bounding_rect.size *= 0.5
+#			print("-----player ",PLAYER_NUM-1,"-------cam ",player_id+1,bounding_rect)
+			add_aoi(bounding_rect, active)
+			
+func add_aoi(bbox:Rect2, active:bool) ->void :
+	bbox.position = bbox.position.round()
+	bbox.size = bbox.size.round()
+	var new_aoi = {
+			"IsActive": active,
+			"Seconds": logging.time_elapsed_sec,
+			"Vertices": [
+				{"X": bbox.position.x, "Y": bbox.position.y},
+				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y},
+				{"X": bbox.position.x + bbox.size.x, "Y": bbox.position.y + bbox.size.y},
+				{"X": bbox.position.x, "Y": bbox.position.y + bbox.size.y}
+			]
+		}
+	aoi.KeyFrames.append(new_aoi)
+	aoi_count += 1
+	
+func _exit_tree():
+	if aoi_count > 0:
+		logging.add_aoi(aoi)
+
+func _on_taunts_finished():
+	$talk.visible = false
