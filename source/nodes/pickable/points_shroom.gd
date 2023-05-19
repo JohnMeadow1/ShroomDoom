@@ -4,7 +4,8 @@ var pickable        := false
 var max_size        := 20.0
 var growth_rate     := 0.6
 var shroom_material := [preload("res://nodes/pickable/model/points_shroom_3.material"),preload("res://nodes/pickable/model/points_shroom_4.material") ]
-var b_box_points  := PackedVector3Array([Vector3(1,2,0), Vector3(-1,2,0),Vector3(1,-2,0), Vector3(-1,-2,0)])
+#var b_box_points  := PackedVector3Array([Vector3(1,2,-0.5), Vector3(-1,2,-0.5),Vector3(1,-0.5,0.6), Vector3(-1,-0.5, 0.6)])
+#var b_box_points  := PackedVector3Array()
 var is_on_screen := false
 
 var aoi_count := 0
@@ -33,6 +34,12 @@ func _ready():
 	mesh.rotation.y        = randf_range(0,360)
 	mesh.material_override = shroom_material[randi()%2]
 	%groans.play()
+	aoi.Name += str(globals.spawned_shroom) 
+#	mesh.scale = Vector3.ONE * 20
+#	var bounding_box: AABB = mesh.get_aabb()
+#	bounding_box = bounding_box.grow(1)
+#	for i in 8:
+#		b_box_points.append( bounding_box.get_endpoint(i)  )
 	
 func _physics_process(delta):
 	logging.add_shroom_position( Vector2(global_position.x,global_position.z) )
@@ -41,22 +48,27 @@ func _physics_process(delta):
 		
 	if is_on_screen:
 		update_on_screen_rect(true)
+		
+	$CanvasLayer.visible = globals.debug
 
 func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
+		if not globals.cameras[camera_id].is_position_in_frustum(global_position):
+			continue
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(global_position) 
-		for i in b_box_points.size():
-			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(to_global(b_box_points[i])))
+		for marker in mesh.get_children():
+			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(marker.global_position))
 		var vieport_size = get_viewport().size * 0.5
 		var vieport_rect = Rect2(Vector2.ZERO, vieport_size)
 		bounding_rect = bounding_rect.intersection(vieport_rect)
 		var vieport_offset = Vector2( (floori(camera_id/2.0))%2, camera_id%2)
 
 		bounding_rect.position += vieport_offset * vieport_size
-		if bounding_rect.size.length():
-			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
+		if bounding_rect.size.length() > 4:
+#			print(bounding_rect)
+			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id, Color.GREEN)
 			add_aoi(bounding_rect, active)
 
 func add_aoi(bbox:Rect2, active:bool) ->void :
