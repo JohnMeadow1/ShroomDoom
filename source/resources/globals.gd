@@ -14,6 +14,10 @@ var won                := false
 var timer              := 3.0
 var screen             := Vector2()
 var cameras            := [null,null,null,null]
+var players            := [null,null,null,null]
+var spawned_shroom     := 0
+var difficulty         := 1.0
+var debug              := false
 
 func _ready():
 	timer = 3

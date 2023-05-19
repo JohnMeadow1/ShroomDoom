@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var RANGE: int
 
-const MOVE_BALANCE = 5
+const MOVE_BALANCE = 0.0833333
 
 const MOVE_SPEED_WALK  = 10 * MOVE_BALANCE
 const MOVE_SPEED_CHASE = 50 * MOVE_BALANCE
@@ -61,10 +61,9 @@ func _ready():
 		b_box_points.append( bounding_box.get_endpoint(i)  )
 	
 	aoi.Name = name
-	
 	$Label3D.text = name
 #	if not is_visible_in_tree():
-#		queue_free()
+	queue_free()
 
 func _physics_process(delta):
 	logging.add_goat_position_velocity(Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
@@ -82,6 +81,9 @@ func _physics_process(delta):
 	
 	if is_on_screen:
 		update_on_screen_rect(true)
+		
+	$CanvasLayer.visible = globals.debug
+	$Label3D.visible = globals.debug
 
 func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
@@ -98,7 +100,7 @@ func update_on_screen_rect(active:bool):
 
 		bounding_rect.position += vieport_offset * vieport_size
 		if bounding_rect.size.length():
-			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id)
+			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id, Color.RED)
 			add_aoi(bounding_rect, active)
 
 #func update_on_screen_rect_1():
@@ -133,7 +135,7 @@ func idle(delta):
 		state = STATE_CHASE
 		time = 0;
 
-func chase(delta):
+func chase(_delta):
 	var distance = self.position.distance_to(target.position)
 		
 	var direction = target.position - self.position
@@ -143,14 +145,14 @@ func chase(delta):
 	look_at(target.position, Vector3(0,1,0))
 	
 	if distance > RUN_DISTANCE:
-		offset = MOVE_SPEED_CHASE * delta
+		offset = MOVE_SPEED_CHASE * globals.difficulty
 		set_velocity(direction * offset)
 		move_and_slide()
 		position.y = originPosition.y
 		%exclamation_mark.modulate = Color(1,1,1,  (RUN_DISTANCE - clamp(distance- (RUN_DISTANCE_2), 0, RUN_DISTANCE)) / RUN_DISTANCE ) 
 	else:
 		%exclamation_mark.modulate = Color(1,1,1,0)
-		offset = MOVE_SPEED_RUN * delta
+		offset = MOVE_SPEED_RUN
 		var collision = move_and_collide(direction * offset)
 		if collision && collision.get_collider().get_name() == target.get_name():
 			target.push(direction, null)
@@ -163,7 +165,7 @@ func chase(delta):
 				targets.pop_front()
 				target = targets.front()
 
-func back(delta):
+func back(_delta):
 	var direction = originPosition - self.position
 	
 #	get_node("steps/Steps_" + str( randi() % 12 + 1 ) ).play()
@@ -171,7 +173,7 @@ func back(delta):
 	if direction.length_squared() >1:
 		direction = direction.normalized()
 		look_at(originPosition, Vector3(0,1,0))
-		offset = MOVE_SPEED_WALK * delta
+		offset = MOVE_SPEED_WALK
 		direction.y = 0
 		set_velocity(direction * offset)
 		move_and_slide()

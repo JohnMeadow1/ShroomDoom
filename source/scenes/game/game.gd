@@ -5,6 +5,10 @@ var previos_leed := -1
 @onready var score = $GUI/Margin/VBox/Control/Score
 @onready var viewports_container = $ViewportsContainer
 var paused := false
+var game_time := 0.0
+var game_start := 0.0
+var spawn_rate := PackedFloat32Array()
+var tick := 0
 
 var colors: PackedColorArray = PackedColorArray( [Color(1,0,0), Color(0,1,0), Color(1,0,1), Color(0,0,1)] )
 
@@ -19,22 +23,30 @@ func _ready():
 	for i in range(2, 5):
 		enable_player(i)
 	get_tree().paused = true
+	game_start = Time.get_ticks_msec()
+	
 #	process_mode = PROCESS_MODE_PAUSABLE
-		
+func difficulty_scaling():
+	var difficulty_drop_start = 48.0
+	var difficulty_drop_duration = 30.0
+	if game_time > difficulty_drop_start:
+		globals.difficulty = 1.0 - min(0.5, max(0.0, game_time - difficulty_drop_start) / (difficulty_drop_duration * 2) )
+	if globals.debug:
+		$CanvasLayer/Label2.text = str("time: %d:%02d" %[floor(game_time/60),int(game_time)%60] , "sec, difficulty: ", round(globals.difficulty*100)/100)
+
 func _physics_process(delta):
-#	if globals.player_count <= 4:
-#		for i in range(2, 5):
-##			print(i, globals.player_count,globals.players_enabled)
-#			if Input.is_action_just_pressed("action_p" + str(i)) && !globals.players_enabled[i-1]:
-#				enable_player(i)
-#
-#				if globals.player_count == 2:
-#					viewports_container.columns = 2
-#				globals.player_count += 1
-		
+	game_time = (Time.get_ticks_msec() - game_start)/1000.0
+	difficulty_scaling()
+	
+	if globals.debug:
+		$CanvasLayer/Label.text = str("shrooms: ",globals.spawned_shroom, " spawn rate: ",round((float(globals.spawned_shroom) / game_time)*10)/10.0, "/s")
+		tick += 1
+		tick %= 10
+		if not tick:
+			spawn_rate.append(globals.spawned_shroom)
+	
 	if timer > 0:
 		timer -= delta
-#		score.modulate.a = min(timer, 1)
 		$GUI/Margin/VBox/Control.modulate.a = min(timer, 1)
 		if timer < 0 && previos_leed == -1:
 			$GUI/Margin/VBox/Control/TextureRect.visible = false
@@ -57,13 +69,17 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Escape"):
 		get_tree().change_scene_to_file("res://scenes/victory_screen/victory_screen.tscn")
+		
+	if Input.is_action_just_pressed("debug_toggle"):
+		globals.debug = not globals.debug
+		$CanvasLayer.visible = globals.debug
 
 func enable_player(id:int) -> void:
 		globals.players_enabled[id-1] = true
 		if globals.player_count == 3:
 			get_node("ViewportsContainer/Player"+str(4)).visible = true
 		get_node("ViewportsContainer/Player"+str(globals.player_count)).visible = true
-		var new_player = preload("res://nodes/player/player.tscn").instantiate()
+		var new_player = preload("res://nodes/player/player_new.tscn").instantiate()
 		var spawn_position = get_node("ViewportsContainer/Player"+str(globals.player_count)+"/SubViewport/player_spawn").global_position
 		new_player.player_texture = load("res://nodes/player/model/player_"+str(globals.player_count)+".png")
 		new_player.PLAYER_NUM = globals.player_count
@@ -79,3 +95,4 @@ func enable_player(id:int) -> void:
 func _input(event):
 	if not (event is InputEventMouseMotion):
 		logging.add_input(event.as_text())
+
