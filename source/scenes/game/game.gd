@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 var timer        := 1.0
 var previos_leed := -1
@@ -18,10 +18,9 @@ func _ready():
 	globals.player_score_label[2] = $GUI/Margin/VBox/HBox2/HBox/Player_score3
 	globals.player_score_label[3] = $GUI/Margin/VBox/HBox2/HBox2/Player_score4
 	globals.player_score          = [0,0,0,0]
-	globals.players_enabled       = [true,false,false,false]
 	globals.player_count          = 2
-	for i in range(2, 5):
-		enable_player(i)
+#	for i in range(2, 5):
+#		enable_player(i)
 	get_tree().paused = true
 	game_start = Time.get_ticks_msec()
 	
@@ -75,7 +74,6 @@ func _physics_process(delta):
 		$CanvasLayer.visible = globals.debug
 
 func enable_player(id:int) -> void:
-		globals.players_enabled[id-1] = true
 		if globals.player_count == 3:
 			get_node("ViewportsContainer/Player"+str(4)).visible = true
 		get_node("ViewportsContainer/Player"+str(globals.player_count)).visible = true

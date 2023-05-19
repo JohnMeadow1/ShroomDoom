@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7o053tqqd5m2"]
+[gd_scene load_steps=14 format=3 uid="uid://c7o053tqqd5m2"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_4gxji"]
 [ext_resource type="PackedScene" uid="uid://brsx201tf1fsy" path="res://nodes/map/world.tscn" id="2_w0xyy"]
 [ext_resource type="PackedScene" uid="uid://b3h7ws5vq577b" path="res://nodes/player/player_new.tscn" id="3_6254j"]
 [ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_upqfu"]
+[ext_resource type="Texture2D" uid="uid://kwr6cejhc44" path="res://nodes/player/model/player_2.png" id="5_nhcm3"]
 [ext_resource type="PackedScene" uid="uid://c3bt4rg67wn8q" path="res://resources/gui/gui.tscn" id="5_o770i"]
 [ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="6_53x1c"]
+[ext_resource type="Texture2D" uid="uid://cf5sym66uo7nm" path="res://nodes/player/model/player_3.png" id="6_elndm"]
+[ext_resource type="Texture2D" uid="uid://co8jq1o0275st" path="res://nodes/player/model/player_4.png" id="7_ixhq8"]
 [ext_resource type="AudioStream" uid="uid://c5bda5dqfxbty" path="res://sfx/ambience_forest.wav" id="7_wvqa0"]
+[ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="8_pbh7b"]
 
 [sub_resource type="GDScript" id="GDScript_74j5c"]
 script/source = "extends Node
@@ -31,7 +35,7 @@ func _draw():
 	var vieport_size = get_viewport().size * 0.5
 	for camera_id in globals.cameras.size():
 		var vieport_offset = Vector2((floori(camera_id/2.0))%2, camera_id%2 )
-		var vieport_rect = Rect2(vieport_offset * vieport_size, vieport_size)
+		var vieport_rect = Rect2(vieport_offset * vieport_size+Vector2.ONE, vieport_size-Vector2.ONE)
 		draw_rect(vieport_rect, Color.GREEN, false)
 	var parent = get_parent().get_parent()
 	for i in parent.spawn_rate.size()-1:
@@ -57,7 +61,7 @@ func _draw():
 #		bounding_rect = bounding_rect.intersection(vieport_rect)
 "
 
-[node name="viewports" type="Node"]
+[node name="viewports" type="Node3D"]
 script = ExtResource("1_4gxji")
 
 [node name="Pauser" type="Node" parent="."]
@@ -65,6 +69,29 @@ process_mode = 2
 script = SubResource("GDScript_74j5c")
 
 [node name="world" parent="." instance=ExtResource("2_w0xyy")]
+
+[node name="player1" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.56, 0, -61.467)
+player_texture = ExtResource("4_upqfu")
+camera_node = NodePath("../../ViewportsContainer/Player1/SubViewport/Marker3D")
+
+[node name="player2" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
+PLAYER_NUM = 2
+player_texture = ExtResource("5_nhcm3")
+camera_node = NodePath("../../ViewportsContainer/Player2/SubViewport/player_spawn")
+
+[node name="player3" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.211, 0, -89.808)
+PLAYER_NUM = 3
+player_texture = ExtResource("6_elndm")
+camera_node = NodePath("../../ViewportsContainer/Player3/SubViewport/player_spawn")
+
+[node name="player4" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
+PLAYER_NUM = 4
+player_texture = ExtResource("7_ixhq8")
+camera_node = NodePath("../../ViewportsContainer/Player4/SubViewport/player_spawn")
 
 [node name="ViewportsContainer" type="GridContainer" parent="."]
 anchors_preset = 15
@@ -80,19 +107,27 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ViewportsContainer/Player1"]
 handle_input_locally = false
+audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 gui_disable_input = true
 size = Vector2i(958, 538)
 render_target_update_mode = 4
 
-[node name="player" parent="ViewportsContainer/Player1/SubViewport" instance=ExtResource("3_6254j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.56, 0, -61.467)
-player_texture = ExtResource("4_upqfu")
-player_enabled = true
-
 [node name="Marker3D" type="Marker3D" parent="ViewportsContainer/Player1/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.56, 0, -61.467)
 gizmo_extents = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player1/SubViewport/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
+environment = ExtResource("8_pbh7b")
+current = true
+fov = 60.0
+size = 10.0
+far = 1000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="ViewportsContainer/Player1/SubViewport/Marker3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.75471, 0, 0.75471, 0.656059, 0, 4.76006, -17.388)
+current = true
 
 [node name="Player3" type="SubViewportContainer" parent="ViewportsContainer"]
 layout_mode = 2
@@ -102,6 +137,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ViewportsContainer/Player3"]
 handle_input_locally = false
+audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 gui_disable_input = true
 size = Vector2i(958, 538)
@@ -111,6 +147,18 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.211, 0, -89.808)
 gizmo_extents = 1.0
 
+[node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player3/SubViewport/player_spawn"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
+environment = ExtResource("8_pbh7b")
+current = true
+fov = 60.0
+size = 10.0
+far = 1000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="ViewportsContainer/Player3/SubViewport/player_spawn/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76006, -17.388)
+current = true
+
 [node name="Player2" type="SubViewportContainer" parent="ViewportsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -119,6 +167,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ViewportsContainer/Player2"]
 handle_input_locally = false
+audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 gui_disable_input = true
 size = Vector2i(958, 538)
@@ -128,6 +177,18 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
 gizmo_extents = 5.0
 
+[node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player2/SubViewport/player_spawn"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
+environment = ExtResource("8_pbh7b")
+current = true
+fov = 60.0
+size = 10.0
+far = 1000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="ViewportsContainer/Player2/SubViewport/player_spawn/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76006, -17.388)
+current = true
+
 [node name="Player4" type="SubViewportContainer" parent="ViewportsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,6 +197,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ViewportsContainer/Player4"]
 handle_input_locally = false
+audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 gui_disable_input = true
 size = Vector2i(958, 538)
@@ -143,6 +205,18 @@ render_target_update_mode = 4
 
 [node name="player_spawn" type="Marker3D" parent="ViewportsContainer/Player4/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
+
+[node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player4/SubViewport/player_spawn"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
+environment = ExtResource("8_pbh7b")
+current = true
+fov = 60.0
+size = 10.0
+far = 1000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="ViewportsContainer/Player4/SubViewport/player_spawn/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76006, -17.388)
+current = true
 
 [node name="GUI" parent="." instance=ExtResource("5_o770i")]
 
