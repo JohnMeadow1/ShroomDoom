@@ -9,7 +9,8 @@ var PLAYER_CONTROLS :int = 1
 @export var player_texture: Texture2D
 @export var player_enabled = false
 enum {STATE_IDLE, STATE_WALK, STATE_FIGHT, STATE_STUN}
-
+@export var camera_node :Marker3D
+var camera :Camera3D
 var drag_item :Node3D = null
 var state     := 0
 var stun_time := 0.0
@@ -58,12 +59,15 @@ func _ready():
 	base_rotation[1] = eye_2.rotation
 	$Node3D/MeshInstance3D.material_override = preload("res://nodes/player/model/player.material").duplicate()
 	$Node3D/MeshInstance3D.material_override.set("albedo_texture",player_texture)
-	globals.cameras[PLAYER_NUM-1] = %Camera3D
+	camera = camera_node.get_child(0)
+	globals.cameras[PLAYER_NUM-1] = camera
 	globals.players[PLAYER_NUM-1] = self
+
 	aoi.Name = name
 	
 	prints("camera added:", PLAYER_NUM)
 	$Label3D.text = str("player:",PLAYER_NUM-1," camera:",PLAYER_NUM)
+	enable_player(PLAYER_NUM)
 
 func _physics_process(delta):
 	update_on_screen_rect(true)
@@ -183,13 +187,14 @@ func _physics_process(delta):
 	eye_2.rotation.x = base_rotation[1].x + sin( walk_cycle ) * 0.2 
 	eye_2.rotation.z = base_rotation[1].z + cos( walk_cycle ) * 0.6 - PI/5
 #	$Node3D/eye_node2.rotation = base_rotation[1]
+	camera_node.global_position = global_position
 
 func enable_player(player_id):
 #	PLAYER_CONTROLS = 1
 	PLAYER_CONTROLS = player_id
 	player_enabled = true
-	globals.add_score(self.PLAYER_NUM, 0)
-
+	globals.player_count += 1
+#	globals.add_score(self.PLAYER_NUM, 0)
 	
 func push(direction, player):
 	if self.state == STATE_STUN:
@@ -221,7 +226,7 @@ func pop_shrooms(amount):
 	for i in range(spawn):
 		var new_pop = drop_shroom_object.instantiate()
 		new_pop.position = self.position
-		$"../../../../world".add_child(new_pop)
+		get_parent().add_child(new_pop)
 	
 func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
@@ -247,17 +252,9 @@ func update_on_screen_rect(active:bool):
 		bounding_rect = bounding_rect.intersection(vieport_rect)
 
 		var vieport_offset = Vector2i( (floori((PLAYER_NUM-1)/2.0))%2, (PLAYER_NUM-1)%2)
-#
-#		bounding_rect.position += Vector2(vieport_offset * vieport_size) 
 		if bounding_rect.size.length()>4:
-#			if bounding_rect.get_area() > (vieport_size.x * vieport_size.y)*0.6:
-#				prints( %Camera3D.global_position.z, tested_global_position_center)
-#				print (bounding_rect)    
-  
 			%on_screen_debug._update_rect_for_camera(bounding_rect, player_id, Color.BLUE)
 			bounding_rect.position += Vector2(vieport_offset * vieport_size) 
-#			bounding_rect.size *= 0.5
-#			print("-----player ",PLAYER_NUM-1,"-------cam ",player_id+1,bounding_rect)
 			add_aoi(bounding_rect, active)
 			
 func add_aoi(bbox:Rect2, active:bool) ->void :

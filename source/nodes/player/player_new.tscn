@@ -1,7 +1,6 @@
-[gd_scene load_steps=56 format=3 uid="uid://b3h7ws5vq577b"]
+[gd_scene load_steps=55 format=3 uid="uid://b3h7ws5vq577b"]
 
 [ext_resource type="Script" path="res://nodes/player/player.gd" id="1_xjtm2"]
-[ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="2_mx1ba"]
 [ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="3_4dk4f"]
 [ext_resource type="ArrayMesh" uid="uid://blfupjcqpulsu" path="res://nodes/player/model/player_front.obj" id="4_68bxg"]
 [ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="5_22iyc"]
@@ -273,24 +272,13 @@ stream_3/stream = ExtResource("41_myydr")
 stream_3/weight = 1.0
 
 [node name="player" type="CharacterBody3D" groups=["players"]]
+floor_stop_on_slope = false
 script = ExtResource("1_xjtm2")
+player_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("1")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-current = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
-environment = ExtResource("2_mx1ba")
-current = true
-fov = 60.0
-size = 10.0
-far = 1000.0
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -363,6 +351,7 @@ stream = SubResource("AudioStreamRandomizer_3pa52")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
+visible = false
 billboard = 1
 text = "0"
 
