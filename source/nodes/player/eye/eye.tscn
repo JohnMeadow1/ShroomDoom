@@ -26,10 +26,11 @@ subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.21
 
 [node name="eye_node" type="Node3D"]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="outer eye" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0254, 0, -2.22054e-09, 0, 0.0254, 0, 2.22054e-09, 0, -0.0254, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_jvtwa")
 mesh = ExtResource("1")
 
