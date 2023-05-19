@@ -1,16 +1,16 @@
 [gd_scene load_steps=17 format=3 uid="uid://d0682vqqyu02k"]
 
-[ext_resource type="Script" path="res://scenes/victory_screen/final.gd" id="1_tyb44"]
-[ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_4gtkr"]
-[ext_resource type="AudioStream" uid="uid://qucpi2u7qk18" path="res://scenes/victory_screen/nuclear_explosion.wav" id="2_r67y5"]
-[ext_resource type="Texture2D" uid="uid://2lmdrie74jsf" path="res://scenes/victory_screen/sprites/nuke4.png" id="3_bgana"]
-[ext_resource type="Texture2D" uid="uid://d0lxfrsovfvpj" path="res://scenes/victory_screen/sprites/nuke2.png" id="4_ww5w7"]
-[ext_resource type="Texture2D" uid="uid://bvymtng5m1doh" path="res://scenes/victory_screen/sprites/nuke1.png" id="5_hh2wf"]
-[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="7_vshej"]
-[ext_resource type="Texture2D" uid="uid://ck6cp624cu8a1" path="res://scenes/victory_screen/sprites/Vignette_(SuperTux).png" id="8_cd1dq"]
+[ext_resource type="Script" path="res://scenes/victory_screen/victory_screen.gd" id="1_cbb77"]
+[ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_iflsy"]
+[ext_resource type="Texture2D" uid="uid://d0lxfrsovfvpj" path="res://scenes/victory_screen/sprites/nuke2.png" id="3_xe7qj"]
+[ext_resource type="Texture2D" uid="uid://2lmdrie74jsf" path="res://scenes/victory_screen/sprites/nuke4.png" id="4_5iln4"]
+[ext_resource type="Texture2D" uid="uid://bvymtng5m1doh" path="res://scenes/victory_screen/sprites/nuke1.png" id="5_ivr84"]
+[ext_resource type="Texture2D" uid="uid://ck6cp624cu8a1" path="res://scenes/victory_screen/sprites/Vignette_(SuperTux).png" id="6_trjrl"]
+[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="7_3i41y"]
+[ext_resource type="AudioStream" uid="uid://qucpi2u7qk18" path="res://scenes/victory_screen/nuclear_explosion.wav" id="8_1edun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_crlvd"]
-font = ExtResource("7_vshej")
+font = ExtResource("7_3i41y")
 font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_8f5yx"]
@@ -60,7 +60,7 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shroom:scale")
+tracks/0/path = NodePath("Node2D/shroom:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +72,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("shroom:position")
+tracks/1/path = NodePath("Node2D/shroom:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +91,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_r67y5")
+"stream": ExtResource("8_1edun")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -111,7 +111,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/path = NodePath("Vignete:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -123,7 +123,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("back_cloud:position")
+tracks/5/path = NodePath("Node2D/back_cloud:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -135,7 +135,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("front_cloud:position")
+tracks/6/path = NodePath("Node2D/front_cloud:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -147,7 +147,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("back_cloud:scale")
+tracks/7/path = NodePath("Node2D/back_cloud:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -159,7 +159,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("front_cloud:scale")
+tracks/8/path = NodePath("Node2D/front_cloud:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -186,7 +186,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shroom:scale")
+tracks/0/path = NodePath("Node2D/shroom:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -198,14 +198,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("shroom:position")
+tracks/1/path = NodePath("Node2D/shroom:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(752, 478)]
+"values": [Vector2(1007, 1245)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -222,7 +222,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/path = NodePath("Vignete:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -234,50 +234,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("back_cloud:position")
+tracks/4/path = NodePath("Node2D/back_cloud:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 912)]
+"values": [Vector2(958.6, 945)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("front_cloud:position")
+tracks/5/path = NodePath("Node2D/front_cloud:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 923)]
+"values": [Vector2(958.6, 1016.2)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("back_cloud:scale")
+tracks/6/path = NodePath("Node2D/back_cloud:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.3, 1.3)]
+"values": [Vector2(1.66, 1.66)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("front_cloud:scale")
+tracks/7/path = NodePath("Node2D/front_cloud:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1.66, 1.66)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -289,7 +289,19 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.08, 1.08)]
+"values": [Vector2(1.01, 1.01)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmaha"]
@@ -298,14 +310,14 @@ _data = {
 "RESET": SubResource("Animation_80sck")
 }
 
-[node name="final" type="Control"]
+[node name="victory_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tyb44")
+script = ExtResource("1_cbb77")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -317,28 +329,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.08, 1.08)
+scale = Vector2(1.01, 1.01)
 pivot_offset = Vector2(960, 1060)
-texture = ExtResource("2_4gtkr")
+texture = ExtResource("2_iflsy")
 
-[node name="back_cloud" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, 912)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("4_ww5w7")
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="shroom" type="Sprite2D" parent="."]
+[node name="back_cloud" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
-position = Vector2(752, 478)
-texture = ExtResource("3_bgana")
+position = Vector2(958.6, 945)
+scale = Vector2(1.66, 1.66)
+texture = ExtResource("3_xe7qj")
+
+[node name="shroom" type="Sprite2D" parent="Node2D"]
+unique_name_in_owner = true
+position = Vector2(1007, 1245)
+texture = ExtResource("4_5iln4")
 offset = Vector2(0, -290)
 
-[node name="front_cloud" type="Sprite2D" parent="."]
+[node name="front_cloud" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
-position = Vector2(0, 923)
-texture = ExtResource("5_hh2wf")
+position = Vector2(958.6, 1016.2)
+scale = Vector2(1.66, 1.66)
+texture = ExtResource("5_ivr84")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Vignete" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -346,7 +361,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_cd1dq")
+texture = ExtResource("6_trjrl")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -359,17 +374,10 @@ label_settings = SubResource("LabelSettings_crlvd")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -208.0
-offset_top = -88.0
-offset_right = -80.0
-offset_bottom = -40.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 142.0
+offset_bottom = 136.0
 text = "Saving."
 label_settings = SubResource("LabelSettings_8f5yx")
 

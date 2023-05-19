@@ -12,12 +12,11 @@ var victory_label      := "no"
 #var winnerLabel        := null
 var won                := false
 var timer              := 3.0
-var screen             := Vector2i()
+var screen             := Vector2()
 var cameras            := [null,null,null,null]
 
 func _ready():
 	timer = 3
-	screen = Vector2i(1024,600)
 
 #func _physics_process(delta):
 ##	if won && timer > 0:

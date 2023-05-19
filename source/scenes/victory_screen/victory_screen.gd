@@ -8,9 +8,11 @@ var timer      = 8
 #var ratio      = Vector2()
 
 func _ready():
-	scale = get_viewport().size / globals.screen
+	scale = Vector2(get_viewport().size)  / globals.screen
 	$Label.text += globals.victory_label +" player won?"
 	logging.save_logs()
+#	$Node2D.scale = scale
+#	prints(globals.screen, get_viewport().size,  scale)
 
 func _physics_process(delta):
 	if timer<=0:

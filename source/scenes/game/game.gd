@@ -56,7 +56,7 @@ func _physics_process(delta):
 	logging.add_frame()
 	
 	if Input.is_action_just_pressed("Escape"):
-		get_tree().change_scene_to_file("res://scenes/victory_screen/final.tscn")
+		get_tree().change_scene_to_file("res://scenes/victory_screen/victory_screen.tscn")
 
 func enable_player(id:int) -> void:
 		globals.players_enabled[id-1] = true

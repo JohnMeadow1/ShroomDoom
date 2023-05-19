@@ -46,7 +46,7 @@ func checkWin(player):
 	if score >= neededShrooms:
 		label.text = "Hmm.\nActualy I need\n%s more shrooms" % neededShrooms
 		globals.win(player)
-		get_tree().change_scene_to_file("res://scenes/victory_screen/final.tscn")
+		get_tree().change_scene_to_file("res://scenes/victory_screen/victory_screen.tscn")
 		timer = -5000
 	else:
 		label.text = "It's not enough\nYou need\n%s more shrooms!" % (neededShrooms - score)

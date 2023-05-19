@@ -245,7 +245,7 @@ script = ExtResource("7_281sf")
 [node name="hiryu" type="Sprite2D" parent="Node2D"]
 z_index = 1
 texture_filter = 1
-position = Vector2(861, 410)
+position = Vector2(900, 433)
 scale = Vector2(2, 2)
 texture = ExtResource("7_wd4d6")
 flip_h = true
@@ -307,7 +307,7 @@ label_settings = SubResource("LabelSettings_x7l0c")
 [node name="neina" type="Sprite2D" parent="Node2D"]
 z_index = 1
 texture_filter = 1
-position = Vector2(77, 288)
+position = Vector2(130, 288)
 scale = Vector2(2, 2)
 texture = ExtResource("9_hhsqp")
 flip_h = true
