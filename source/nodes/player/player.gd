@@ -230,23 +230,18 @@ func pop_shrooms(amount):
 	
 func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
-
 	for player_id in globals.players.size():
 		if globals.players[player_id] == self:
 			continue
-		var tested_global_position = globals.players[player_id].global_position
-		if not %Camera3D.is_position_behind(tested_global_position):
-			continue
 			
-		bounding_rect = Rect2() 
-		bounding_rect.position = %Camera3D.unproject_position( tested_global_position ) 
-		var bounding_rect_1 = bounding_rect
-		var bounding_rects = []
-		bounding_rects.resize(b_box_points.size())
+		bounding_rect = Rect2()
+		var tested_global_position = globals.players[player_id].global_position
+		bounding_rect.position = camera.unproject_position( tested_global_position ) 
 		for i in b_box_points.size():
-			tested_global_position = globals.players[player_id].b_box_points[i]
-			bounding_rect = bounding_rect.expand(%Camera3D.unproject_position(globals.players[player_id].to_global(tested_global_position)))
-			bounding_rects[i] = bounding_rect
+			tested_global_position = globals.players[player_id].to_global(globals.players[player_id].b_box_points[i])
+			if not camera.is_position_behind(tested_global_position):
+				continue
+			bounding_rect = bounding_rect.expand(camera.unproject_position(tested_global_position))
 		var vieport_size = get_viewport().size
 		var vieport_rect = Rect2(Vector2.ZERO,vieport_size)
 		bounding_rect = bounding_rect.intersection(vieport_rect)
