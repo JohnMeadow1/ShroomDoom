@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cny0ucvl3ywkb"]
+[gd_scene load_steps=14 format=3 uid="uid://cny0ucvl3ywkb"]
 
 [ext_resource type="Script" path="res://nodes/sage/sage.gd" id="1_xksnm"]
 [ext_resource type="ArrayMesh" uid="uid://kd6eaqub5evf" path="res://nodes/sage/model/nuke.obj" id="2_rpp1k"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bcurunqiyqk3i" path="res://nodes/sage/model/the_bomb.png" id="3_jrel0"]
 [ext_resource type="PackedScene" uid="uid://ysjxsxvv8782" path="res://nodes/sage/sage_character.tscn" id="4"]
 [ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="5_06jji"]
+[ext_resource type="AudioStream" uid="uid://2p2it3x3n01f" path="res://nodes/sage/sfx/mumble-01.wav" id="7_j4av6"]
+[ext_resource type="AudioStream" uid="uid://t6gaufckfs5r" path="res://nodes/sage/sfx/mumble-02.wav" id="8_w3hq5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w21ew"]
 albedo_texture = ExtResource("3_jrel0")
@@ -24,6 +26,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ViewportTexture" id="4"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j7syv"]
+streams_count = 2
+stream_0/stream = ExtResource("7_j4av6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_w3hq5")
+stream_1/weight = 1.0
 
 [node name="NPC" type="StaticBody3D" groups=["sage"]]
 script = ExtResource("1_xksnm")
@@ -61,7 +70,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cloud" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25578, 5.13658, 0)
+transform = Transform3D(1, 0, 0, 0, 0.863343, -0.504618, 0, 0.504618, 0.863343, 4.95107, 6.25281, 0.811027)
 flip_h = true
 texture = ExtResource("3_2rcbq")
 
@@ -74,7 +83,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 625, 290)
 
 [node name="Label3D" type="Label3D" parent="Cloud"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.259544, -0.01)
+transform = Transform3D(-1, 0, -8.74228e-08, -3.55271e-15, 1, 0, 8.74228e-08, 0, -1, 0, 0.386195, -0.210328)
 outline_render_priority = 0
 modulate = Color(0, 0, 0, 1)
 text = "Welcome!
@@ -85,14 +94,7 @@ font_size = 148
 outline_size = 18
 line_spacing = 48.0
 
-[node name="mumble_1" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+[node name="mumble" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_j7syv")
 volume_db = 80.0
-unit_size = 1.0
-max_distance = 25.0
-
-[node name="mumble_2" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-volume_db = 80.0
-unit_size = 1.0
-max_distance = 25.0
+max_distance = 60.0

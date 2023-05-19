@@ -17,6 +17,7 @@ var messages = ["I live checked %s\nYellow\nSub-Shrooms"
 ,"I need shrooms!\nBring me\n%s SHROOMS!"
 ,"Welcome!\nStay a %s Shrooms\nand listen."
 ,"Blood for Blood\nShroom for\n%s Shroom soups!"]
+@onready var mumble = $mumble
 
 func _ready():
 	cloud.visible = false;
@@ -35,7 +36,7 @@ func _physics_process(delta):
 		label.text = messages[messageIndex] % neededShrooms
 		cloud.visible = true
 		timer = 0
-		get_node("mumble_"+str(randi()%2+1)).play()
+		mumble.play()
 
 
 func checkWin(player):
