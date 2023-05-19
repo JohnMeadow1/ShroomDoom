@@ -107,7 +107,7 @@ texture = ExtResource("2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-7, 0, -1.05697e-06, 0, 7, 0, 1.05697e-06, 0, -7, 0, 0, -0.422902)
+transform = Transform3D(-7, 0, -1.05697e-06, 0, 7, 0, 1.05697e-06, 0, -7, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ht7k2")
 mesh = ExtResource("3_wls6x")
 
@@ -152,10 +152,12 @@ unique_name_in_owner = true
 script = ExtResource("27_8gwll")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.63, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3, 0)
 visible = false
 billboard = 1
-text = "0"
+text = "Goat 0"
+font_size = 24
+outline_size = 6
 
 [connection signal="screen_entered" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
