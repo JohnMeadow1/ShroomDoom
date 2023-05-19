@@ -705,43 +705,40 @@ transform = Transform3D(-2.55992, 0, -1.56423, 0, 3, 0, 1.56423, 0, -2.55992, 16
 metadata/_edit_lock_ = true
 
 [node name="Stump" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.40278, 0, -15.8687)
+transform = Transform3D(1.57992, 0, 1.22631, 0, 2, 0, -1.22631, 0, 1.57992, 2.40278, 0, -15.8687)
 
 [node name="Stump8" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 9.35812, 0, -15.9576)
+transform = Transform3D(2.01612, 0, 1.32949, 0, 2.41501, 0, -1.32949, 0, 2.01612, 9.35812, 0, -15.9576)
 
 [node name="Stump11" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, -3.81972, 0, -12.4609)
+transform = Transform3D(2.10017, 0, -1.19229, 0, 2.41501, 0, 1.19229, 0, 2.10017, -3.81972, 0, -12.4609)
 
 [node name="Stump9" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(2.41501, 0, 0, 0, 2.41501, 0, 0, 0, 2.41501, 2.47534, 0, -10.2883)
+transform = Transform3D(-2.0303, 0, -1.30773, 0, 2.41501, 0, 1.30773, 0, -2.0303, 2.47534, 0, -10.2883)
 
 [node name="Stump10" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(2.20838, 0, 0.977405, 0, 2.41501, 0, -0.977405, 0, 2.20838, 14.8029, 0, -17.4224)
+transform = Transform3D(-2.30585, 0, 0.717854, 0, 2.41501, 0, -0.717854, 0, -2.30585, 14.8029, 0, -17.4224)
 
 [node name="Stump2" parent="Cutdown" instance=ExtResource("34_7s85i")]
 transform = Transform3D(3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, 8.33523, 0, -12.378)
 
 [node name="Stump3" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.98141, 0, 0, 0, 3.98141, 0, 0, 0, 3.98141, -2.78414, 0, -17.3329)
+transform = Transform3D(0.345272, 0, 3.96641, 0, 3.98141, 0, -3.96641, 0, 0.345272, -2.78414, 0, -17.3329)
 
 [node name="Stump13" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302)
-
-[node name="Stump14" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, -7.25561, 0, -15.7302)
+transform = Transform3D(3.97793, 0, -0.166412, 0, 3.98141, 0, 0.166412, 0, 3.97793, -7.25561, 0, -15.7302)
 
 [node name="Stump15" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.07147, 0, 2.53332, 0, 3.98141, 0, -2.53332, 0, 3.07147, 8.04622, 0, -8.11064)
+transform = Transform3D(-3.26586, 0, 2.27724, 0, 3.98141, 0, -2.27724, 0, -3.26586, 8.04622, 0, -8.11064)
 
 [node name="Stump4" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 11.8096, 0, -17.937)
+transform = Transform3D(3.95159, 0, -0.486373, 0, 3.98141, 0, 0.486373, 0, 3.95159, 11.8096, 0, -17.937)
 
 [node name="Stump5" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, 4.67407, 0, -17.1961)
+transform = Transform3D(-3.17332, 0, -2.40451, 0, 3.98141, 0, 2.40451, 0, -3.17332, 4.67407, 0, -17.1961)
 
 [node name="Stump6" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.33708, 0, 2.17153, 0, 3.98141, 0, -2.17153, 0, 3.33708, -1.0887, 0, -12.8037)
+transform = Transform3D(-3.65253, 0, 1.58451, 0, 3.98141, 0, -1.58451, 0, -3.65253, -1.0887, 0, -12.8037)
 
 [node name="Stump7" parent="Cutdown" instance=ExtResource("34_7s85i")]
-transform = Transform3D(3.65861, 0, 1.57042, 0, 3.98141, 0, -1.57042, 0, 3.65861, 17.655, 0, -19.7801)
+transform = Transform3D(-3.44268, 0, -1.9999, 0, 3.98141, 0, 1.9999, 0, -3.44268, 17.655, 0, -19.7801)
