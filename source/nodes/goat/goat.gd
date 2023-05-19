@@ -63,7 +63,7 @@ func _ready():
 	aoi.Name = name
 	$Label3D.text = name
 #	if not is_visible_in_tree():
-	queue_free()
+#		queue_free()
 
 func _physics_process(delta):
 	logging.add_goat_position_velocity(Vector2(global_position.x, global_position.z), Vector2(velocity.x, velocity.z) )
@@ -92,6 +92,8 @@ func update_on_screen_rect(active:bool):
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(%MeshInstance3D.global_position) 
 		
 		for i in b_box_points.size():
+			if not globals.cameras[camera_id].is_position_in_frustum(%MeshInstance3D.to_global(b_box_points[i])):
+				continue
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(%MeshInstance3D.to_global(b_box_points[i])))
 		var vieport_size = get_viewport().size * 0.5
 		var vieport_rect = Rect2(Vector2.ZERO, vieport_size)

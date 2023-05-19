@@ -54,11 +54,11 @@ func _physics_process(delta):
 func update_on_screen_rect(active:bool):
 	var bounding_rect:Rect2 = Rect2()
 	for camera_id in globals.cameras.size():
-		if not globals.cameras[camera_id].is_position_in_frustum(global_position):
-			continue
 		bounding_rect = Rect2() 
 		bounding_rect.position = globals.cameras[camera_id].unproject_position(global_position) 
 		for marker in mesh.get_children():
+			if not globals.cameras[camera_id].is_position_in_frustum(marker.global_position):
+				continue
 			bounding_rect = bounding_rect.expand(globals.cameras[camera_id].unproject_position(marker.global_position))
 		var vieport_size = get_viewport().size * 0.5
 		var vieport_rect = Rect2(Vector2.ZERO, vieport_size)
@@ -66,7 +66,7 @@ func update_on_screen_rect(active:bool):
 		var vieport_offset = Vector2( (floori(camera_id/2.0))%2, camera_id%2)
 
 		bounding_rect.position += vieport_offset * vieport_size
-		if bounding_rect.size.length() > 4:
+		if bounding_rect.size.x * bounding_rect.size.y > 16:
 #			print(bounding_rect)
 			%on_screen_debug._update_rect_for_camera(bounding_rect, camera_id, Color.GREEN)
 			add_aoi(bounding_rect, active)
