@@ -204,7 +204,7 @@ func _store_data():
 	save_log.store_string(JSON.stringify(shroom_log))
 	save_log.close()
 	
-	save_log = FileAccess.open("user://%s_aois_%s_%s.json" % [test_name, date, time], FileAccess.WRITE)
+	save_log = FileAccess.open("user://%s_aois_%s_%s.aois" % [test_name, date, time], FileAccess.WRITE)
 	save_log.store_string(JSON.stringify(aoi_log))
 	save_log.close()
 
