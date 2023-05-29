@@ -1,9 +1,10 @@
 extends Node2D
 
-var bounding_box: = [Rect2(), Rect2(), Rect2(), Rect2()]
-var bounding_box_color: = PackedColorArray([Color.GHOST_WHITE,Color.GHOST_WHITE,Color.GHOST_WHITE,Color.GHOST_WHITE])
+var bounding_box := [Rect2(), Rect2(), Rect2(), Rect2()]
+var bounding_box_color := PackedColorArray([Color.GHOST_WHITE,Color.GHOST_WHITE,Color.GHOST_WHITE,Color.GHOST_WHITE])
 var bounding_box_count := 0
-var update: bool = false
+var update := false
+var color := Color.WHITE
 
 func _physics_process(_delta):
 	queue_redraw()
@@ -19,7 +20,10 @@ func _draw():
 	else:
 		set_physics_process(false)
 		
-func _update_rect_for_camera(new_bounding_box:Rect2, cam_id, color:Color):
+func __set_bbox_color(new_color) -> void:
+	color = new_color
+	
+func __update_rect_for_camera(new_bounding_box:Rect2):
 	if globals.debug and bounding_box_count < 4:
 		bounding_box[bounding_box_count] = new_bounding_box
 		bounding_box_color[bounding_box_count] = color

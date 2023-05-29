@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var shroom_object  = load("res://nodes/pickable/points_shroom.tscn")
+var shroom_object  = preload("res://nodes/pickable/points_shroom.tscn")
 var growing_timer  = 0.0
 var growing_shroom = null
 var growth_speed   = 10.0

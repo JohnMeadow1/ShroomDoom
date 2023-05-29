@@ -1,16 +1,16 @@
 [gd_scene load_steps=17 format=3 uid="uid://d0682vqqyu02k"]
 
-[ext_resource type="Script" path="res://scenes/victory_screen/victory_screen.gd" id="1_cbb77"]
-[ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_iflsy"]
-[ext_resource type="Texture2D" uid="uid://d0lxfrsovfvpj" path="res://scenes/victory_screen/sprites/nuke2.png" id="3_xe7qj"]
-[ext_resource type="Texture2D" uid="uid://2lmdrie74jsf" path="res://scenes/victory_screen/sprites/nuke4.png" id="4_5iln4"]
-[ext_resource type="Texture2D" uid="uid://bvymtng5m1doh" path="res://scenes/victory_screen/sprites/nuke1.png" id="5_ivr84"]
-[ext_resource type="Texture2D" uid="uid://ck6cp624cu8a1" path="res://scenes/victory_screen/sprites/Vignette_(SuperTux).png" id="6_trjrl"]
-[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="7_3i41y"]
-[ext_resource type="AudioStream" uid="uid://qucpi2u7qk18" path="res://scenes/victory_screen/nuclear_explosion.wav" id="8_1edun"]
+[ext_resource type="Script" path="res://scenes/victory_screen/victory_screen.gd" id="1_wcwng"]
+[ext_resource type="Texture2D" uid="uid://bpt4vidgbdalp" path="res://scenes/victory_screen/sprites/nuke3.png" id="2_qqxvq"]
+[ext_resource type="Texture2D" uid="uid://d0lxfrsovfvpj" path="res://scenes/victory_screen/sprites/nuke2.png" id="3_p331e"]
+[ext_resource type="Texture2D" uid="uid://2lmdrie74jsf" path="res://scenes/victory_screen/sprites/nuke4.png" id="4_hb1nk"]
+[ext_resource type="Texture2D" uid="uid://bvymtng5m1doh" path="res://scenes/victory_screen/sprites/nuke1.png" id="5_kpxmu"]
+[ext_resource type="Texture2D" uid="uid://ck6cp624cu8a1" path="res://scenes/victory_screen/sprites/Vignette_(SuperTux).png" id="6_o0ccg"]
+[ext_resource type="FontFile" uid="uid://f62yb0tmf8c8" path="res://resources/font/digital-7 (mono).ttf" id="7_bkepe"]
+[ext_resource type="AudioStream" uid="uid://qucpi2u7qk18" path="res://scenes/victory_screen/nuclear_explosion.wav" id="8_saa0y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_crlvd"]
-font = ExtResource("7_3i41y")
+font = ExtResource("7_bkepe")
 font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_8f5yx"]
@@ -91,7 +91,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_1edun")
+"stream": ExtResource("8_saa0y")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -317,7 +317,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cbb77")
+script = ExtResource("1_wcwng")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -331,7 +331,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.01, 1.01)
 pivot_offset = Vector2(960, 1060)
-texture = ExtResource("2_iflsy")
+texture = ExtResource("2_qqxvq")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -339,19 +339,19 @@ texture = ExtResource("2_iflsy")
 unique_name_in_owner = true
 position = Vector2(958.6, 945)
 scale = Vector2(1.66, 1.66)
-texture = ExtResource("3_xe7qj")
+texture = ExtResource("3_p331e")
 
 [node name="shroom" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
 position = Vector2(1007, 1245)
-texture = ExtResource("4_5iln4")
+texture = ExtResource("4_hb1nk")
 offset = Vector2(0, -290)
 
 [node name="front_cloud" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
 position = Vector2(958.6, 1016.2)
 scale = Vector2(1.66, 1.66)
-texture = ExtResource("5_ivr84")
+texture = ExtResource("5_kpxmu")
 
 [node name="Vignete" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -361,7 +361,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_trjrl")
+texture = ExtResource("6_o0ccg")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -13,6 +13,7 @@ var won                := false
 var timer              := 3.0
 var screen             := Vector2()
 var cameras            := [null,null,null,null]
+var cameras_offeset    := [ Vector2(0,0), Vector2(0,1), Vector2(1,0), Vector2(1,1) ]
 var players            := [null,null,null,null]
 var spawned_shroom     := 0
 var difficulty         := 1.0

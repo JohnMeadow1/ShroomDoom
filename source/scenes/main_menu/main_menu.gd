@@ -16,6 +16,15 @@ func _on_TextureRect_resized():
 func _physics_process(_delta):
 	if Input.is_action_just_released("ui_select"):
 		get_tree().change_scene_to_file("res://scenes/game/game.tscn")
+
+	if Input.is_action_just_released("Escape"):
+		get_tree().quit()
+		
+	if Input.is_action_just_pressed("toggle_taunts"):
+		AudioServer.set_bus_mute(1, not AudioServer.is_bus_mute(1))
+		
+	if Input.is_action_just_pressed("toggle_music"):
+		AudioServer.set_bus_mute(2, not AudioServer.is_bus_mute(2))
 		
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_F1:

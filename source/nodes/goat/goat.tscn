@@ -1,39 +1,39 @@
 [gd_scene load_steps=34 format=3 uid="uid://bu23hh3shsgi4"]
 
-[ext_resource type="Script" path="res://nodes/goat/goat.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://du0h1opy5evns" path="res://nodes/goat/sprites/exclamation.png" id="2"]
-[ext_resource type="ArrayMesh" uid="uid://21ub4wkap2yc" path="res://nodes/goat/model/goat.obj" id="3_wls6x"]
-[ext_resource type="Texture2D" uid="uid://cke8o21i64rjg" path="res://nodes/goat/model/goat.png" id="4_f5fkt"]
-[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="5"]
-[ext_resource type="AudioStream" uid="uid://cccebweevsagt" path="res://nodes/goat/sfx/goat_meeeh_-001.wav" id="6"]
-[ext_resource type="AudioStream" uid="uid://bblux0hoxhwlf" path="res://nodes/goat/sfx/goat_meeeh_-002.wav" id="7"]
-[ext_resource type="AudioStream" uid="uid://cfydblfmpvxhy" path="res://nodes/goat/sfx/goat_meeeh_-003.wav" id="8"]
-[ext_resource type="AudioStream" uid="uid://bobbjv2ossir5" path="res://nodes/goat/sfx/goat_meeeh_-004.wav" id="9"]
-[ext_resource type="AudioStream" uid="uid://cbaq2qdgospv6" path="res://nodes/goat/sfx/goat_meeeh_-005.wav" id="10"]
-[ext_resource type="AudioStream" uid="uid://tpjy2yuo2507" path="res://nodes/goat/sfx/goat_meeeh_-006.wav" id="11"]
-[ext_resource type="AudioStream" uid="uid://dl7ek4l7qgtx0" path="res://nodes/goat/sfx/goat_meeeh_-007.wav" id="12"]
-[ext_resource type="AudioStream" uid="uid://h1mrw10w6okj" path="res://nodes/goat/sfx/goat_meeeh_-008.wav" id="13"]
-[ext_resource type="AudioStream" uid="uid://clx82y0agrbwt" path="res://nodes/goat/sfx/koza_hit.wav" id="14_o21ll"]
-[ext_resource type="AudioStream" uid="uid://b0b8adod7cnid" path="res://nodes/goat/sfx/goat_footsteps-001.wav" id="15"]
-[ext_resource type="AudioStream" uid="uid://cb6qfldjcp7u7" path="res://nodes/goat/sfx/goat_footsteps-002.wav" id="16"]
-[ext_resource type="AudioStream" uid="uid://cvdvmu5qnxldj" path="res://nodes/goat/sfx/goat_footsteps-003.wav" id="17"]
-[ext_resource type="AudioStream" uid="uid://hm2qosih1vmo" path="res://nodes/goat/sfx/goat_footsteps-004.wav" id="18"]
-[ext_resource type="AudioStream" uid="uid://sghulc8slwrv" path="res://nodes/goat/sfx/goat_footsteps-005.wav" id="19"]
-[ext_resource type="AudioStream" uid="uid://curxgvaqypv0e" path="res://nodes/goat/sfx/goat_footsteps-006.wav" id="20"]
-[ext_resource type="AudioStream" uid="uid://dxgtn0k7a68ax" path="res://nodes/goat/sfx/goat_footsteps-007.wav" id="21"]
-[ext_resource type="AudioStream" uid="uid://dt2e71tpo53t6" path="res://nodes/goat/sfx/goat_footsteps-008.wav" id="22"]
-[ext_resource type="AudioStream" uid="uid://bserr138rguva" path="res://nodes/goat/sfx/goat_footsteps-009.wav" id="23"]
-[ext_resource type="AudioStream" uid="uid://b5qpm2xaqsyu0" path="res://nodes/goat/sfx/goat_footsteps-010.wav" id="24"]
-[ext_resource type="AudioStream" uid="uid://d1f5hwvq3abh2" path="res://nodes/goat/sfx/goat_footsteps-011.wav" id="25"]
-[ext_resource type="AudioStream" uid="uid://dgiwhe31clynq" path="res://nodes/goat/sfx/goat_footsteps-012.wav" id="26"]
-[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="27_8gwll"]
+[ext_resource type="Script" path="res://nodes/goat/goat.gd" id="1_ms0dr"]
+[ext_resource type="Texture2D" uid="uid://du0h1opy5evns" path="res://nodes/goat/sprites/exclamation.png" id="2_gq261"]
+[ext_resource type="Texture2D" uid="uid://cke8o21i64rjg" path="res://nodes/goat/model/goat.png" id="3_pe3kb"]
+[ext_resource type="ArrayMesh" uid="uid://21ub4wkap2yc" path="res://nodes/goat/model/goat.obj" id="4_2i614"]
+[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="5_g4ejo"]
+[ext_resource type="AudioStream" uid="uid://cccebweevsagt" path="res://nodes/goat/sfx/goat_meeeh_-001.wav" id="6_gflje"]
+[ext_resource type="AudioStream" uid="uid://bblux0hoxhwlf" path="res://nodes/goat/sfx/goat_meeeh_-002.wav" id="7_ttsri"]
+[ext_resource type="AudioStream" uid="uid://cfydblfmpvxhy" path="res://nodes/goat/sfx/goat_meeeh_-003.wav" id="8_8y6lp"]
+[ext_resource type="AudioStream" uid="uid://bobbjv2ossir5" path="res://nodes/goat/sfx/goat_meeeh_-004.wav" id="9_c8d0r"]
+[ext_resource type="AudioStream" uid="uid://cbaq2qdgospv6" path="res://nodes/goat/sfx/goat_meeeh_-005.wav" id="10_rmnp1"]
+[ext_resource type="AudioStream" uid="uid://tpjy2yuo2507" path="res://nodes/goat/sfx/goat_meeeh_-006.wav" id="11_5p2vj"]
+[ext_resource type="AudioStream" uid="uid://dl7ek4l7qgtx0" path="res://nodes/goat/sfx/goat_meeeh_-007.wav" id="12_23luw"]
+[ext_resource type="AudioStream" uid="uid://h1mrw10w6okj" path="res://nodes/goat/sfx/goat_meeeh_-008.wav" id="13_ptue2"]
+[ext_resource type="AudioStream" uid="uid://clx82y0agrbwt" path="res://nodes/goat/sfx/koza_hit.wav" id="14_ukes7"]
+[ext_resource type="AudioStream" uid="uid://b0b8adod7cnid" path="res://nodes/goat/sfx/goat_footsteps-001.wav" id="15_0gqwr"]
+[ext_resource type="AudioStream" uid="uid://cb6qfldjcp7u7" path="res://nodes/goat/sfx/goat_footsteps-002.wav" id="16_0vgs4"]
+[ext_resource type="AudioStream" uid="uid://d1f5hwvq3abh2" path="res://nodes/goat/sfx/goat_footsteps-011.wav" id="17_kuhfs"]
+[ext_resource type="AudioStream" uid="uid://dgiwhe31clynq" path="res://nodes/goat/sfx/goat_footsteps-012.wav" id="18_twu7s"]
+[ext_resource type="AudioStream" uid="uid://cvdvmu5qnxldj" path="res://nodes/goat/sfx/goat_footsteps-003.wav" id="19_13kir"]
+[ext_resource type="AudioStream" uid="uid://hm2qosih1vmo" path="res://nodes/goat/sfx/goat_footsteps-004.wav" id="20_sbyvd"]
+[ext_resource type="AudioStream" uid="uid://sghulc8slwrv" path="res://nodes/goat/sfx/goat_footsteps-005.wav" id="21_g5xew"]
+[ext_resource type="AudioStream" uid="uid://curxgvaqypv0e" path="res://nodes/goat/sfx/goat_footsteps-006.wav" id="22_t33hd"]
+[ext_resource type="AudioStream" uid="uid://dxgtn0k7a68ax" path="res://nodes/goat/sfx/goat_footsteps-007.wav" id="23_t8pyy"]
+[ext_resource type="AudioStream" uid="uid://dt2e71tpo53t6" path="res://nodes/goat/sfx/goat_footsteps-008.wav" id="24_d45dg"]
+[ext_resource type="AudioStream" uid="uid://bserr138rguva" path="res://nodes/goat/sfx/goat_footsteps-009.wav" id="25_pcfe1"]
+[ext_resource type="AudioStream" uid="uid://b5qpm2xaqsyu0" path="res://nodes/goat/sfx/goat_footsteps-010.wav" id="26_dj1ta"]
+[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="27_ye30w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ytruc"]
 radius = 0.521
 height = 2.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht7k2"]
-albedo_texture = ExtResource("4_f5fkt")
+albedo_texture = ExtResource("3_pe3kb")
 
 [sub_resource type="SphereShape3D" id="3"]
 radius = 15.0
@@ -41,58 +41,58 @@ radius = 15.0
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h4c3e"]
 streams_count = 8
 random_pitch = 2.0
-stream_0/stream = ExtResource("6")
+stream_0/stream = ExtResource("6_gflje")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("7")
+stream_1/stream = ExtResource("7_ttsri")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("8")
+stream_2/stream = ExtResource("8_8y6lp")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("9")
+stream_3/stream = ExtResource("9_c8d0r")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("10")
+stream_4/stream = ExtResource("10_rmnp1")
 stream_4/weight = 1.0
-stream_5/stream = ExtResource("11")
+stream_5/stream = ExtResource("11_5p2vj")
 stream_5/weight = 1.0
-stream_6/stream = ExtResource("12")
+stream_6/stream = ExtResource("12_23luw")
 stream_6/weight = 1.0
-stream_7/stream = ExtResource("13")
+stream_7/stream = ExtResource("13_ptue2")
 stream_7/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fnhoe"]
 streams_count = 1
 random_pitch = 2.0
-stream_0/stream = ExtResource("14_o21ll")
+stream_0/stream = ExtResource("14_ukes7")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j8p7t"]
 streams_count = 12
-stream_0/stream = ExtResource("15")
+stream_0/stream = ExtResource("15_0gqwr")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("16")
+stream_1/stream = ExtResource("16_0vgs4")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("17")
+stream_2/stream = ExtResource("19_13kir")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("18")
+stream_3/stream = ExtResource("20_sbyvd")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("19")
+stream_4/stream = ExtResource("21_g5xew")
 stream_4/weight = 1.0
-stream_5/stream = ExtResource("20")
+stream_5/stream = ExtResource("22_t33hd")
 stream_5/weight = 1.0
-stream_6/stream = ExtResource("21")
+stream_6/stream = ExtResource("23_t8pyy")
 stream_6/weight = 1.0
-stream_7/stream = ExtResource("22")
+stream_7/stream = ExtResource("24_d45dg")
 stream_7/weight = 1.0
-stream_8/stream = ExtResource("23")
+stream_8/stream = ExtResource("25_pcfe1")
 stream_8/weight = 1.0
-stream_9/stream = ExtResource("24")
+stream_9/stream = ExtResource("26_dj1ta")
 stream_9/weight = 1.0
-stream_10/stream = ExtResource("25")
+stream_10/stream = ExtResource("17_kuhfs")
 stream_10/weight = 1.0
-stream_11/stream = ExtResource("26")
+stream_11/stream = ExtResource("18_twu7s")
 stream_11/weight = 1.0
 
 [node name="goat" type="CharacterBody3D"]
-script = ExtResource("1")
+script = ExtResource("1_ms0dr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.862, 0)
@@ -103,18 +103,18 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55997, -1.45334)
 modulate = Color(1, 1, 1, 0)
 billboard = 1
-texture = ExtResource("2")
+texture = ExtResource("2_gq261")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-7, 0, -1.05697e-06, 0, 7, 0, 1.05697e-06, 0, -7, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ht7k2")
-mesh = ExtResource("3_wls6x")
+mesh = ExtResource("4_2i614")
 
-[node name="eye_node" parent="MeshInstance3D" instance=ExtResource("5")]
+[node name="eye_node" parent="MeshInstance3D" instance=ExtResource("5_g4ejo")]
 transform = Transform3D(0.0286267, -0.00473863, 0.00761967, 0.000648986, 0.0265022, 0.0140433, -0.00894946, -0.0132356, 0.0253915, 0.0126185, 0.23042, 0.148468)
 
-[node name="eye_node2" parent="MeshInstance3D" instance=ExtResource("5")]
+[node name="eye_node2" parent="MeshInstance3D" instance=ExtResource("5_g4ejo")]
 transform = Transform3D(0.0345523, 0.0019286, -0.00523636, 0.000757151, 0.0309192, 0.0163839, 0.00552863, -0.0162876, 0.030482, -0.00943676, 0.227131, 0.148743)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MeshInstance3D"]
@@ -145,19 +145,19 @@ volume_db = 70.0
 max_distance = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 
 [node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
-script = ExtResource("27_8gwll")
+script = ExtResource("27_ye30w")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3, 0)
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
 visible = false
 billboard = 1
 text = "Goat 0"
-font_size = 24
-outline_size = 6
 
 [connection signal="screen_entered" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="MeshInstance3D/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

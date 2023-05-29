@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://lfjs8v3ytpxg"]
 
-[ext_resource type="Script" path="res://nodes/pickable/points_shroom.gd" id="1_ngtis"]
-[ext_resource type="ArrayMesh" uid="uid://bicc3nvmtqojt" path="res://nodes/pickable/model/points_shroom_fixed.obj" id="2_qkqa3"]
-[ext_resource type="AudioStream" uid="uid://ddou3bkyenmvf" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-01.wav" id="4_p0cbe"]
-[ext_resource type="AudioStream" uid="uid://cylmg2otgy3et" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-02.wav" id="5_yqyjk"]
-[ext_resource type="AudioStream" uid="uid://bm4yjxi36orma" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-03.wav" id="6_72exl"]
-[ext_resource type="AudioStream" uid="uid://bik63oibg1hn3" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-04.wav" id="7_bx2me"]
-[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="7_irhkh"]
+[ext_resource type="Script" path="res://nodes/pickable/points_shroom.gd" id="1_k6rxh"]
+[ext_resource type="ArrayMesh" uid="uid://bicc3nvmtqojt" path="res://nodes/pickable/model/points_shroom_fixed.obj" id="2_6g5rp"]
+[ext_resource type="AudioStream" uid="uid://ddou3bkyenmvf" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-01.wav" id="3_82756"]
+[ext_resource type="AudioStream" uid="uid://cylmg2otgy3et" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-02.wav" id="4_hpicx"]
+[ext_resource type="AudioStream" uid="uid://bm4yjxi36orma" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-03.wav" id="5_4ibfp"]
+[ext_resource type="AudioStream" uid="uid://bik63oibg1hn3" path="res://nodes/pickable/sfx/grzyb_grow_up_groan-001-04.wav" id="6_q5f3r"]
+[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="7_0o2af"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 1.553
@@ -14,13 +14,13 @@ height = 5.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gjr3q"]
 streams_count = 4
-stream_0/stream = ExtResource("4_p0cbe")
+stream_0/stream = ExtResource("3_82756")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("5_yqyjk")
+stream_1/stream = ExtResource("4_hpicx")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("6_72exl")
+stream_2/stream = ExtResource("5_4ibfp")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("7_bx2me")
+stream_3/stream = ExtResource("6_q5f3r")
 stream_3/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_ijdja"]
@@ -60,11 +60,11 @@ _data = {
 }
 
 [node name="shroom" type="Node3D"]
-script = ExtResource("1_ngtis")
+script = ExtResource("1_k6rxh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-mesh = ExtResource("2_qkqa3")
+mesh = ExtResource("2_6g5rp")
 
 [node name="Marker3D" type="Marker3D" parent="MeshInstance3D"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.0683467, 0)
@@ -113,15 +113,22 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 
 [node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
 unique_name_in_owner = true
-script = ExtResource("7_irhkh")
+script = ExtResource("7_0o2af")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(-0.142857, 0, 2.15708e-08, 0, 0.142857, 0, -2.15708e-08, 0, -0.142857, 4.26891e-09, 0.142857, -0.0282717)
 aabb = AABB(-5, 0, -5, 10, 10, 10)
+
+[node name="Label3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5, 0)
+visible = false
+billboard = 1
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_Area_body_exited"]

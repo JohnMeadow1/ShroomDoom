@@ -1,16 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://cju2kbc8fck2l"]
+[gd_scene load_steps=22 format=3 uid="uid://cju2kbc8fck2l"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ft78g"]
-[ext_resource type="Texture2D" uid="uid://c1hejijfg27ln" path="res://scenes/main_menu/sprites/main_menu.png" id="2_lnov2"]
-[ext_resource type="Texture2D" uid="uid://yu18v8krnjra" path="res://scenes/main_menu/sprites/start_clicked.png" id="3_1jgh7"]
-[ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="3_3v8u6"]
-[ext_resource type="Texture2D" uid="uid://dsbbjciv8cwuy" path="res://scenes/main_menu/sprites/start_marked.png" id="4_ccc52"]
-[ext_resource type="Texture2D" uid="uid://dcmn41faej46d" path="res://scenes/main_menu/sprites/start_base.png" id="4_exent"]
-[ext_resource type="Script" path="res://resources/button.gd" id="7_281sf"]
-[ext_resource type="Texture2D" uid="uid://caj1abvrt3mll" path="res://scenes/main_menu/sprites/hiryu.png" id="7_wd4d6"]
-[ext_resource type="Texture2D" uid="uid://b76pq86uqvr48" path="res://scenes/main_menu/sprites/leszek.png" id="8_0e4br"]
-[ext_resource type="Texture2D" uid="uid://bnrvdctkacwj3" path="res://scenes/main_menu/sprites/neina.png" id="9_hhsqp"]
-[ext_resource type="Texture2D" uid="uid://bqu88yghs8iq4" path="res://scenes/main_menu/sprites/tomek.png" id="10_h5kab"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_krwef"]
+[ext_resource type="Texture2D" uid="uid://c1hejijfg27ln" path="res://scenes/main_menu/sprites/main_menu.png" id="2_7022o"]
+[ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="3_2jsik"]
+[ext_resource type="Texture2D" uid="uid://dcmn41faej46d" path="res://scenes/main_menu/sprites/start_base.png" id="4_6dg7l"]
+[ext_resource type="Texture2D" uid="uid://yu18v8krnjra" path="res://scenes/main_menu/sprites/start_clicked.png" id="5_yrslj"]
+[ext_resource type="Texture2D" uid="uid://dsbbjciv8cwuy" path="res://scenes/main_menu/sprites/start_marked.png" id="6_803a5"]
+[ext_resource type="Script" path="res://resources/button.gd" id="7_av0my"]
+[ext_resource type="Texture2D" uid="uid://caj1abvrt3mll" path="res://scenes/main_menu/sprites/hiryu.png" id="8_7rgta"]
+[ext_resource type="Texture2D" uid="uid://b76pq86uqvr48" path="res://scenes/main_menu/sprites/leszek.png" id="9_mkdp6"]
+[ext_resource type="Texture2D" uid="uid://bnrvdctkacwj3" path="res://scenes/main_menu/sprites/neina.png" id="10_3gt2n"]
+[ext_resource type="Texture2D" uid="uid://bqu88yghs8iq4" path="res://scenes/main_menu/sprites/tomek.png" id="11_d1ayk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x7l0c"]
 font_size = 24
@@ -149,6 +149,13 @@ _data = {
 "idle": SubResource("5")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmk7u"]
+bg_color = Color(0, 0, 0, 0.368627)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
 [node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -158,7 +165,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_ft78g")
+script = ExtResource("1_krwef")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -168,10 +175,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lnov2")
+texture = ExtResource("2_7022o")
 
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3v8u6")
+stream = ExtResource("3_2jsik")
 autoplay = true
 bus = &"Music"
 
@@ -235,10 +242,10 @@ grow_vertical = 0
 pivot_offset = Vector2(157, 42)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("4_exent")
-texture_pressed = ExtResource("3_1jgh7")
-texture_hover = ExtResource("4_ccc52")
-script = ExtResource("7_281sf")
+texture_normal = ExtResource("4_6dg7l")
+texture_pressed = ExtResource("5_yrslj")
+texture_hover = ExtResource("6_803a5")
+script = ExtResource("7_av0my")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -247,7 +254,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(900, 433)
 scale = Vector2(2, 2)
-texture = ExtResource("7_wd4d6")
+texture = ExtResource("8_7rgta")
 flip_h = true
 hframes = 2
 
@@ -278,7 +285,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(671, 471)
 scale = Vector2(2, 2)
-texture = ExtResource("8_0e4br")
+texture = ExtResource("9_mkdp6")
 flip_h = true
 hframes = 2
 
@@ -309,7 +316,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(130, 288)
 scale = Vector2(2, 2)
-texture = ExtResource("9_hhsqp")
+texture = ExtResource("10_3gt2n")
 flip_h = true
 hframes = 2
 frame = 1
@@ -341,7 +348,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(266, 474)
 scale = Vector2(2, 2)
-texture = ExtResource("10_h5kab")
+texture = ExtResource("11_d1ayk")
 flip_h = true
 hframes = 2
 frame = 1
@@ -367,6 +374,33 @@ grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 text = "Tomek \"Drach\" Szymański"
 label_settings = SubResource("LabelSettings_x7l0c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -379.0
+offset_right = -48.0
+offset_bottom = -67.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmk7u")
+text = "Main menu:
+Start - space
+F1- open log folder
+Alt+F4 - close game
+
+In game:
+F3 - show debug
+Esc - end game
+
+General:
+M - toggle music
+T - toggle taunts"
 
 [connection signal="resized" from="TextureRect" to="." method="_on_TextureRect_resized"]
 [connection signal="mouse_entered" from="HBoxContainer/Control/Start" to="HBoxContainer/Control/Start" method="_on_mouse_entered"]

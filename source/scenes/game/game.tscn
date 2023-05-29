@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=3 uid="uid://c7o053tqqd5m2"]
 
-[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_4gxji"]
-[ext_resource type="PackedScene" uid="uid://brsx201tf1fsy" path="res://nodes/map/world.tscn" id="2_w0xyy"]
-[ext_resource type="PackedScene" uid="uid://b3h7ws5vq577b" path="res://nodes/player/player_new.tscn" id="3_6254j"]
-[ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_upqfu"]
-[ext_resource type="Texture2D" uid="uid://kwr6cejhc44" path="res://nodes/player/model/player_2.png" id="5_nhcm3"]
-[ext_resource type="PackedScene" uid="uid://c3bt4rg67wn8q" path="res://resources/gui/gui.tscn" id="5_o770i"]
-[ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="6_53x1c"]
-[ext_resource type="Texture2D" uid="uid://cf5sym66uo7nm" path="res://nodes/player/model/player_3.png" id="6_elndm"]
-[ext_resource type="Texture2D" uid="uid://co8jq1o0275st" path="res://nodes/player/model/player_4.png" id="7_ixhq8"]
-[ext_resource type="AudioStream" uid="uid://c5bda5dqfxbty" path="res://sfx/ambience_forest.wav" id="7_wvqa0"]
-[ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="8_pbh7b"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_irs6g"]
+[ext_resource type="PackedScene" uid="uid://brsx201tf1fsy" path="res://nodes/map/world.tscn" id="2_0avbe"]
+[ext_resource type="PackedScene" uid="uid://b3h7ws5vq577b" path="res://nodes/player/player.tscn" id="3_2ta7t"]
+[ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_k58oe"]
+[ext_resource type="Texture2D" uid="uid://kwr6cejhc44" path="res://nodes/player/model/player_2.png" id="5_l0pll"]
+[ext_resource type="Texture2D" uid="uid://cf5sym66uo7nm" path="res://nodes/player/model/player_3.png" id="6_y73b2"]
+[ext_resource type="Texture2D" uid="uid://co8jq1o0275st" path="res://nodes/player/model/player_4.png" id="7_kr2tk"]
+[ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="8_a316o"]
+[ext_resource type="PackedScene" uid="uid://c3bt4rg67wn8q" path="res://resources/gui/gui.tscn" id="9_3ajot"]
+[ext_resource type="AudioStream" uid="uid://c8rxm7vaxv1pd" path="res://sfx/main_theme.ogg" id="10_ht53j"]
+[ext_resource type="AudioStream" uid="uid://c5bda5dqfxbty" path="res://sfx/ambience_forest.wav" id="11_3ynpq"]
 
 [sub_resource type="GDScript" id="GDScript_74j5c"]
 script/source = "extends Node
@@ -61,36 +61,36 @@ func _draw():
 #		bounding_rect = bounding_rect.intersection(vieport_rect)
 "
 
-[node name="viewports" type="Node3D"]
-script = ExtResource("1_4gxji")
+[node name="game" type="Node3D"]
+script = ExtResource("1_irs6g")
 
 [node name="Pauser" type="Node" parent="."]
 process_mode = 2
 script = SubResource("GDScript_74j5c")
 
-[node name="world" parent="." instance=ExtResource("2_w0xyy")]
+[node name="world" parent="." instance=ExtResource("2_0avbe")]
 
-[node name="player1" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+[node name="player1" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_2ta7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.56, 0, -61.467)
-player_texture = ExtResource("4_upqfu")
+player_texture = ExtResource("4_k58oe")
 camera_node = NodePath("../../ViewportsContainer/Player1/SubViewport/Marker3D")
 
-[node name="player2" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
+[node name="player2" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_2ta7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
 PLAYER_NUM = 2
-player_texture = ExtResource("5_nhcm3")
+player_texture = ExtResource("7_kr2tk")
 camera_node = NodePath("../../ViewportsContainer/Player2/SubViewport/player_spawn")
 
-[node name="player3" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
+[node name="player3" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_2ta7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.211, 0, -89.808)
 PLAYER_NUM = 3
-player_texture = ExtResource("6_elndm")
+player_texture = ExtResource("6_y73b2")
 camera_node = NodePath("../../ViewportsContainer/Player3/SubViewport/player_spawn")
 
-[node name="player4" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_6254j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
+[node name="player4" parent="world" node_paths=PackedStringArray("camera_node") instance=ExtResource("3_2ta7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
 PLAYER_NUM = 4
-player_texture = ExtResource("7_ixhq8")
+player_texture = ExtResource("5_l0pll")
 camera_node = NodePath("../../ViewportsContainer/Player4/SubViewport/player_spawn")
 
 [node name="ViewportsContainer" type="GridContainer" parent="."]
@@ -119,7 +119,7 @@ gizmo_extents = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player1/SubViewport/Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
-environment = ExtResource("8_pbh7b")
+environment = ExtResource("8_a316o")
 current = true
 fov = 60.0
 size = 10.0
@@ -149,7 +149,7 @@ gizmo_extents = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player3/SubViewport/player_spawn"]
 transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
-environment = ExtResource("8_pbh7b")
+environment = ExtResource("8_a316o")
 current = true
 fov = 60.0
 size = 10.0
@@ -174,12 +174,12 @@ size = Vector2i(958, 538)
 render_target_update_mode = 4
 
 [node name="player_spawn" type="Marker3D" parent="ViewportsContainer/Player2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
 gizmo_extents = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player2/SubViewport/player_spawn"]
 transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
-environment = ExtResource("8_pbh7b")
+environment = ExtResource("8_a316o")
 current = true
 fov = 60.0
 size = 10.0
@@ -204,11 +204,11 @@ size = Vector2i(958, 538)
 render_target_update_mode = 4
 
 [node name="player_spawn" type="Marker3D" parent="ViewportsContainer/Player4/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.734, 0, 7.974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.254, 0, 11.733)
 
 [node name="Camera3D" type="Camera3D" parent="ViewportsContainer/Player4/SubViewport/player_spawn"]
 transform = Transform3D(1, 0, 0, 0, 0.656059, 0.75471, 0, -0.75471, 0.656059, 0, 10, 10)
-environment = ExtResource("8_pbh7b")
+environment = ExtResource("8_a316o")
 current = true
 fov = 60.0
 size = 10.0
@@ -218,16 +218,16 @@ far = 1000.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.76006, -17.388)
 current = true
 
-[node name="GUI" parent="." instance=ExtResource("5_o770i")]
+[node name="GUI" parent="." instance=ExtResource("9_3ajot")]
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_53x1c")
+stream = ExtResource("10_ht53j")
 volume_db = -12.0
 autoplay = true
 bus = &"Music"
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_wvqa0")
+stream = ExtResource("11_3ynpq")
 volume_db = -22.0
 autoplay = true
 bus = &"Ambient"

@@ -69,15 +69,21 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Escape"):
 		get_tree().change_scene_to_file("res://scenes/victory_screen/victory_screen.tscn")
 		
-	if Input.is_action_just_pressed("debug_toggle"):
+	if Input.is_action_just_pressed("toggle_debug"):
 		globals.debug = not globals.debug
 		$CanvasLayer.visible = globals.debug
-
+		
+	if Input.is_action_just_pressed("toggle_taunts"):
+		AudioServer.set_bus_mute(1, not AudioServer.is_bus_mute(1))
+		
+	if Input.is_action_just_pressed("toggle_music"):
+		AudioServer.set_bus_mute(2, not AudioServer.is_bus_mute(2))
+	
 func enable_player(id:int) -> void:
 		if globals.player_count == 3:
 			get_node("ViewportsContainer/Player"+str(4)).visible = true
 		get_node("ViewportsContainer/Player"+str(globals.player_count)).visible = true
-		var new_player = preload("res://nodes/player/player_new.tscn").instantiate()
+		var new_player = preload("res://nodes/player/player.tscn").instantiate()
 		var spawn_position = get_node("ViewportsContainer/Player"+str(globals.player_count)+"/SubViewport/player_spawn").global_position
 		new_player.player_texture = load("res://nodes/player/model/player_"+str(globals.player_count)+".png")
 		new_player.PLAYER_NUM = globals.player_count
@@ -92,5 +98,8 @@ func enable_player(id:int) -> void:
 
 func _input(event):
 	if not (event is InputEventMouseMotion):
-		logging.add_input(event.as_text())
+		if event is InputEventKey:
+			logging.add_input(str(event.as_text(), " pressed" if event.pressed else " released") )
+		else:
+			logging.add_input(event.as_text())
 

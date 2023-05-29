@@ -1,53 +1,53 @@
-[gd_scene load_steps=55 format=3 uid="uid://drelxuvmh5664"]
+[gd_scene load_steps=55 format=3 uid="uid://b3h7ws5vq577b"]
 
-[ext_resource type="Script" path="res://nodes/player/player.gd" id="1_e4vhq"]
-[ext_resource type="ArrayMesh" uid="uid://c4hasaidhd8c6" path="res://nodes/player/model/player.obj" id="2_jhc6e"]
-[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="3_qtopr"]
-[ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="4_dgvbn"]
-[ext_resource type="Texture2D" uid="uid://utrb7jpm8b1f" path="res://nodes/player/sprites/slash.png" id="5_ugx7d"]
-[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/knife.obj" id="6_cnty6"]
-[ext_resource type="Environment" uid="uid://dkg1i48a37c0o" path="res://default_env.tres" id="6_n8uhg"]
-[ext_resource type="Texture2D" uid="uid://q2m6mbnlb77m" path="res://nodes/player/sprites/star.png" id="7_4qsmf"]
-[ext_resource type="AudioStream" uid="uid://bpwf1x4rm4gvs" path="res://nodes/player/sfx/step/foosteps_grzyb-001.wav" id="9_purac"]
-[ext_resource type="AudioStream" uid="uid://cdijxu7cge7eh" path="res://nodes/player/sfx/step/foosteps_grzyb-002.wav" id="10_qsuhs"]
-[ext_resource type="AudioStream" uid="uid://dbgo78l53bl8u" path="res://nodes/player/sfx/step/foosteps_grzyb-003.wav" id="11_2itih"]
-[ext_resource type="AudioStream" uid="uid://cdc243qkaojam" path="res://nodes/player/sfx/step/foosteps_grzyb-004.wav" id="12_rmgtq"]
-[ext_resource type="AudioStream" uid="uid://daxi4cd7ns3xy" path="res://nodes/player/sfx/step/foosteps_grzyb-005.wav" id="13_oh5qi"]
-[ext_resource type="AudioStream" uid="uid://c6sx5uu7i80he" path="res://nodes/player/sfx/step/foosteps_grzyb-006.wav" id="14_ov7yt"]
-[ext_resource type="AudioStream" uid="uid://g1d47nfyp6nx" path="res://nodes/player/sfx/step/foosteps_grzyb-007.wav" id="15_fwsqq"]
-[ext_resource type="AudioStream" uid="uid://dr48ms4wpawgb" path="res://nodes/player/sfx/step/foosteps_grzyb-008.wav" id="16_oxal5"]
-[ext_resource type="AudioStream" uid="uid://b86f26nwayj0i" path="res://nodes/player/sfx/step/foosteps_grzyb-009.wav" id="17_8n44u"]
-[ext_resource type="AudioStream" uid="uid://dinrhraweyhaf" path="res://nodes/player/sfx/step/foosteps_grzyb-010.wav" id="18_terif"]
-[ext_resource type="AudioStream" uid="uid://ddpeou3wdqe6j" path="res://nodes/player/sfx/pickup/grzyb_pick_up-001.wav" id="19_u1scb"]
-[ext_resource type="AudioStream" uid="uid://c43hl2jccgln2" path="res://nodes/player/sfx/pickup/grzyb_pick_up-002.wav" id="20_wjxyh"]
-[ext_resource type="AudioStream" uid="uid://3xw4rmy7lhaj" path="res://nodes/player/sfx/pickup/grzyb_pick_up-003.wav" id="21_nebcu"]
-[ext_resource type="AudioStream" uid="uid://bjaos50c7xhyk" path="res://nodes/player/sfx/pickup/grzyb_pick_up-004.wav" id="22_dd0nn"]
-[ext_resource type="AudioStream" uid="uid://7vh1twi12fhk" path="res://nodes/player/sfx/dialog/teksty-001.wav" id="22_hoyhd"]
-[ext_resource type="AudioStream" uid="uid://c105mweq61n5k" path="res://nodes/player/sfx/dialog/teksty-002.wav" id="23_o6x21"]
-[ext_resource type="AudioStream" uid="uid://cc8umdssg4pvw" path="res://nodes/player/sfx/dialog/teksty-003.wav" id="24_wk648"]
-[ext_resource type="AudioStream" uid="uid://s8ndt5pufxhv" path="res://nodes/player/sfx/dialog/teksty-004.wav" id="25_vk86r"]
-[ext_resource type="AudioStream" uid="uid://ccfdvshkb4gp7" path="res://nodes/player/sfx/dialog/teksty-005.wav" id="26_bnr2u"]
-[ext_resource type="AudioStream" uid="uid://nu8e4hqkxk53" path="res://nodes/player/sfx/dialog/teksty-006.wav" id="27_n4noj"]
-[ext_resource type="AudioStream" uid="uid://ck5yvyeylesg" path="res://nodes/player/sfx/dialog/teksty-007.wav" id="28_yv1ce"]
-[ext_resource type="AudioStream" uid="uid://bld4d4faxsuje" path="res://nodes/player/sfx/dialog/teksty-008.wav" id="29_be1d6"]
-[ext_resource type="AudioStream" uid="uid://bavbq65g8gq1j" path="res://nodes/player/sfx/dialog/teksty-009.wav" id="30_asa6q"]
-[ext_resource type="AudioStream" uid="uid://b22p55631kpie" path="res://nodes/player/sfx/dialog/teksty-010.wav" id="31_ttdum"]
-[ext_resource type="AudioStream" uid="uid://qk73silmdyaf" path="res://nodes/player/sfx/dialog/teksty-011.wav" id="32_x74g4"]
-[ext_resource type="AudioStream" uid="uid://o4ivrw42c67b" path="res://nodes/player/sfx/dialog/teksty-012.wav" id="33_qhu2k"]
-[ext_resource type="AudioStream" uid="uid://ck2voak2q8sg" path="res://nodes/player/sfx/dialog/teksty-013.wav" id="34_pk00t"]
-[ext_resource type="Texture2D" uid="uid://1doths3upk" path="res://nodes/player/sprites/talk.png" id="35_vo707"]
-[ext_resource type="AudioStream" uid="uid://chvpibr455tip" path="res://nodes/player/sfx/stab/knife_stab1.wav" id="37_1yxdu"]
-[ext_resource type="AudioStream" uid="uid://vov55kfpeegf" path="res://nodes/player/sfx/stab/knife_stab2.wav" id="38_kiau8"]
-[ext_resource type="AudioStream" uid="uid://bu5mv0h5ijkjj" path="res://nodes/player/sfx/stab/knife_stab3.wav" id="39_pu6qu"]
-[ext_resource type="AudioStream" uid="uid://de6t1paoi2k7e" path="res://nodes/player/sfx/stab/knife_stab4.wav" id="40_gt5xi"]
-[ext_resource type="AudioStream" uid="uid://dme2bkp5c2o7i" path="res://nodes/player/sfx/stab/knife_stab5.wav" id="41_vly4w"]
+[ext_resource type="Script" path="res://nodes/player/player.gd" id="1_dgbka"]
+[ext_resource type="Texture2D" uid="uid://doolw6axapnxb" path="res://nodes/player/model/player_1.png" id="2_3n1l0"]
+[ext_resource type="ArrayMesh" uid="uid://blfupjcqpulsu" path="res://nodes/player/model/player_front.obj" id="3_w75cc"]
+[ext_resource type="PackedScene" uid="uid://df3w7yk38pqm" path="res://nodes/player/eye/eye.tscn" id="4_ctprd"]
+[ext_resource type="ArrayMesh" uid="uid://c2indusn4ohfx" path="res://nodes/player/knife/knife.obj" id="5_y4jk6"]
+[ext_resource type="Texture2D" uid="uid://utrb7jpm8b1f" path="res://nodes/player/sprites/slash.png" id="6_70vi2"]
+[ext_resource type="Texture2D" uid="uid://1doths3upk" path="res://nodes/player/sprites/talk.png" id="7_loawu"]
+[ext_resource type="Texture2D" uid="uid://q2m6mbnlb77m" path="res://nodes/player/sprites/star.png" id="8_kkgbc"]
+[ext_resource type="AudioStream" uid="uid://7vh1twi12fhk" path="res://nodes/player/sfx/dialog/teksty-001.wav" id="9_00d6q"]
+[ext_resource type="AudioStream" uid="uid://c105mweq61n5k" path="res://nodes/player/sfx/dialog/teksty-002.wav" id="10_ixq7w"]
+[ext_resource type="AudioStream" uid="uid://qk73silmdyaf" path="res://nodes/player/sfx/dialog/teksty-011.wav" id="11_oq7p1"]
+[ext_resource type="AudioStream" uid="uid://o4ivrw42c67b" path="res://nodes/player/sfx/dialog/teksty-012.wav" id="12_euf1c"]
+[ext_resource type="AudioStream" uid="uid://ck2voak2q8sg" path="res://nodes/player/sfx/dialog/teksty-013.wav" id="13_5plgt"]
+[ext_resource type="AudioStream" uid="uid://cc8umdssg4pvw" path="res://nodes/player/sfx/dialog/teksty-003.wav" id="14_wabd3"]
+[ext_resource type="AudioStream" uid="uid://s8ndt5pufxhv" path="res://nodes/player/sfx/dialog/teksty-004.wav" id="15_pb0dp"]
+[ext_resource type="AudioStream" uid="uid://ccfdvshkb4gp7" path="res://nodes/player/sfx/dialog/teksty-005.wav" id="16_fkwof"]
+[ext_resource type="AudioStream" uid="uid://nu8e4hqkxk53" path="res://nodes/player/sfx/dialog/teksty-006.wav" id="17_0xm7x"]
+[ext_resource type="AudioStream" uid="uid://ck5yvyeylesg" path="res://nodes/player/sfx/dialog/teksty-007.wav" id="18_8nblj"]
+[ext_resource type="AudioStream" uid="uid://bld4d4faxsuje" path="res://nodes/player/sfx/dialog/teksty-008.wav" id="19_r1hjy"]
+[ext_resource type="AudioStream" uid="uid://bavbq65g8gq1j" path="res://nodes/player/sfx/dialog/teksty-009.wav" id="20_ho6p7"]
+[ext_resource type="AudioStream" uid="uid://b22p55631kpie" path="res://nodes/player/sfx/dialog/teksty-010.wav" id="21_gbwt2"]
+[ext_resource type="AudioStream" uid="uid://chvpibr455tip" path="res://nodes/player/sfx/stab/knife_stab1.wav" id="22_2i6v3"]
+[ext_resource type="AudioStream" uid="uid://vov55kfpeegf" path="res://nodes/player/sfx/stab/knife_stab2.wav" id="23_tphx0"]
+[ext_resource type="AudioStream" uid="uid://bu5mv0h5ijkjj" path="res://nodes/player/sfx/stab/knife_stab3.wav" id="24_oymor"]
+[ext_resource type="AudioStream" uid="uid://de6t1paoi2k7e" path="res://nodes/player/sfx/stab/knife_stab4.wav" id="25_pdott"]
+[ext_resource type="AudioStream" uid="uid://dme2bkp5c2o7i" path="res://nodes/player/sfx/stab/knife_stab5.wav" id="26_6j7b7"]
+[ext_resource type="AudioStream" uid="uid://bpwf1x4rm4gvs" path="res://nodes/player/sfx/step/foosteps_grzyb-001.wav" id="27_ubgwm"]
+[ext_resource type="AudioStream" uid="uid://cdijxu7cge7eh" path="res://nodes/player/sfx/step/foosteps_grzyb-002.wav" id="28_md8fw"]
+[ext_resource type="AudioStream" uid="uid://dbgo78l53bl8u" path="res://nodes/player/sfx/step/foosteps_grzyb-003.wav" id="29_v6qts"]
+[ext_resource type="AudioStream" uid="uid://cdc243qkaojam" path="res://nodes/player/sfx/step/foosteps_grzyb-004.wav" id="30_o413h"]
+[ext_resource type="AudioStream" uid="uid://daxi4cd7ns3xy" path="res://nodes/player/sfx/step/foosteps_grzyb-005.wav" id="31_4pndu"]
+[ext_resource type="AudioStream" uid="uid://c6sx5uu7i80he" path="res://nodes/player/sfx/step/foosteps_grzyb-006.wav" id="32_88vvr"]
+[ext_resource type="AudioStream" uid="uid://g1d47nfyp6nx" path="res://nodes/player/sfx/step/foosteps_grzyb-007.wav" id="33_5h6yg"]
+[ext_resource type="AudioStream" uid="uid://dr48ms4wpawgb" path="res://nodes/player/sfx/step/foosteps_grzyb-008.wav" id="34_4tol2"]
+[ext_resource type="AudioStream" uid="uid://b86f26nwayj0i" path="res://nodes/player/sfx/step/foosteps_grzyb-009.wav" id="35_4e3ax"]
+[ext_resource type="AudioStream" uid="uid://dinrhraweyhaf" path="res://nodes/player/sfx/step/foosteps_grzyb-010.wav" id="36_a2300"]
+[ext_resource type="AudioStream" uid="uid://ddpeou3wdqe6j" path="res://nodes/player/sfx/pickup/grzyb_pick_up-001.wav" id="37_ec3ly"]
+[ext_resource type="AudioStream" uid="uid://c43hl2jccgln2" path="res://nodes/player/sfx/pickup/grzyb_pick_up-002.wav" id="38_aqh3j"]
+[ext_resource type="AudioStream" uid="uid://3xw4rmy7lhaj" path="res://nodes/player/sfx/pickup/grzyb_pick_up-003.wav" id="39_dsu6l"]
+[ext_resource type="AudioStream" uid="uid://bjaos50c7xhyk" path="res://nodes/player/sfx/pickup/grzyb_pick_up-004.wav" id="40_i6qu5"]
+[ext_resource type="Script" path="res://nodes/goat/on_screen_debug.gd" id="41_eymcx"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 1.0
 height = 3.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4fg5"]
-albedo_texture = ExtResource("4_dgvbn")
+albedo_texture = ExtResource("2_3n1l0")
 
 [sub_resource type="Animation" id="Animation_pcfd4"]
 length = 0.001
@@ -63,6 +63,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.6745, 1.01487, 0.402334)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/knife:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.79964, -0.15968, 3.54366e-08)]
+}
 
 [sub_resource type="Animation" id="2"]
 resource_name = "idle"
@@ -71,31 +95,32 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/knife:rotation_degrees")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Node3D/knife:position")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3.3, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.4, 2.5, 3.8, 5),
+"transitions": PackedFloat32Array(-0.5, 1, 1, 1, -0.5),
 "update": 0,
-"values": [Vector3(-16.6198, -1.13866, 165.708), Vector3(-35.4233, -1.33897, 166.159), Vector3(-23.0695, 9.09716, 140.744), Vector3(-9.74611, 5.56153, 145.97), Vector3(-16.6198, -1.13866, 165.708)]
+"values": [Vector3(-0.6745, 1.01487, 0.402334), Vector3(-0.650728, 1.01487, 0.487924), Vector3(-0.705313, 1.01487, 0.434723), Vector3(-0.674303, 1.05683, 0.435687), Vector3(-0.6745, 1.01487, 0.402334)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/knife:position")
-tracks/1/interp = 2
+tracks/1/path = NodePath("Node3D/knife:rotation")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3.4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3.4, 5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector3(0.663174, -0.534722, 0.36286), Vector3(0.663174, -0.533701, 0.40245), Vector3(0.625361, -0.520054, 0.378758), Vector3(0.663174, -0.534722, 0.36286)]
+"values": [Vector3(-0.79964, -0.15968, 3.54366e-08), Vector3(-0.906777, -0.0523445, 0.0279929), Vector3(-0.678764, -0.383769, 0.000631049), Vector3(-0.586787, 0.043732, 0.00906004), Vector3(-0.79964, -0.15968, 3.54366e-08)]
 }
 
 [sub_resource type="Animation" id="3"]
 resource_name = "swing"
 length = 0.3
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -118,31 +143,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.12, 0.18, 0.3),
 "transitions": PackedFloat32Array(0.5, 2, -0.5, -0.5),
 "update": 0,
-"values": [Vector3(0.663174, -0.561648, -0.284138), Vector3(0.663174, -1.01974, 0.841612), Vector3(0.663174, -1.01974, 0.841612), Vector3(0.663174, -0.534722, 0.36286)]
+"values": [Vector3(-0.634379, 1.85058, 0.603583), Vector3(-0.71953, 0.786635, 0.948465), Vector3(-0.692351, 0.783075, 0.868973), Vector3(-0.6745, 1.01487, 0.402334)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/knife:rotation_degrees")
+tracks/2/path = NodePath("stabs:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.18, 0.3),
-"transitions": PackedFloat32Array(0.5, 2, -0.5, -0.5),
-"update": 0,
-"values": [Vector3(32.3279, -1.29126, 164.692), Vector3(-74.2951, -4.43029, 169.629), Vector3(-74.2951, -4.43029, 169.629), Vector3(-16.6198, -1.13866, 165.708)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("stabs:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/knife:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.18, 0.3),
+"transitions": PackedFloat32Array(0.5, 2, 2, -0.5),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(0.624863, 0, 0), Vector3(0.624863, 0, 0), Vector3(-0.79964, -0.15968, 3.54366e-08)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irb88"]
@@ -155,149 +180,150 @@ _data = {
 [sub_resource type="ParticleProcessMaterial" id="4"]
 emission_shape = 2
 emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
 spread = 15.0
 flatness = 1.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, -10, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
 
 [sub_resource type="StandardMaterial3D" id="5"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("7_4qsmf")
+albedo_texture = ExtResource("8_kkgbc")
 
 [sub_resource type="QuadMesh" id="6"]
 material = SubResource("5")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3tyg"]
 streams_count = 13
-stream_0/stream = ExtResource("22_hoyhd")
+stream_0/stream = ExtResource("9_00d6q")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("23_o6x21")
+stream_1/stream = ExtResource("10_ixq7w")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("24_wk648")
+stream_2/stream = ExtResource("14_wabd3")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("25_vk86r")
+stream_3/stream = ExtResource("15_pb0dp")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("26_bnr2u")
+stream_4/stream = ExtResource("16_fkwof")
 stream_4/weight = 1.0
-stream_5/stream = ExtResource("27_n4noj")
+stream_5/stream = ExtResource("17_0xm7x")
 stream_5/weight = 1.0
-stream_6/stream = ExtResource("28_yv1ce")
+stream_6/stream = ExtResource("18_8nblj")
 stream_6/weight = 1.0
-stream_7/stream = ExtResource("29_be1d6")
+stream_7/stream = ExtResource("19_r1hjy")
 stream_7/weight = 1.0
-stream_8/stream = ExtResource("30_asa6q")
+stream_8/stream = ExtResource("20_ho6p7")
 stream_8/weight = 1.0
-stream_9/stream = ExtResource("31_ttdum")
+stream_9/stream = ExtResource("21_gbwt2")
 stream_9/weight = 1.0
-stream_10/stream = ExtResource("32_x74g4")
+stream_10/stream = ExtResource("11_oq7p1")
 stream_10/weight = 1.0
-stream_11/stream = ExtResource("33_qhu2k")
+stream_11/stream = ExtResource("12_euf1c")
 stream_11/weight = 1.0
-stream_12/stream = ExtResource("34_pk00t")
+stream_12/stream = ExtResource("13_5plgt")
 stream_12/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tyara"]
 streams_count = 5
-stream_0/stream = ExtResource("37_1yxdu")
+stream_0/stream = ExtResource("22_2i6v3")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("38_kiau8")
+stream_1/stream = ExtResource("23_tphx0")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("39_pu6qu")
+stream_2/stream = ExtResource("24_oymor")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("40_gt5xi")
+stream_3/stream = ExtResource("25_pdott")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("41_vly4w")
+stream_4/stream = ExtResource("26_6j7b7")
 stream_4/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l4tsy"]
 streams_count = 10
-stream_0/stream = ExtResource("9_purac")
+stream_0/stream = ExtResource("27_ubgwm")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("10_qsuhs")
+stream_1/stream = ExtResource("28_md8fw")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("11_2itih")
+stream_2/stream = ExtResource("29_v6qts")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("12_rmgtq")
+stream_3/stream = ExtResource("30_o413h")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("13_oh5qi")
+stream_4/stream = ExtResource("31_4pndu")
 stream_4/weight = 1.0
-stream_5/stream = ExtResource("14_ov7yt")
+stream_5/stream = ExtResource("32_88vvr")
 stream_5/weight = 1.0
-stream_6/stream = ExtResource("15_fwsqq")
+stream_6/stream = ExtResource("33_5h6yg")
 stream_6/weight = 1.0
-stream_7/stream = ExtResource("16_oxal5")
+stream_7/stream = ExtResource("34_4tol2")
 stream_7/weight = 1.0
-stream_8/stream = ExtResource("17_8n44u")
+stream_8/stream = ExtResource("35_4e3ax")
 stream_8/weight = 1.0
-stream_9/stream = ExtResource("18_terif")
+stream_9/stream = ExtResource("36_a2300")
 stream_9/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3pa52"]
 streams_count = 4
-stream_0/stream = ExtResource("19_u1scb")
+stream_0/stream = ExtResource("37_ec3ly")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("20_wjxyh")
+stream_1/stream = ExtResource("38_aqh3j")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("21_nebcu")
+stream_2/stream = ExtResource("39_dsu6l")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("22_dd0nn")
+stream_3/stream = ExtResource("40_i6qu5")
 stream_3/weight = 1.0
 
 [node name="player" type="CharacterBody3D" groups=["players"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
-script = ExtResource("1_e4vhq")
+floor_stop_on_slope = false
+script = ExtResource("1_dgbka")
+player_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("1")
 
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-current = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.659078, 0.752075, 0, -0.752075, -0.659078, 0, 10, -10)
-environment = ExtResource("6_n8uhg")
-current = true
-fov = 60.0
-size = 10.0
-far = 1000.0
-
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-1, 1.50996e-07, 7.62329e-21, -1.50996e-07, -1, 8.72665e-08, 1.31769e-14, 8.72665e-08, 1, 0, 0, 0)
+unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(0.05, 1.0133e-23, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, -4.23516e-22, 6.43645e-08, 1.47249)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_a4fg5")
-mesh = ExtResource("2_jhc6e")
+mesh = ExtResource("3_w75cc")
 
-[node name="eye_node" parent="Node3D" instance=ExtResource("3_qtopr")]
-transform = Transform3D(-0.493131, -0.0751792, -0.0342166, 0.0152408, -0.286383, 0.409576, -0.0811813, 0.402906, 0.28474, 0.252848, -0.308041, 0.140131)
+[node name="eye_node" parent="Node3D/MeshInstance3D" instance=ExtResource("4_ctprd")]
+transform = Transform3D(9.86262, 1.50358, 0.684331, 1.62363, -8.05812, -5.69479, -0.304816, 5.72766, -8.19152, -4.37132, 26.1768, 5.75108)
 
-[node name="eye_node2" parent="Node3D" instance=ExtResource("3_qtopr")]
-transform = Transform3D(-0.37005, -0.0675831, 0.135997, 0.151215, -0.130897, 0.34641, -0.0140246, 0.371885, 0.146645, -0.307248, -0.37249, 0.164956)
+[node name="eye_node2" parent="Node3D/MeshInstance3D" instance=ExtResource("4_ctprd")]
+transform = Transform3D(7.401, 1.35166, -2.71994, 0.28049, -7.4377, -2.9329, -3.0243, 2.61794, -6.9282, 5.03839, 25.6803, 6.66337)
 
 [node name="knife" type="Node3D" parent="Node3D"]
-transform = Transform3D(-0.967457, -0.252317, -0.019042, 0.223087, -0.815021, -0.534763, 0.119411, -0.521609, 0.844786, 0.663174, -0.561648, -0.284138)
+transform = Transform3D(0.987278, 0.114021, -0.110819, 2.46981e-08, 0.696964, 0.717104, 0.159002, -0.707982, 0.688097, -0.6745, 1.01487, 0.402334)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/knife"]
-transform = Transform3D(6.20962, 2.71149, -1.75739, 3.23119, -5.21087, 3.37731, 4.17232e-07, -3.80718, -5.87413, -0.0852794, 0.190571, -0.351686)
-mesh = ExtResource("6_cnty6")
+transform = Transform3D(6.6467, 2.04742, -0.793395, -2.03299, 6.69388, 0.242671, 0.829678, -2.38419e-07, 6.95066, -5.96046e-08, -2.38419e-07, 0.483691)
+mesh = ExtResource("5_y4jk6")
+metadata/_edit_lock_ = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/knife/MeshInstance3D"]
-transform = Transform3D(0.00221287, -0.0288375, 0.139899, 0.0167077, 0.139007, 0.0283893, -0.14186, 0.0159217, 0.00552594, -0.0106305, 0.0580437, 0.0477413)
+transform = Transform3D(0.00928301, -0.00112337, 0.232812, 0.0374696, 0.229967, -0.000384396, -0.22978, 0.0374547, 0.00934282, 0.0023741, 0.0836047, 0.01751)
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("5_ugx7d")
+texture = ExtResource("6_70vi2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_irb88")
 }
 next/swing = &"idle"
 
+[node name="talk" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, -1.00037e-07, 1.434e-07, 0, 0.820152, 0.572146, -1.74846e-07, -0.572146, 0.820152, -0.926, 2.798, 1.61907e-07)
+visible = false
+texture_filter = 0
+texture = ExtResource("7_loawu")
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -5.72861e-08, -1.31055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1832, 0)
 emitting = false
 amount = 6
 lifetime = 0.5
@@ -306,11 +332,6 @@ fixed_fps = 0
 local_coords = true
 process_material = SubResource("4")
 draw_pass_1 = SubResource("6")
-
-[node name="talk" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.571501, 0.820601, 0, -0.820601, -0.571501, -0.925879, -6.14073e-08, -1.40484)
-visible = false
-texture = ExtResource("35_vo707")
 
 [node name="taunts" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -332,6 +353,19 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_3pa52")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, -1.16188e-07, -2.65806)
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
 visible = false
+billboard = 1
 text = "0"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="on_screen_debug" type="Node2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+script = ExtResource("41_eymcx")
+
+[connection signal="finished" from="taunts" to="." method="_on_taunts_finished"]

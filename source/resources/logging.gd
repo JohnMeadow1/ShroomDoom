@@ -40,7 +40,7 @@ var frame_goat_log: = {
 	}}
 var frame_goat_idx: = 0
 
-var aoi_log: = {
+var aoi_shroom_log: = {
 	"Aois": [],
 	"Tags": [],
 	"Media": {
@@ -52,65 +52,30 @@ var aoi_log: = {
 	},
 	"Version": 2
 }
-#		{
-#			"Blue": 255,
-#			"Green": 255,
-#			"Red": 255,
-#			"Tags": [],
-#			"Name": "KOZA1",
-#			"KeyFrames": [
-#				{
-#					"IsActive": false,
-#					"Seconds": 0.0,
-#					"Vertices": [
-#						{
-#							"X": 0,
-#							"Y": 0
-#						},{
-#							"X": 1,
-#							"Y": 0
-#						},{
-#							"X": 1,
-#							"Y": 1
-#						},{
-#							"X": 0,
-#							"Y": 1
-#						}
-#					]
-#				}
-#			]
-#		},
-#		{
-#			"Blue": 255,
-#			"Green": 255,
-#			"Red": 255,
-#			"Tags": [],
-#			"Name": "Player1",
-#			"KeyFrames": [
-#				{
-#					"IsActive": true,
-#					"Seconds": 1.0,
-#					"Vertices": [
-#						{
-#							"X": 0,
-#							"Y": 0
-#						},{
-#							"X": 1,
-#							"Y": 0
-#						},{
-#							"X": 1,
-#							"Y": 1
-#						},{
-#							"X": 0,
-#							"Y": 1
-#						}
-#					]
-#				}
-#			]
-#		}
-#	]
-#}
-
+var aoi_player_log: = {
+	"Aois": [],
+	"Tags": [],
+	"Media": {
+		"MediaType": 1,
+		"Height": 1080.0,
+		"Width": 1920.0,
+		"MediaCount": 1,
+		"DurationMicroseconds": 0.0
+	},
+	"Version": 2
+}
+var aoi_goat_log: = {
+	"Aois": [],
+	"Tags": [],
+	"Media": {
+		"MediaType": 1,
+		"Height": 1080.0,
+		"Width": 1920.0,
+		"MediaCount": 1,
+		"DurationMicroseconds": 0.0
+	},
+	"Version": 2
+}
 var input_log := {}
 
 func start_log():
@@ -165,8 +130,14 @@ func add_shroom_position(position: Vector2):
 #func add_bbox(new_rect:Rect2, color:Color):
 #	frame_bbox_log[frame_bbox_count] = new_rect
 #	frame_bbox_count += 1
-func add_aoi(new_aoi:Dictionary):
-	aoi_log["Aois"].append(new_aoi)
+func add_player_aoi(new_aoi:Dictionary):
+	aoi_player_log["Aois"].append(new_aoi)
+
+func add_goat_aoi(new_aoi:Dictionary):
+	aoi_goat_log["Aois"].append(new_aoi)
+	
+func add_shroom_aoi(new_aoi:Dictionary):
+	aoi_shroom_log["Aois"].append(new_aoi)
 
 func add_input(input:String):
 	var key = str(Time.get_unix_time_from_system())
@@ -176,8 +147,11 @@ func add_input(input:String):
 
 func save_logs():
 	is_saving = true
+	var recording_time = Time.get_ticks_usec() - time_stamp_start_usec
 #	var store_data_callable = Callable(self, "_store_data")
-	aoi_log.Media.DurationMicroseconds = Time.get_ticks_usec() - time_stamp_start_usec
+	aoi_player_log.Media.DurationMicroseconds = recording_time
+	aoi_goat_log.Media.DurationMicroseconds = recording_time
+	aoi_shroom_log.Media.DurationMicroseconds = recording_time
 
 	thread = Thread.new()
 	thread.start(_store_data)
@@ -204,8 +178,16 @@ func _store_data():
 	save_log.store_string(JSON.stringify(shroom_log))
 	save_log.close()
 	
-	save_log = FileAccess.open("user://%s_aois_%s_%s.aois" % [test_name, date, time], FileAccess.WRITE)
-	save_log.store_string(JSON.stringify(aoi_log))
+	save_log = FileAccess.open("user://%s_aois_goat_%s_%s.aois" % [test_name, date, time], FileAccess.WRITE)
+	save_log.store_string(JSON.stringify(aoi_goat_log))
+	save_log.close()
+
+	save_log = FileAccess.open("user://%s_aois_shroom_%s_%s.aois" % [test_name, date, time], FileAccess.WRITE)
+	save_log.store_string(JSON.stringify(aoi_shroom_log))
+	save_log.close()
+	
+	save_log = FileAccess.open("user://%s_aois_player_%s_%s.aois" % [test_name, date, time], FileAccess.WRITE)
+	save_log.store_string(JSON.stringify(aoi_player_log))
 	save_log.close()
 
 	save_log = FileAccess.open("user://%s_inputs_%s_%s.json" % [test_name, date, time], FileAccess.WRITE)
